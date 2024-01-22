@@ -1,0 +1,46 @@
+.buttons {
+
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: rem(15);
+  justify-content: center;
+
+  border-radius: 3px;
+  padding-bottom: rem(9);
+  padding-top: rem(9);
+
+  color: var(--white);
+  @include adaptivevalue(font-size, 20, 18, 1620, 320, 1);
+  font-weight: 600;
+  line-height: calc(32/20);
+  text-align: center;
+  @include transition ($transition-property: (box-shadow, text-decoration));
+}
+
+
+
+
+.buttons--black {
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 0px 4px 20px 0px rgba(41, 40, 38, 0.43);
+
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: 0px 4px 45px 0px rgba(41, 40, 38, 0.43);
+      text-decoration: underline;
+    }
+  }
+}
+
+.buttons--accent {
+  background: #E8AA31;
+  box-shadow: 0px 4px 20px 0px rgba(232, 170, 49, 0.43);
+
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: 0px 4px 45px 0px rgba(232, 170, 49, 0.43);
+      text-decoration: underline;
+    }
+  }
+}

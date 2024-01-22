@@ -1,0 +1,103 @@
+.section-title {
+  color: var(--cod-gray);
+  @include adaptivevalue(font-size, 30, 20, 1620, 320, 1);
+  font-weight: 700;
+  line-height: calc(46/30);
+  @include adaptivevalue(letter-spacing, 1.5, 1, 1620, 320, 1);
+}
+
+.title-h1 {
+  font-size: rem(48);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.title-h2 {
+  font-size: rem(40);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.title-h3 {
+  font-size: rem(32);
+  // @include adaptivevalue(font-size, 24, 20, 1620, 320, 1);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.title-h4 {
+  font-size: rem(24);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.title-h5 {
+  font-size: rem(20);
+  font-weight: 600;
+  line-height: 1.4;
+  // @include adaptivevalue(line-height, 34, 32, 1620, 320, 1);
+  text-transform: uppercase;
+}
+
+.text2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+// .section-text {
+//   color: rgba(255, 255, 255, 0.70);
+//   letter-spacing: 0.54px;
+//   @include adaptivevalue(font-size, 18, 16, 1620, 320, 1);
+//   @include adaptivevalue(letter-spacing, .54, .48, 1620, 320, 1);
+// }
+
+// .section__link {
+//   @include adaptivevalue(margin-top, 60, 20, 1620, 320, 1);
+//   @include adaptivevalue(font-size, 20, 18, 1620, 320, 1);
+//   @include adaptivevalue(letter-spacing, 1, .9, 1620, 320, 1);
+//   line-height: rem(46);
+//   color: var(--accent);
+//   font-weight: 600;
+//   position: relative;
+//   @include transition ($transition-property: text-decoration);
+
+//   @media (any-hover: hover) {
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+
+//   &::after {
+//     position: absolute;
+//     content: url(../images/icons/arrow-next.svg);
+//     width: rem(9);
+//     height: rem(17);
+//     top: 25%;
+//     transform: translateY(-50%);
+//     right: 0;
+//   }
+// }
+
+// .title-form {
+//   @include adaptivevalue(font-size, 20, 18, 1620, 320, 1);
+//   font-weight: 600;
+//   position: relative;
+//   @include transition ($transition-property: all);
+
+//   &::after {
+//     position: absolute;
+//     content: url(../images/icons/drop-arrow.svg);
+//     width: rem(17);
+//     height: rem(8);
+//     right: rem(30);
+//     top: 25%;
+//     cursor: pointer;
+//   }
+
+
+//   &--active::after {
+//     top: 65%;
+//     transform: rotate(180deg);
+//   }
+// }

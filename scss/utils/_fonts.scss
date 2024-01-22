@@ -1,0 +1,57 @@
+// 400
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url(../fonts/SFUIText-Regular.woff2) format('woff2'), url(../fonts/SFUIText-Regular.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+// 500
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url(../fonts/SFUIText-Medium.woff2) format('woff2'), url(../fonts/SFUIText-Medium.woff) format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+// %SFUIText-500 {
+//     font-family: 'Montserrat', sans-serif;
+//     font-weight: 500;
+//     line-height: 120%;
+// }
+
+
+// 600
+@font-face {
+    font-family: 'SFUIText';
+    src: url(../fonts/SFUIText-Semibold.woff2) format('woff2'), url(../fonts/SFUIText-Semibold.woff) format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+// %Montserrat-600 {
+//     font-family: 'Montserrat', cursive;
+//     font-weight: 600;
+// }
+// 700
+// @font-face {
+//     font-family: 'Montserrat';
+//     src: url(../fonts/Montserrat-Bold.woff2) format('woff2'), url(../fonts/Montserrat-Bold.woff) format('woff');
+//     font-weight: 700;
+//     font-style: normal;
+// }
+// %Montserrat-700 {
+//     font-family: 'Montserrat', cursive;
+//     font-weight: 700;
+// }
+
+// @font-face {
+//     font-family: 'icons';
+//     font-display: swap;
+//     src: url(../fonts/icons.woff2) format('woff2'), url(../fonts/icons.woff) format('woff');
+//     font-weight: 400;
+//     font-style: normal;
+// }
+// @extend %Montserrat-600;

@@ -1,0 +1,147 @@
+:root {
+
+    --accent-color: #29B384;
+    --accent: #29B384;
+    --blue: #1764C2;
+    --linear: linear-gradient(233deg, #165EBF -13.52%, #29B384 76.05%);
+    --black: #082242;
+    --gray-bright: #ACB7C5;
+    --main-white: #F7F7F8;
+    --white: #FFFFFF;
+    --red: #DE5754;
+
+
+}
+
+
+@mixin transition ($transition-property: color, $transition-duration: 450ms, $transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)) {
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-timing-function;
+}
+
+// @mixin em ($px:null, $current: 16) {
+//     px: $px;
+//     current: $current;
+// };
+
+// @include transition ($transition-property: color);
+
+
+@function max($numbers...) {
+    @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+    @return m#{i}n(#{$numbers});
+}
+
+// @media (any-hover: hover) {
+//     &__menu-link:hover {
+//       color: var(--black);
+//       & svg {
+//         fill: var(--black);
+//         @include transition ($transition-property: fill);
+//       }
+//     }
+// }
+
+// <svg class="projects__item-svg" width="30" height="30" aria-label="РРєРѕРЅРєР° РїРѕРёСЃРєР°">
+// <use href="./images/projects/icons.svg#icon-search"></use>
+// </svg>
+
+// @media screen and (width < 1034px ) {}
+// @media screen and (min-width: 480px) and (max-width: 768px) {}
+
+//  Линия под заголовками
+//  padding-bottom: 23px;
+// margin-bottom: 23px;
+// position: relative;
+
+// &::after {
+//   position: absolute;
+//   content: '';
+//   width: 200px;
+//   height: 1px;
+//   left: calc(50% - 100px);
+//   bottom: 0;
+//   background-color: #6D7278;
+//   border: 1px solid var(--line);
+//   border-radius: 0.5px;
+// }
+// }
+
+// @extend %title-font;
+//       box-shadow: -3px -3px 49px rgb(10 1 1 / 4%), 3px 10px 36px rgb(0 0 0 / 10%);
+// margin-left: calc(20px + (182 - 20) * ((100vw - 300px)/ (1200 - 300)));
+// font-size: calc(10px + (20 - 10) * ((100vw - 300px)/ (1200 - 300)));
+
+$maxWidth: 1920;
+$maxWidthContainer: 1620;
+$minWidthContainer: 1400;
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+    $addSize: $startSize - $minSize;
+
+    @if $type==1 {
+        // Только, если меньше контейнера
+        #{$property}: $startSize + px;
+
+        @media screen and (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} *((100vw - 320px) / #{$maxWidthContainer - 320}));
+
+        }
+    }
+
+    @else if $type==2 {
+        // Только, если больше контейнера
+        #{$property}: $startSize + px;
+
+        @media screen and (min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} *((100vw - 320px) / #{$maxWidthContainer - 320}));
+        }
+    }
+
+    @else {
+        // Всегда
+        #{$property}: calc(#{$minSize + px} + #{$addSize} *((100vw - 320px) / #{$maxWidthContainer - 320}));
+    }
+}
+
+
+@mixin adaptivevalue($property, $startSize, $minSize, $maxWidthContainer, $minWidthContainer, $type) {
+    $addSize: $startSize - $minSize;
+
+    @if $type==1 {
+        // Только, если меньше контейнера
+        #{$property}: $startSize + px;
+
+        @media screen and (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidthContainer+ px}) / #{$maxWidthContainer - $minWidthContainer}));
+        }
+    }
+
+    @else if $type==2 {
+        // Только, если больше контейнера
+        #{$property}: $startSize + px;
+
+        @media screen and (min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidthContainer+ px}) / #{$maxWidthContainer - $minWidthContainer}));
+        }
+    }
+
+    @else {
+        // Всегда
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidthContainer+ px}) / #{$maxWidthContainer - $minWidthContainer}));
+    }
+}
+
+
+// @mixin adaptivevalue($property, $startSize, $minSize, $maxWidthContainer, $minWidthContainer) {
+//     $addSize: $startSize - $minSize;
+//     #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidthContainer+ px}) / #{$maxWidthContainer - $minWidthContainer}));
+// }
+
+// margin-left: calc(20px + (158 - 20) * ((100vw - 1400px)/ (1620 - 1400)));
+// @include adaptive-value(padding, 50, 20, 0);
+// padding: calc(20px + (50 - 20) * ((100vw - 300px)/ (1200 - 300)));
+// font-size: calc(12/16)+rem;

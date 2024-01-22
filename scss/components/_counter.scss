@@ -1,0 +1,36 @@
+.counter {
+  width: rem(151);
+  height: rem(50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: rem(3);
+  background-color: rgba(20, 20, 20, 1);
+
+
+  .up,
+  .down {
+    display: block;
+    color: var(--white);
+    font-size: rem(24);
+    padding: rem(10) rem(20);
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  &__input {
+    appearance: none;
+    // background-color: rgba(210, 210, 210, 0.07);
+    background-color: rgba(210, 210, 210, 0.9);
+    font-size: rem(18);
+    text-align: center;
+    width: rem(50);
+    height: rem(50);
+    line-height: 1.2;
+    border: none;
+  }
+}

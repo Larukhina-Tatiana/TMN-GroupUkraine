@@ -1,0 +1,51 @@
+// @use 'sass:math';
+// $half: math.percentage(1/2);
+@import "./utils/_vars";
+@import "./utils/_global";
+@import "./utils/_fonts";
+@import "./utils/_container";
+@import "./components/_titles";
+@import "./components/_header";
+@import "./components/_nav";
+
+// @import "./components/_hero";
+// @import "./components/_buttons";
+// @import "./components/_catalog";
+// @import "./components/compare-link";
+// @import "./components/favorite-link";
+
+// @import "./components/_products-slider";
+// @import "./components/_products-card";
+// @import "./components/_rating";
+// @import "./components/_hits";
+// @import "./components/_new-products";
+// @import "./components/_articles";
+// @import "./components/_products-block";
+// @import "./components/_footer";
+// @import "./components/_social";
+
+// catalog
+// @import "./components/_catalog-page";
+// @import "./components/_breadcrumbs";
+// @import "./components/_aside";
+
+// Карточка товара card-products
+// @import "./components/_card";
+// @import "./components/optioms-card";
+// @import "./components/actions-card";
+// @import "./components/counter";
+// @import "./components/characteristic";
+// @import "./components/comments";
+
+
+// .swiper-button-left {
+//   transform: translateX(-41px);
+
+
+// }
+// .swiper-button-right {
+//   transform: translateX(8px);
+// }
+// <svg class="projects__item-svg" width="30" height="30" aria-label="РРєРѕРЅРєР° РїРѕРёСЃРєР°">
+//                     <use href="./images/projects/icons.svg#icon-search"></use>
+//                   </svg>

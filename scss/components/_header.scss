@@ -1,0 +1,15 @@
+.header {
+
+  &__logo {
+    margin-right: rem(33);
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav-link {
+    padding: 1.75rem .62rem;
+  }
+}

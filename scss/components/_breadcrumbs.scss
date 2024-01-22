@@ -1,0 +1,34 @@
+.breadcrumbs {
+  margin: rem(40) 0;
+
+  &__item {
+    display: inline-block;
+    color: var(--gray);
+    font-size: rem(15);
+    padding-right: rem(16);
+    margin-right: rem(10);
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      background-image: url(../images/category-arrow.svg);
+      width: rem(6);
+      height: rem(9);
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+
+  @media screen and (width < 980.01px) {
+    &__inner {
+      overflow-x: scroll;
+    }
+  }
+
+}

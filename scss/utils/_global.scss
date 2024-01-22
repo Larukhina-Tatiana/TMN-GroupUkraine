@@ -1,0 +1,204 @@
+@use 'sass:math';
+
+html,
+body {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+// *,
+// *::after,
+// *::before {
+//     box-sizing: border-box;
+// }
+
+// REM
+@function rem($px) {
+    $result: math.div($px, 16) + rem;
+    @return $result;
+}
+
+// EM
+@function em($px) {
+    $result: math.div($px, 16) + em;
+    @return $result;
+}
+
+// TO %
+@function prc($pxOne, $pxTwo) {
+    $result: math.div($pxOne, $pxTwo) * 100%;
+    @return $result;
+}
+
+
+ul[class] {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+    // font-size: inherit;
+}
+
+
+body {
+    font-family: 'SFUIText';
+    font-size: rem(16);
+    // @include adaptivevalue(font-size, 18, 16, 1620, 320, 1);
+    line-height: 1.5;
+    color: var(--black);
+    overflow-x: hidden;
+    min-width: 100vw;
+}
+
+button {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+::marker {
+    margin-top: 10px;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+// ul.products__list>li.products__item*4>div.products__wrapp>img.products__item-img[src=images/products-$.jpg]+p.products__item-price{10$}+h3.title-h3+p.products__item-text+button.products__button-button{Купити}
+// .wrapper {
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 100%;
+// }
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    overflow-x: clip;
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+
+// .hr-line {
+//     border-bottom: 1px solid var(--black);
+// }
+// .images-bg {
+// background: url(../images/footer@1x.png);
+// padding-top: 900px;
+// background-size: cover;
+// background-position: center;
+// background-repeat: no-repeat;
+
+// @media screen and (min-device-pixel-ratio: 2),
+// screen and (-webkit-min-device-pixel-ratio: 2),
+// screen and (-o-mini-device-pixel-ratio: 2/1),
+// screen and (min-resolution: 192dpi),
+// screen and (min-resolution: 2dppx) {
+//   background: url(../images/footer@2x.png);
+//   background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+// }
+// }
+
+.section {
+    @include adaptivevalue(margin-top, 120, 60, 1200, 320, 1);
+}
+
+.section__background {
+    @include adaptivevalue(padding-top, 55, 20, 1620, 320, 1);
+    @include adaptivevalue(padding-bottom, 55, 20, 1620, 320, 1);
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 54%;
+        height: calc(100% + 100px);
+        background: linear-gradient(to right,
+                rgba(0, 0, 0, 0.65),
+                rgba(0, 0, 0, 0.65)),
+            url(../images/background.jpg) top / cover no-repeat;
+
+        @media screen and (width < 660.01px) {
+            height: calc(100% + 44px);
+            width: 100%;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    gap: rem(10);
+}
+
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
