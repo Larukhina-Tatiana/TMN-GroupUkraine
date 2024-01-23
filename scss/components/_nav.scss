@@ -2,7 +2,8 @@
 
   &__list {
     display: flex;
-    gap: rem(16);
+    gap: rem(10);
+    align-items: center;
   }
 
   &__spollers {
@@ -14,11 +15,12 @@
     align-items: center;
     @include transition ($transition-property: color);
 
-    // @media (any-hover: hover) {
-    //   &:hover .nav__submenu-link-svg {
-    //     fill: var(--black);
-    //   }
-    // }
+
+    @media (any-hover: hover) {
+      &:hover .nav__submenu-link-svg {
+        fill: var(--accent);
+      }
+    }
   }
 
   &__link {

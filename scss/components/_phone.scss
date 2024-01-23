@@ -1,0 +1,78 @@
+.phone {
+  position: relative;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    transition-duration: 450ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    font-variant: all-small-caps;
+    color: var(--black);
+    @include transition($transition-property: color);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
+
+      &:hover .phone__svg {
+        fill: var(--accent);
+      }
+    }
+
+    // &:hover,
+    // &:focus,
+    // &:active {
+    //   color: var(--accent);
+    // }
+  }
+
+  &__svg {
+    @include transition ($transition-property: fill);
+  }
+
+  &__arrow.active {
+    rotate: 180deg;
+  }
+
+  &__list {
+    display: none;
+  }
+
+  &__list.active {
+    background: var(--white);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+    padding: rem(25) rem(33) rem(20) rem(20);
+    position: absolute;
+    top: rem(35);
+    right: rem(-10);
+    z-index: 1;
+    display: block;
+    @include transition ($transition-property: all);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: rem(-10);
+      right: rem(7);
+
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-top: none;
+      border-bottom: 10px solid var(--white);
+      box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.14);
+      filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));
+    }
+  }
+
+  & li:not(:last-child) {
+    margin-bottom: rem(11);
+  }
+}

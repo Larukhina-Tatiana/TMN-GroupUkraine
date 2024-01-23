@@ -1,0 +1,26 @@
+.lang {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+
+    &__link {
+        color: var(--gray-bright, #ACB7C5);
+        font-family: inherit;
+        font-size: rem(16);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5;
+        text-transform: uppercase;
+        @include transition ($transition-property: color);
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--accent);
+            }
+        }
+
+        &--active {
+            color: var(--Black, #082242);
+        }
+    }
+}

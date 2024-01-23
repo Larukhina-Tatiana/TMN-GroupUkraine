@@ -1,0 +1,49 @@
+.search {
+
+  &__form {
+    max-width: rem(135);
+    position: relative;
+
+    // outline: 1px solid coral;
+    &:hover .search__input {
+      transform: translateX(0%);
+    }
+  }
+
+  &__input {
+    width: 100%;
+    // color: var(--gray-bright);
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    border: none;
+    border-bottom: 1px solid var(--gray-bright);
+    transform: translateX(200%);
+
+    &::placeholder {
+      color: var(--black);
+    }
+  }
+
+
+
+
+  &__btn {
+    position: absolute;
+    width: rem(24);
+    height: rem(24);
+    background-color: rgba(0, 0, 0, 0);
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+
+    @include transition ($transition-property: color);
+
+    @media (any-hover: hover) {
+      &:hover .search__btn-svg {
+        color: var(--accent);
+      }
+    }
+  }
+}
