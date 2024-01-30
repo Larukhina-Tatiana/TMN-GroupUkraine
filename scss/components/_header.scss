@@ -1,27 +1,90 @@
 .header {
+  padding: rem(27) 0;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
 
   &__logo {
-    margin-right: rem(33);
+    @include adaptivevalue(margin-right, 33, 5, 1200, 320, 1);
+
+    // @media screen and (width < 800.01px) {
+    //   margin-right: 0;
+    // }
   }
 
   &__box {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    row-gap: rem(15);
+    justify-content: space-between;
   }
 
+
   &__nav-link {
-    padding: 1.75rem .62rem;
+    padding: rem(28) rem(10);
   }
 
   &__lang {
-    margin-left: rem(30);
+    margin-left: rem(20);
   }
 
   &__phone {
-    margin-left: rem(30);
+    margin-left: rem(20);
+  }
+
+  &__search-btn {
+    margin-left: rem(20);
   }
 
   &__basket {
     margin-left: rem(16);
   }
+
+
+
+
+
+  @media screen and (width < 1060.01px) {
+    &__inner {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+
+  @media screen and (width < 825.01px) {
+
+    &__box {
+      flex-wrap: nowrap;
+    }
+
+    &__inner {
+      justify-content: space-evenly;
+    }
+
+    &__lang {
+      margin-left: rem(0);
+    }
+
+    &__basket {
+      margin-left: 0;
+    }
+
+    &__phone {
+      margin-left: rem(0);
+    }
+
+    &__search-btn {
+      margin-left: rem(0);
+    }
+
+    &__basket {
+      margin-left: rem(0);
+    }
+  }
+
+
 }

@@ -1,4 +1,6 @@
 .nav {
+  display: flex;
+  align-items: center;
 
   &__list {
     display: flex;
@@ -13,17 +15,23 @@
   &__linkbtn-inner {
     display: flex;
     align-items: center;
-    @include transition ($transition-property: color);
+    @include transition ($transition-property: all);
 
 
     @media (any-hover: hover) {
-      &:hover .nav__submenu-link-svg {
+
+      &:hover .nav__linkbtn-link {
+        color: var(--accent);
+      }
+
+      &:hover .nav__linkbtn-arrow-svg {
         fill: var(--accent);
       }
     }
   }
 
   &__link {
+    display: inline-block;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -39,49 +47,52 @@
       background-color: var(--accent);
       color: var(--white);
 
+      @include transition ($transition-property: (background-color, color));
+
       @media (any-hover: hover) {
         &:hover {
-          color: var(--white);
-
-          & .nav__link-svg {
-            fill: var(--white);
-          }
+          color: var(--black);
         }
-      }
-
-
-
-      & .nav__link-svg {
-        fill: var(--white);
       }
     }
   }
 
-  &__linkbtn-link {
-    padding-right: 0;
-  }
 
   &__linkbtn-arrow {
-    padding: rem(28) rem(0);
+    padding: rem(28) rem(10) rem(28) rem(0);
     @include transition ($transition-property: all);
 
     @media (any-hover: hover) {
-      &:hover .nav__linkbtn-link {
-        color: var(--black);
+      &:hover .nav__linkbtn-arrow-svg {
+        fill: var(--accent);
       }
     }
 
     &--active {
       background-color: var(--accent);
+      @include transition ($transition-property: color);
 
-      .nav__submenu-link-svg {
+      .nav__linkbtn-arrow-svg {
         fill: var(--white);
       }
+
+      @media (any-hover: hover) {
+        &:hover .nav__linkbtn-arrow-svg {
+          fill: var(--black);
+        }
+      }
+    }
+
+
+
+    &-svg {
+      @include transition ($transition-property: all);
     }
   }
 
+
   &__linkbtn-arrow.active {
-    .nav__submenu-link-svg {
+    .nav__linkbtn-arrow-svg {
       rotate: 180deg;
     }
   }
@@ -95,6 +106,7 @@
 
   &__submenu-list {
     display: none;
+    @include transition ($transition-property: all);
   }
 
   &__submenu-list.active {
@@ -106,6 +118,10 @@
     left: rem(-10);
     padding: rem(20);
     z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10) rem(30);
+
 
     &::before {
       position: absolute;
@@ -119,23 +135,21 @@
       width: 1.375rem;
       height: 1.375rem;
       top: rem(-10);
-      left: rem(148);
+      left: rem(154);
     }
 
-    display: flex;
-    flex-wrap: wrap;
-    gap: rem(10) rem(30);
-    @include transition ($transition-property: all);
   }
+
 
   &__submenu-item {
     width: rem(256);
   }
 
+
   &__submenu-link {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     gap: rem(10);
     color: var(--black, #082242);
     font-family: inherit;
@@ -162,6 +176,77 @@
 
   &__link-svg {
     @include transition ($transition-property: fill);
+  }
+
+  @media screen and (width < 1060.01px) {
+    &__list {
+      gap: rem(20);
+    }
+  }
+
+  @media screen and (width < 825.01px) {
+
+    &__list {
+      position: absolute;
+      width: rem(290);
+
+      top: rem(60);
+      right: rem(2);
+      bottom: 0;
+      border-radius: rem(5);
+      background: linear-gradient(155deg, #165EBF 50%, #29B384 67.73%);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, .12), 0px 1px 1px rgba(0, 0, 0, .14), 0px 2px 1px rgba(0, 0, 0, .2);
+      backdrop-filter: blur(10px);
+
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: rem(20);
+      transform: translateY(-150%);
+      @include transition ($transition-property: transform);
+      padding: rem(15);
+      color: var(--white);
+    }
+
+    &__list.menu-open {
+      transform: translateY(0%);
+    }
+
+    &__link {
+      padding: rem(10) 0;
+      font-weight: 700;
+
+      &--active {
+        background-color: transparent;
+        color: var(--white);
+
+        @include transition ($transition-property: color);
+
+        @media (any-hover: hover) {
+          &:hover {
+            color: var(--accent);
+          }
+        }
+      }
+    }
+
+    &__linkbtn-arrow {
+      padding: 0 0 0 rem(5);
+    }
+
+    &__linkbtn-arrow-svg {
+      fill: var(--white);
+    }
+
+
+    &__submenu-list.active {
+      width: rem(290);
+      top: rem(50);
+
+      &::before {
+        left: rem(147);
+      }
+    }
   }
 
 }

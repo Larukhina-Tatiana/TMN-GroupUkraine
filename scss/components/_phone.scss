@@ -11,8 +11,10 @@
   &__link {
     display: flex;
     align-items: center;
+    @include adaptivevalue(gap, 8, 3, 800, 320, 1);
     gap: rem(8);
     font-variant: all-small-caps;
+    @include adaptivevalue(font-size, 16, 14, 12000, 320, 1);
     color: var(--black);
     @include transition($transition-property: color);
 
@@ -26,6 +28,7 @@
       }
     }
 
+
     // &:hover,
     // &:focus,
     // &:active {
@@ -33,8 +36,15 @@
     // }
   }
 
-  &__svg {
+  &__arrow:hover {
+    .phone__arrow-svg {
+      fill: var(--accent);
+    }
+  }
+
+  &__arrow-svg {
     @include transition ($transition-property: fill);
+    // fill: inherit;
   }
 
   &__arrow.active {
@@ -74,5 +84,12 @@
 
   & li:not(:last-child) {
     margin-bottom: rem(11);
+  }
+
+  @media screen and (width < 480.01px) {
+
+    &__svg {
+      @include adaptivevalue(width, 24, 18, 480, 320, 1);
+    }
   }
 }

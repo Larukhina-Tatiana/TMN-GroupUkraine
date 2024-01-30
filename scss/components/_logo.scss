@@ -1,0 +1,17 @@
+.logo {
+  &__img-mobile {
+    display: none;
+  }
+
+  @media screen and (width < 480.01px) {
+    &__img-mobile {
+      display: block;
+      max-width: rem(31);
+      width: 100%;
+    }
+
+    &__img-desc {
+      display: none;
+    }
+  }
+}
