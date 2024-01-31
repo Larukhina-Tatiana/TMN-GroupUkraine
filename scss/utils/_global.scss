@@ -155,7 +155,7 @@ button,
 // }
 
 .section {
-    @include adaptivevalue(margin-top, 120, 60, 1200, 320, 1);
+    @include adaptivevalue(margin-top, 80, 50, 1440, 320, 1);
 }
 
 .section__background {
