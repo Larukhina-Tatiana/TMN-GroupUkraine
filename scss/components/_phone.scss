@@ -14,7 +14,7 @@
     @include adaptivevalue(gap, 8, 3, 800, 320, 1);
     gap: rem(8);
     font-variant: all-small-caps;
-    @include adaptivevalue(font-size, 16, 14, 12000, 320, 1);
+    @include adaptivevalue(font-size, 16, 14, 1440, 320, 1);
     color: var(--black);
     @include transition($transition-property: color);
 

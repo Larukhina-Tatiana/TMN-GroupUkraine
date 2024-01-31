@@ -1,0 +1,45 @@
+.partners {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: rem(414);
+  }
+
+
+  &__item {
+
+    &:nth-child(odd) {
+      align-self: flex-end;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include adaptivevalue(width, 207, 86, 825, 320, 1);
+    @include adaptivevalue(height, 207, 86, 825, 320, 1);
+
+    border-radius: rem(3);
+    background: rgba(152, 214, 185, 0.3);
+
+    backdrop-filter: blur(5px);
+    @include transition ($transition-property: (background-color, blur));
+
+    @media (any-hover: hover) {
+      &:hover {
+        background: rgba(62, 201, 136, 0.3);
+        backdrop-filter: blur(15px);
+      }
+    }
+  }
+
+  @media screen and (width < 825.01px) {
+    &__list {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 15px;
+      width: 100%;
+    }
+  }
+}

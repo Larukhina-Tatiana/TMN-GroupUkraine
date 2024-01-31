@@ -1,6 +1,4 @@
 .header {
-  padding: rem(27) 0;
-
   &__inner {
     display: flex;
     align-items: center;
@@ -8,11 +6,7 @@
   }
 
   &__logo {
-    @include adaptivevalue(margin-right, 33, 5, 1200, 320, 1);
-
-    // @media screen and (width < 800.01px) {
-    //   margin-right: 0;
-    // }
+    @include adaptivevalue(margin-right, 33, 5, 1440, 320, 1);
   }
 
   &__box {

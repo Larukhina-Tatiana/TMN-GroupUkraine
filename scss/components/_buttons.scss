@@ -1,21 +1,28 @@
 .buttons {
 
-  width: 100%;
+  // width: 100%;
+  height: rem(48);
   display: inline-flex;
   align-items: center;
-  gap: rem(15);
   justify-content: center;
 
   border-radius: 3px;
-  padding-bottom: rem(9);
-  padding-top: rem(9);
+  padding: rem(13) rem(28);
 
-  color: var(--white);
-  @include adaptivevalue(font-size, 20, 18, 1620, 320, 1);
-  font-weight: 600;
-  line-height: calc(32/20);
+  color: var(--accent);
+  background-color: var(--white);
+  @include adaptivevalue(font-size, 16, 14, 1440, 320, 1);
+  font-weight: 500;
+  line-height: 1.4;
   text-align: center;
-  @include transition ($transition-property: (box-shadow, text-decoration));
+  @include transition ($transition-property: (background-color, color));
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--white);
+      background-color: var(--accent);
+    }
+  }
 }
 
 
