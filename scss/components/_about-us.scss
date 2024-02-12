@@ -1,0 +1,47 @@
+.about-us {
+  background: var(--linear, linear-gradient(233deg, #165EBF -13.52%, #29B384 76.05%));
+  padding: rem(80) 0;
+
+  &__content {
+    position: relative;
+    margin-bottom: rem(40);
+    color: var(--white);
+    display: flex;
+    gap: rem(15);
+    justify-content: space-between;
+
+    &::before {
+      position: absolute;
+      content: url(../images/logo/logo-aboutus.svg);
+      width: rem(140);
+      height: rem(123);
+      bottom: rem(13);
+      left: 0;
+    }
+  }
+
+  &__title {
+    color: var(--white);
+    width: rem(370);
+  }
+
+  &__text {
+    width: rem(770);
+  }
+
+  @media screen and (width < 530.99px) {
+    &__content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__title {
+      width: 100%;
+    }
+
+    &__text {
+      width: 100%;
+    }
+  }
+
+}

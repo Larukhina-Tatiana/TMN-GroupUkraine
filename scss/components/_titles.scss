@@ -1,6 +1,6 @@
 .section-title {
   color: var(--black);
-  @include adaptivevalue(font-size, 32, 18, 1440, 320, 1);
+  @include adaptivevalue(font-size, 32, 18, 1200, 320, 1);
   font-weight: 500;
   line-height: 1.2;
   text-transform: uppercase;
@@ -20,10 +20,11 @@
 }
 
 .title-h3 {
-  font-size: rem(32);
+  font-size: rem(16);
   // @include adaptivevalue(font-size, 24, 20, 1620, 320, 1);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .title-h4 {

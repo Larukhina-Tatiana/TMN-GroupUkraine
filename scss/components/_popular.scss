@@ -1,0 +1,54 @@
+.popular {
+
+  &__title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(40);
+
+  }
+
+  &__link-more {
+
+    &::after {
+      content: url(../images/icons/arrow-more.svg);
+      margin-left: rem(3);
+    }
+  }
+
+  &__slider-dotts {
+    margin-top: rem(20);
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--accent) !important;
+
+  }
+
+
+  .swiper-pagination-bullet {
+    @include adaptivevalue(height, 15, 10, 1200, 320, 1);
+    @include adaptivevalue(width, 15, 10, 1200, 320, 1);
+    opacity: 1;
+    background-color: var(--gray-bright);
+    transition: all 0.3s ease 0s;
+  }
+
+  @media screen and (width < 1199.99px) {
+    &__slider {
+      width: rem(885);
+    }
+  }
+
+  @media screen and (width < 885px) {
+    &__slider {
+      width: rem(570);
+    }
+  }
+
+  @media screen and (width < 600px) {
+    &__slider {
+      width: rem(270);
+    }
+  }
+}

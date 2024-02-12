@@ -9,45 +9,42 @@
   border-radius: 3px;
   padding: rem(13) rem(28);
 
-  color: var(--accent);
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--accent);
   @include adaptivevalue(font-size, 16, 14, 1440, 320, 1);
   font-weight: 500;
   line-height: 1.4;
   text-align: center;
-  @include transition ($transition-property: (background-color, color));
+  border: 2px solid transparent;
+  @include transition ($transition-property: (background-color, color, border));
 
   @media (any-hover: hover) {
     &:hover {
-      color: var(--white);
-      background-color: var(--accent);
+      color: var(--accent);
+      background-color: var(--white);
+      border-radius: rem(2);
+      border: 2px solid var(--accent, #29B384);
     }
   }
 }
 
+.buttons-more {
+  color: var(--accent, #29B384);
+  text-align: right;
+  @include adaptivevalue(font-size, 16, 14, 1200, 320, 1);
+  font-size: rem(16);
+  font-weight: 500;
+  line-height: 1.4;
 
-
-
-.buttons--black {
-  background-color: rgba(0, 0, 0, 1);
-  box-shadow: 0px 4px 20px 0px rgba(41, 40, 38, 0.43);
+  @include transition ($transition-property: text-decoration);
 
   @media (any-hover: hover) {
     &:hover {
-      box-shadow: 0px 4px 45px 0px rgba(41, 40, 38, 0.43);
       text-decoration: underline;
     }
   }
-}
 
-.buttons--accent {
-  background: #E8AA31;
-  box-shadow: 0px 4px 20px 0px rgba(232, 170, 49, 0.43);
-
-  @media (any-hover: hover) {
-    &:hover {
-      box-shadow: 0px 4px 45px 0px rgba(232, 170, 49, 0.43);
-      text-decoration: underline;
-    }
+  &--disabled {
+    color: var(--gray-bright);
   }
 }
