@@ -1260,4 +1260,68 @@ button,
   .advantages__list {
     width: 16.875rem;
   }
+}
+
+.gloves-advantages__content {
+  display: grid;
+  grid-template-columns: 35.625rem 35.625rem;
+  gap: 1.875rem;
+  align-items: center;
+}
+.gloves-advantages__title {
+  margin-bottom: 0.625rem;
+}
+.gloves-advantages__text {
+  color: var(--gray-bright, #ACB7C5);
+  margin-bottom: 2.5rem;
+}
+.gloves-advantages__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.875rem;
+}
+.gloves-advantages__item {
+  width: 16.875rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+.gloves-advantages__item-images {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+.gloves-advantages__images {
+  display: grid;
+  grid-template-columns: 18.125rem 16.875rem;
+  grid-template-rows: 12.1875rem 12.1875rem;
+  gap: 0.625rem;
+}
+.gloves-advantages__images-item--height {
+  grid-row-start: span 2;
+}
+.gloves-advantages picture {
+  overflow: hidden;
+}
+.gloves-advantages__img {
+  height: 100%;
+}
+@media screen and (width < 914.99px) {
+  .gloves-advantages__content {
+    grid-template-columns: 1fr;
+  }
+  .gloves-advantages__boxtitle {
+    text-align: center;
+  }
+  .gloves-advantages__list {
+    justify-content: center;
+  }
+  .gloves-advantages__images {
+    margin: 0 auto;
+  }
+}
+@media screen and (width < 584.99px) {
+  .gloves-advantages__images {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }/*# sourceMappingURL=style.css.map */

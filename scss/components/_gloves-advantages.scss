@@ -1,0 +1,83 @@
+.gloves-advantages {
+
+  &__content {
+    display: grid;
+    grid-template-columns: rem(570) rem(570);
+    gap: rem(30);
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: rem(10);
+  }
+
+  &__text {
+    color: var(--gray-bright, #ACB7C5);
+    margin-bottom: rem(40);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(30);
+  }
+
+  &__item {
+    width: rem(270);
+    display: flex;
+    gap: rem(20);
+    align-items: flex-start;
+  }
+
+  &__item-images {
+    width: rem(50);
+    height: rem(50);
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: rem(290) rem(270);
+    grid-template-rows: rem(195) rem(195);
+    gap: rem(10);
+  }
+
+  &__images-item--height {
+    grid-row-start: span 2;
+  }
+
+  picture {
+    overflow: hidden;
+  }
+
+  &__img {
+    height: 100%;
+  }
+
+  @media screen and (width < 914.99px) {
+
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__boxtitle {
+      text-align: center;
+    }
+
+    &__list {
+      justify-content: center;
+    }
+
+    &__images {
+      margin: 0 auto;
+    }
+
+  }
+
+  @media screen and (width < 584.99px) {
+
+    &__images {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+}
