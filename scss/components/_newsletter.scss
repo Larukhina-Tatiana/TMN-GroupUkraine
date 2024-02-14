@@ -1,0 +1,97 @@
+.newsletter {
+  background: linear-gradient(to left,
+      rgba(23, 100, 194, 0.7),
+      rgba(41, 179, 132, 0.7)),
+    url(../images/newsletter/newsletter-bg@1x.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+  @media screen and (min-device-pixel-ratio: 2),
+  screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (-o-mini-device-pixel-ratio: 2/1),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+    background: linear-gradient(to left,
+        rgba(23, 100, 194, 0.7),
+        rgba(41, 179, 132, 0.7)),
+      url(../images/newsletter/newsletter-bg@2x.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+  screen and (-webkit-min-device-pixel-ratio: 3),
+  screen and (-o-mini-device-pixel-ratio: 3/1),
+  screen and (min-resolution: 228dpi),
+  screen and (min-resolution: 3dppx) {
+    background: linear-gradient(to left,
+        rgba(23, 100, 194, 0.7),
+        rgba(41, 179, 132, 0.7)),
+      url(../images/newsletter/newsletter-bg@3x.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  padding: rem(80) 0;
+  color: var(--white);
+
+
+  &__title {
+    margin-bottom: rem(30);
+    max-width: rem(738);
+    color: var(--white);
+  }
+
+  &__text {
+    margin-bottom: rem(30);
+    max-width: rem(690);
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    @include adaptivevalue(gap, 30, 10, 1200, 320, 1);
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__form-input {
+    width: rem(270);
+    padding: rem(12);
+    border: none;
+    border-radius: rem(2);
+
+    ::placeholder {
+      color: var(--gray-bright);
+    }
+  }
+
+  &__form-button {
+    width: rem(270);
+  }
+
+  @media screen and (width < 1199.99px) {
+
+    &__title,
+    &__text {
+      text-align: center;
+      margin: 0 auto rem(30) auto;
+    }
+
+    &__form {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (width < 886.99px) {
+
+    &__form {
+      flex-direction: column;
+    }
+
+  }
+}

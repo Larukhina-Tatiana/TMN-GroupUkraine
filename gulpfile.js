@@ -95,20 +95,20 @@ function scripts() {
 function images() {
   // return src(["app/images/**/*.*", "!app/images/**/*.svg"])
   return (
-    src(["images/src/gloves-advantages/*.*", "!images/src/*.svg"])
+    src(["images/src/newsletter/*.*", "!images/src/*.svg"])
       // .pipe(newer("app/images"))
       // .pipe(avif({ quality: 50 }))
 
       // .pipe(src("app/images/**/*.*"))
-      .pipe(src("images/src/gloves-advantages/*.*"))
+      .pipe(src("images/src/newsletter/*.*"))
       .pipe(newer("images"))
       .pipe(webp())
 
-      .pipe(src("images/src/gloves-advantages/*.*"))
+      .pipe(src("images/src/newsletter/*.*"))
       .pipe(newer("images"))
       .pipe(imagemin())
 
-      .pipe(dest("images/gloves-advantages/"))
+      .pipe(dest("images/newsletter/"))
   );
 }
 

@@ -1348,11 +1348,86 @@ button,
 }
 @media screen and (width < 584.99px) {
   .gloves-advantages__images {
-    grid-template-columns: 1fr;
+    grid-template-columns: 18.125rem;
     justify-items: center;
   }
 }
 
 .promotion__text {
   margin-bottom: 1.875rem;
+}
+
+.newsletter {
+  background: linear-gradient(to left, rgba(23, 100, 194, 0.7), rgba(41, 179, 132, 0.7)), url(../images/newsletter/newsletter-bg@1x.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 5rem 0;
+  color: var(--white);
+}
+@media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (-o-mini-device-pixel-ratio: 2/1), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .newsletter {
+    background: linear-gradient(to left, rgba(23, 100, 194, 0.7), rgba(41, 179, 132, 0.7)), url(../images/newsletter/newsletter-bg@2x.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+@media screen and (min-device-pixel-ratio: 3), screen and (-webkit-min-device-pixel-ratio: 3), screen and (-o-mini-device-pixel-ratio: 3/1), screen and (-webkit-min-device-pixel-ratio: 2.375), screen and (min-resolution: 228dpi), screen and (min-resolution: 3dppx) {
+  .newsletter {
+    background: linear-gradient(to left, rgba(23, 100, 194, 0.7), rgba(41, 179, 132, 0.7)), url(../images/newsletter/newsletter-bg@3x.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+.newsletter__title {
+  margin-bottom: 1.875rem;
+  max-width: 46.125rem;
+  color: var(--white);
+}
+.newsletter__text {
+  margin-bottom: 1.875rem;
+  max-width: 43.125rem;
+}
+.newsletter__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 1200px) {
+  .newsletter__form {
+    gap: calc(10px + 20 * (100vw - 320px) / 880);
+  }
+}
+.newsletter__form-input {
+  width: 16.875rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.125rem;
+}
+.newsletter__form-input ::-moz-placeholder {
+  color: var(--gray-bright);
+}
+.newsletter__form-input ::placeholder {
+  color: var(--gray-bright);
+}
+.newsletter__form-button {
+  width: 16.875rem;
+}
+@media screen and (width < 1199.99px) {
+  .newsletter__title, .newsletter__text {
+    text-align: center;
+    margin: 0 auto 1.875rem auto;
+  }
+  .newsletter__form {
+    justify-content: center;
+  }
+}
+@media screen and (width < 886.99px) {
+  .newsletter__form {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=style.css.map */

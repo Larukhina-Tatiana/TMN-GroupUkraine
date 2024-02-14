@@ -76,7 +76,7 @@
   @media screen and (width < 584.99px) {
 
     &__images {
-      grid-template-columns: 1fr;
+      grid-template-columns: rem(290);
       justify-items: center;
     }
   }
