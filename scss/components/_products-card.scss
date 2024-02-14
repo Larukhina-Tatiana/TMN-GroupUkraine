@@ -14,8 +14,10 @@
   }
 
   &__box {
+    position: relative;
     width: rem(270);
     padding: rem(16);
+
   }
 
   &__img-link {
@@ -25,6 +27,24 @@
       &:hover .products-card__img {
         scale: 1.1;
       }
+    }
+  }
+
+  &__img-link--sale {
+    &::before {
+      position: absolute;
+      content: "-20%";
+      padding: rem(5) rem(15);
+      color: var(--white);
+      background-color: var(--red);
+      top: rem(43);
+      left: 0;
+      font-size: rem(16);
+      line-height: 1.5;
+      font-weight: bold;
+      border-top-right-radius: rem(5);
+      border-bottom-right-radius: rem(5);
+      z-index: 2;
     }
   }
 
@@ -85,6 +105,20 @@
     font-weight: 600;
     line-height: 1.4;
   }
+
+  &__price--sale {
+    margin-right: rem(2);
+    color: var(--red);
+  }
+
+  &__sale {
+    display: inline-block;
+    margin-right: rem(2);
+    text-decoration: line-through;
+    color: var(--gray_bright, #ACB7C5);
+    font-size: rem(12);
+  }
+
 
   &__discount {
     display: inline-block;
