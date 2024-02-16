@@ -222,13 +222,12 @@ button,
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.4;
-  text-transform: uppercase;
 }
 
 .title-h4 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .title-h5 {
@@ -1430,4 +1429,61 @@ button,
   .newsletter__form {
     flex-direction: column;
   }
+}
+
+.blog {
+  padding-bottom: 4.375rem;
+  background-image: url(../images/blog/bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.blog__list {
+  display: flex;
+  gap: 1.875rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.blog__item {
+  width: 16.875rem;
+}
+.blog__post-card {
+  background-color: var(--white);
+  border-radius: 0.125rem;
+}
+.blog__inner-img {
+  position: relative;
+  width: 16.875rem;
+  height: 10.625rem;
+  border-radius: 0.125rem;
+}
+.blog__img {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.blog__content {
+  padding: 1.25rem;
+}
+.blog__post-title {
+  margin-bottom: 0.625rem;
+  height: 4.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.blog__post-excerpt {
+  margin-bottom: 0.625rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.blog__button {
+  width: 14.375rem;
 }/*# sourceMappingURL=style.css.map */
