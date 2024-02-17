@@ -1,0 +1,144 @@
+.footer {
+    padding: rem(40) 0;
+    color: var(--gray);
+    background-color: var(--white);
+
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: rem(32);
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: rem(32);
+    }
+
+    &__nav-list {
+        display: flex;
+        align-items: center;
+        gap: rem(24);
+    }
+
+    &__nav-link {
+        font-weight: 500;
+        @include transition($transition-property: color);
+
+        @media (any-hover: hover) {
+
+            &:hover,
+            &:focus {
+                color: var(--accent);
+            }
+
+            // &:hover .footer__mail,
+            // &:focus .footer__mail {
+            //     color: var(--white);
+            // }
+        }
+    }
+
+    &__copyright {
+        font-size: rem(12);
+        line-height: 1.5;
+    }
+
+    &__address {
+        color: var(--black);
+    }
+
+    &__phone-list {
+        margin-bottom: rem(30);
+    }
+
+    &__phone-item {
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__phone-link {
+        text-align: right;
+        font-style: normal;
+        @include transition ($transition-property: color);
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--accent);
+            }
+        }
+    }
+
+
+    &__phone-link--svgphone {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: url(../images/icons/phone-icon-green.svg);
+            width: rem(24);
+            height: rem(24);
+            left: rem(26);
+        }
+    }
+
+    &__link-mail {
+        font-style: normal;
+        position: relative;
+        @include transition ($transition-property: color);
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var(--accent);
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: url(../images/icons/mail-green.svg);
+            width: rem(24);
+            height: rem(24);
+            left: rem(-31);
+        }
+
+    }
+
+    @media screen and (width < 824.99px) {
+
+        &__inner {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__logo {
+            margin: 0 auto;
+        }
+
+        &__nav {
+            margin-bottom: rem(30);
+        }
+
+        &__phone-link {
+            text-align: center;
+
+            &--svgphone {
+                &::before {
+                    left: rem(-8);
+                }
+            }
+        }
+
+        &__copyright {
+            text-align: center;
+        }
+    }
+
+    @media screen and (width < 480.99px) {
+        &__nav-list {
+            flex-direction: column;
+        }
+    }
+}
