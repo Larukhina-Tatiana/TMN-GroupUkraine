@@ -1,0 +1,38 @@
+.wearedoing {
+  margin-top: rem(100);
+  background: var(--linear, linear-gradient(233deg, #165EBF -13.52%, #29B384 76.05%));
+  color: var(--white);
+
+  &__inner {
+    padding: rem(80) 0 rem(44) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(30);
+  }
+
+  &__images {
+    max-width: rem(570);
+  }
+
+  &__descr {
+    max-width: rem(570);
+  }
+
+  &__title {
+    margin-bottom: rem(20);
+    color: var(--white);
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  @media screen and (width < 880.99px) {
+    &__inner {
+      flex-direction: column;
+    }
+  }
+}

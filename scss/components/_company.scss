@@ -12,6 +12,8 @@
 
   &__title {
     margin-bottom: rem(20);
+    @include adaptivevalue(font-size, 40, 28, 1200, 320, 1);
+    line-height: 1.2;
   }
 
   &__text {
