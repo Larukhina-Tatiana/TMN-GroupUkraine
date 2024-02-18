@@ -1639,11 +1639,13 @@ button,
   align-items: center;
   gap: 3.125rem;
 }
+.company__descr {
+  max-width: 35.625rem;
+}
 .company__title {
   margin-bottom: 1.25rem;
 }
 .company__text {
-  max-width: 35.625rem;
   color: var(--gray);
 }
 .company__text:not(:last-child) {
@@ -1652,58 +1654,79 @@ button,
 .company__bg {
   background-image: url(../images/company/bg@1x.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  width: 34.375rem;
-  height: 29.375rem;
 }
 @media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (-o-mini-device-pixel-ratio: 2/1), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
   .company__bg {
     background: url(../images/company/bg@2x.jpg) no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
   }
 }
 @media screen and (min-device-pixel-ratio: 3), screen and (-webkit-min-device-pixel-ratio: 3), screen and (-o-mini-device-pixel-ratio: 3/1), screen and (-webkit-min-device-pixel-ratio: 2.375), screen and (min-resolution: 228dpi), screen and (min-resolution: 3dppx) {
   .company__bg {
     background: url(../images/company/bg@3x.jpg) no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
   }
 }
 .company__images {
   position: relative;
-  width: 34.375rem;
-  height: 29.375rem;
+  width: 550px;
+  height: 470px;
+}
+@media screen and (max-width: 620px) {
+  .company__images {
+    width: calc(250px + 300 * (100vw - 320px) / 300);
+  }
+}
+@media screen and (max-width: 620px) {
+  .company__images {
+    height: calc(170px + 300 * (100vw - 320px) / 300);
+  }
 }
 .company__images::before {
   position: absolute;
   content: "";
   background-image: url(../images/company/company-image@1x.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 34.375rem;
-  height: 29.375rem;
+  background-size: contain;
+  background-position: bottom;
+  width: 100%;
+  height: 470px;
   top: 1.25rem;
   left: -1.25rem;
+}
+@media screen and (max-width: 620px) {
+  .company__images::before {
+    height: calc(170px + 300 * (100vw - 320px) / 300);
+  }
 }
 @media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (-o-mini-device-pixel-ratio: 2/1), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
   .company__images::before {
     background: url(../images/company/company-image@2x.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: bottom;
   }
 }
 @media screen and (min-device-pixel-ratio: 3), screen and (-webkit-min-device-pixel-ratio: 3), screen and (-o-mini-device-pixel-ratio: 3/1), screen and (-webkit-min-device-pixel-ratio: 2.375), screen and (min-resolution: 228dpi), screen and (min-resolution: 3dppx) {
   .company__images::before {
     background: url(../images/company/company-image@3x.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: bottom;
   }
 }
-.company__images::after {
-  position: absolute;
-  content: url(../images/company/company-logo.png);
-  bottom: 0;
+@media screen and (width < 1000.99px) {
+  .company__inner {
+    flex-direction: column;
+  }
+  .company__descr {
+    max-width: 100%;
+  }
+}
+@media screen and (width < 620.99px) {
+  .company__descr {
+    max-width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

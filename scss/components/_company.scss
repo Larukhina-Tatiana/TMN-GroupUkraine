@@ -6,12 +6,15 @@
     gap: rem(50);
   }
 
+  &__descr {
+    max-width: rem(570);
+  }
+
   &__title {
     margin-bottom: rem(20);
   }
 
   &__text {
-    max-width: rem(570);
     color: var(--gray);
 
     &:not(:last-child) {
@@ -22,10 +25,10 @@
   &__bg {
     background-image: url(../images/company/bg@1x.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
-    width: rem(550);
-    height: rem(470);
+    // @include adaptivevalue(width, 550, 250, 620, 320, 1);
+    // @include adaptivevalue(height, 470, 170, 620, 320, 1);
 
     @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
@@ -33,7 +36,7 @@
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
       background: url(../images/company/bg@2x.jpg) no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
     }
 
@@ -44,25 +47,25 @@
     screen and (min-resolution: 228dpi),
     screen and (min-resolution: 3dppx) {
       background: url(../images/company/bg@3x.jpg) no-repeat;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
     }
   }
 
   &__images {
     position: relative;
-    width: rem(550);
-    height: rem(470);
+    @include adaptivevalue(width, 550, 250, 620, 320, 1);
+    @include adaptivevalue(height, 470, 170, 620, 320, 1);
 
     &::before {
       position: absolute;
       content: '';
       background-image: url(../images/company/company-image@1x.jpg);
       background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      width: rem(550);
-      height: rem(470);
+      background-size: contain;
+      background-position: bottom;
+      width: 100%;
+      @include adaptivevalue(height, 470, 170, 620, 320, 1);
       top: rem(20);
       left: rem(-20);
 
@@ -72,10 +75,9 @@
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
         background: url(../images/company/company-image@2x.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
+        background-size: contain;
+        background-position: bottom;
       }
-
 
       @media screen and (min-device-pixel-ratio: 3),
       screen and (-webkit-min-device-pixel-ratio: 3),
@@ -83,15 +85,65 @@
       screen and (min-resolution: 228dpi),
       screen and (min-resolution: 3dppx) {
         background: url(../images/company/company-image@3x.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
+        background-size: contain;
+        background-position: bottom;
       }
     }
+  }
 
-    &::after {
-      position: absolute;
-      content: url(../images/company/company-logo.png);
-      bottom: 0;
+  @media screen and (width < 1000.99px) {
+    &__inner {
+      flex-direction: column;
     }
+
+    &__descr {
+      max-width: 100%;
+    }
+  }
+
+  @media screen and (width < 620.99px) {
+
+    // &__bg {
+    //   width: rem(250);
+    //   // height: auto;
+
+
+
+
+    //   // @media screen and (min-device-pixel-ratio: 3),
+    //   // screen and (-webkit-min-device-pixel-ratio: 3),
+    //   // screen and (-o-mini-device-pixel-ratio: 3/1),
+    //   // screen and (min-resolution: 228dpi),
+    //   // screen and (min-resolution: 3dppx) {
+    //   //   background: url(../images/company/bg@3x.jpg) no-repeat;
+    //   //   background-size: cover;
+    //   //   background-position: center;
+    //   // }
+    // }
+
+    &__descr {
+      max-width: 100%;
+    }
+
+    // &__images {
+    //   width: rem(250);
+    //   // height: auto;
+
+    //   &::before {
+
+    //     width: rem(250);
+    //     // height: auto;
+    //     // top: rem(20);
+    //     // left: rem(-20);
+
+
+
+    //     // &::after {
+    //     //   position: absolute;
+    //     //   content: url(../images/company/company-logo.png);
+    //     //   bottom: 0;
+    //     // }
+    //   }
+    // }
   }
 }
