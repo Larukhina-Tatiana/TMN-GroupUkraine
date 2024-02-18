@@ -1,0 +1,97 @@
+.company {
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: rem(50);
+  }
+
+  &__title {
+    margin-bottom: rem(20);
+  }
+
+  &__text {
+    max-width: rem(570);
+    color: var(--gray);
+
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__bg {
+    background-image: url(../images/company/bg@1x.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: rem(550);
+    height: rem(470);
+
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-mini-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+      background: url(../images/company/bg@2x.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+
+    @media screen and (min-device-pixel-ratio: 3),
+    screen and (-webkit-min-device-pixel-ratio: 3),
+    screen and (-o-mini-device-pixel-ratio: 3/1),
+    screen and (min-resolution: 228dpi),
+    screen and (min-resolution: 3dppx) {
+      background: url(../images/company/bg@3x.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  &__images {
+    position: relative;
+    width: rem(550);
+    height: rem(470);
+
+    &::before {
+      position: absolute;
+      content: '';
+      background-image: url(../images/company/company-image@1x.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: rem(550);
+      height: rem(470);
+      top: rem(20);
+      left: rem(-20);
+
+      @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-mini-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+        background: url(../images/company/company-image@2x.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+
+      @media screen and (min-device-pixel-ratio: 3),
+      screen and (-webkit-min-device-pixel-ratio: 3),
+      screen and (-o-mini-device-pixel-ratio: 3/1),
+      screen and (min-resolution: 228dpi),
+      screen and (min-resolution: 3dppx) {
+        background: url(../images/company/company-image@3x.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: url(../images/company/company-logo.png);
+      bottom: 0;
+    }
+  }
+}

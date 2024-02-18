@@ -1,20 +1,19 @@
 .breadcrumbs {
-  margin: rem(40) 0;
+  margin: rem(20) 0;
 
   &__item {
     display: inline-block;
-    color: var(--gray);
-    font-size: rem(15);
-    padding-right: rem(16);
-    margin-right: rem(10);
+    font-size: rem(12);
+    padding-right: rem(14);
+    margin-right: rem(8);
     position: relative;
 
     &::after {
       position: absolute;
       content: '';
-      background-image: url(../images/category-arrow.svg);
+      background-image: url(../images/icons/icon-right.svg);
       width: rem(6);
-      height: rem(9);
+      height: rem(6);
       right: 0;
       top: 50%;
       transform: translateY(-50%);
@@ -23,6 +22,10 @@
     &:last-child::after {
       display: none;
     }
+  }
+
+  &__nolink {
+    color: var(--gray-bright);
   }
 
   @media screen and (width < 980.01px) {
