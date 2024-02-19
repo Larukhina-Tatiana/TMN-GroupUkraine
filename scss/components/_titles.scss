@@ -19,12 +19,6 @@
   line-height: 1.2;
 }
 
-// .title-h3 {
-//   font-size: rem(32);
-//   // @include adaptivevalue(font-size, 24, 20, 1620, 320, 1);
-//   font-weight: 500;
-//   line-height: 1.2;
-// }
 
 .title-h3 {
   font-size: rem(16);
@@ -44,6 +38,14 @@
   font-weight: 600;
   line-height: 1.4;
   // @include adaptivevalue(line-height, 34, 32, 1620, 320, 1);
+  text-transform: uppercase;
+}
+
+.title-h6 {
+  font-size: rem(24);
+  font-weight: 600;
+  line-height: 1.4;
+  @include adaptivevalue(font-size, 24, 16, 1200, 320, 1);
   text-transform: uppercase;
 }
 

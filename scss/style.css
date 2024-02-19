@@ -238,6 +238,19 @@ button,
   text-transform: uppercase;
 }
 
+.title-h6 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 1200px) {
+  .title-h6 {
+    font-size: calc(16px + 8 * (100vw - 320px) / 880);
+  }
+}
+
 .text2 {
   font-size: 0.75rem;
   font-weight: 400;
@@ -1949,4 +1962,40 @@ button,
   .articles__inner-img {
     height: 11.25rem;
   }
+}
+
+.articles-card {
+  padding-bottom: 5rem;
+}
+.articles-card__title {
+  margin-bottom: 1.25rem;
+}
+.articles-card__img {
+  margin-bottom: 1.25rem;
+}
+.articles-card__text {
+  margin-bottom: 1.25rem;
+}
+.articles-card__item {
+  margin-bottom: 1.25rem;
+}
+.articles-card__subtitle {
+  margin-bottom: 1.25rem;
+}
+.articles-card__descr:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+.articles-card__descr_item {
+  margin-bottom: 1.25rem;
+}
+.articles-card__descr_item:before {
+  content: url(../images/icons/li-ellipse.svg);
+  width: 0.5rem;
+  height: 0.5rem;
+  padding-right: 0.625rem;
+}
+.articles-card__pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
 }/*# sourceMappingURL=style.css.map */

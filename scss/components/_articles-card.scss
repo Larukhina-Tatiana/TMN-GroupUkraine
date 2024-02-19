@@ -1,0 +1,47 @@
+.articles-card {
+  padding-bottom: rem(80);
+
+  &__title {
+    margin-bottom: rem(20);
+  }
+
+  &__img {
+    margin-bottom: rem(20);
+  }
+
+  &__text {
+    margin-bottom: rem(20);
+  }
+
+  &__item {
+    margin-bottom: rem(20);
+  }
+
+  &__subtitle {
+    margin-bottom: rem(20);
+  }
+
+  &__descr {
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  &__descr_item {
+    // list-style-type: none;
+    margin-bottom: rem(20);
+
+    &:before {
+      content: url(../images/icons/li-ellipse.svg);
+      width: rem(8);
+      height: rem(8);
+      padding-right: rem(10);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(20);
+  }
+}
