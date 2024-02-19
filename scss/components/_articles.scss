@@ -1,0 +1,135 @@
+.articles {
+  margin-bottom: rem(80);
+
+  &__title {
+    @include adaptivevalue(margin-bottom, 40, 20, 1200, 320, 1);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: rem(30);
+    margin-bottom: rem(30);
+  }
+
+  &__item {
+    flex-basis: calc((100% - 60px)/3);
+    background-color: var(--white);
+    @include transition ($transition-property: box-shadow);
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+      }
+    }
+  }
+
+  &__post-card {
+    width: 100%;
+  }
+
+  &__inner-img {
+    position: relative;
+    width: 100%;
+    height: rem(230);
+    border-radius: rem(2);
+  }
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__content {
+    padding: rem(20);
+  }
+
+  &__post-title {
+    margin-bottom: rem(10);
+    height: rem(84);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__post-excerpt {
+    margin-bottom: rem(20);
+    height: rem(144);
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__button {
+    max-width: rem(330);
+    width: 100%;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: rem(1);
+  }
+
+  &__pagination-item {
+    background-color: var(--white);
+    @include adaptivevalue(width, 48, 32, 1200, 320, 1);
+    @include adaptivevalue(height, 48, 32, 1200, 320, 1);
+    // width: rem(48);
+    // height: rem(48);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include transition ($transition-property: (background-color, color));
+  }
+
+  &__pagination-item.active {
+    background-color: var(--accent);
+    color: var(--white);
+  }
+
+  &__pagination-link {
+    padding: rem(18);
+    @include transition ($transition-property: color);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+
+        svg {
+          color: var(--accent);
+        }
+      }
+    }
+  }
+
+  &__pagination-link svg {
+    @include transition ($transition-property: color);
+  }
+
+  @media screen and (width < 1199.99px) {
+    &__item {
+      flex-basis: rem(370);
+    }
+  }
+
+  @media screen and (width < 400.99px) {
+
+    &__item {
+      flex-basis: rem(290);
+      width: 100%;
+    }
+
+    &__inner-img {
+      height: rem(180);
+    }
+  }
+}

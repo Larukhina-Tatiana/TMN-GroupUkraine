@@ -95,20 +95,20 @@ function scripts() {
 function images() {
   // return src(["app/images/**/*.*", "!app/images/**/*.svg"])
   return (
-    src(["images/src/company/*.*", "!images/src/*.svg"])
+    src(["images/src/*.*", "!images/src/*.svg"])
       // .pipe(newer("app/images"))
       // .pipe(avif({ quality: 50 }))
 
       // .pipe(src("app/images/**/*.*"))
-      .pipe(src("images/src/company/*.*"))
+      .pipe(src("images/src/*.*"))
       .pipe(newer("images"))
       .pipe(webp())
 
-      .pipe(src("images/src/company/*.*"))
+      .pipe(src("images/src/*.*"))
       .pipe(newer("images"))
       .pipe(imagemin())
 
-      .pipe(dest("images/company/"))
+      .pipe(dest("images/articles/"))
   );
 }
 

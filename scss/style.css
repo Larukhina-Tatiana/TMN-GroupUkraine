@@ -1067,6 +1067,15 @@ button,
   content: url(../images/icons/arrow-more.svg);
   margin-left: 0.1875rem;
 }
+.popular__item {
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .popular__item:hover {
+    box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+  }
+}
 .popular__slider-dotts {
   margin-top: 1.25rem;
 }
@@ -1275,6 +1284,13 @@ button,
   width: 16.875rem;
   height: 12rem;
   border-radius: 0.125rem;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .advantages__item:hover {
+    box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+  }
 }
 .advantages__item-images {
   margin-bottom: 0.625rem;
@@ -1450,6 +1466,13 @@ button,
 }
 .blog__item {
   width: 16.875rem;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .blog__item:hover {
+    box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+  }
 }
 .blog__post-card {
   background-color: var(--white);
@@ -1794,5 +1817,136 @@ button,
   }
   .our-advantages__text {
     width: 100%;
+  }
+}
+
+.articles {
+  margin-bottom: 5rem;
+}
+.articles__title {
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 1200px) {
+  .articles__title {
+    margin-bottom: calc(20px + 20 * (100vw - 320px) / 880);
+  }
+}
+.articles__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1.875rem;
+  margin-bottom: 1.875rem;
+}
+.articles__item {
+  flex-basis: calc((100% - 60px) / 3);
+  background-color: var(--white);
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .articles__item:hover {
+    box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+  }
+}
+.articles__post-card {
+  width: 100%;
+}
+.articles__inner-img {
+  position: relative;
+  width: 100%;
+  height: 14.375rem;
+  border-radius: 0.125rem;
+}
+.articles__img {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.articles__content {
+  padding: 1.25rem;
+}
+.articles__post-title {
+  margin-bottom: 0.625rem;
+  height: 5.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.articles__post-excerpt {
+  margin-bottom: 1.25rem;
+  height: 9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.articles__button {
+  max-width: 20.625rem;
+  width: 100%;
+}
+.articles__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.0625rem;
+}
+.articles__pagination-item {
+  background-color: var(--white);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (max-width: 1200px) {
+  .articles__pagination-item {
+    width: calc(32px + 16 * (100vw - 320px) / 880);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .articles__pagination-item {
+    height: calc(32px + 16 * (100vw - 320px) / 880);
+  }
+}
+.articles__pagination-item.active {
+  background-color: var(--accent);
+  color: var(--white);
+}
+.articles__pagination-link {
+  padding: 1.125rem;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .articles__pagination-link:hover {
+    color: var(--accent);
+  }
+  .articles__pagination-link:hover svg {
+    color: var(--accent);
+  }
+}
+.articles__pagination-link svg {
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media screen and (width < 1199.99px) {
+  .articles__item {
+    flex-basis: 23.125rem;
+  }
+}
+@media screen and (width < 400.99px) {
+  .articles__item {
+    flex-basis: 18.125rem;
+    width: 100%;
+  }
+  .articles__inner-img {
+    height: 11.25rem;
   }
 }/*# sourceMappingURL=style.css.map */

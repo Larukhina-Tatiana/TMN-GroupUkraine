@@ -5,7 +5,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: rem(40);
-
   }
 
   &__link-more {
@@ -13,6 +12,16 @@
     &::after {
       content: url(../images/icons/arrow-more.svg);
       margin-left: rem(3);
+    }
+  }
+
+  &__item {
+    @include transition ($transition-property: box-shadow);
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+      }
     }
   }
 

@@ -15,6 +15,13 @@
     // flex-basis: calc((100% - 90px) / 4);
     height: rem(192);
     border-radius: rem(2);
+    @include transition ($transition-property: box-shadow);
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+      }
+    }
   }
 
   &__item-images {
