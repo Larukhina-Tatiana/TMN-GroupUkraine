@@ -33,11 +33,6 @@
             &:focus {
                 color: var(--accent);
             }
-
-            // &:hover .footer__mail,
-            // &:focus .footer__mail {
-            //     color: var(--white);
-            // }
         }
     }
 
@@ -106,7 +101,7 @@
 
     }
 
-    @media screen and (width < 824.99px) {
+    @media screen and (width < 920.99px) {
 
         &__inner {
             flex-direction: column;

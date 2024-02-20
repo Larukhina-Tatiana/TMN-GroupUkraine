@@ -1,0 +1,146 @@
+.contacts {
+  padding-bottom: rem(80);
+
+  &__main {
+    background: var(--linear, linear-gradient(233deg, #165EBF -13.52%, #29B384 76.05%));
+  }
+
+  &__title {
+    margin-bottom: rem(40);
+    color: var(--white);
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(30);
+  }
+
+  &__item {
+    background-color: var(--white);
+    padding: rem(30) rem(20) rem(30) rem(24);
+    flex-basis: calc((100% - 90px) / 4);
+    height: rem(243);
+    @include transition ($transition-property: box-shadow);
+
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+      }
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: rem(15);
+  }
+
+  &__phone-list {
+    margin-bottom: rem(10);
+  }
+
+  &__phone-link {
+    padding-left: rem(28);
+    font-style: normal;
+    @include transition ($transition-property: color);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__phone-link--svgphone {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: url(../images/icons/phone-icon-green.svg);
+      width: rem(18);
+      height: rem(18);
+      left: 0;
+    }
+  }
+
+  &__address-item {
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__address-link {
+    max-width: rem(198);
+    padding-left: rem(28);
+    font-style: normal;
+    position: relative;
+    @include transition ($transition-property: color);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__address-link--svglocation {
+    &::before {
+      position: absolute;
+      content: url(../images/icons/location.svg);
+      width: rem(18);
+      height: rem(18);
+      left: 0;
+    }
+  }
+
+
+
+  &__address-link-mail {
+    padding-left: rem(28);
+    font-style: normal;
+    position: relative;
+    @include transition ($transition-property: color);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__address-link-mail--svgmail {
+
+    &::before {
+      position: absolute;
+      content: url(../images/icons/contact-mail.svg);
+      width: rem(18);
+      height: rem(18);
+      left: 0;
+      bottom: rem(2);
+    }
+  }
+
+  @media screen and (width < 1084.99px) {
+    &__list {
+      flex-flow: wrap;
+      justify-content: space-evenly;
+    }
+
+    &__item {
+      flex-basis: calc((100% - 60px) / 3);
+    }
+  }
+
+  @media screen and (width < 880.99px) {
+
+    &__item {
+      flex-basis: calc((100% - 30px) / 2);
+    }
+  }
+
+  @media screen and (width < 588.99px) {
+
+    &__item {
+      flex-basis: rem(270);
+    }
+  }
+}

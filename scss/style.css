@@ -260,7 +260,7 @@ button,
 .logo__img-mobile {
   display: none;
 }
-@media screen and (width < 480.01px) {
+@media screen and (width < 910.99px) {
   .logo__img-mobile {
     display: block;
     max-width: 1.9375rem;
@@ -275,16 +275,18 @@ button,
   background-color: var(--white);
 }
 .header__inner {
+  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: flex-end;
 }
 .header__logo {
-  margin-right: 33px;
+  margin-right: 20px;
 }
 @media screen and (max-width: 1440px) {
   .header__logo {
-    margin-right: calc(5px + 28 * (100vw - 320px) / 1120);
+    margin-right: calc(5px + 15 * (100vw - 320px) / 1120);
   }
 }
 .header__box {
@@ -309,14 +311,9 @@ button,
 .header__basket {
   margin-left: 1rem;
 }
-@media screen and (width < 1060.01px) {
-  .header__inner {
-    width: 100%;
-    justify-content: flex-end;
-  }
-}
-@media screen and (width < 825.01px) {
+@media screen and (width < 825.99px) {
   .header__box {
+    padding: 1.5625rem 0;
     flex-wrap: nowrap;
   }
   .header__inner {
@@ -1611,7 +1608,7 @@ button,
   height: 1.5rem;
   left: -1.9375rem;
 }
-@media screen and (width < 824.99px) {
+@media screen and (width < 920.99px) {
   .footer__inner {
     flex-direction: column;
     justify-content: center;
@@ -1639,7 +1636,7 @@ button,
 }
 
 .breadcrumbs {
-  margin: 1.25rem 0;
+  padding: 1.25rem 0;
 }
 .breadcrumbs__item {
   display: inline-block;
@@ -1998,4 +1995,122 @@ button,
   display: flex;
   justify-content: space-between;
   gap: 1.25rem;
+}
+
+.contacts {
+  padding-bottom: 5rem;
+}
+.contacts__main {
+  background: var(--linear, linear-gradient(233deg, #165EBF -13.52%, #29B384 76.05%));
+}
+.contacts__title {
+  margin-bottom: 2.5rem;
+  color: var(--white);
+}
+.contacts__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.875rem;
+}
+.contacts__item {
+  background-color: var(--white);
+  padding: 1.875rem 1.25rem 1.875rem 1.5rem;
+  flex-basis: calc((100% - 90px) / 4);
+  height: 15.1875rem;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .contacts__item:hover {
+    box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+  }
+}
+.contacts__subtitle {
+  margin-bottom: 0.9375rem;
+}
+.contacts__phone-list {
+  margin-bottom: 0.625rem;
+}
+.contacts__phone-link {
+  padding-left: 1.75rem;
+  font-style: normal;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .contacts__phone-link:hover {
+    color: var(--accent);
+  }
+}
+.contacts__phone-link--svgphone {
+  position: relative;
+}
+.contacts__phone-link--svgphone::before {
+  position: absolute;
+  content: url(../images/icons/phone-icon-green.svg);
+  width: 1.125rem;
+  height: 1.125rem;
+  left: 0;
+}
+.contacts__address-item:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.contacts__address-link {
+  max-width: 12.375rem;
+  padding-left: 1.75rem;
+  font-style: normal;
+  position: relative;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .contacts__address-link:hover {
+    color: var(--accent);
+  }
+}
+.contacts__address-link--svglocation::before {
+  position: absolute;
+  content: url(../images/icons/location.svg);
+  width: 1.125rem;
+  height: 1.125rem;
+  left: 0;
+}
+.contacts__address-link-mail {
+  padding-left: 1.75rem;
+  font-style: normal;
+  position: relative;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .contacts__address-link-mail:hover {
+    color: var(--accent);
+  }
+}
+.contacts__address-link-mail--svgmail::before {
+  position: absolute;
+  content: url(../images/icons/contact-mail.svg);
+  width: 1.125rem;
+  height: 1.125rem;
+  left: 0;
+  bottom: 0.125rem;
+}
+@media screen and (width < 1084.99px) {
+  .contacts__list {
+    flex-flow: wrap;
+    justify-content: space-evenly;
+  }
+  .contacts__item {
+    flex-basis: calc((100% - 60px) / 3);
+  }
+}
+@media screen and (width < 880.99px) {
+  .contacts__item {
+    flex-basis: calc((100% - 30px) / 2);
+  }
+}
+@media screen and (width < 588.99px) {
+  .contacts__item {
+    flex-basis: 16.875rem;
+  }
 }/*# sourceMappingURL=style.css.map */

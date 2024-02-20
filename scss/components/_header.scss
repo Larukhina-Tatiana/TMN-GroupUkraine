@@ -2,13 +2,15 @@
   background-color: var(--white);
 
   &__inner {
+    position: relative;
+    width: 100%;
     display: flex;
     align-items: center;
-    position: relative;
+    justify-content: flex-end;
   }
 
   &__logo {
-    @include adaptivevalue(margin-right, 33, 5, 1440, 320, 1);
+    @include adaptivevalue(margin-right, 20, 5, 1440, 320, 1);
   }
 
   &__box {
@@ -40,20 +42,10 @@
     margin-left: rem(16);
   }
 
-
-
-
-
-  @media screen and (width < 1060.01px) {
-    &__inner {
-      width: 100%;
-      justify-content: flex-end;
-    }
-  }
-
-  @media screen and (width < 825.01px) {
+  @media screen and (width < 825.99px) {
 
     &__box {
+      padding: rem(25) 0;
       flex-wrap: nowrap;
     }
 
@@ -81,6 +73,4 @@
       margin-left: rem(0);
     }
   }
-
-
 }
