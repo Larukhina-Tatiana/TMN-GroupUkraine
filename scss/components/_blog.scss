@@ -1,5 +1,6 @@
 .blog {
-    padding-bottom: rem(70);
+    @include adaptivevalue(padding-top, 80, 50, 1200, 320, 1);
+
     background-image: url(../images/blog/bg.png);
     background-size: cover;
     background-position: center;

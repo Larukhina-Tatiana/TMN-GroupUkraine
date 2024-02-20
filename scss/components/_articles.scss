@@ -1,5 +1,4 @@
 .articles {
-  margin-bottom: rem(80);
 
   &__title {
     @include adaptivevalue(margin-bottom, 40, 20, 1200, 320, 1);

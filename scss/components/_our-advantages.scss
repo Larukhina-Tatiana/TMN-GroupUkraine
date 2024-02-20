@@ -1,5 +1,5 @@
 .our-advantages {
-  padding-bottom: rem(80);
+  @include adaptivevalue(padding-top, 80, 50, 1200, 320, 1);
 
   &__content {
     margin-bottom: rem(40);

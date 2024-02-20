@@ -1011,6 +1011,14 @@ button,
   color: var(--gray-bright);
 }
 
+.categories {
+  padding-top: 80px;
+}
+@media screen and (max-width: 1200px) {
+  .categories {
+    padding-top: calc(50px + 30 * (100vw - 320px) / 880);
+  }
+}
 .categories__title {
   margin-bottom: 2.5rem;
 }
@@ -1326,6 +1334,14 @@ button,
   }
 }
 
+.gloves-advantages {
+  padding-top: 80px;
+}
+@media screen and (max-width: 1200px) {
+  .gloves-advantages {
+    padding-top: calc(50px + 30 * (100vw - 320px) / 880);
+  }
+}
 .gloves-advantages__content {
   display: grid;
   grid-template-columns: 35.625rem 35.625rem;
@@ -1470,11 +1486,16 @@ button,
 }
 
 .blog {
-  padding-bottom: 4.375rem;
+  padding-top: 80px;
   background-image: url(../images/blog/bg.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@media screen and (max-width: 1200px) {
+  .blog {
+    padding-top: calc(50px + 30 * (100vw - 320px) / 880);
+  }
 }
 .blog__list {
   display: flex;
@@ -1811,7 +1832,12 @@ button,
 }
 
 .our-advantages {
-  padding-bottom: 5rem;
+  padding-top: 80px;
+}
+@media screen and (max-width: 1200px) {
+  .our-advantages {
+    padding-top: calc(50px + 30 * (100vw - 320px) / 880);
+  }
 }
 .our-advantages__content {
   margin-bottom: 2.5rem;
@@ -1838,9 +1864,6 @@ button,
   }
 }
 
-.articles {
-  margin-bottom: 5rem;
-}
 .articles__title {
   margin-bottom: 40px;
 }
@@ -2005,9 +2028,6 @@ button,
   gap: 1.25rem;
 }
 
-.contacts {
-  padding-bottom: 5rem;
-}
 .contacts__main {
   background: var(--linear, linear-gradient(233deg, #165EBF -13.52%, #29B384 76.05%));
 }
@@ -2123,9 +2143,6 @@ button,
   }
 }
 
-.delivery {
-  padding-bottom: 5rem;
-}
 .delivery__top {
   margin-bottom: 2.5rem;
   display: flex;
