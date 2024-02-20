@@ -1,0 +1,77 @@
+.card-goods {
+  padding: rem(20) rem(16) rem(30) rem(16);
+  display: flex;
+  gap: rem(30);
+  background-color: var(--white);
+  border-radius: rem(2);
+
+  &__img {
+    max-width: rem(230);
+  }
+
+  &__body {
+    max-width: rem(550);
+  }
+
+  &__title {
+    margin-bottom: rem(10);
+  }
+
+  &__name {
+    margin-bottom: rem(10);
+  }
+
+  &__application {
+    color: var(--gray);
+  }
+
+  &__size {
+    display: inline-block;
+    line-height: 1.4;
+
+    @media screen and (width > 506.99px) {
+      margin-right: rem(40);
+    }
+  }
+
+
+  &__footer {
+    margin-left: rem(20);
+  }
+
+  &__price {
+    color: var(--red);
+    font-size: rem(24);
+    font-weight: 600;
+    line-height: 1.4;
+    @include adaptivevalue(font-size, 24, 16, 1200, 320, 1);
+  }
+
+  &__old-price {
+    margin-left: rem(8);
+    text-decoration: line-through;
+  }
+
+  @media screen and (width < 974.99px) {
+    flex-direction: column;
+
+    &__body {
+      max-width: 100%;
+    }
+
+    &__footer {
+      margin-left: 0;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  @media screen and (width < 506.99px) {
+    &__footer {
+      flex-direction: column;
+      gap: rem(10);
+    }
+  }
+
+}

@@ -1,0 +1,41 @@
+.user-basket {
+  &__title {
+    margin-bottom: rem(22);
+  }
+
+  &__list {
+    margin-bottom: rem(20);
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: rem(20);
+  }
+
+  &__update {
+    max-width: rem(200);
+    width: 100%;
+    margin-left: auto;
+    color: var(--gray-bright);
+    background-color: #F7F7F8;
+    line-height: 1.4;
+    border: rem(2) solid var(--gray-bright);
+    border-radius: rem(2);
+  }
+
+  &__sum {
+    max-width: rem(300);
+    width: 100%;
+    padding: rem(20) rem(20) rem(20) rem(30);
+    background-color: var(--white);
+  }
+
+  &__total {
+    margin-bottom: rem(20);
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
