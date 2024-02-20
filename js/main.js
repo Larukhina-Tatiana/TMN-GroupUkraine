@@ -38,7 +38,7 @@ btn.addEventListener("click", () => {
   }
 })();
 
-if ($(window).width() < 825.01) {
+if ($(window).width() < 890.99) {
   $(".lang").appendTo($(".nav__list"));
 }
 

@@ -101,7 +101,7 @@
 
     }
 
-    @media screen and (width < 920.99px) {
+    @media screen and (width < 1020.99px) {
 
         &__inner {
             flex-direction: column;
@@ -131,7 +131,7 @@
         }
     }
 
-    @media screen and (width < 480.99px) {
+    @media screen and (width < 750.99px) {
         &__nav-list {
             flex-direction: column;
         }

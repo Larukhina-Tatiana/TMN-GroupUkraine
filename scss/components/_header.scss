@@ -7,6 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    @include adaptivevalue(gap, 30, 10, 890, 320, 1);
+    gap: rem(30);
   }
 
   &__logo {
@@ -27,7 +29,7 @@
   }
 
   &__lang {
-    margin-left: rem(20);
+    margin-right: rem(20);
   }
 
   &__phone {
@@ -42,20 +44,13 @@
     margin-left: rem(16);
   }
 
-  @media screen and (width < 825.99px) {
+  @media screen and (width < 1022.99px) {
 
     &__box {
       padding: rem(25) 0;
-      flex-wrap: nowrap;
     }
 
-    &__inner {
-      justify-content: space-evenly;
-    }
 
-    &__lang {
-      margin-left: rem(0);
-    }
 
     &__basket {
       margin-left: 0;
@@ -71,6 +66,16 @@
 
     &__basket {
       margin-left: rem(0);
+    }
+  }
+
+  @media screen and (width < 890.99px) {
+    &__box {
+      flex-wrap: nowrap;
+    }
+
+    &__inner {
+      justify-content: space-evenly;
     }
   }
 }
