@@ -2,8 +2,19 @@
   padding: rem(20) rem(16) rem(30) rem(16);
   display: flex;
   gap: rem(30);
-  background-color: var(--white);
   border-radius: rem(2);
+
+  &__item {
+    background-color: var(--white);
+    box-shadow: 2px 2px 19px 0px rgba(0, 0, 0, 0.06);
+    @include transition ($transition-property: scale);
+
+    @media (any-hover: hover) {
+      &:hover {
+        scale: 1.03;
+      }
+    }
+  }
 
   &__img {
     max-width: rem(230);

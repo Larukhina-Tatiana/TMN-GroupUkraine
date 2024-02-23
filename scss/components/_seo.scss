@@ -1,0 +1,13 @@
+.seo {
+
+  &__title {
+    margin-bottom: rem(20);
+  }
+
+  &__text {
+    background: linear-gradient(180.00deg, rgb(64, 71, 79), rgba(64, 71, 79, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
