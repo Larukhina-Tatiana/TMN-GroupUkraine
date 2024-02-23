@@ -1,0 +1,173 @@
+.catalog {
+
+
+  &__inner {
+    display: flex;
+    @include adaptivevalue(gap, 30, 0, 1200, 320, 1);
+    position: relative;
+  }
+
+  &__text {
+    color: var(--gray-bright);
+    margin-bottom: rem(20);
+  }
+
+  &__card-item {
+    box-shadow: 2px 2px 19px 0px rgba(0, 0, 0, 0.06);
+    @include transition ($transition-property: scale);
+
+    @media (any-hover: hover) {
+      &:hover {
+        scale: 1.03;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+  }
+
+  &__card {
+    display: flex;
+    gap: rem(30);
+  }
+
+  &__pagination {
+    margin-top: rem(20);
+  }
+
+  .menu__sort {
+    display: none;
+  }
+
+  @media screen and (width < 990.99px) {
+
+    .menu__sort {
+      display: block;
+      position: absolute;
+      width: rem(24);
+      height: rem(24);
+      right: 0;
+      @include transition ($transition-property: color);
+
+
+      &.menu-open {
+        svg {
+          color: var(--accent);
+        }
+      }
+    }
+
+
+    &__aside {
+      position: absolute;
+      top: rem(26);
+      right: 0;
+      // background: linear-gradient(155deg, #165EBF 50%, #29B384 67.73%);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      transform: translateY(-150%);
+      z-index: 2;
+    }
+  }
+
+  &__aside.menu-open {
+    transform: translateY(0%);
+  }
+}
+
+
+
+//  Цена range
+.range {
+
+  &__values {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+    @include adaptivevalue(width, 230, 290, 1200, 320, 1);
+    border-radius: rem(2);
+    font-size: rem(16);
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+
+    &-span {
+      width: rem(17);
+      height: rem(1);
+      background-color: var(--gray-bright);
+    }
+
+    &-input {
+      padding: rem(3) rem(3);
+      width: rem(90);
+      color: var(--gray);
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+
+  &__slider {
+    @include adaptivevalue(width, 230, 234, 1200, 320, 1);
+  }
+}
+
+.noUi-target {
+  background: var(--gray-bright);
+  border-radius: rem(3);
+  border: none;
+  box-shadow: none;
+}
+
+.noUi-horizontal {
+  height: rem(5);
+}
+
+.noUi-connect {
+  background-color: var(--accent);
+}
+
+
+.noUi-handle::after,
+.noUi-handle::before {
+  display: none;
+}
+
+.noUi-horizontal .noUi-handle {
+  border-radius: 50%;
+  right: rem(-1);
+  top: rem(-5);
+  height: rem(13);
+  width: rem(13);
+}
+
+.noUi-handle {
+  border-radius: 3px;
+  background: var(--white);
+  cursor: default;
+  box-shadow: none;
+  border: none;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15), -2px -2px 16px 0px rgba(0, 0, 0, 0.11);
+}
+
+.noUi-tooltip {
+  display: none;
+  // display: block;
+  // position: absolute;
+  // border: none;
+  // border-radius: 3px;
+  // background: transparent;
+  // color: rgba(20, 20, 20, 0.50);
+  // padding: 5px;
+  // text-align: center;
+  // white-space: nowrap;
+}
+
+.noUi-horizontal .noUi-tooltip {
+  display: none;
+  // -webkit-transform: translate(-50%, 0);
+  // transform: translate(-50%, 0);
+  // left: 50%;
+  // bottom: rem(-52);
+}

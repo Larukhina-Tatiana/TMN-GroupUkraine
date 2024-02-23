@@ -1,0 +1,214 @@
+.card {
+  background-color: var(--white);
+  padding: rem(20);
+
+  &__img-cover {
+    position: relative;
+    overflow: hidden;
+    width: rem(250);
+    height: rem(190);
+
+    &::after {
+      position: absolute;
+      content: url(../images/icons/icon-alergic.png);
+      width: rem(100);
+      height: rem(100);
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+  }
+
+  &__body {
+    width: rem(550);
+  }
+
+  &__title {
+    margin-bottom: rem(10);
+  }
+
+  &__name {
+    margin-bottom: rem(10);
+  }
+
+  &__descr {
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+      color: var(--gray);
+    }
+  }
+
+  &__descr-bold {
+    font-weight: 600;
+  }
+
+  &__availability {
+    color: var(--red);
+    margin-bottom: rem(10);
+  }
+
+
+  &__choice {
+    display: flex;
+    @include adaptivevalue(gap, 20, 15, 1200, 320, 1);
+    flex-wrap: wrap;
+
+    &-name {
+      font-weight: 500;
+    }
+
+    &-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  &__counter {
+    position: relative;
+    width: rem(68);
+    height: rem(48);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: rem(1) solid var(--gray-bright);
+    border-radius: rem(2);
+
+    &-arrow {
+      position: absolute;
+      width: rem(12);
+      height: rem(10);
+      right: rem(5);
+      @include transition ($transition-property: color);
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: var(--accent);
+        }
+      }
+
+      &:disabled {
+        color: var(--black);
+        opacity: .5;
+      }
+
+      &--up {
+        top: rem(2);
+      }
+
+      &--down {
+        top: rem(22);
+      }
+
+      &-input {
+        margin-left: rem(-4);
+      }
+    }
+  }
+
+  &__price-inner {
+    margin-top: rem(10);
+    margin-bottom: rem(10);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+
+  }
+
+  &__price {
+    margin-right: rem(8);
+    margin-left: rem(24);
+    @include adaptivevalue(font-size, 24, 16, 1200, 320, 1);
+    font-weight: 600;
+    line-height: 1.4;
+
+    &--sale {
+      color: var(--red);
+    }
+  }
+
+  &__old-price {
+    text-decoration: line-through;
+    margin-right: rem(8);
+  }
+
+  &__proviso {
+    font-size: rem(16);
+    color: var(--gray-bright);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  &__btn-box {
+    display: flex;
+    gap: rem(20);
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    width: rem(170);
+  }
+
+
+
+  @media screen and (width < 1199.99px) {
+    flex-direction: column;
+
+    &__body {
+      width: 100%;
+    }
+  }
+
+  @media screen and (width < 430.99px) {
+
+    &__price,
+    &__proviso {
+      margin-left: auto;
+    }
+  }
+}
+
+.checkbox-style {
+  position: absolute;
+  width: rem(1);
+  height: rem(1);
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+
+  &:checked + .checkbox-castom::before {
+    content: '';
+    width: rem(6);
+    height: rem(6);
+    background-color: var(--accent);
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+  }
+
+  &:checked + .checkbox-castom {
+    border: 2px solid var(--accent);
+  }
+
+  &:focus + .checkbox-castom {
+    // box-shadow: 0 0 0 1px solid #000;
+    outline: 1px solid #000;
+  }
+}
+
+.checkbox-castom {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(14);
+  height: rem(14);
+  border-radius: 50%;
+  border: 1px solid var(--gray-bright);
+}

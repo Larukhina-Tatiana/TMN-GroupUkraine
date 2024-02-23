@@ -206,7 +206,7 @@
       @include transition ($transition-property: transform);
       padding: rem(15);
       color: var(--white);
-      z-index: 2;
+      z-index: 3;
     }
 
     &__list.menu-open {

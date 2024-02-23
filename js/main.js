@@ -113,6 +113,95 @@ function decreaseCount(e, el) {
   }
 }
 
+$(".js-range-slider").ionRangeSlider({
+  type: "double",
+  min: 250,
+  max: 800,
+});
+
+const rangeSliderInit = () => {
+  // создаем функцию инициализации слайдера
+  const range = document.getElementById("range"); // Ищем слайдер
+  const inputMin = document.getElementById("min"); // Ищем input с меньшим значнием
+  const inputMax = document.getElementById("max"); // Ищем input с большим значнием
+
+  if (!range || !inputMin || !inputMax) return; // если этих элементов нет, прекращаем выполнение функции, чтобы не было ошибок
+
+  const inputs = [inputMin, inputMax]; // создаем массив из меньшего и большего значения
+
+  noUiSlider.create(range, {
+    // инициализируем слайдер
+    start: [250, 800], // устанавливаем начальные значения
+    tooltips: [true, true],
+    connect: true, // указываем что нужно показывать выбранный диапазон
+    range: {
+      // устанавливаем минимальное и максимальное значения
+      min: 0,
+      max: 2000,
+    },
+    step: 1, // шаг изменения значений
+  });
+
+  range.noUiSlider.on("update", function (values, handle) {
+    // при изменений положения элементов управления слайдера изменяем соответствующие значения
+    inputs[handle].value = parseInt(values[handle]);
+  });
+
+  inputMin.addEventListener("change", function () {
+    // при изменении меньшего значения в input - меняем положение соответствующего элемента управления
+    range.noUiSlider.set([this.value, null]);
+  });
+
+  inputMax.addEventListener("change", function () {
+    // при изменении большего значения в input - меняем положение соответствующего элемента управления
+    range.noUiSlider.set([null, this.value]);
+  });
+};
+
+const init = () => {
+  rangeSliderInit(); // запускаем функцию инициализации слайдера
+};
+
+window.addEventListener("DOMContentLoaded", init); // запускаем функцию init, когда документ будет загружен и готов к взаимодействию
+// end rangeslider
+
+$(".filter-style").styler();
+
+// Страница catalog
+const counterText = document.querySelector(".card__counter-input");
+const counterBtn = document.querySelectorAll(".card__counter-arrow");
+let counter = 1;
+
+counterBtn.forEach((el, index) => {
+  el.addEventListener("click", () => {
+    if (index === 1 && counter > 1) {
+      counter--;
+    } else if (index === 0 && counter < 8) {
+      counter++;
+    }
+    counterText.textContent = counter;
+    setDisabled(counter);
+  });
+});
+
+function setDisabled(counter) {
+  if (counter === 1) {
+    counterBtn[1].disabled = true;
+  } else if (counter === 8) {
+    counterBtn[0].disabled = true;
+  } else {
+    counterBtn[1].disabled = false;
+    counterBtn[0].disabled = false;
+  }
+}
+
+const btnSort = document.querySelector(".menu__sort");
+const aside = document.querySelector(".aside");
+
+btnSort.addEventListener("click", () => {
+  aside.classList.toggle("menu-open");
+  btnSort.classList.toggle("menu-open");
+});
 // if ($(window).width() < 570.01) {
 //   $(".search__btn").appendTo($(".nav__list"));
 // }

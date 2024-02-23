@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: rem(1);
+
+
+  &__item {
+    background-color: var(--white);
+    @include adaptivevalue(width, 48, 32, 1200, 320, 1);
+    @include adaptivevalue(height, 48, 32, 1200, 320, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include transition ($transition-property: (background-color, color));
+  }
+
+  &__item.active {
+    background-color: var(--accent);
+    color: var(--white);
+  }
+
+  &__link {
+    padding: rem(18);
+    @include transition ($transition-property: color);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+
+        svg {
+          color: var(--accent);
+        }
+      }
+    }
+  }
+
+  &__link svg {
+    @include transition ($transition-property: color);
+  }
+}
