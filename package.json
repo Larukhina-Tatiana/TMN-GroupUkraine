@@ -28,5 +28,9 @@
     "nouislider": "^15.7.1",
     "sass": "^1.64.1",
     "swiper": "^9.4.1"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "siema": "^1.5.1"
   }
 }

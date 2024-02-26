@@ -1,0 +1,40 @@
+.sertificates {
+
+  &__title {
+    margin-bottom: rem(20);
+  }
+
+  // &__product-name {
+  //   &:not(:last-child) {
+  //     @include adaptivevalue(margin-bottom, 30, 20, 1200, 320, 1);
+  //   }
+  // }
+
+  &__buttons {
+    position: relative;
+    height: rem(24);
+  }
+
+  &__btn {
+    position: absolute;
+    top: 0;
+
+  }
+
+  .next {
+    right: rem(32);
+  }
+
+  .prev {
+    right: rem(0);
+  }
+
+  &__item {
+    max-width: rem(270);
+    margin: 0 auto;
+  }
+}
+
+.sl-overlay {
+  background-color: var(--black);
+}
