@@ -1,0 +1,119 @@
+.benefits-gloves {
+  background-color: var(--white);
+  @include adaptivevalue(padding-top, 80, 20, 1200, 320, 1);
+  @include adaptivevalue(padding-bottom, 80, 20, 1200, 320, 1);
+
+  &__title {
+    @include adaptivevalue(margin-bottom, 40, 20, 1200, 320, 1);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: rem(30);
+    justify-content: space-between;
+  }
+
+  &__list {
+    background-image: url(../images/page-card/group-527.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    // height: rem(512);
+    gap: rem(30);
+
+  }
+
+  &__item {
+    @include adaptivevalue(width, 412, 270, 1200, 320, 1);
+
+    &:not(:last-child) {
+      @include adaptivevalue(margin-bottom, 28, 20, 1200, 320, 1);
+    }
+  }
+
+  &__item--one {
+    @include adaptivevalue(margin-left, 306, 40, 1200, 320, 1);
+  }
+
+  &__item--two {
+    @include adaptivevalue(margin-left, 134, 20, 1200, 320, 1);
+  }
+
+  &__item--three {
+    @include adaptivevalue(margin-left, 79, 0, 1200, 320, 1);
+  }
+
+  &__item--four {
+    @include adaptivevalue(margin-left, 79, 0, 1200, 320, 1);
+  }
+
+  &__item--five {
+    @include adaptivevalue(margin-left, 134, 20, 1200, 320, 1);
+  }
+
+  &__item--six {
+    @include adaptivevalue(margin-left, 306, 40, 1200, 320, 1);
+  }
+
+  &__svg-item {
+    width: rem(131);
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__img-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: rem(30);
+  }
+
+  &__img {
+    @include adaptivevalue(width, 190, 90, 1200, 320, 1);
+  }
+
+  &__svg-item--umbrella {
+    position: relative;
+    padding-top: rem(63);
+
+    ::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      margin-bottom: rem(14);
+      content: url(../images/icons/benefits-gloves-umbrella.svg);
+      width: rem(48);
+      height: rem(49);
+    }
+  }
+
+  &__svg-item--house {
+    position: relative;
+    padding-top: rem(79);
+
+    ::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      margin-bottom: rem(14);
+      content: url(../../images/icons/benefits-gloves-house.svg);
+      width: rem(49);
+      height: rem(66);
+    }
+  }
+
+  @media screen and (width < 939.99px) {
+    &__inner {
+      flex-direction: column;
+    }
+  }
+}

@@ -156,7 +156,8 @@ button,
 // }
 
 .section {
-    @include adaptivevalue(padding-bottom, 80, 50, 1200, 320, 1);
+    @include adaptivevalue(padding-top, 40, 20, 1200, 320, 1);
+    @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
 }
 
 .section__background {
@@ -202,4 +203,8 @@ button,
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     margin: -1px;
+}
+
+.mobile-overflow {
+    width: rem(1000);
 }

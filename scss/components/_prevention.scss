@@ -1,7 +1,8 @@
 .prevention {
   background: var(--linear, linear-gradient(233deg, #165EBF -13.52%, #29B384 76.05%));
   color: var(--white);
-  padding-top: rem(80);
+  @include adaptivevalue(padding-top, 80, 20, 1200, 320, 1);
+  @include adaptivevalue(padding-bottom, 80, 20, 1200, 320, 1);
 
   &__title {
     margin-bottom: rem(20);
