@@ -55,7 +55,7 @@ function styles() {
     "css/ion.rangeSlider.css",
     "css/jquery.formstyler.css",
     "css/jquery.formstyler.theme.css",
-    "css/jquery.rateyo.css",
+    // "css/jquery.rateyo.css",
     "scss/style.scss",
     // "!/css/style.min.css",
   ])
