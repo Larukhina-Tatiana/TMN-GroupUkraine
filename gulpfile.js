@@ -74,10 +74,13 @@ function scripts() {
       "node_modules/jquery/dist/jquery.js",
       "node_modules/swiper/swiper-bundle.js",
       "node_modules/nouislider/dist/nouislider.js",
-      "js/jquery.formstyler.js",
-      "js/ion.rangeSlider.js",
-      "js/jquery.rateyo.js",
-      "js/modal.js",
+      "node_modules/simplelightbox/dist/simple-lightbox.min.js",
+      "node_modules/siema/dist/siema.min.js",
+      "node_modules/aos/dist/aos.js",
+      "js/jquery.formstyler.min.js",
+      "js/ion.rangeSlider.min.js",
+      // "js/jquery.rateyo.js",
+      // "js/modal.js",
       "js/main.js",
 
       // Для подключения многих (всех) файлов js? Обязательно исключать main.min.js
