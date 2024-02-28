@@ -49,7 +49,9 @@ function styles() {
   // return src("app/scss/style.scss")
   return src([
     "node_modules/swiper/swiper-bundle.css",
+    "node_modules/simplelightbox/dist/simple-lightbox.css",
     "node_modules/nouislider/dist/nouislider.css",
+    "node_modules/aos/dist/aos.css",
     "css/ion.rangeSlider.css",
     "css/jquery.formstyler.css",
     "css/jquery.formstyler.theme.css",
