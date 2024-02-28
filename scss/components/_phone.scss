@@ -4,16 +4,17 @@
   &__inner {
     display: flex;
     align-items: center;
-    transition-duration: 450ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    @include transition($transition-property: all);
+    // transition-duration: 450ms;
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &__link {
     display: flex;
     align-items: center;
     @include adaptivevalue(gap, 8, 3, 800, 320, 1);
-    gap: rem(8);
-    font-variant: all-small-caps;
+
+    // font-variant: all-small-caps;
     @include adaptivevalue(font-size, 16, 14, 1440, 320, 1);
     color: var(--black);
     @include transition($transition-property: color);
@@ -27,7 +28,6 @@
         fill: var(--accent);
       }
     }
-
 
     // &:hover,
     // &:focus,
@@ -45,6 +45,10 @@
   &__arrow-svg {
     @include transition ($transition-property: fill);
     // fill: inherit;
+  }
+
+  &__arrow {
+    margin-left: rem(5);
   }
 
   &__arrow.active {
