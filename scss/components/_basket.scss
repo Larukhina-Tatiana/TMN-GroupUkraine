@@ -24,4 +24,30 @@
     align-items: center;
     justify-content: center;
   }
+
+  &__tip {
+    position: absolute;
+    display: flex;
+    gap: rem(10);
+    right: 0;
+    top: rem(27);
+    width: rem(304);
+    background-color: var(--white);
+    color: var(--black);
+    padding: rem(30) rem(16) rem(20) rem(20);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    opacity: 0;
+    transition: 1s;
+  }
+
+  &__tiptext {
+    padding-left: rem(30);
+
+    &::before {
+      content: url(../images/icons/ok.svg);
+      width: rem(20);
+      height: rem(20);
+    }
+  }
 }

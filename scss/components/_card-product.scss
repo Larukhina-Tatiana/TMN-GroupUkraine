@@ -63,13 +63,6 @@
 
   &__tabs {
     @include adaptivevalue(margin-bottom, 25, 20, 1200, 320, 1);
-
-
-    // &__tabs.tabs {
-    //   display: flex;
-    //   gap: 50px;
-    //   margin-bottom: rem(25);
-    // }
     border-bottom: rem(1) solid var(--gray);
 
     &-link {
@@ -84,7 +77,6 @@
       padding-bottom: rem(12);
       // box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
       box-shadow: 4px 4px 5px 2px rgba(50, 50, 50, 0.25);
-
     }
   }
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --accent-color: #29B384;
   --accent: #29B384;
@@ -365,6 +366,7 @@ button,
 }
 .header__basket {
   margin-left: 1rem;
+  position: relative;
 }
 @media screen and (width < 1022.99px) {
   .header__box {
@@ -390,6 +392,39 @@ button,
   .header__inner {
     justify-content: space-evenly;
   }
+}
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  /* Выводим текст */
+  position: absolute;
+  width: 19rem;
+  right: 0;
+  top: 0rem;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.625rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  /* Параметры тени */
+  pointer-events: none;
+  opacity: 0;
+  transition: 1s;
+  z-index: 4;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  top: 2em;
+  /* Положение подсказки */
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  /* Выводим текст */
 }
 
 .nav {
@@ -833,6 +868,29 @@ button,
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.basket__tip {
+  position: absolute;
+  display: flex;
+  gap: 0.625rem;
+  right: 0;
+  top: 1.6875rem;
+  width: 19rem;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 1.875rem 1rem 1.25rem 1.25rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  transition: 1s;
+}
+.basket__tiptext {
+  padding-left: 1.875rem;
+}
+.basket__tiptext::before {
+  content: url(../images/icons/ok.svg);
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .menu__btn {
@@ -1948,10 +2006,16 @@ button,
 
 .our-advantages {
   padding-top: 80px;
+  padding-bottom: 80px;
 }
 @media screen and (max-width: 1200px) {
   .our-advantages {
-    padding-top: calc(50px + 30 * (100vw - 320px) / 880);
+    padding-top: calc(20px + 60 * (100vw - 320px) / 880);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .our-advantages {
+    padding-bottom: calc(20px + 60 * (100vw - 320px) / 880);
   }
 }
 .our-advantages__content {

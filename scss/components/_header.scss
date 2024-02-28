@@ -42,6 +42,15 @@
 
   &__basket {
     margin-left: rem(16);
+    position: relative;
+
+    // @media (any-hover: hover) {
+    //   &:hover {
+    //     .basket__tip {
+    //       opacity: 1;
+    //     }
+    //   }
+    // }
   }
 
   @media screen and (width < 1022.99px) {
@@ -78,4 +87,42 @@
       justify-content: space-evenly;
     }
   }
+}
+
+
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  /* Выводим текст */
+  position: absolute;
+  width: rem(304);
+  right: 0;
+  top: rem(0);
+  background-color: var(--white);
+  color: var(--black);
+  padding: rem(10);
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  /* Параметры тени */
+  pointer-events: none;
+  opacity: 0;
+  transition: 1s;
+  z-index: 4;
+
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+
+  top: 2em;
+  /* Положение подсказки */
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  /* Выводим текст */
 }

@@ -108,7 +108,7 @@ function images() {
       .pipe(newer("images"))
       .pipe(imagemin())
 
-      .pipe(dest("images/prevention/"))
+      .pipe(dest("images/articles/"))
   );
 }
 
