@@ -3472,7 +3472,7 @@ button,
   transform: translateX(-50%);
   display: block;
   margin-bottom: 0.875rem;
-  content: url(../../images/icons/benefits-gloves-house.svg);
+  content: url(../images/icons/benefits-gloves-house.svg);
   width: 3.0625rem;
   height: 4.125rem;
 }
