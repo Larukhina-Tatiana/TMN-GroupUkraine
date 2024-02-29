@@ -29,7 +29,8 @@
 }
 
 .title-h4 {
-  @include adaptivevalue(font-size, 16, 14, 1200, 320, 1);
+  // @include adaptivevalue(font-size, 16, 14, 1200, 320, 1);
+  font-size: rem(16);
   font-weight: 600;
   line-height: 1.5;
 }

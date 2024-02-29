@@ -253,14 +253,9 @@ button,
 }
 
 .title-h4 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
-}
-@media screen and (max-width: 1200px) {
-  .title-h4 {
-    font-size: calc(14px + 2 * (100vw - 320px) / 880);
-  }
 }
 
 .title-h5 {
@@ -2092,7 +2087,7 @@ button,
 }
 .articles__post-title {
   margin-bottom: 0.625rem;
-  height: 5.25rem;
+  height: 5rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
