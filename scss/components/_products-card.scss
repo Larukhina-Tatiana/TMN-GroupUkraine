@@ -79,11 +79,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: rem(88);
-
-    @media screen and (width < 599.99px) {
-      -webkit-line-clamp: 3;
-      height: rem(66);
-    }
   }
 
 

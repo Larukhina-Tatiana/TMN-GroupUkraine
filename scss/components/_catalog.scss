@@ -51,7 +51,7 @@
       @include transition ($transition-property: color);
 
 
-      &.menu-open {
+      &.open {
         svg {
           color: var(--accent);
         }
@@ -71,7 +71,7 @@
     }
   }
 
-  &__aside.menu-open {
+  &__aside.open {
     transform: translateY(0%);
   }
 }

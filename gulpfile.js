@@ -49,7 +49,7 @@ function styles() {
   // return src("app/scss/style.scss")
   return src([
     "node_modules/swiper/swiper-bundle.css",
-    "node_modules/simplelightbox/dist/simple-lightbox.css",
+    // "node_modules/simplelightbox/dist/simple-lightbox.css",
     "node_modules/nouislider/dist/nouislider.css",
     "node_modules/aos/dist/aos.css",
     "css/ion.rangeSlider.css",
@@ -76,7 +76,7 @@ function scripts() {
       "node_modules/jquery/dist/jquery.js",
       "node_modules/swiper/swiper-bundle.js",
       "node_modules/nouislider/dist/nouislider.js",
-      "node_modules/simplelightbox/dist/simple-lightbox.min.js",
+      // "node_modules/simplelightbox/dist/simple-lightbox.min.js",
       "node_modules/siema/dist/siema.min.js",
       "node_modules/aos/dist/aos.js",
       "js/jquery.formstyler.min.js",

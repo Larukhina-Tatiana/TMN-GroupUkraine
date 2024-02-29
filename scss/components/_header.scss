@@ -99,8 +99,9 @@
   content: attr(data-tooltip);
   /* Выводим текст */
   position: absolute;
+  @include adaptivevalue(width, 304, 290, 340, 320, 1);
   width: rem(304);
-  right: 0;
+  @include adaptivevalue(right, 0, -37, 340, 320, 1);
   top: rem(0);
   background-color: var(--white);
   color: var(--black);

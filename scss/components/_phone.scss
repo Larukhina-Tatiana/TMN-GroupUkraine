@@ -92,6 +92,9 @@
   }
 
   @media screen and (width < 480.01px) {
+    &__arrow {
+      margin-left: rem(1);
+    }
 
     &__svg {
       @include adaptivevalue(width, 24, 18, 480, 320, 1);
