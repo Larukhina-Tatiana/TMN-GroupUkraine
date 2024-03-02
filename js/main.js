@@ -34,57 +34,6 @@ if ($(window).width() < 890.99) {
     }
   })();
 
-  const swiper = new Swiper(".popular__slider", {
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchOverflow: true,
-    slidesPerView: 4,
-    spaceBetween: 30,
-    // speed: 800,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
-    pagination: {
-      el: ".popular__slider-dotts",
-      clickable: true,
-      dinamicBullets: true,
-    },
-
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-        // spaceBetween: 40,
-        // autoHeight: true,
-      },
-      // breakpoints: {
-      //   320: {
-      //     slidesPerView: 1,
-      //     // spaceBetween: 40,
-      //     // autoHeight: true,
-      //   },
-
-      600: {
-        slidesPerView: 2,
-      },
-
-      885: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-
-      1200: {
-        slidesPerView: 4,
-        spaceBetween: 30,
-        // autoHeight: true,
-      },
-      on: {
-        init: function (swiper) {},
-      },
-    },
-  });
-
   const btnSort = document.querySelector(".menu__sort");
   const aside = document.querySelector(".aside");
 
@@ -210,15 +159,50 @@ $(".tabs__link").on("click", function (e) {
   $($(this).attr("href")).addClass("tabs__content--active");
 });
 
-// if ($(window).width() < 570.01) {
-//   $(".search__btn").appendTo($(".nav__list"));
-// }
+const swiper = new Swiper(".popular__slider", {
+  loop: true,
+  observer: true,
+  observeParents: true,
+  watchOverflow: true,
+  slidesPerView: 4,
+  spaceBetween: 30,
+  // speed: 800,
+  // autoplay: {
+  //   delay: 3000,
+  //   disableOnInteraction: false,
+  // },
+  pagination: {
+    el: ".popular__slider-dotts",
+    clickable: true,
+    dinamicBullets: true,
+  },
 
-// открытие-закрытие заголовков footer__info-list
-// $(".nav__linkbtn-arrow").on("click", function () {
-//   $(this).next().slideToggle();
-//   $(this).toggleClass("active");
-// });
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      // spaceBetween: 40,
+      // autoHeight: true,
+    },
+
+    600: {
+      slidesPerView: 2,
+    },
+
+    885: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+
+    1200: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      // autoHeight: true,
+    },
+    on: {
+      init: function (swiper) {},
+    },
+  },
+});
 
 const slider = document.querySelector(".sertificates__list");
 const next = document.querySelector(".next");
@@ -252,4 +236,4 @@ const lightbox = new SimpleLightbox(".sertificates__item a", {
   fadeSpeed: 1000,
 });
 
-AOS.init();
+// AOS.init();
