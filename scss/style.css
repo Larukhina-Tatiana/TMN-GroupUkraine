@@ -724,6 +724,7 @@ button,
   display: none;
 }
 .phone__list.active {
+  min-width: 11rem;
   padding: 1.25rem;
   position: absolute;
   display: block;

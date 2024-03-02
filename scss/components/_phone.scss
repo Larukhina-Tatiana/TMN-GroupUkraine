@@ -60,6 +60,7 @@
   }
 
   &__list.active {
+    min-width: rem(176);
     padding: rem(20);
     position: absolute;
     display: block;
