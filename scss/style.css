@@ -2391,7 +2391,7 @@ button,
   display: inline-block;
   line-height: 1.4;
 }
-@media screen and (width > 506.99px) {
+@media screen and (width > 973.99px) {
   .card-goods__size {
     margin-right: 2.5rem;
   }
@@ -2426,10 +2426,10 @@ button,
     margin-left: 0;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
   }
 }
-@media screen and (width < 506.99px) {
+@media screen and (width < 569.99px) {
   .card-goods__footer {
     flex-direction: column;
     gap: 0.625rem;
