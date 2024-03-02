@@ -2995,6 +2995,9 @@ button,
 .card-product__list-desc dt {
   font-weight: 600;
 }
+.card-product__list-desc dt {
+  display: flex;
+}
 .card-product__list-desc dd {
   color: var(--gray);
 }
