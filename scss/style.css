@@ -1271,6 +1271,7 @@ button,
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2.5rem;
+  gap: 0.625rem;
 }
 .popular__link-more::after {
   content: url(../images/icons/arrow-more.svg);
