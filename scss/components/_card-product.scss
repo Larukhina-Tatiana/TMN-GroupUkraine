@@ -135,6 +135,7 @@
   }
 
   &__size-dt {
+    display: flex;
     height: rem(54);
     border-bottom: rem(.5) solid var(--gray-bright);
   }

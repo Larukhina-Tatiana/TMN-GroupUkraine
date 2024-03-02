@@ -3039,6 +3039,7 @@ button,
   text-align: center;
 }
 .card-product__size-dt {
+  display: flex;
   height: 3.375rem;
   border-bottom: 0.03125rem solid var(--gray-bright);
 }
