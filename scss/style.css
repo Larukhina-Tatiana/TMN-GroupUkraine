@@ -670,6 +670,11 @@ button,
 .lang__link--active {
   color: var(--Black, #082242);
 }
+@media screen and (width < 890.99px) {
+  .lang__link--active {
+    color: var(--white);
+  }
+}
 
 .phone {
   position: relative;
