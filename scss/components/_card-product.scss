@@ -88,22 +88,6 @@
   }
 
   &__list-desc {
-    dt {
-      font-weight: 600;
-      // max-width: rem(295);
-      // width: 100%;
-    }
-
-    dt {
-      display: flex;
-    }
-
-    dd {
-      color: var(--gray);
-    }
-  }
-
-  &__list-desc {
     display: flex;
     gap: 0 rem(24);
     padding-bottom: rem(13);
@@ -111,6 +95,15 @@
 
     &:not(:last-child) {
       margin-bottom: rem(13);
+    }
+
+    dt {
+      display: flex;
+      font-weight: 600;
+    }
+
+    dd {
+      color: var(--gray);
     }
   }
 
@@ -132,6 +125,10 @@
     align-items: center;
     gap: rem(10) rem(8);
     text-align: center;
+
+    dd {
+      width: max-content;
+    }
   }
 
   &__size-dt {
