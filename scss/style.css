@@ -2796,18 +2796,24 @@ button,
 }
 .card__counter-arrow {
   position: absolute;
-  width: 0.75rem;
-  height: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.25rem;
+  height: 1.4375rem;
   right: 0.3125rem;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card__counter-arrow svg {
+  pointer-events: none;
 }
 @media (any-hover: hover) {
   .card__counter-arrow:hover {
     color: var(--accent);
   }
 }
-.card__counter-arrow:disabled {
+.card__counter-arrow.btn--disabled svg {
   color: var(--black);
   opacity: 0.5;
 }

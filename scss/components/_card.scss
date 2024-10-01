@@ -84,10 +84,17 @@
 
     &-arrow {
       position: absolute;
-      width: rem(12);
-      height: rem(10);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: rem(20);
+      height: rem(23);
       right: rem(5);
       @include transition ($transition-property: color);
+
+      svg {
+        pointer-events: none;
+      }
 
       @media (any-hover: hover) {
         &:hover {
@@ -95,9 +102,11 @@
         }
       }
 
-      &:disabled {
-        color: var(--black);
-        opacity: .5;
+      &.btn--disabled {
+        svg {
+          color: var(--black);
+          opacity: .5;
+        }
       }
 
       &--up {

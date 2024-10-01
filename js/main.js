@@ -118,32 +118,32 @@ window.addEventListener("DOMContentLoaded", init); // запускаем фун�
 $(".filter-style").styler();
 
 // Страница catalog
-const counterText = document.querySelector(".card__counter-input");
-const counterBtn = document.querySelectorAll(".card__counter-arrow");
-let counter = 1;
+// const counterText = document.querySelector(".card__counter-input");
+// const counterBtn = document.querySelectorAll(".card__counter-arrow");
+// let counter = 1;
 
-counterBtn.forEach((el, index) => {
-  el.addEventListener("click", () => {
-    if (index === 1 && counter > 1) {
-      counter--;
-    } else if (index === 0 && counter < 8) {
-      counter++;
-    }
-    counterText.textContent = counter;
-    setDisabled(counter);
-  });
-});
+// counterBtn.forEach((el, index) => {
+//   el.addEventListener("click", () => {
+//     if (index === 1 && counter > 1) {
+//       counter--;
+//     } else if (index === 0 && counter < 8) {
+//       counter++;
+//     }
+//     counterText.textContent = counter;
+//     setDisabled(counter);
+//   });
+// });
 
-function setDisabled(counter) {
-  if (counter === 1) {
-    counterBtn[1].disabled = true;
-  } else if (counter === 8) {
-    counterBtn[0].disabled = true;
-  } else {
-    counterBtn[1].disabled = false;
-    counterBtn[0].disabled = false;
-  }
-}
+// function setDisabled(counter) {
+//   if (counter === 1) {
+//     counterBtn[1].disabled = true;
+//   } else if (counter === 8) {
+//     counterBtn[0].disabled = true;
+//   } else {
+//     counterBtn[1].disabled = false;
+//     counterBtn[0].disabled = false;
+//   }
+// }
 
 // ! Tabs
 $(".tabs__link").on("click", function (e) {

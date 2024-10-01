@@ -83,6 +83,7 @@ function scripts() {
       "js/ion.rangeSlider.min.js",
       // "js/jquery.rateyo.js",
       // "js/modal.js",
+      "js/counter.js",
       "js/main.js",
 
       // Для подключения многих (всех) файлов js? Обязательно исключать main.min.js
