@@ -9,7 +9,7 @@ $(".phone__arrow").on("click", function () {
 });
 
 if ($(window).width() < 890.99) {
-  $(".lang").appendTo($(".header__nav"));
+  $(".lang").appendTo($(".nav__list"));
 
   const btn = document.querySelector(".menu__btn");
   const nav = document.querySelector(".nav__list");
@@ -35,7 +35,6 @@ if ($(window).width() < 890.99) {
   })();
 
   const btnSort = document.querySelector(".menu__sort");
-  console.log(btnSort);
 
   const aside = document.querySelector(".aside");
 
