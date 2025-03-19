@@ -20,7 +20,7 @@
             <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="логотип">
             <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31" height="25">
           </a>
-          <button class="menu__btn">
+          <button class="menu__btn" aria-label="Menu">
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
@@ -79,7 +79,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--accent" href="">
+                      <a class="nav__submenu-link nav__submenu-link--accent" href="#">
                         <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#gloves"></use>
                         </svg>
@@ -103,7 +103,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="">
+                      <a class="nav__submenu-link" href="#">
                         <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#examination"></use>
                         </svg>
@@ -143,7 +143,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--align" href="">
+                      <a class="nav__submenu-link nav__submenu-link--align" href="#">
                         <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#pharmaceutical"></use>
                         </svg>
@@ -184,14 +184,11 @@
             </ul>
             <div class="header__phone phone phone__spollers" data-spollers-phone>
               <div class="phone__inner">
-
                 <a class="phone__link " href="tel:+380675703489">
-
                   <svg class="phone__svg" width="24" height="24" aria-label="Іконка телефона">
                     <use href="./images/icons/icons.svg#phone"></use>
                   </svg>
                   (067)&nbsp;570&nbsp;-&nbsp;34&nbsp;-&nbsp;89
-
                 </a>
                 <button class="phone__arrow" data-spoller-phone><!--nav__linkbtn-arrow--active -->
                   <svg class="phone__arrow-svg" width="12" height="9" aria-label="Перемикач випадаючого меню">
@@ -228,7 +225,7 @@
               </ul>
             </div>
 
-            <button class="header__search-btn search__btn" data-modal-search>
+            <button class="header__search-btn search__btn" data-modal-search aria-label="searh">
               <svg class="search__btn-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -254,7 +251,8 @@
                         stroke-linejoin="round" />
                     </svg>
                   </button>
-                  <input class="header__search-input search__input" type="text" placeholder="Пошук" autocomplete="off">
+                  <input class="header__search-input search__input" id="search" type="text" placeholder="Пошук"
+                    autocomplete="off">
                 </div>
               </form>
             </div>
@@ -290,18 +288,18 @@
             <div class="hero__partners partners">
               <ul class="partners__list">
                 <li class="partners__item">
-                  <a class="partners__link" href="">
+                  <a class="partners__link" href="#">
                     <img class="partners__images" src="./images/hero/partner1.svg"
                       alt="Логотип партнера WRP Logo - Your Partner In Protection">
                   </a>
                 </li>
                 <li class="partners__item">
-                  <a class="partners__link" href="">
+                  <a class="partners__link" href="#">
                     <img class="partners__images" src="./images/hero/partner2.svg" alt="Логотип партнера">
                   </a>
                 </li>
                 <li class="partners__item">
-                  <a class="partners__link" href="">
+                  <a class="partners__link" href="#">
                     <img class="partners__images" src="./images/hero/partner3.svg" alt="Логотип партнера">
                   </a>
                 </li>
@@ -334,7 +332,7 @@
               <a class="categories__link" href="./catalog.html">нітрилові рукавички</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link-img" href="">
+              <a class="categories__link-img" href="#">
                 <picture>
                   <source srcset="
                                                 ./images/categories/categories2@1x.webp 380w,
@@ -350,10 +348,10 @@
                     sizes="(min-width: 1440px) 380px, (min-width: 768px) 354px, (min-width: 480px) 450px" />
                 </picture>
               </a>
-              <a class="categories__link" href="">медичні рукавички</a>
+              <a class="categories__link" href="#">медичні рукавички</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link-img" href="">
+              <a class="categories__link-img" href="#">
                 <picture>
                   <source srcset="
                                                 ./images/categories/categories3@1x.webp 380w,
@@ -369,10 +367,10 @@
                     sizes="(min-width: 1440px) 380px, (min-width: 768px) 354px, (min-width: 480px) 450px" />
                 </picture>
               </a>
-              <a class="categories__link" href="">оглядові рукавички</a>
+              <a class="categories__link" href="#">оглядові рукавички</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link-img" href="">
+              <a class="categories__link-img" href="#">
                 <picture>
                   <source srcset="
                                                 ./images/categories/categories4@1x.webp 380w,
@@ -388,10 +386,10 @@
                     sizes="(min-width: 1440px) 380px, (min-width: 768px) 354px, (min-width: 480px) 450px" />
                 </picture>
               </a>
-              <a class="categories__link" href="">харчова промисловість</a>
+              <a class="categories__link" href="#">харчова промисловість</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link-img" href="">
+              <a class="categories__link-img" href="#">
                 <picture>
                   <source srcset="
                                                             ./images/categories/categories5@1x.webp 380w,
@@ -407,10 +405,10 @@
                     sizes="(min-width: 1440px) 380px, (min-width: 768px) 354px, (min-width: 480px) 450px" />
                 </picture>
               </a>
-              <a class="categories__link" href="">господарські рукавички</a>
+              <a class="categories__link" href="#">господарські рукавички</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link-img" href="">
+              <a class="categories__link-img" href="#">
                 <picture>
                   <source srcset="
                                                             ./images/categories/categories6@1x.webp 380w,
@@ -426,7 +424,7 @@
                     sizes="(min-width: 1440px) 380px, (min-width: 768px) 354px, (min-width: 480px) 450px" />
                 </picture>
               </a>
-              <a class="categories__link" href="">ремонт та будівництво</a>
+              <a class="categories__link" href="#">ремонт та будівництво</a>
             </li>
           </ul>
         </div>
@@ -436,14 +434,14 @@
         <div class="container">
           <div class="popular__title-box">
             <h2 class="popular__title section-title">Популярні</h2>
-            <a class="popular__link-more buttons-more" href="">Усі продукти </a>
+            <a class="popular__link-more buttons-more" href="#">Усі продукти </a>
           </div>
 
           <div class="popular__slider swiper products-card">
-            <ul class="popular__list products-card__list swiper-wrapper">
-              <li class="popular__item swiper-slide products-card__item">
+            <div class="popular__list products-card__list swiper-wrapper">
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -462,7 +460,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
@@ -478,15 +476,15 @@
                     <p class="products-card__discount">
                       (при покупке от 10 уп)
                     </p>
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -507,7 +505,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
@@ -523,15 +521,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -551,7 +549,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -568,15 +566,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -596,7 +594,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -612,16 +610,16 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
+              </div>
 
-              <li class="popular__item swiper-slide products-card__item">
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -641,7 +639,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
@@ -657,15 +655,15 @@
                     <p class="products-card__discount">
                       (при покупке от 10 уп)
                     </p>
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -686,7 +684,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
@@ -702,15 +700,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -731,7 +729,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -748,15 +746,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -777,7 +775,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -793,14 +791,14 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
+              </div>
 
-            </ul>
+            </div>
             <div class="popular__slider-dotts dotts"></div>
           </div>
         </div>
@@ -952,7 +950,7 @@
         <div class="container">
           <div class="promotion__title-box popular__title-box">
             <h2 class="promotion__title popular__title section-title">Акційні товари</h2>
-            <a class="promotion__link-more popular__link-more buttons-more" href="">Усі продукти </a>
+            <a class="promotion__link-more popular__link-more buttons-more" href="#">Усі продукти </a>
           </div>
           <p class="promotion__text">
             Vulputate volutpat libero eget leo sollicitudin lorem blandit. Morbi ipsum pulvinar sed in tincidunt lectus.
@@ -960,10 +958,10 @@
             sodales eget est sagittis. Turpis gravida elit metus, at convallis nibh.
           </p>
           <div class="promotion__slider popular__slider swiper products-card">
-            <ul class="popular__list products-card__list swiper-wrapper">
-              <li class="popular__item swiper-slide products-card__item">
+            <div class="popular__list products-card__list swiper-wrapper">
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link products-card__img-link--sale" href="">
+                  <a class="products-card__img-link products-card__img-link--sale" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -981,7 +979,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
                       <h3 class="products-card__title title-h3"
                         title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
                         РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE
@@ -997,15 +995,15 @@
                     <p class="products-card__discount">
                       (при покупке от 10 уп)
                     </p>
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link products-card__img-link--sale" href="">
+                  <a class="products-card__img-link products-card__img-link--sale" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1026,7 +1024,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
@@ -1043,15 +1041,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link products-card__img-link--sale" href="">
+                  <a class="products-card__img-link products-card__img-link--sale" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1072,7 +1070,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -1089,15 +1087,14 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+                </ldiv <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link products-card__img-link--sale" href="">
+                  <a class="products-card__img-link products-card__img-link--sale" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1118,7 +1115,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -1136,15 +1133,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href=""> Детальніше
+                    <a class="products-card__btn buttons" href="#"> Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
+              </div>
 
-              <li class="popular__item swiper-slide products-card__item">
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link products-card__img-link--sale" href="">
+                  <a class="products-card__img-link products-card__img-link--sale" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1163,7 +1160,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
                       <h3 class="products-card__title title-h3"
                         title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
                         РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE
@@ -1179,15 +1176,15 @@
                     <p class="products-card__discount">
                       (при покупке от 10 уп)
                     </p>
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link products-card__img-link--sale" href="">
+                  <a class="products-card__img-link products-card__img-link--sale" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1208,7 +1205,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
@@ -1225,15 +1222,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link products-card__img-link--sale" href="">
+                  <a class="products-card__img-link products-card__img-link--sale" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1254,7 +1251,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -1271,13 +1268,13 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-            </ul>
+              </div>
+            </div>
             <div class="popular__slider-dotts dotts"></div>
           </div>
         </div>
@@ -1297,17 +1294,17 @@
           <form class="newsletter__form form" name="newsletter-mail" novalidate="">
             <label class="newsletter__form-label" for="user-name">
               <input class="newsletter__form-input" type="text" name="name" id="user-name" placeholder="Ім'я"
-                required="">
+                required="" autocomplete="on">
             </label>
 
             <label class="newsletter__form-label" for="user-tel">
               <input class="newsletter__form-input" type="tel" name="tel" id="user-tel" placeholder="Номер телефону"
-                required="">
+                required="" autocomplete="on">
             </label>
 
             <label class="newsletter__form-label" for="user-email">
               <input class="newsletter__form-input" type="email" name="email" id="user-email" placeholder="Е-mail:"
-                required="">
+                required="" autocomplete="on">
             </label>
 
             <button class="newsletter__form-button buttons" type="submit">Підписатися</button>
@@ -1346,7 +1343,7 @@
                   <h4 class="blog__post-title title-h4">Які рукавички найкраще використовувати в гінекології</h4>
                   <p class="blog__post-excerpt">Медичні рукавички в гінекології – запорука здоров’я медпрацівника
                     і пацієнта. Для великих організацій найкраще купувати рукавички медичні..</p>
-                  <a class="blog__button buttons" href="">Детальніше</a>
+                  <a class="blog__button buttons" href="#">Детальніше</a>
                 </div>
               </article>
             </li>
@@ -1399,7 +1396,7 @@
                   <h4 class="blog__post-title title-h4">Медичні рукавички нестерильні ULTRA LS від DERMAGRIP</h4>
                   <p class="blog__post-excerpt">ULTRA LS – синтетичні захисні рукавички з непудровані матеріалу
                     нітрит. Застосовуються для оглядових і діагностичних заходів..</p>
-                  <a class="blog__button buttons" href="">Детальніше</a>
+                  <a class="blog__button buttons" href="#">Детальніше</a>
                 </div>
               </article>
             </li>
@@ -1426,7 +1423,7 @@
                   <p class="blog__post-excerpt">«Дермагріп Класик» – модель надійних захисних рукавичок для
                     медичних та немедичних цілей. Основна сфера застосування – огляд ..
                   </p>
-                  <a class="blog__button buttons" href="">Детальніше</a>
+                  <a class="blog__button buttons" href="#">Детальніше</a>
                 </div>
               </article>
             </li>

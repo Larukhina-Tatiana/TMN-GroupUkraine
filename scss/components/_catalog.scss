@@ -65,6 +65,7 @@
       right: 0;
       // background: linear-gradient(155deg, #165EBF 50%, #29B384 67.73%);
       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       transform: translateY(-150%);
       z-index: 2;

@@ -20,7 +20,7 @@
             <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="логотип">
             <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31" height="25">
           </a>
-          <button class="menu__btn">
+          <button class="menu__btn" aria-label="Menu">
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
@@ -79,7 +79,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--accent" href="">
+                      <a class="nav__submenu-link nav__submenu-link--accent" href="#">
                         <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#gloves"></use>
                         </svg>
@@ -103,7 +103,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="">
+                      <a class="nav__submenu-link" href="#">
                         <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#examination"></use>
                         </svg>
@@ -143,7 +143,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--align" href="">
+                      <a class="nav__submenu-link nav__submenu-link--align" href="#">
                         <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#pharmaceutical"></use>
                         </svg>
@@ -228,7 +228,7 @@
               </ul>
             </div>
 
-            <button class="header__search-btn search__btn" data-modal-search>
+            <button class="header__search-btn search__btn" data-modal-search aria-label="searh">
               <svg class="search__btn-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -254,7 +254,8 @@
                         stroke-linejoin="round" />
                     </svg>
                   </button>
-                  <input class="header__search-input search__input" type="text" placeholder="Пошук" autocomplete="off">
+                  <input class="header__search-input search__input" id="search" type="text" placeholder="Пошук"
+                    autocomplete="off">
                 </div>
               </form>
             </div>
@@ -450,8 +451,8 @@
 
           </ul>
           <div class="articles-card__pagination">
-            <a class="articles-card__button buttons" href="">Попередня стаття</a>
-            <a class="articles-card__button buttons" href="">Наступна стаття</a>
+            <a class="articles-card__button buttons" href="#">Попередня стаття</a>
+            <a class="articles-card__button buttons" href="#">Наступна стаття</a>
           </div>
         </div>
       </section>

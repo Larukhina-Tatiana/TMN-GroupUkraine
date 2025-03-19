@@ -24,7 +24,7 @@
             <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="логотип">
             <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31" height="25">
           </a>
-          <button class="menu__btn">
+          <button class="menu__btn" aria-label="Menu">
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
@@ -83,7 +83,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--accent" href="">
+                      <a class="nav__submenu-link nav__submenu-link--accent" href="#">
                         <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#gloves"></use>
                         </svg>
@@ -107,7 +107,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="">
+                      <a class="nav__submenu-link" href="#">
                         <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#examination"></use>
                         </svg>
@@ -147,7 +147,7 @@
                       </a>
                     </li>
                     <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--align" href="">
+                      <a class="nav__submenu-link nav__submenu-link--align" href="#">
                         <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
                           <use href="./images/icons/icons.svg#pharmaceutical"></use>
                         </svg>
@@ -233,7 +233,7 @@
               </ul>
             </div>
 
-            <button class="header__search-btn search__btn" data-modal-search>
+            <button class="header__search-btn search__btn" data-modal-search aria-label="searh" ar aria-label="search">
               <svg class="search__btn-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -249,7 +249,7 @@
               </button>
               <form action="#" class="header__search-form search__form">
                 <div class="search__box">
-                  <button class="header__search-btn search__btn" type="submit">
+                  <button class="header__search-btn search__btn" type="submit" aria-label="search">
                     <svg class="search__btn-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -259,7 +259,10 @@
                         stroke-linejoin="round" />
                     </svg>
                   </button>
-                  <input class="header__search-input search__input" type="text" placeholder="Пошук" autocomplete="off">
+                  <label for="search">
+                    <input class="header__search-input search__input" id="search" type="text" placeholder="Пошук"
+                      autocomplete="off">
+                  </label>
                 </div>
               </form>
             </div>
@@ -287,7 +290,7 @@
                 <a class="breadcrumbs__link" href="./index.html">Головна</a>
               </li>
               <li class="breadcrumbs__item">
-                <a class="breadcrumbs__link" href="">Наша продукція</a>
+                <a class="breadcrumbs__link" href="#">Наша продукція</a>
               </li>
 
               <li class="breadcrumbs__item">
@@ -300,7 +303,7 @@
       <section class="catalog section">
         <div class="container">
           <div class="catalog__inner">
-            <button class="menu__sort">
+            <button class="menu__sort" aria-label="sort">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
                 <g fill="currentColor" clip-path="url(#a)">
                   <path
@@ -319,15 +322,15 @@
             </button>
             <aside class="catalog__aside aside">
               <div class="aside__btn">Фільтр за параметрами</div>
-              <form class="aside__form">
+              <form class="aside__form" id="aside-form">
                 <ul class="aside__form-list">
                   <li class="aside__form-item-drop">
-                    <p class="aside__form-title aside__form-title--marginbottom title-form">Цена</p>
+                    <p class="aside__form-title aside__form-title--marginbottom title-form">Ціна</p>
                     <div class="range">
                       <div class="range__values">
-                        <input class="range__values-input" id="min" type="text">
+                        <input class="range__values-input" id="min" type="text" title="від">
                         <span class="range__values-span"></span>
-                        <input class="range__values-input" id="max" type="text">
+                        <input class="range__values-input" id="max" type="text" title="до">
                       </div>
                       <div class="range__slider">
                         <div id="range"></div> <!-- элемент слайдера диапазона -->
@@ -437,7 +440,7 @@
                 <li class="catalog__card-item">
                   <article class="catalog__card card">
                     <div class="card__img-cover">
-                      <a class="card__title-link" href="">
+                      <a class="card__title-link" href="#">
                         <picture>
                           <source srcset="
                       ./images/goods-card/goods-card1@1x.webp 254w,
@@ -453,7 +456,7 @@
                       </a>
                     </div>
                     <div class="card__body">
-                      <a class="card__title-link" href="">
+                      <a class="card__title-link" href="#">
                         <h5 class="card__title title-h5">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
                         <p class="card__name text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
                       </a>
@@ -523,14 +526,16 @@
                       </ul>
                       <div class="card__price-inner">
                         <div class="counter-wrap card__counter counter-wrapper">
-                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus">
+                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus"
+                            aria-label="plus" aria-label="plus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M4.178 1.186a1 1 0 0 1 1.644 0l3.287 4.745A1 1 0 0 1 8.287 7.5H1.713a1 1 0 0 1-.822-1.57l3.287-4.744Z" />
                             </svg>
                           </button>
                           <span class="card__counter-input" data-counter>1</span>
-                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus">
+                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus"
+                            aria-label="minus" aria-label="minus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M5.822 6.814a1 1 0 0 1-1.644 0L.891 2.069A1 1 0 0 1 1.713.5h6.574a1 1 0 0 1 .822 1.57L5.822 6.813Z" />
@@ -540,8 +545,8 @@
                         <p class="card__price">225 ₴</p>
                       </div>
                       <div class="card__btn-box">
-                        <a class="card__btn buttons" href="">В кошик</a>
-                        <a class="card__btn buttons" href="">Детальніше</a>
+                        <a class="card__btn buttons" href="#">В кошик</a>
+                        <a class="card__btn buttons" href="#">Детальніше</a>
                       </div>
                     </div>
                   </article>
@@ -549,7 +554,7 @@
                 <li class="catalog__card-item">
                   <article class="catalog__card card">
                     <div class="card__img-cover">
-                      <a class="card__title-link  products-card__img-link--sale" href="">
+                      <a class="card__title-link  products-card__img-link--sale" href="#">
                         <picture>
                           <source srcset="
                                       ./images/catalog/Korobki-v-kategorii-DERMAGRIP-Latex-Powder-Free-Sterile1@1x.webp 229w,
@@ -567,7 +572,7 @@
                       </a>
                     </div>
                     <div class="card__body">
-                      <a class="card__title-link" href="">
+                      <a class="card__title-link" href="#">
                         <h5 class="card__title title-h5">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
                       </a>
                       <p class="card__name text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
@@ -639,14 +644,16 @@
                       </ul>
                       <div class="card__price-inner">
                         <div class="counter-wrap card__counter counter-wrapper">
-                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus">
+                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus"
+                            aria-label="plus" aria-label="plus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M4.178 1.186a1 1 0 0 1 1.644 0l3.287 4.745A1 1 0 0 1 8.287 7.5H1.713a1 1 0 0 1-.822-1.57l3.287-4.744Z" />
                             </svg>
                           </button>
                           <span class="card__counter-input" data-counter>1</span>
-                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus">
+                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus"
+                            aria-label="minus" aria-label="minus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M5.822 6.814a1 1 0 0 1-1.644 0L.891 2.069A1 1 0 0 1 1.713.5h6.574a1 1 0 0 1 .822 1.57L5.822 6.813Z" />
@@ -660,8 +667,8 @@
 
                       </div>
                       <div class="card__btn-box">
-                        <a class="card__btn buttons" href="">В кошик</a>
-                        <a class="card__btn buttons" href="">Детальніше</a>
+                        <a class="card__btn buttons" href="#">В кошик</a>
+                        <a class="card__btn buttons" href="#">Детальніше</a>
                       </div>
                     </div>
                   </article>
@@ -669,7 +676,7 @@
                 <li class="catalog__card-item">
                   <article class="catalog__card card">
                     <div class="card__img-cover">
-                      <a class="card__title-link" href="">
+                      <a class="card__title-link" href="#">
                         <picture>
                           <source srcset="
                                       ./images/catalog/2@1x.webp 155w,
@@ -685,7 +692,7 @@
                       </a>
                     </div>
                     <div class="card__body">
-                      <a class="card__title-link" href="">
+                      <a class="card__title-link" href="#">
                         <h5 class="card__title title-h5">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
                       </a>
                       <p class="card__name text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
@@ -702,14 +709,14 @@
 
                       <p class="card__availability">Цього товару немає в наявності</p>
 
-                      <a class="card__btn buttons" href="">Детальніше</a>
+                      <a class="card__btn buttons" href="#">Детальніше</a>
                     </div>
                   </article>
                 </li>
                 <li class="catalog__card-item">
                   <article class="catalog__card card">
                     <div class="card__img-cover">
-                      <a class="card__title-link" href="">
+                      <a class="card__title-link" href="#">
                         <picture>
                           <source srcset="
                                       ./images/catalog/3@1x.webp 254w,
@@ -725,7 +732,7 @@
                       </a>
                     </div>
                     <div class="card__body">
-                      <a class="card__title-link" href="">
+                      <a class="card__title-link" href="#">
                         <h5 class="card__title title-h5">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
                       </a>
                       <p class="card__name text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
@@ -797,14 +804,16 @@
                       </ul>
                       <div class="card__price-inner">
                         <div class="counter-wrap card__counter counter-wrapper">
-                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus">
+                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus"
+                            aria-label="plus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M4.178 1.186a1 1 0 0 1 1.644 0l3.287 4.745A1 1 0 0 1 8.287 7.5H1.713a1 1 0 0 1-.822-1.57l3.287-4.744Z" />
                             </svg>
                           </button>
                           <span class="card__counter-input" data-counter>1</span>
-                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus">
+                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus"
+                            aria-label="minus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M5.822 6.814a1 1 0 0 1-1.644 0L.891 2.069A1 1 0 0 1 1.713.5h6.574a1 1 0 0 1 .822 1.57L5.822 6.813Z" />
@@ -817,8 +826,8 @@
                       </div>
 
                       <div class="card__btn-box">
-                        <a class="card__btn buttons" href="">В кошик</a>
-                        <a class="card__btn buttons" href="">Детальніше</a>
+                        <a class="card__btn buttons" href="#">В кошик</a>
+                        <a class="card__btn buttons" href="#">Детальніше</a>
                       </div>
                     </div>
                   </article>
@@ -916,14 +925,16 @@
                       </ul>
                       <div class="card__price-inner">
                         <div class="counter-wrap card__counter counter-wrapper">
-                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus">
+                          <button class="card__counter-arrow card__counter-arrow--up" data-action="plus"
+                            aria-label="plus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M4.178 1.186a1 1 0 0 1 1.644 0l3.287 4.745A1 1 0 0 1 8.287 7.5H1.713a1 1 0 0 1-.822-1.57l3.287-4.744Z" />
                             </svg>
                           </button>
                           <span class="card__counter-input" data-counter>1</span>
-                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus">
+                          <button class="card__counter-arrow card__counter-arrow--down" data-action="minus"
+                            aria-label="minus">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
                               <path fill="currentColor"
                                 d="M5.822 6.814a1 1 0 0 1-1.644 0L.891 2.069A1 1 0 0 1 1.713.5h6.574a1 1 0 0 1 .822 1.57L5.822 6.813Z" />
@@ -937,7 +948,7 @@
 
                       </div>
                       <div class="card__btn-box">
-                        <a class="card__btn buttons" href="">В кошик</a>
+                        <a class="card__btn buttons" href="#">В кошик</a>
                         <a class="card__btn buttons" href="./page-card.html">Детальніше</a>
                       </div>
                     </div>
@@ -947,7 +958,7 @@
 
               <ul class="catalog__pagination pagination">
                 <li class="pagination__item">
-                  <a class="pagination__link pagination__link--arrow" href="">
+                  <a class="pagination__link pagination__link--arrow" href="#" aria-label="назад">
                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         d="M7.23 1 1 7.23l6.23 6.228"></path>
@@ -955,25 +966,25 @@
                   </a>
                 </li>
                 <li class="pagination__item">
-                  <a class="pagination__link" href="">1</a>
+                  <a class="pagination__link" href="#">1</a>
                 </li>
                 <li class="pagination__item active">
-                  <a class="pagination__link" href="">2</a>
+                  <a class="pagination__link" href="#">2</a>
                 </li>
                 <li class="pagination__item">
-                  <a class="pagination__link" href="">3</a>
+                  <a class="pagination__link" href="#">3</a>
                 </li>
                 <li class="pagination__item articles__pagination-item--dots">
                   <span>...</span>
                 </li>
                 <li class="pagination__item">
-                  <a class="pagination__link" href="">7</a>
+                  <a class="pagination__link" href="#">7</a>
                 </li>
                 <li class="pagination__item">
-                  <a class="pagination__link" href="">8</a>
+                  <a class="pagination__link" href="#">8</a>
                 </li>
                 <li class="pagination__item">
-                  <a class="pagination__link pagination__link--arrow" href="">
+                  <a class="pagination__link pagination__link--arrow" href="#" aria-label="вперед">
                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         d="M.77 1 7 7.23.77 13.457"></path>
@@ -990,14 +1001,14 @@
         <div class="container">
           <div class="popular__title-box">
             <h2 class="popular__title section-title">Нещодавно переглядали</h2>
-            <a class="popular__link-more buttons-more" href="">Усі продукти </a>
+            <a class="popular__link-more buttons-more" href="#">Усі продукти </a>
           </div>
 
           <div class="popular__slider swiper products-card">
-            <ul class="popular__list products-card__list swiper-wrapper">
-              <li class="popular__item swiper-slide products-card__item">
+            <div class="popular__list products-card__list swiper-wrapper">
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1016,7 +1027,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
@@ -1032,15 +1043,15 @@
                     <p class="products-card__discount">
                       (при покупке от 10 уп)
                     </p>
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1061,7 +1072,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
@@ -1077,15 +1088,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1106,7 +1117,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -1123,15 +1134,15 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1152,7 +1163,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
@@ -1168,16 +1179,16 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
+              </div>
 
-              <li class="popular__item swiper-slide products-card__item">
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1197,7 +1208,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
@@ -1213,15 +1224,15 @@
                     <p class="products-card__discount">
                       (при покупке от 10 уп)
                     </p>
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-              <li class="popular__item swiper-slide products-card__item">
+              </div>
+              <div class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="">
+                  <a class="products-card__img-link" href="#">
                     <div class="products-card__img-cover">
                       <picture>
                         <source srcset="
@@ -1242,7 +1253,7 @@
                     </div>
                   </a>
                   <div class="products-card__body">
-                    <a class="products-card__title-link" href="">
+                    <a class="products-card__title-link" href="#">
 
                       <h3 class="products-card__title title-h3"
                         title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
@@ -1258,13 +1269,13 @@
                       (при покупке от 10 уп)
                     </p>
 
-                    <a class="products-card__btn buttons" href="">
+                    <a class="products-card__btn buttons" href="#">
                       Детальніше
                     </a>
                   </div>
                 </article>
-              </li>
-            </ul>
+              </div>
+            </div>
             <div class="popular__slider-dotts dotts"></div>
           </div>
         </div>
@@ -1290,7 +1301,7 @@
             спиртовмісних
             речовин і дезінфектантів.
           </p>
-          <a class="seo__link-more buttons-more" href="">Читати далі</a>
+          <a class="seo__link-more buttons-more" href="#">Читати далі</a>
         </div>
       </section>
 
@@ -1305,7 +1316,7 @@
             </a>
             <ul class="footer__nav-list">
               <li class="footer__nav-item"><a class="footer__nav-link" href="./index.html">Головна</a></li>
-              <li class="footer__nav-item"><a class="footer__nav-link" href="">Наша продукція</a></li>
+              <li class="footer__nav-item"><a class="footer__nav-link" href="#">Наша продукція</a></li>
               <li class="footer__nav-item"><a class="footer__nav-link" href="./company.html">Про компанію</a></li>
               <li class="footer__nav-item"><a class="footer__nav-link" href="./page-articles.html">Блог</a></li>
               <li class="footer__nav-item"><a class="footer__nav-link" href="./contact.html">Контакти</a></li>
@@ -1341,7 +1352,7 @@
   <script src="js/main.min.js"></script>
   <!-- <script src="js/aside.js"></script> -->
   <!-- <script src="js/slider.js"></script> -->
-  <!-- <script src="js/main.js"></script> -->
+  <script src="js/main.js"></script>
 </body>
 
 </html>
