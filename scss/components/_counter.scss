@@ -30,6 +30,7 @@
     // @include adaptivevalue(padding-left, 20, 10, 1620, 320, 1);
     // @include adaptivevalue(padding-right, 20, 10, 1620, 320, 1);
     cursor: pointer;
+    -webkit-user-select: none; // Запрещает выделение */
     user-select: none;
     @include transition ($transition-property: (background-color, color, border));
 

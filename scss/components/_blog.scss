@@ -9,7 +9,6 @@
     &__list {
         display: flex;
         gap: rem(30);
-        justify-content: space-evenly;
         flex-wrap: wrap;
     }
 
@@ -71,5 +70,11 @@
 
     &__button {
         width: rem(230);
+    }
+
+    @media screen and (width <=900px) {
+        &__list {
+            justify-content: space-evenly;
+        }
     }
 }

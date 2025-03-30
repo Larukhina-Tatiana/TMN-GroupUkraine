@@ -47,6 +47,19 @@
     opacity: 1;
     background-color: var(--gray-bright);
     transition: all 0.3s ease 0s;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-user-select: none; // Запрещает выделение */
+    user-select: none; // Запрещает выделение */
+    outline: none; // Убирает обводку фокуса */
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   @media screen and (width < 1199.99px) {

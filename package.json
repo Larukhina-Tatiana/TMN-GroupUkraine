@@ -27,7 +27,8 @@
     "js-quantities": "^1.8.0",
     "nouislider": "^15.7.1",
     "sass": "^1.64.1",
-    "swiper": "^9.4.1"
+    "swiper": "^9.4.1",
+    "transfer-elements": "^1.0.7"
   },
   "dependencies": {
     "aos": "^2.3.4",
