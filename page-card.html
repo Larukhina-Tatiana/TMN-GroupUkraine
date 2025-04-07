@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TMN-GROUP UKRAINE Картка товару</title>
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <!-- <link rel="stylesheet" href="css/style.min.css"> -->
+  <link rel="stylesheet" href="scss/style.css">
 </head>
 
 <body>
@@ -25,173 +26,172 @@
             <span class="menu__btn-line"></span>
           </button>
           <nav class="header__nav nav">
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./index.html">Головна</a>
-              </li>
-              <li class="nav__item nav__item-linkbtn">
-                <div class="nav__spollers" data-spollers>
-                  <!-- <div class="nav__linkbtn-inner"> -->
+            <div class="nav__inner">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./index.html">Головна</a>
+                </li>
+                <li class="nav__item nav__item-linkbtn">
+                  <div class="nav__spollers" data-spollers>
 
-                  <a class="header__nav-link nav__link" href="./catalog.html">Наша продукція</a>
 
-                  <button class="nav__linkbtn-arrow" data-spoller><!--nav__linkbtn-arrow--active -->
-                    <svg class="nav__linkbtn-arrow-svg" width="12" height="9" aria-label="Перемикач субменю">
-                      <use href="./images/icons/icons.svg#arrow-down"></use>
-                    </svg>
-                  </button>
-                  <!-- </div> -->
+                    <a class="header__nav-link nav__link" href="./catalog.html">Наша продукція</a>
 
-                  <ul class="nav__submenu-list">
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="./catalog.html">
+                    <button class="nav__linkbtn-arrow" data-spoller>
+                      <svg class="nav__linkbtn-arrow-svg" width="12" height="9" aria-label="Перемикач субменю">
+                        <use href="./images/icons/icons.svg#arrow-down"></use>
+                      </svg>
+                    </button>
 
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#gloves"></use>
-                        </svg>
-                        Рукавички нітрилові
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#remont"></use>
-                        </svg>
-                        Ремонт і будівництво
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#dental"></use>
-                        </svg>
-                        Стоматологічні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#surgical"></use>
-                        </svg>
-                        Рукавички хірургічні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--accent" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#gloves"></use>
-                        </svg>
-                        Рукавиці латексні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#beauty"></use>
-                        </svg>
-                        Для салонів краси
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#cleaning"></use>
-                        </svg>
-                        Для клінігових робіт
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#examination"></use>
-                        </svg>
-                        Оглядові рукавички
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#food"></use>
-                        </svg>
-                        Харчова промисловість
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#economic"></use>
-                        </svg>
-                        Господарські рукавички
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#garden"></use>
-                        </svg>
-                        Сад / город
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#medical"></use>
-                        </svg>
-                        Рукавички медичні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--align" href="#">
-                        <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#pharmaceutical"></use>
-                        </svg>
-                        Хімічна промисловість і фармацевтика
-                      </a>
-                    </li>
 
-                  </ul>
-                </div>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./company.html">Про компанію</a>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./page-articles.html">Блог</a>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./contact.html">Контакти</a>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./delivery.html">Оплата та доставка</a>
-              </li>
-            </ul>
+                    <ul class="nav__submenu-list">
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="./catalog.html">
+
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#gloves"></use>
+                          </svg>
+                          Рукавички нітрилові
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#remont"></use>
+                          </svg>
+                          Ремонт і будівництво
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#dental"></use>
+                          </svg>
+                          Стоматологічні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#surgical"></use>
+                          </svg>
+                          Рукавички хірургічні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link nav__submenu-link--accent" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#gloves"></use>
+                          </svg>
+                          Рукавиці латексні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#beauty"></use>
+                          </svg>
+                          Для салонів краси
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#cleaning"></use>
+                          </svg>
+                          Для клінігових робіт
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#examination"></use>
+                          </svg>
+                          Оглядові рукавички
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#food"></use>
+                          </svg>
+                          Харчова промисловість
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#economic"></use>
+                          </svg>
+                          Господарські рукавички
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#garden"></use>
+                          </svg>
+                          Сад / город
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#medical"></use>
+                          </svg>
+                          Рукавички медичні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link nav__submenu-link--align" href="#">
+                          <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#pharmaceutical"></use>
+                          </svg>
+                          Хімічна промисловість і фармацевтика
+                        </a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./company.html">Про компанію</a>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./page-articles.html">Блог</a>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./contact.html">Контакти</a>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./delivery.html">Оплата та доставка</a>
+                </li>
+              </ul>
+            </div>
           </nav>
 
           <div class="header__inner">
             <ul class="header__lang lang">
               <li class="lang__item">
-                <a class="lang__link lang__link--active" href="https://ideia.ua/ua" rel="alternate">
+                <a class="lang__link lang__link--active" href="#" rel="alternate">
                   UA
                 </a>
               </li>
               <li class="lang__list">
-                <a class="lang__link" href="https://ideia.ua/ru" rel="alternate">
+                <a class="lang__link" href="#" rel="alternate">
                   RU
                 </a>
               </li>
             </ul>
             <div class="header__phone phone phone__spollers" data-spollers-phone>
               <div class="phone__inner">
-
                 <a class="phone__link " href="tel:+380675703489">
-
                   <svg class="phone__svg" width="24" height="24" aria-label="Іконка телефона">
                     <use href="./images/icons/icons.svg#phone"></use>
                   </svg>
                   (067)&nbsp;570&nbsp;-&nbsp;34&nbsp;-&nbsp;89
-
                 </a>
-                <button class="phone__arrow" data-spoller-phone><!--nav__linkbtn-arrow--active -->
+                <button class="phone__arrow" data-spoller-phone>
                   <svg class="phone__arrow-svg" width="12" height="9" aria-label="Перемикач випадаючого меню">
                     <use href="./images/icons/icons.svg#arrow-down"></use>
                   </svg>
@@ -680,7 +680,7 @@
       </section>
 
 
-      <section class="sertificates section">
+      <section class="sertificates section aos-init aos-animate" data-aos="zoom-in-up">
         <div class="container">
           <h2 class="sertificates__title section-title">
             СЕРТИФіКАТи
@@ -689,13 +689,13 @@
             Рукавичка DERMAGRIP®Latex Coated LS Powder Free відповідає найсуворішим міжнародним вимогам якості.
           </p>
           <div class="sertificates__buttons">
-            <button class="sertificates__btn next" aria-label="Наступний">
+            <button class="sertificates__btn prev" aria-label="Попередній">
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="12" fill="none">
                 <path fill="#29B384"
                   d="M.47 5.47a.75.75 0 0 0 0 1.06l4.773 4.773a.75.75 0 1 0 1.06-1.06L2.061 6l4.242-4.243a.75.75 0 0 0-1.06-1.06L.47 5.47ZM17 5.25H1v1.5h16v-1.5Z" />
               </svg>
             </button>
-            <button class="sertificates__btn prev" aria-label="Попередній">
+            <button class="sertificates__btn next" aria-label="Наступний">
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="12" fill="none">
                 <path fill="#29B384"
                   d="M16.53 5.47a.75.75 0 0 1 0 1.06l-4.773 4.773a.75.75 0 0 1-1.06-1.06L14.939 6l-4.242-4.243a.75.75 0 1 1 1.06-1.06L16.53 5.47ZM0 5.25h16v1.5H0v-1.5Z" />
@@ -705,71 +705,90 @@
           <div class="sertificates__box">
             <div class="sertificates__list">
               <div class="sertificates__item">
-                <a class="sertificates__link" href="./images/sertificates/sertificates@1x.jpg">
+                <a class="sertificates__link" href="./images/sertificates/1sert@1x.jpg">
                   <picture>
-                    <source srcset="
-                ./images/sertificates/sertificates@1x.webp 270w,
-                ./images/sertificates/sertificates@2x.webp 540w,
-                ./images/sertificates/sertificates@3x.webp 810w
-              " type="image/webp" media="(min-width: 320px)" sizes="(min-width: 320px) 270px">
-                    <img class="sertificates__img" srcset="
-                  ./images/sertificates/sertificates@1x.jpg  270w,
-                  ./images/sertificates/sertificates@2x.jpg  540w,
-                  ./images/sertificates/sertificates@3x.jpg 810w
-                " src="./images/sertificates/sertificates@1x.jpg" alt="images" sizes="(min-width: 320px) 270px">
+                    <source type="image/avif" srcset="
+                    ./images/sertificates/1sert@1x.avif">
+                    <source type="image/webp" srcset="
+                    ./images/sertificates/1sert@1x.webp 1x">
+                    <img class="images__img" src="
+                    ./images/sertificates/1sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
               </div>
               <div class="sertificates__item">
-                <a class="sertificates__link" href="./images/sertificates/sertificates@1x.jpg">
+                <a class="sertificates__link" href="./images/sertificates/2sert@1x.jpg">
                   <picture>
-                    <source srcset="
-                ./images/sertificates/sertificates@1x.webp 270w,
-                ./images/sertificates/sertificates@2x.webp 540w,
-                ./images/sertificates/sertificates@3x.webp 810w
-              " type="image/webp" media="(min-width: 320px)" sizes="(min-width: 320px) 270px">
-                    <img class="sertificates__img" srcset="
-                  ./images/sertificates/sertificates@1x.jpg  270w,
-                  ./images/sertificates/sertificates@2x.jpg  540w,
-                  ./images/sertificates/sertificates@3x.jpg 810w
-                " src="./images/sertificates/sertificates@1x.jpg" alt="images" sizes="(min-width: 320px) 270px">
+                    <source type="image/avif" srcset="
+                    ./images/sertificates/2sert@1x.avif">
+                    <source type="image/webp" srcset="
+                    ./images/sertificates/2sert@1x.webp 1x">
+                    <img class="images__img" src="
+                    ./images/sertificates/2sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
               </div>
               <div class="sertificates__item">
-                <a class="sertificates__link" href="./images/sertificates/sertificates@1x.jpg">
+                <a class="sertificates__link" href="./images/sertificates/3sert@1x.jpg">
                   <picture>
-                    <source srcset="
-                ./images/sertificates/sertificates@1x.webp 270w,
-                ./images/sertificates/sertificates@2x.webp 540w,
-                ./images/sertificates/sertificates@3x.webp 810w
-              " type="image/webp" media="(min-width: 320px)" sizes="(min-width: 320px) 270px">
-                    <img class="sertificates__img" srcset="
-                  ./images/sertificates/sertificates@1x.jpg  270w,
-                  ./images/sertificates/sertificates@2x.jpg  540w,
-                  ./images/sertificates/sertificates@3x.jpg 810w
-                " src="./images/sertificates/sertificates@1x.jpg" alt="images" sizes="(min-width: 320px) 270px">
+                    <source type="image/avif" srcset="
+                    ./images/sertificates/3sert@1x.avif">
+                    <source type="image/webp" srcset="
+                    ./images/sertificates/3sert@1x.webp 1x">
+                    <img class="images__img" src="
+                    ./images/sertificates/3sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
               </div>
               <div class="sertificates__item">
-                <a class="sertificates__link" href="./images/sertificates/sertificates@1x.jpg">
+                <a class="sertificates__link" href="./images/sertificates/4sert@1x.jpg">
                   <picture>
-                    <source srcset="
-                            ./images/sertificates/sertificates@1x.webp 270w,
-                            ./images/sertificates/sertificates@2x.webp 540w,
-                            ./images/sertificates/sertificates@3x.webp 810w
-                          " type="image/webp" media="(min-width: 320px)" sizes="(min-width: 320px) 270px">
-                    <img class="sertificates__img" srcset="
-                              ./images/sertificates/sertificates@1x.jpg  270w,
-                              ./images/sertificates/sertificates@2x.jpg  540w,
-                              ./images/sertificates/sertificates@3x.jpg 810w
-                            " src="./images/sertificates/sertificates@1x.jpg" alt="images"
-                      sizes="(min-width: 320px) 270px">
+                    <source type="image/avif" srcset="
+                    ./images/sertificates/4sert@1x.avif">
+                    <source type="image/webp" srcset="
+                    ./images/sertificates/4sert@1x.webp 1x">
+                    <img class="images__img" src="
+                    ./images/sertificates/4sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
               </div>
               <div class="sertificates__item">
+                <a class="sertificates__link" href="./images/sertificates/5sert@1x.jpg">
+                  <picture>
+                    <source type="image/avif" srcset="
+                    ./images/sertificates/5sert@1x.avif">
+                    <source type="image/webp" srcset="
+                    ./images/sertificates/5sert@1x.webp 1x">
+                    <img class="images__img" src="
+                    ./images/sertificates/5sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
+                  </picture>
+                </a>
+              </div>
+              <div class="sertificates__item">
+                <a class="sertificates__link" href="./images/sertificates/6sert@1x.jpg">
+                  <picture>
+                    <source type="image/avif" srcset="
+                    ./images/sertificates/6sert@1x.avif">
+                    <source type="image/webp" srcset="
+                    ./images/sertificates/6sert@1x.webp 1x">
+                    <img class="images__img" src="
+                    ./images/sertificates/6sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
+                  </picture>
+                </a>
+              </div>
+              <div class="sertificates__item">
+                <a class="sertificates__link" href="./images/sertificates/7sert@1x.jpg">
+                  <picture>
+                    <source type="image/avif" srcset="
+                    ./images/sertificates/7sert@1x.avif">
+                    <source type="image/webp" srcset="
+                    ./images/sertificates/7sert@1x.webp 1x">
+                    <img class="images__img" src="
+                    ./images/sertificates/7sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
+                  </picture>
+                </a>
+              </div>
+              <!-- <div class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/sertificates@1x.jpg">
                   <picture>
                     <source srcset="
@@ -785,7 +804,7 @@
                       sizes="(min-width: 320px) 270px">
                   </picture>
                 </a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -1352,7 +1371,7 @@
             </a>
             <ul class="footer__nav-list">
               <li class="footer__nav-item"><a class="footer__nav-link" href="./index.html">Головна</a></li>
-              <li class="footer__nav-item"><a class="footer__nav-link" href="#">Наша продукція</a></li>
+              <li class="footer__nav-item"><a class="footer__nav-link" href="./catalog.html">Наша продукція</a></li>
               <li class="footer__nav-item"><a class="footer__nav-link" href="./company.html">Про компанію</a></li>
               <li class="footer__nav-item"><a class="footer__nav-link" href="./page-articles.html">Блог</a></li>
               <li class="footer__nav-item"><a class="footer__nav-link" href="./contact.html">Контакти</a></li>
@@ -1388,7 +1407,7 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.1.0/dist/simple-lightbox.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.1.0/dist/simple-lightbox.min.js"></script> -->
 
   <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
   <!-- <script src="./node_modules/aos/dist/aos.js"></script> -->

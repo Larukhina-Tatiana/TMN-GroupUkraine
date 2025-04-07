@@ -22,11 +22,12 @@
   }
 
   .next {
-    right: rem(32);
+    right: rem(0);
+
   }
 
   .prev {
-    right: rem(0);
+    right: rem(32);
   }
 
   &__item {

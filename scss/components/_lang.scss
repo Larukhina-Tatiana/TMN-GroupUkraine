@@ -20,12 +20,16 @@
         }
 
         &--active {
+            // color: var(--accent);
             color: var(--Black, #082242);
         }
     }
 
     @media screen and (width < 890.99px) {
+
         &__link {
+            font-size: rem(14);
+
             &--active {
                 color: var(--white);
             }

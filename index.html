@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TMN-GROUP UKRAINE</title>
-  <!-- <link rel="stylesheet" href="scss/modern-normalize.min.css"> -->
-  <!-- <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css">-->
-  <!-- <link rel="stylesheet" href="scss/style.css"> -->
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="scss/style.css">
+  <!-- <link rel="stylesheet" href="css/style.min.css"> -->
+
 </head>
 
 <body>
   <div class="wrapper">
+
     <header class="header">
       <div class="container">
         <div class="header__box">
@@ -27,161 +27,163 @@
             <span class="menu__btn-line"></span>
           </button>
           <nav class="header__nav nav">
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a class="header__nav-link nav__link nav__link--active" href="./index.html">Головна</a>
-              </li>
-              <li class="nav__item nav__item-linkbtn">
-                <div class="nav__spollers" data-spollers>
-                  <!-- <div class="nav__linkbtn-inner"> -->
+            <div class="nav__inner">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link nav__link--active" href="./index.html">Головна</a>
+                </li>
+                <li class="nav__item nav__item-linkbtn">
+                  <div class="nav__spollers" data-spollers>
 
-                  <a class="header__nav-link nav__link" href="./catalog.html">Наша продукція</a>
 
-                  <button class="nav__linkbtn-arrow" data-spoller><!--nav__linkbtn-arrow--active -->
-                    <svg class="nav__linkbtn-arrow-svg" width="12" height="9" aria-label="Перемикач субменю">
-                      <use href="./images/icons/icons.svg#arrow-down"></use>
-                    </svg>
-                  </button>
-                  <!-- </div> -->
+                    <a class="header__nav-link nav__link" href="./catalog.html">Наша продукція</a>
 
-                  <ul class="nav__submenu-list">
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="./catalog.html">
+                    <button class="nav__linkbtn-arrow" type="button" data-spoller>
+                      <svg class="nav__linkbtn-arrow-svg" width="12" height="9" aria-label="Перемикач субменю">
+                        <use href="./images/icons/icons.svg#arrow-down"></use>
+                      </svg>
+                    </button>
 
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#gloves"></use>
-                        </svg>
-                        Рукавички нітрилові
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#remont"></use>
-                        </svg>
-                        Ремонт і будівництво
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#dental"></use>
-                        </svg>
-                        Стоматологічні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#surgical"></use>
-                        </svg>
-                        Рукавички хірургічні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--accent" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#gloves"></use>
-                        </svg>
-                        Рукавиці латексні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#beauty"></use>
-                        </svg>
-                        Для салонів краси
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#cleaning"></use>
-                        </svg>
-                        Для клінігових робіт
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#examination"></use>
-                        </svg>
-                        Оглядові рукавички
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#food"></use>
-                        </svg>
-                        Харчова промисловість
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#economic"></use>
-                        </svg>
-                        Господарські рукавички
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#garden"></use>
-                        </svg>
-                        Сад / город
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link" href="#">
-                        <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#medical"></use>
-                        </svg>
-                        Рукавички медичні
-                      </a>
-                    </li>
-                    <li class="nav__submenu-item">
-                      <a class="nav__submenu-link nav__submenu-link--align" href="#">
-                        <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
-                          <use href="./images/icons/icons.svg#pharmaceutical"></use>
-                        </svg>
-                        Хімічна промисловість і фармацевтика
-                      </a>
-                    </li>
 
-                  </ul>
-                </div>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./company.html">Про компанію</a>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./page-articles.html">Блог</a>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./contact.html">Контакти</a>
-              </li>
-              <li class="nav__item">
-                <a class="header__nav-link nav__link" href="./delivery.html">Оплата та доставка</a>
-              </li>
-            </ul>
+                    <ul class="nav__submenu-list">
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="./catalog.html">
+
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#gloves"></use>
+                          </svg>
+                          Рукавички нітрилові
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#remont"></use>
+                          </svg>
+                          Ремонт і будівництво
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#dental"></use>
+                          </svg>
+                          Стоматологічні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#surgical"></use>
+                          </svg>
+                          Рукавички хірургічні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link nav__submenu-link--accent" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#gloves"></use>
+                          </svg>
+                          Рукавиці латексні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#beauty"></use>
+                          </svg>
+                          Для салонів краси
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#cleaning"></use>
+                          </svg>
+                          Для клінігових робіт
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#examination"></use>
+                          </svg>
+                          Оглядові рукавички
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#food"></use>
+                          </svg>
+                          Харчова промисловість
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#economic"></use>
+                          </svg>
+                          Господарські рукавички
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#garden"></use>
+                          </svg>
+                          Сад / город
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link" href="#">
+                          <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#medical"></use>
+                          </svg>
+                          Рукавички медичні
+                        </a>
+                      </li>
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link nav__submenu-link--align" href="#">
+                          <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#pharmaceutical"></use>
+                          </svg>
+                          Хімічна промисловість і фармацевтика
+                        </a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./company.html">Про компанію</a>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./page-articles.html">Блог</a>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./contact.html">Контакти</a>
+                </li>
+                <li class="nav__item">
+                  <a class="header__nav-link nav__link" href="./delivery.html">Оплата та доставка</a>
+                </li>
+              </ul>
+            </div>
           </nav>
 
           <div class="header__inner">
-            <div class="header__lang lang">
-              <div class="lang__item">
-                <a class="lang__link lang__link--active" href="https://ideia.ua/ua" rel="alternate">
+            <ul class="header__lang lang">
+              <li class="lang__item">
+                <a class="lang__link lang__link--active" href="#" rel="alternate">
                   UA
                 </a>
-              </div>
-              <div class="lang__list">
-                <a class="lang__link" href="https://ideia.ua/ru" rel="alternate">
+              </li>
+              <li class="lang__list">
+                <a class="lang__link" href="#" rel="alternate">
                   RU
                 </a>
-              </div>
-            </div>
+              </li>
+            </ul>
             <div class="header__phone phone phone__spollers" data-spollers-phone>
               <div class="phone__inner">
                 <a class="phone__link " href="tel:+380675703489">
@@ -190,7 +192,7 @@
                   </svg>
                   (067)&nbsp;570&nbsp;-&nbsp;34&nbsp;-&nbsp;89
                 </a>
-                <button class="phone__arrow" data-spoller-phone><!--nav__linkbtn-arrow--active -->
+                <button class="phone__arrow" data-spoller-phone>
                   <svg class="phone__arrow-svg" width="12" height="9" aria-label="Перемикач випадаючого меню">
                     <use href="./images/icons/icons.svg#arrow-down"></use>
                   </svg>
@@ -237,7 +239,7 @@
             </button>
 
             <div class="header__search search is-hidden" data-modal="">
-              <button class="search__close-btn" type="button" data-modal-close="">X
+              <button class="search__close-btn" data-modal-close="">X
               </button>
               <form action="#" class="header__search-form search__form">
                 <div class="search__box">
@@ -434,7 +436,7 @@
         <div class="container">
           <div class="popular__title-box">
             <h2 class="popular__title section-title">Популярні</h2>
-            <a class="popular__link-more buttons-more" href="#">Усі продукти </a>
+            <a class="popular__link-more buttons-more" href="./catalog.html">Усі продукти </a>
           </div>
 
           <div class="popular__slider swiper products-card">
@@ -944,7 +946,7 @@
         <div class="container">
           <div class="promotion__title-box popular__title-box">
             <h2 class="promotion__title popular__title section-title">Акційні товари</h2>
-            <a class="promotion__link-more popular__link-more buttons-more" href="#">Усі продукти </a>
+            <a class="promotion__link-more popular__link-more buttons-more" href="./catalog.html">Усі продукти </a>
           </div>
           <p class="promotion__text">
             Vulputate volutpat libero eget leo sollicitudin lorem blandit. Morbi ipsum pulvinar sed in tincidunt lectus.
@@ -1286,23 +1288,32 @@
             компанії. Не втрачайте шансу забезпечити свій захист за кращу ціну!
           </p>
 
-          <form class="newsletter__form form" name="newsletter-mail" novalidate="">
+          <form class="newsletter__form form" name="newsletter-mail" novalidate>
             <label class="newsletter__form-label" for="user-name">
-              <input class="newsletter__form-input" type="text" name="user-name" id="user-name" placeholder="Ім'я"
-                required="" autocomplete="on">
+              <span class="newsletter__form-labellegend">Ім'я</span>
+              <input class="newsletter__form-input" type="text" name="username" id="user-name" placeholder="Ім'я"
+                required autocomplete="on"
+                title="Ім'я повинне містити від 2 до 15 символів, бути одним словом, не містити інших символів, крім літер">
+              <p class="error">❌ Не коректне ім'я!</p>
             </label>
 
             <label class="newsletter__form-label" for="user-tel">
+              <span class="newsletter__form-labellegend">Номер телефону</span>
               <input class="newsletter__form-input" type="tel" name="tel" id="user-tel" placeholder="Номер телефону"
-                required="" autocomplete="on">
+                title="Вкажіть у форматі: +380 (99) 999-99-99" autocomplete="on" required>
+              <span class="error">❌ Не коректний номер телефону!</span>
             </label>
 
             <label class="newsletter__form-label" for="user-email">
-              <input class="newsletter__form-input" type="email" name="email" id="user-email" placeholder="Е-mail:"
-                required="" autocomplete="on">
+              <span class="newsletter__form-labellegend">Е-mail</span>
+              <input class="newsletter__form-input" type="email" name="email" id="user-email"
+                placeholder="user@example.com" required autocomplete="email"
+                title="Вкажіть у форматі: user@example.com">
+              <span class="error">❌ Не коректний email!</span>
             </label>
 
             <button class="newsletter__form-button buttons" type="submit">Підписатися</button>
+            <p class="js-alert alert" role="alert">✅ Підписку оформлено!</p>
           </form>
 
         </div>
@@ -1467,8 +1478,9 @@
 
 
 
-  <script src="js/form-validation.js"></script>
   <script src="js/main.min.js"></script>
+  <script src="js/form-validation.js"></script>
+  <!-- <script src="js/telmask.js"></script> -->
   <!-- <script src="js/main.js"></script> -->
 </body>
 

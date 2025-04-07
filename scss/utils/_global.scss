@@ -110,6 +110,7 @@ button,
     -webkit-appearance: button;
 }
 
+
 // ul.products__list>li.products__item*4>div.products__wrapp>img.products__item-img[src=images/products-$.jpg]+p.products__item-price{10$}+h3.title-h3+p.products__item-text+button.products__button-button{Купити}
 // .wrapper {
 //     display: flex;
@@ -205,6 +206,42 @@ button,
     margin: -1px;
 }
 
+
+
+
 .mobile-overflow {
     width: rem(1000);
+}
+
+.error {
+    @include transition ($transition-property: opacity);
+    opacity: 0;
+    color: red;
+}
+
+.js-alert {
+    position: absolute;
+    min-width: 290px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    // transform: translate(-50%, -50%);
+    transform: translateX(100vw);
+    padding: 20px 10px;
+    color: var(--white);
+    background-color: var(--accent);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    @include transition ($transition-property: transform)
+}
+
+
+//  Навигация, кнопка, counter в SimpleLightbox
+.sl-wrapper {
+
+    .sl-close,
+    .sl-counter,
+    .sl-navigation button {
+        color: var(--white);
+    }
 }

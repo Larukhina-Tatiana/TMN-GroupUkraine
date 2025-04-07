@@ -52,26 +52,52 @@
   }
 
   &__form {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    @include adaptivevalue(gap, 30, 10, 1200, 320, 1);
+    @include adaptivevalue(gap, 16, 10, 1200, 320, 1);
     justify-content: space-between;
     align-items: center;
-  }
+    margin: 0 auto;
 
-  &__form-input {
-    width: rem(270);
-    padding: rem(12);
-    border: none;
-    border-radius: rem(2);
+    &-label {
+      display: flex;
+      flex-direction: column;
 
-    ::placeholder {
-      color: var(--gray-bright);
+      &:has([required]) .newsletter__form-labellegend::after {
+        content: "*";
+        padding-inline: 0.25em;
+        color: red;
+      }
+    }
+
+    &-labellegend {
+      padding-left: 10px;
+    }
+
+    &-input {
+      width: rem(270);
+      padding: rem(12);
+      border: none;
+      border-radius: rem(2);
+
+      ::placeholder {
+        color: var(--gray-bright);
+      }
+    }
+
+
+
+
+    &-button {
+      width: rem(270);
     }
   }
 
-  &__form-button {
-    width: rem(270);
+  @media screen and (width <=1230px) {
+    &__form {
+      justify-content: center;
+    }
   }
 
   @media screen and (width < 1199.99px) {
@@ -81,16 +107,21 @@
       text-align: center;
       margin: 0 auto rem(30) auto;
     }
-
-    &__form {
-      justify-content: center;
-    }
   }
 
   @media screen and (width < 886.99px) {
 
     &__form {
       flex-direction: column;
+      align-items: center;
+    }
+
+    &__form-label {
+      width: 100%;
+    }
+
+    &__form-input {
+      width: 100%;
     }
 
   }
