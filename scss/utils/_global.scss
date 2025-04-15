@@ -245,3 +245,23 @@ button,
         color: var(--white);
     }
 }
+
+a:disabled,
+a[disabled] {
+    cursor: not-allowed;
+    opacity: .5;
+
+    @media (any-hover: hover) {
+        &:hover {
+            svg {
+                color: inherit;
+            }
+        }
+    }
+}
+
+.is-hidden {
+    visibility: hidden;
+    cursor: pointer;
+    @include transition ($transition-property: visibility)
+}

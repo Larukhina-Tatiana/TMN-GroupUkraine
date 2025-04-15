@@ -19,23 +19,49 @@
     margin-top: rem(20);
   }
 
+  &__form-item {
+    border: none;
+    margin-block-start: 30px;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-block: 0;
+  }
+
   &__form-title {
     font-weight: 500;
-    margin-top: rem(20);
-    margin-bottom: rem(20);
+    margin-bottom: rem(10);
 
     &--marginbottom {
       margin-bottom: rem(10);
     }
   }
 
+  &__form-content {
+    position: relative;
+  }
+
   &__form-content-box {
+    overflow: hidden;
+    @include transition ($transition-property: (transform, opacity));
+    opacity: 1;
+    transform: translateY(0%);
+    position: static;
+
     &:not(:last-child) {
       margin-bottom: rem(10);
     }
   }
 
+  &__form-content-box.hidden {
+    transform: translateY(-150%);
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+
+  }
+
   &__form-filter-more-btn {
+    // margin-block-start: 40px;
     color: var(--accent);
     font-size: 0.875rem;
     border-bottom: 1px solid var(--accent);

@@ -6,7 +6,7 @@
     position: relative;
     overflow: hidden;
     width: rem(250);
-    height: rem(190);
+    // height: rem(190);
 
     &::after {
       position: absolute;
@@ -50,7 +50,7 @@
     font-weight: 600;
   }
 
-  &__availability {
+  &__noavailability {
     color: var(--red);
     margin-bottom: rem(10);
   }
@@ -69,6 +69,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
+      outline: none;
     }
   }
 
@@ -173,6 +175,10 @@
 
     &__body {
       width: 100%;
+    }
+
+    &__img-cover {
+      width: 450px;
     }
   }
 

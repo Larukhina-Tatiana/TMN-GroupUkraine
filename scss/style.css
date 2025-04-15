@@ -222,6 +222,25 @@ button,
   color: var(--white);
 }
 
+a:disabled,
+a[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+@media (any-hover: hover) {
+  a:disabled:hover svg,
+  a[disabled]:hover svg {
+    color: inherit;
+  }
+}
+
+.is-hidden {
+  visibility: hidden;
+  cursor: pointer;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @font-face {
   font-family: "SFUIText";
   src: url(../fonts/SFUIText-Regular.woff2) format("woff2"), url(../fonts/SFUIText-Regular.woff) format("woff");
@@ -906,11 +925,6 @@ button,
   }
 }
 
-.is-hidden {
-  visibility: hidden;
-  cursor: pointer;
-}
-
 .basket__icon {
   position: relative;
   width: 1.5rem;
@@ -1127,41 +1141,37 @@ button,
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 0.0625rem;
+  gap: 10px;
 }
 .pagination__item {
   background-color: var(--white);
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-@media screen and (max-width: 1200px) {
-  .pagination__item {
-    width: calc(32px + 16 * (100vw - 320px) / 880);
-  }
-}
-@media screen and (max-width: 1200px) {
-  .pagination__item {
-    height: calc(32px + 16 * (100vw - 320px) / 880);
-  }
 }
 .pagination__item.active {
   background-color: var(--accent);
   color: var(--white);
 }
 .pagination__link {
-  padding: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-@media (any-hover: hover) {
-  .pagination__link:hover {
-    color: var(--accent);
+@media screen and (max-width: 1200px) {
+  .pagination__link {
+    width: calc(32px + 16 * (100vw - 320px) / 880);
   }
+}
+@media screen and (max-width: 1200px) {
+  .pagination__link {
+    height: calc(32px + 16 * (100vw - 320px) / 880);
+  }
+}
+@media (any-hover: hover) {
   .pagination__link:hover svg {
     color: var(--accent);
   }
@@ -1415,7 +1425,7 @@ button,
 }
 .products-card__img-link--sale::before {
   position: absolute;
-  content: "-20%";
+  content: attr(data-sale);
   padding: 0.3125rem 0.9375rem;
   color: var(--white);
   background-color: var(--red);
@@ -2589,6 +2599,9 @@ button,
   color: var(--gray-bright);
   margin-bottom: 1.25rem;
 }
+.catalog__quantity {
+  margin-bottom: 20px;
+}
 .catalog__card-item {
   box-shadow: 2px 2px 19px 0px rgba(0, 0, 0, 0.06);
   transition-duration: 300ms;
@@ -2633,7 +2646,7 @@ button,
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     transform: translateY(-150%);
-    z-index: 2;
+    z-index: 3;
   }
 }
 .catalog__aside.open {
@@ -2742,16 +2755,39 @@ button,
   width: 14.375rem;
   margin-top: 1.25rem;
 }
+.aside__form-item {
+  border: none;
+  margin-block-start: 30px;
+  margin-inline: 0;
+  padding-inline: 0;
+  padding-block: 0;
+}
 .aside__form-title {
   font-weight: 500;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.625rem;
 }
 .aside__form-title--marginbottom {
   margin-bottom: 0.625rem;
 }
+.aside__form-content {
+  position: relative;
+}
+.aside__form-content-box {
+  overflow: hidden;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0%);
+  position: static;
+}
 .aside__form-content-box:not(:last-child) {
   margin-bottom: 0.625rem;
+}
+.aside__form-content-box.hidden {
+  transform: translateY(-150%);
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
 }
 .aside__form-filter-more-btn {
   color: var(--accent);
@@ -2807,7 +2843,6 @@ button,
   position: relative;
   overflow: hidden;
   width: 15.625rem;
-  height: 11.875rem;
 }
 .card__img-cover::after {
   position: absolute;
@@ -2842,7 +2877,7 @@ button,
 .card__descr-bold {
   font-weight: 600;
 }
-.card__availability {
+.card__noavailability {
   color: var(--red);
   margin-bottom: 0.625rem;
 }
@@ -2863,6 +2898,8 @@ button,
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  outline: none;
 }
 .card__counter {
   position: relative;
@@ -2952,6 +2989,9 @@ button,
   }
   .card__body {
     width: 100%;
+  }
+  .card__img-cover {
+    width: 450px;
   }
 }
 @media screen and (width < 430.99px) {

@@ -33,7 +33,7 @@
   &__img-link--sale {
     &::before {
       position: absolute;
-      content: "-20%";
+      content: attr(data-sale); // ← берёт значение из data-sale;
       padding: rem(5) rem(15);
       color: var(--white);
       background-color: var(--red);

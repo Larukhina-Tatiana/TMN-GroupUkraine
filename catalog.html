@@ -11,8 +11,8 @@
   <!-- <link rel="stylesheet" href="node_modules/nouislider/dist/nouislider.min.css"> -->
   <!-- <link rel="stylesheet" href="./css/jquery.formstyler.css"> -->
   <!-- <link rel="stylesheet" href="./css/jquery.formstyler.theme.css"> -->
-  <!-- <link rel="stylesheet" href="scss/style.css"> -->
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="scss/style.css">
+  <!-- <link rel="stylesheet" href="css/style.min.css"> -->
 </head>
 
 <body>
@@ -319,121 +319,170 @@
             <aside class="catalog__aside aside">
               <div class="aside__btn">Фільтр за параметрами</div>
               <form class="aside__form" id="aside-form">
-                <ul class="aside__form-list">
-                  <li class="aside__form-item-drop">
-                    <p class="aside__form-title aside__form-title--marginbottom title-form">Ціна</p>
-                    <div class="range">
-                      <div class="range__values">
-                        <input class="range__values-input" id="min" type="text" title="від">
-                        <span class="range__values-span"></span>
-                        <input class="range__values-input" id="max" type="text" title="до">
-                      </div>
-                      <div class="range__slider">
-                        <div id="range"></div> <!-- элемент слайдера диапазона -->
-                      </div>
+                <!-- <ul class="aside__form-list"> -->
+                <fieldset class="aside__form-item">
+                  <legend class="aside__form-title aside__form-title--marginbottom title-form">Ціна</legend>
+                  <div class="range">
+                    <div class="range__values">
+                      <input class="range__values-input" id="min" type="text" title="від">
+                      <span class="range__values-span"></span>
+                      <input class="range__values-input" id="max" type="text" title="до">
                     </div>
-                  </li>
-                  <li class="aside__form-list">
-                    <p class="aside__form-title title-form">Матеріал</p>
-                    <div class="aside__form-content">
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox" checked>
-                          Нітріл
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Латекс
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Синтетика
-                        </label>
-                      </div>
+                    <div class="range__slider">
+                      <div id="range"></div> <!-- элемент слайдера диапазона -->
                     </div>
-                  </li>
-                  <li class="aside__form-item-drop">
-                    <p class="aside__form-title title-form">Опудреність</p>
-                    <div class="aside__form-content">
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox" checked>
-                          Опудрені
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Неопудрені
-                        </label>
-                      </div>
+                  </div>
+                </fieldset>
+                <fieldset class="aside__form-item js-box">
+                  <legend class="aside__form-title title-form">Матеріал</legend>
+                  <div class="aside__form-content">
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="material" value="Нітрил">
+                        Нітрил
+                      </label>
                     </div>
-                  </li>
-                  <li class="aside__form-item-drop">
-                    <p class="aside__form-title title-form">Тип</p>
-                    <div class="aside__form-content">
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Рукавички оглядові
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Рукавички хірургічні
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Спеціалізовані та процедурні
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Радіаційного захисту
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox" checked>
-                          Господарські рукавички
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox">
-                          Хімічна промисловість і фармацевтика
-                        </label>
-                      </div>
-                      <div class="aside__form-content-box">
-                        <label class="aside__form-content-label">
-                          <input class="filter-style" type="checkbox" name="checkbox" checked>
-                          Сад / город
-                        </label>
-                      </div>
-                      <div class="aside__form-filter-more">
-                        <button class="aside__form-filter-more-btn">Показати ще</button>
-                        <button class="aside__filtr-btn buttons">Застосувати</button>
-                      </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="material" value="Латекс">
+                        Латекс
+                      </label>
                     </div>
-                  </li>
-                </ul>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="material" value="Вініл">
+                        Вініл
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="material" value="Неопрен">
+                        Неопрен
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="material" value="Поліетилен">
+                        Поліетилен
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="material" value="Термопластичний еластомер">
+                        Термопластичний еластомер
+                      </label>
+                    </div>
+                    <button class="aside__form-filter-more-btn js-more-btn" data-action="more" type="button">Показати
+                      ще</button>
+                  </div>
+                </fieldset>
+                <fieldset class="aside__form-item js-box">
+                  <p class="aside__form-title title-form">Характеристики</p>
+                  <div class="aside__form-content">
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="characteristics" value="Опудрені">
+                        Опудрені
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="characteristics" value="Неопудрені" checked>
+                        Неопудрені
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="characteristics" value="Текстуровані">
+                        Текстуровані
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="characteristics" value="Стерильні">
+                        Стерильні
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="characteristics" value="Нестерильні" checked>
+                        Нестерильні
+                      </label>
+                    </div>
+                    <button class="aside__form-filter-more-btn js-more-btn" data-action="more" type="button">Показати
+                      ще</button>
+                  </div>
+                </fieldset>
+                <fieldset class="aside__form-item js-box">
+                  <legend class="aside__form-title title-form">Тип</legend>
+                  <div class="aside__form-content">
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="checkbox" value="Оглядові">
+                        Оглядові
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Універсальні">
+                        Універсальні
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Хірургічні">
+                        Хірургічні
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Спеціалізовані та процедурні">
+                        Спеціалізовані та процедурні
+                      </label>
+                    </div>
+
+
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Господарські">
+                        Господарські
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Хімічна промисловість">
+                        Хімічна промисловість
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Фармацевтика">
+                        Фармацевтика
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Сад / город">
+                        Сад / город
+                      </label>
+                    </div>
+                    <button class="aside__form-filter-more-btn js-more-btn" data-action="more" type="button">Показати
+                      ще</button>
+                  </div>
+                </fieldset>
+                <!-- </ul> -->
+
+                <button class="aside__filtr-btn buttons" type="submit">Застосувати</button>
+
               </form>
             </aside>
 
 
             <div class="catalog__box">
-              <h2 class="catalog__title title-h2">Рукавички нітрилові</h2>
-              <p class="catalog__text">Представлено 9 товарів</p>
-              <ul class="catalog__list">
-                <li class="catalog__card-item">
+              <h2 class="catalog__title title-h2">Каталог товарів</h2>
+              <p class="catalog__quantity"></p>
+              <ul class="catalog__card-list">
+                <!--<li class="catalog__card-item">
                   <article class="catalog__card card">
                     <div class="card__img-cover">
                       <a class="card__title-link" href="#">
@@ -453,7 +502,7 @@
                     </div>
                     <div class="card__body">
                       <a class="card__title-link" href="#">
-                        <h5 class="card__title title-h5">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
+                        <h5 class="card__title title-h5">РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
                         <p class="card__name text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
                       </a>
                       <p class="card__descr">
@@ -949,7 +998,7 @@
                       </div>
                     </div>
                   </article>
-                </li>
+                </li>-->
               </ul>
 
               <ul class="catalog__pagination pagination">
@@ -970,9 +1019,9 @@
                 <li class="pagination__item">
                   <a class="pagination__link" href="#">3</a>
                 </li>
-                <li class="pagination__item articles__pagination-item--dots">
+                <!-- <li class="pagination__item articles__pagination-item--dots">
                   <span>...</span>
-                </li>
+                </li> -->
                 <li class="pagination__item">
                   <a class="pagination__link" href="#">7</a>
                 </li>
@@ -1346,7 +1395,14 @@
 
   <!-- <script src="js/counter.js"></script> -->
   <script src="js/main.min.js"></script>
-  <!-- <script src="js/aside.js"></script> -->
+  <!-- <script src="js/controller.js" type="module"></script>
+  <script src="js/model.js" type="module"></script>
+  <script src="js/view.js" type="module"></script> -->
+  <script src="js/aside.js" type="module"></script>
+  <script src="js/more-btn.js" type="module"></script>
+  <script src="js/render.js" type="module"></script>
+  <!-- <script src="js/product-catalog.js" type="module"></script> -->
+
   <!-- <script src="js/slider.js"></script> -->
   <!-- <script src="js/main.js"></script> -->
 </body>

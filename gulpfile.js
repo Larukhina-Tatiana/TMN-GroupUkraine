@@ -88,7 +88,7 @@ function scripts() {
       // "js/jquery.rateyo.js",
       // "js/modal.js",
       "js/slider.js",
-      "js/aside.js",
+      // "js/aside.js",
       "js/counter.js",
       "js/main.js",
 
