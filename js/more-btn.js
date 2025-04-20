@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         const parentBox = btn.closest(".js-box");
+        if (!parentBox) return; // Проверяем, существует ли родительский элемент
         const hiddenBoxes = parentBox.querySelectorAll("div[data-toggled]");
 
         hiddenBoxes.forEach((div) => {

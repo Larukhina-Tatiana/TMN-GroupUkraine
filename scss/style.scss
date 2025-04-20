@@ -74,6 +74,7 @@
 @import "./components/aside";
 @import "./components/card";
 @import "./components/seo";
+@import "./components/selected-filters";
 
 
 
@@ -83,16 +84,3 @@
 @import "./components/benefits";
 @import "./components/prevention";
 @import "./components/benefits-gloves";
-
-
-// .swiper-button-left {
-//   transform: translateX(-41px);
-
-
-// }
-// .swiper-button-right {
-//   transform: translateX(8px);
-// }
-// <svg class="projects__item-svg" width="30" height="30" aria-label="РРєРѕРЅРєР° РїРѕРёСЃРєР°">
-//                     <use href="./images/projects/icons.svg#icon-search"></use>
-//                   </svg>

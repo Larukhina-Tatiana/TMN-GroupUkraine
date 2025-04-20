@@ -11,6 +11,7 @@
 :root {
   --accent-color: #29B384;
   --accent: #29B384;
+  --accent-dark: #054e36;
   --blue: #1764C2;
   --linear: linear-gradient(233deg, rgb(22, 94, 191) -13.52%, rgb(41, 179, 132) 76.05%);
   --black: #082242;
@@ -239,6 +240,35 @@ a[disabled] {
   cursor: pointer;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--accent);
+  /* Цвет верхней части */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
 }
 
 @font-face {
@@ -2599,9 +2629,6 @@ a[disabled] {
   color: var(--gray-bright);
   margin-bottom: 1.25rem;
 }
-.catalog__quantity {
-  margin-bottom: 20px;
-}
 .catalog__card-item {
   box-shadow: 2px 2px 19px 0px rgba(0, 0, 0, 0.06);
   transition-duration: 300ms;
@@ -2613,7 +2640,7 @@ a[disabled] {
   }
 }
 .catalog__card-item:not(:last-child) {
-  margin-bottom: 0.9375rem;
+  margin-bottom: 1.5625rem;
 }
 .catalog__card {
   display: flex;
@@ -2750,6 +2777,12 @@ a[disabled] {
   line-height: 1.4;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
+}
+.aside__form {
+  height: 60vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  cursor: url(/images/icons/scroll.svg), auto;
 }
 .aside__filtr-btn {
   width: 14.375rem;
@@ -2991,7 +3024,7 @@ a[disabled] {
     width: 100%;
   }
   .card__img-cover {
-    width: 450px;
+    max-width: 450px;
   }
 }
 @media screen and (width < 430.99px) {
@@ -3041,6 +3074,32 @@ a[disabled] {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.selected-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-block-end: 20px;
+}
+.selected-filters__button {
+  background-color: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.selected-filters__button::after {
+  content: "×";
+  margin-left: 5px;
+}
+.selected-filters__button:hover {
+  background-color: var(--accent-dark);
 }
 
 .card-product__item {

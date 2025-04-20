@@ -5,11 +5,27 @@ console.log("form", form);
 
 async function loadingData() {
   try {
+    // Добавляем значок загрузки
+    productList.innerHTML = `
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Завантаження даних...</p>
+      </div>
+    `;
+    // Искусственная задержка для проверки анимации
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
+
     const response = await fetch("./js/data/data.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     const data = await response.json();
+    // Убираем значок загрузки после загрузки данных
+    productList.innerHTML = "";
     return data;
   } catch (err) {
     console.error("Ошибка загрузки данных", err);
+    productList.innerHTML = "<p>Помилка завантаження даних</p>";
     return [];
   }
 }
@@ -17,20 +33,25 @@ async function loadingData() {
 const data = await loadingData();
 const filterData = [...data];
 
-await loadingData();
 console.log("data", data);
 
 function renderProducts(data) {
   productList.innerHTML = "";
 
-  quantity.textContent = `Представлено товарів: ${data.length}`;
+  if (data.length === 0) {
+    quantity.textContent = `Товари не знайдені`;
+    return;
+  }
+
+  quantity.textContent = `Знайдено товарів: ${data.length}`;
+
   const fragment = document.createDocumentFragment();
 
   data.forEach((product) => {
-    const li = document.createElement("li");
-    li.className = "catalog__card-item";
-    li.innerHTML = getProductMarkup(product);
-    fragment.appendChild(li);
+    const selectedFiltersItem = document.createElement("li");
+    selectedFiltersItem.className = "catalog__card-item";
+    selectedFiltersItem.innerHTML = getProductMarkup(product);
+    fragment.appendChild(selectedFiltersItem);
   });
   productList.appendChild(fragment);
 }
@@ -65,6 +86,7 @@ function getSizesMarkup(product) {
 function productDetails(product) {
   const sizesMarkup = getSizesMarkup(product);
   const isAvailable = product.availability;
+  const discount = product.discount || 0;
 
   return isAvailable
     ? `
@@ -117,11 +139,9 @@ function productDetails(product) {
     </div>
   `;
 }
-// рендер карточки
-function getProductMarkup(product) {
+// рендера изображения
+function renderProductImage(product) {
   return `
-<li class="catalog__card-item">
-  <article class="catalog__card card" id="product-${product.id}">
     <div class="card__img-cover">
       <a class="card__title-link${
         product.discount > 0 ? " products-card__img-link--sale" : ""
@@ -130,13 +150,20 @@ function getProductMarkup(product) {
         ${product.discount > 0 ? `data-sale="-${product.discount}%"` : ""}>
         <picture>
           <source type="image/avif" srcset="${product.img}.avif">
-          <source type="image/webp" srcset="${product.img}.webp ">
-          <img class="images-img" src="
-              ${product.img}.jpg" loading="lazy" decoding="async"
-              alt="${product.title}">
+          <source type="image/webp" srcset="${product.img}.webp">
+          <img class="images-img" src="${
+            product.img
+          }.jpg || './images/default.jpg'}" loading="lazy" decoding="async" alt="${
+    product.title
+  }">
         </picture>
       </a>
     </div>
+  `;
+}
+// рендера  описания
+function renderProductDescriptions(product) {
+  return `
     <div class="card__body">
       <a class="card__title-link" href="#">
         <h5 class="card__title title-h5">${product.title}</h5>
@@ -151,21 +178,29 @@ function getProductMarkup(product) {
         }
       </p>
       <p class="card__descr">
-        <span class="card__descr-bold">Застосування:</span>
-        ${product.sphere}
+      <span class="card__descr-bold">Застосування:</span>
+      ${Array.isArray(product.sphere) ? product.sphere.join(", ") : ""}
       </p>
-
       ${productDetails(product)}
-    </div>
+    </div>`;
+}
+// рендер карточки
+function getProductMarkup(product) {
+  return `
+
+  <article class="catalog__card card" id="product-${product.id}">
+    ${renderProductImage(product)}
+    ${renderProductDescriptions(product)}
+
   </article>
-</li>
+
       `;
 }
 
 // Сбор значений фильтров
 function getFilterValues(form) {
   if (!form) return {};
-  // const form = document.getElementById("aside-form");
+
   const formData = new FormData(form);
 
   // Получение диапазона цен
@@ -177,7 +212,12 @@ function getFilterValues(form) {
     ...form.querySelectorAll('input[name="material"]:checked'),
   ].map((el) => el.value);
 
-  // Получение опудренности
+  // Получение выбранных брендов
+  const brands = [...form.querySelectorAll('input[name="brand"]:checked')].map(
+    (el) => el.value
+  );
+
+  // Получение характерисик
   const characteristics = [
     ...form.querySelectorAll('input[name="characteristics"]:checked'),
   ].map((el) => el.value);
@@ -186,42 +226,175 @@ function getFilterValues(form) {
   const types = [...form.querySelectorAll('input[name="type"]:checked')].map(
     (el) => el.value
   );
-  console.log("characteristics", characteristics);
 
-  return { minPrice, maxPrice, materials, characteristics, types };
+  console.log(minPrice, maxPrice, brands, materials, characteristics, types);
+  return { minPrice, maxPrice, brands, materials, characteristics, types };
 }
 
 // Фильтрация товаров
 function filterProducts(data, form) {
-  const { minPrice, maxPrice, materials, characteristics, types } =
+  // Получаем значения фильтров
+  if (!form) return;
+  // Получаем диапазон цен
+
+  const { minPrice, maxPrice, brands, materials, characteristics, types } =
     getFilterValues(form);
+
+  // Получаем выбранный материал
 
   const filtered = data.filter((product) => {
     const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+    console.log("matchesPrice", matchesPrice);
 
-    const matchesMaterial = materials.length
-      ? materials.some(
-          (m) => m.toLowerCase() === product.material.toLowerCase()
-        )
-      : true;
+    const matchesMaterial =
+      !materials.length ||
+      materials.some((m) =>
+        Array.isArray(product.material)
+          ? product.material.some((pm) => pm.toLowerCase() === m.toLowerCase())
+          : product.material.toLowerCase() === m.toLowerCase()
+      );
 
-    const matchesCharacteristics = characteristics.length
-      ? characteristics.every((ch) =>
-          product.characteristics
-            .filter((c) => typeof c === "string") // ← фильтруем только строки
-            .map((c) => c.toLowerCase())
-            .includes(ch.toLowerCase())
-        )
-      : true;
+    const matcheBrand =
+      !brands.length ||
+      brands.some((b) =>
+        Array.isArray(product.brand)
+          ? product.brand.some((br) => br.toLowerCase() === b.toLowerCase())
+          : product.brand.toLowerCase() === b.toLowerCase()
+      );
 
-    const matchesType = types.length ? types.includes(product.type) : true;
+    // console.log("matcheBrand", product.brand);
+
+    const matchesCharacteristics =
+      !characteristics.length ||
+      characteristics.every((ch) =>
+        product.characteristics
+          .filter((c) => typeof c === "string") // ← фильтруем только строки
+          .map((c) => c.toLowerCase())
+          .includes(ch.toLowerCase())
+      );
+
+    const matchesType =
+      !types.length ||
+      types.some((t) => t.toLowerCase() === product.type.toLowerCase());
+
+    // const matchesType = types.length ? types.includes(product.type) : true;
 
     return (
-      matchesPrice && matchesMaterial && matchesCharacteristics && matchesType
+      matchesPrice &&
+      matchesMaterial &&
+      matchesCharacteristics &&
+      matchesType &&
+      matcheBrand
     );
   });
 
   renderProducts(filtered);
 }
 
-// Отображение товаров
+const containerFiltres = document.querySelector(".selected-filters");
+console.log("containerFiltres", containerFiltres);
+
+// Обновление отображения выбранных фильтров
+function updateSelectedFilters() {
+  containerFiltres.innerHTML = ""; // Очищаем контейнер
+  const selectedFiltersItem = document.querySelector(".catalog__card-item");
+  const formData = new FormData(form);
+
+  const resetAll = document.createElement("button");
+  resetAll.className = "selected-filters__button";
+  resetAll.className = "selected-filters__button";
+  resetAll.setAttribute("type", "button");
+  resetAll.textContent = "Скинути всі";
+  resetAll.dataset.key = "reset";
+  resetAll.dataset.value = "reset";
+  resetAll.addEventListener("click", () => {
+    form.reset();
+    // Устанавливаем значения по умолчанию
+    document.getElementById("min").value = "20";
+    document.getElementById("max").value = "500";
+    resetRangeSlider();
+    $(form).find("input").trigger("refresh"); // Обновляем стилизованные элементы
+    updateSelectedFilters(); // Вызываем только один раз
+    filterProducts(data, form); // Обновляем список товаров
+  });
+  // selectedFiltersItem.appendChild(resetAll);
+  // containerFiltres.appendChild(selectedFiltersItem);
+
+  // Проходим по всем выбранным фильтрам
+  formData.forEach((value, key) => {
+    if (key === "min" || key === "max") {
+      if (value.trim() === "") return; // Пропускаем пустые значения
+    }
+
+    // Создаем кнопку для каждого фильтра
+    const selectedFiltersItem = document.createElement("li");
+    selectedFiltersItem.className = "selected-filters__item";
+    console.log("selectedFiltersItem", selectedFiltersItem);
+
+    const filterButton = createFilterButton(key, value);
+    selectedFiltersItem.appendChild(filterButton);
+
+    containerFiltres.appendChild(selectedFiltersItem);
+  });
+}
+
+// Удаление фильтра
+function removeFilter(key, value) {
+  const inputs = form.querySelectorAll(`[name="${key}"]`);
+
+  inputs.forEach((input) => {
+    if (input.type === "checkbox" || input.type === "radio") {
+      if (input.value === value) {
+        input.checked = false; // Сбрасываем чекбокс или радио-кнопку
+      }
+    } else if (input.type === "text" || input.type === "number") {
+      if (input.value === value) {
+        input.value = ""; // Очищаем текстовое поле или поле ввода числа
+      }
+    }
+  });
+
+  // Обновляем стилизованные элементы
+  if ($(inputs).length) {
+    $(inputs).trigger("refresh"); // Метод обновления для jquery.formstyler
+  }
+
+  // Обновляем отображение фильтров
+  updateSelectedFilters();
+
+  // Триггерим событие отправки формы, чтобы обновить фильтрацию
+  form.dispatchEvent(new Event("submit"));
+}
+
+// Обновляем отображение фильтров при изменении формы
+form.addEventListener("change", updateSelectedFilters);
+
+form.addEventListener("change", () => {
+  // Обновляем стилизованные элементы
+  $(form).find("input").trigger("refresh");
+});
+
+// Обновляем отображение фильтров при отправке формы
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  updateSelectedFilters();
+});
+
+function createFilterButton(key, value) {
+  // Создаем кнопку для каждого фильтра
+  const filterButton = document.createElement("button");
+  filterButton.className = "selected-filters__button";
+  filterButton.textContent = `${value}`;
+  filterButton.dataset.key = key;
+  filterButton.dataset.value = value;
+
+  // Добавляем обработчик для удаления фильтра
+  filterButton.addEventListener("click", () => {
+    removeFilter(key, value);
+  });
+
+  return filterButton;
+}
+
+// Инициализация
+updateSelectedFilters();

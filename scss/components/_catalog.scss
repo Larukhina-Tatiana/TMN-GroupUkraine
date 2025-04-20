@@ -12,9 +12,6 @@
     margin-bottom: rem(20);
   }
 
-  &__quantity {
-    margin-bottom: 20px;
-  }
 
   &__card-item {
     box-shadow: 2px 2px 19px 0px rgba(0, 0, 0, 0.06);
@@ -27,7 +24,7 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: rem(15);
+      margin-bottom: rem(25);
     }
   }
 

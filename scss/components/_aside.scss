@@ -14,6 +14,13 @@
     margin-bottom: rem(20);
   }
 
+  &__form {
+    height: 60vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    cursor: url(/images/icons/scroll.svg), auto;
+  }
+
   &__filtr-btn {
     width: rem(230);
     margin-top: rem(20);

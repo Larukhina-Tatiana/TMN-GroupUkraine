@@ -21,10 +21,11 @@
       <div class="container">
         <div class="header__box">
           <a class="header__logo logo" href="./index.html">
-            <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="логотип">
-            <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31" height="25">
+            <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="Логотип TMN Group Ukraine">
+            <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="Логотип TMN Group Ukraine" width="31"
+              height="25">
           </a>
-          <button class="menu__btn" aria-label="Menu">
+          <button class="menu__btn" aria-label="Відкрити меню">
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
             <span class="menu__btn-line"></span>
@@ -319,18 +320,91 @@
             <aside class="catalog__aside aside">
               <div class="aside__btn">Фільтр за параметрами</div>
               <form class="aside__form" id="aside-form">
-                <!-- <ul class="aside__form-list"> -->
                 <fieldset class="aside__form-item">
                   <legend class="aside__form-title aside__form-title--marginbottom title-form">Ціна</legend>
                   <div class="range">
                     <div class="range__values">
-                      <input class="range__values-input" id="min" type="text" title="від">
+                      <input class="range__values-input" id="min" name="min" type="text" title="від">
                       <span class="range__values-span"></span>
-                      <input class="range__values-input" id="max" type="text" title="до">
+                      <input class="range__values-input" id="max" name="max" type="text" title="до">
                     </div>
                     <div class="range__slider">
                       <div id="range"></div> <!-- элемент слайдера диапазона -->
                     </div>
+                  </div>
+                </fieldset>
+                <fieldset class="aside__form-item js-box">
+                  <legend class="aside__form-title title-form">Бренд</legend>
+                  <div class="aside__form-content">
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="CEROS">
+                        CEROS
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="DERMAGRIP">
+                        DERMAGRIP
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="Mediok">
+                        Mediok
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="DeutschLab">
+                        DeutschLab
+                      </label>
+                    </div>
+
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="IGAR">
+                        IGAR
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="Ampri">
+                        Ampri
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="Unex">
+                        Unex
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="SEF">
+                        SEF
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="Medilex">
+                        Medilex
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="Mercator Medical">
+                        Mercator Medical
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="brand" value="SanGig">
+                        SanGig
+                      </label>
+                    </div>
+                    <button class="aside__form-filter-more-btn js-more-btn" data-action="more" type="button">Показати
+                      ще</button>
                   </div>
                 </fieldset>
                 <fieldset class="aside__form-item js-box">
@@ -360,6 +434,7 @@
                         Неопрен
                       </label>
                     </div>
+
                     <div class="aside__form-content-box hidden" data-toggled>
                       <label class="aside__form-content-label">
                         <input class="filter-style" type="checkbox" name="material" value="Поліетилен">
@@ -387,7 +462,7 @@
                     </div>
                     <div class="aside__form-content-box">
                       <label class="aside__form-content-label">
-                        <input class="filter-style" type="checkbox" name="characteristics" value="Неопудрені" checked>
+                        <input class="filter-style" type="checkbox" name="characteristics" value="Неопудрені">
                         Неопудрені
                       </label>
                     </div>
@@ -405,7 +480,7 @@
                     </div>
                     <div class="aside__form-content-box hidden" data-toggled>
                       <label class="aside__form-content-label">
-                        <input class="filter-style" type="checkbox" name="characteristics" value="Нестерильні" checked>
+                        <input class="filter-style" type="checkbox" name="characteristics" value="Нестерильні">
                         Нестерильні
                       </label>
                     </div>
@@ -418,26 +493,26 @@
                   <div class="aside__form-content">
                     <div class="aside__form-content-box">
                       <label class="aside__form-content-label">
-                        <input class="filter-style" type="checkbox" name="checkbox" value="Оглядові">
-                        Оглядові
-                      </label>
-                    </div>
-                    <div class="aside__form-content-box">
-                      <label class="aside__form-content-label">
                         <input class="filter-style" type="checkbox" name="type" value="Універсальні">
                         Універсальні
                       </label>
                     </div>
                     <div class="aside__form-content-box">
                       <label class="aside__form-content-label">
-                        <input class="filter-style" type="checkbox" name="type" value="Хірургічні">
-                        Хірургічні
+                        <input class="filter-style" type="checkbox" name="checkbox" value="Оглядові">
+                        Оглядові
                       </label>
                     </div>
                     <div class="aside__form-content-box">
                       <label class="aside__form-content-label">
-                        <input class="filter-style" type="checkbox" name="type" value="Спеціалізовані та процедурні">
-                        Спеціалізовані та процедурні
+                        <input class="filter-style" type="checkbox" name="type" value="Стоматологічні">
+                        Стоматологічні
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Фармацевтичні">
+                        Фармацевтичні
                       </label>
                     </div>
 
@@ -450,14 +525,20 @@
                     </div>
                     <div class="aside__form-content-box hidden" data-toggled>
                       <label class="aside__form-content-label">
-                        <input class="filter-style" type="checkbox" name="type" value="Хімічна промисловість">
-                        Хімічна промисловість
+                        <input class="filter-style" type="checkbox" name="type" value="Хірургічні">
+                        Хірургічні
                       </label>
                     </div>
                     <div class="aside__form-content-box hidden" data-toggled>
                       <label class="aside__form-content-label">
-                        <input class="filter-style" type="checkbox" name="type" value="Фармацевтика">
-                        Фармацевтика
+                        <input class="filter-style" type="checkbox" name="type" value="Для клінігових робіт">
+                        Для клінігових робіт
+                      </label>
+                    </div>
+                    <div class="aside__form-content-box hidden" data-toggled>
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="type" value="Для салонів краси">
+                        Для салонів краси
                       </label>
                     </div>
                     <div class="aside__form-content-box hidden" data-toggled>
@@ -470,7 +551,6 @@
                       ще</button>
                   </div>
                 </fieldset>
-                <!-- </ul> -->
 
                 <button class="aside__filtr-btn buttons" type="submit">Застосувати</button>
 
@@ -480,7 +560,10 @@
 
             <div class="catalog__box">
               <h2 class="catalog__title title-h2">Каталог товарів</h2>
-              <p class="catalog__quantity"></p>
+              <div class="catalog__info">
+                <span class="catalog__quantity"></span>
+                <ul class="selected-filters"></ul>
+              </div>
               <ul class="catalog__card-list">
                 <!--<li class="catalog__card-item">
                   <article class="catalog__card card">
@@ -1394,13 +1477,14 @@
 
 
   <!-- <script src="js/counter.js"></script> -->
-  <script src="js/main.min.js"></script>
+  <script src="js/main.min.js" defer></script>
   <!-- <script src="js/controller.js" type="module"></script>
   <script src="js/model.js" type="module"></script>
   <script src="js/view.js" type="module"></script> -->
-  <script src="js/aside.js" type="module"></script>
-  <script src="js/more-btn.js" type="module"></script>
-  <script src="js/render.js" type="module"></script>
+  <script src="js/aside.js" type="module" defer></script>
+  <script src="js/more-btn.js" type="module" defer></script>
+  <script src="js/range-my.js" type="module" defer></script>
+  <script src="js/render.js" type="module" defer></script>
   <!-- <script src="js/product-catalog.js" type="module"></script> -->
 
   <!-- <script src="js/slider.js"></script> -->
