@@ -2763,10 +2763,10 @@ a[disabled] {
 }
 
 .aside {
-  padding: 1.25rem;
+  padding: 0.625rem;
   background-color: var(--white);
   border-radius: 0.125rem;
-  max-width: 16.875rem;
+  max-width: 18.125rem;
   width: 100%;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2779,9 +2779,8 @@ a[disabled] {
   margin-bottom: 1.25rem;
 }
 .aside__form {
-  height: 60vh;
+  height: 65vh;
   overflow-y: scroll;
-  scrollbar-width: none;
   cursor: url(/images/icons/scroll.svg), auto;
 }
 .aside__filtr-btn {
@@ -2794,6 +2793,9 @@ a[disabled] {
   margin-inline: 0;
   padding-inline: 0;
   padding-block: 0;
+}
+.aside__form-item:first-child {
+  cursor: pointer;
 }
 .aside__form-title {
   font-weight: 500;
