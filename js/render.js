@@ -83,6 +83,7 @@ function renderCurrentPage(data) {
   console.log("currentPage", currentPage);
 
   renderProducts(itemsToShow); // Рендерим только текущую страницу
+  initLazyImageFade();
   renderPagination(data); // Обновляем пагинацию
 
   // Скрываем кнопку "Показати ще", если текущая страница последняя
@@ -268,6 +269,12 @@ function renderProductImage(product) {
         </picture>
       </a>
     </div>`;
+}
+function initLazyImageFade() {
+  document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+    img.addEventListener("load", () => img.classList.add("loaded"));
+    if (img.complete) img.classList.add("loaded");
+  });
 }
 // рендера  описания
 function renderProductDescriptions(product) {
@@ -552,6 +559,7 @@ function renderMoreProducts(data) {
       showMoreButton.style.opacity = "0";
     }
   }
+  initLazyImageFade();
   // Обновляем активную кнопку пагинации
   updatePaginationState(data);
 }
@@ -608,7 +616,7 @@ function initShowMore(data) {
 
   // Отображаем первые itemsPerClick товаров
   renderMoreProducts(data);
-
+  initLazyImageFade();
   // Добавляем кнопку "Показать ещё", если товаров больше, чем itemsPerClick
   addShowMoreButton(data);
 }
@@ -618,5 +626,6 @@ loadingData().then((fetchedData) => {
   data = fetchedData; // Сохраняем загруженные данные
   initShowMore(data); // Инициализируем отображение товаров с кнопкой "Показать ещё"
   renderCurrentPage(data); // Рендерим первую страницу
+  initLazyImageFade();
   updateSelectedFilters(); // Обновляем фильтры
 });

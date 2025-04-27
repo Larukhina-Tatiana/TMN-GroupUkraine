@@ -423,6 +423,15 @@ a[disabled] {
   margin-block-end: 20px;
 }
 
+.images-img {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+}
+.images-img.loaded {
+  opacity: 1;
+}
+
 .logo__img-mobile {
   display: none;
 }
