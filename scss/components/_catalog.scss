@@ -1,10 +1,21 @@
 .catalog {
-
+  // height: 100dvh;
 
   &__inner {
     display: flex;
     @include adaptivevalue(gap, 30, 0, 1200, 320, 1);
     position: relative;
+  }
+
+  &__box {
+
+    padding-inline-end: 20px;
+  }
+
+  &__card-list {
+    // height: 80dvh;
+    // overflow-y: scroll;
+    // overflow-x: hidden;
   }
 
   &__text {
@@ -31,10 +42,6 @@
   &__card {
     display: flex;
     gap: rem(30);
-  }
-
-  &__pagination {
-    margin-top: rem(20);
   }
 
   .menu__sort {

@@ -107,6 +107,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+    appearance: button;
     -webkit-appearance: button;
 }
 
@@ -266,12 +267,22 @@ a[disabled] {
     @include transition ($transition-property: visibility)
 }
 
+
 .loading-spinner {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    min-height: 200px;
+    gap: 10px;
+    text-align: center;
+}
+
+/* Стили текста загрузки */
+.loading-spinner p {
+    font-size: 24px;
+    color: var(--accent);
+    margin: 0;
 }
 
 .spinner {
@@ -288,10 +299,4 @@ a[disabled] {
     to {
         transform: rotate(360deg);
     }
-}
-
-.loading-spinner p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
 }

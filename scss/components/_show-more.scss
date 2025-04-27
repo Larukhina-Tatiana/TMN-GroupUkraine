@@ -1,0 +1,28 @@
+.show-more {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 16px;
+  font-weight: 700;
+  opacity: 0;
+
+  @include transition ($transition-property: (color, opacity));
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  &__svg {
+    transform-origin: 51.85% 50%;
+  }
+
+}
+
+.show-more-wrap {
+  margin-block-start: 20px;
+  margin-block-end: 20px;
+}

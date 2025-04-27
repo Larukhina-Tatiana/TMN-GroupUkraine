@@ -15,9 +15,10 @@
   }
 
   &__form {
-    height: 65vh;
+    height: 75vh;
     //  overflow-y: scroll;
     overflow-y: scroll;
+    overflow-x: hidden;
     // scrollbar-width: none;
     cursor: url(/images/icons/scroll.svg), auto;
   }

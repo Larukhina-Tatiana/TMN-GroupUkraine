@@ -106,6 +106,8 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
+  -moz-appearance: button;
+       appearance: button;
   -webkit-appearance: button;
 }
 
@@ -247,7 +249,16 @@ a[disabled] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  min-height: 200px;
+  gap: 10px;
+  text-align: center;
+}
+
+/* Стили текста загрузки */
+.loading-spinner p {
+  font-size: 24px;
+  color: var(--accent);
+  margin: 0;
 }
 
 .spinner {
@@ -265,12 +276,6 @@ a[disabled] {
     transform: rotate(360deg);
   }
 }
-.loading-spinner p {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
-}
-
 @font-face {
   font-family: "SFUIText";
   src: url(../fonts/SFUIText-Regular.woff2) format("woff2"), url(../fonts/SFUIText-Regular.woff) format("woff");
@@ -391,6 +396,31 @@ a[disabled] {
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.5;
+}
+
+.show-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 16px;
+  font-weight: 700;
+  opacity: 0;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (any-hover: hover) {
+  .show-more:hover {
+    color: var(--accent);
+  }
+}
+.show-more__svg {
+  transform-origin: 51.85% 50%;
+}
+
+.show-more-wrap {
+  margin-block-start: 20px;
+  margin-block-end: 20px;
 }
 
 .logo__img-mobile {
@@ -1205,6 +1235,10 @@ a[disabled] {
   .pagination__link:hover svg {
     color: var(--accent);
   }
+}
+.pagination__link:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 .pagination__link svg {
   transition-duration: 300ms;
@@ -2625,6 +2659,9 @@ a[disabled] {
     gap: calc(0px + 30 * (100vw - 320px) / 880);
   }
 }
+.catalog__box {
+  padding-inline-end: 20px;
+}
 .catalog__text {
   color: var(--gray-bright);
   margin-bottom: 1.25rem;
@@ -2645,9 +2682,6 @@ a[disabled] {
 .catalog__card {
   display: flex;
   gap: 1.875rem;
-}
-.catalog__pagination {
-  margin-top: 1.25rem;
 }
 .catalog .menu__sort {
   display: none;
@@ -2779,8 +2813,9 @@ a[disabled] {
   margin-bottom: 1.25rem;
 }
 .aside__form {
-  height: 65vh;
+  height: 75vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   cursor: url(/images/icons/scroll.svg), auto;
 }
 .aside__filtr-btn {

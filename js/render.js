@@ -1,28 +1,40 @@
 const productList = document.querySelector(".catalog__card-list");
 const form = document.getElementById("aside-form");
 const quantity = document.querySelector(".catalog__quantity");
-console.log("form", form);
+
+const perPage = 6; // Количество товаров на странице
+const itemsPerClick = 6; // Количество товаров, отображаемых при каждом клике
+let itemsShown = 0; // Количество отображаемых товаров (по умолчанию равно perPage)
+console.log("itemsShown", itemsShown);
+let currentPage = 1; // Текущая страница
+let data = [];
 
 async function loadingData() {
   try {
     // Добавляем значок загрузки
-    productList.innerHTML = `
-      <div class="loading-spinner">
+    productList.innerHTML = `<div class="loading-spinner">
         <div class="spinner"></div>
         <p>Завантаження даних...</p>
-      </div>
-    `;
+      </div>`;
     // Искусственная задержка для проверки анимации
-    // await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const response = await fetch("./js/data/data.json");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
+
+    const fetchedData = await response.json();
     // Убираем значок загрузки после загрузки данных
     productList.innerHTML = "";
-    return data;
+
+    // Показываем кнопку "Показати ще", если данные успешно загружены
+    const showMoreButton = document.querySelector(".js-show-more");
+    if (fetchedData.length > 0) {
+      showMoreButton.style.opacity = "1";
+    }
+
+    return fetchedData;
   } catch (err) {
     console.error("Ошибка загрузки данных", err);
     productList.innerHTML = "<p>Помилка завантаження даних</p>";
@@ -30,18 +42,13 @@ async function loadingData() {
   }
 }
 
-const data = await loadingData();
-const filterData = [...data];
-const perPage = 6; // Количество товаров на странице
-let currentPage = 1;
-
 console.log("data", data);
 
 function renderProducts(data) {
   productList.innerHTML = "";
 
   if (data.length === 0) {
-    quantity.textContent = `Товари не знайдені`;
+    quantity.textContent = "Товари не знайдені";
     return;
   }
   console.log("Кол товаров", data.length);
@@ -73,20 +80,35 @@ function renderCurrentPage(data) {
   const start = (currentPage - 1) * perPage;
   const end = start + perPage;
   const itemsToShow = data.slice(start, end);
+  console.log("currentPage", currentPage);
 
   renderProducts(itemsToShow); // Рендерим только текущую страницу
   renderPagination(data); // Обновляем пагинацию
+
+  // Скрываем кнопку "Показати ще", если текущая страница последняя
+  const showMoreButton = document.querySelector(".js-show-more");
+  const totalPages = Math.ceil(data.length / perPage);
+  if (currentPage === totalPages) {
+    showMoreButton.style.opacity = "0";
+  } else {
+    showMoreButton.style.opacity = "1";
+  }
 }
 
 function renderPagination(data) {
   if (!data || !perPage) return;
+
   // Получаем контейнер для пагинации
   const paginationContainer = document.querySelector(".catalog__pagination");
   if (!paginationContainer) return;
 
-  const totalPages = Math.ceil(data.length / perPage);
+  const totalPages = Math.ceil(data.length / perPage); // Общее количество страниц
+  // currentPage = Math.ceil(itemsShown / perPage); // Текущая страница
+  console.log("currentPage", currentPage);
+  console.log("totalPages", totalPages);
+
   if (totalPages <= 1) {
-    paginationContainer.innerHTML = ""; // скрываем пагинацию если одна страница
+    paginationContainer.innerHTML = ""; // Скрываем пагинацию, если одна страница
     return;
   }
 
@@ -96,38 +118,37 @@ function renderPagination(data) {
   html += `
     <li class="pagination__item">
       <a class="pagination__link pagination__link--arrow" href="#" data-page="${
-        currentPage - 1
+        currentPage > 1 ? currentPage - 1 : 1
       }" aria-label="назад" ${currentPage === 1 ? "disabled" : ""}>
         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        d="M7.23 1 1 7.23l6.23 6.228"></path>
-                    </svg>
-                    </a>
-    </li>
-  `;
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            d="M7.23 1 1 7.23l6.23 6.228"></path>
+        </svg>
+      </a>
+    </li>`;
 
   // Цифры страниц
   for (let i = 1; i <= totalPages; i++) {
     html += `
-      <li class="pagination__item ${i === currentPage ? "active" : ""}">
+      <li class="pagination__item js-pagination ${
+        i === currentPage ? "active" : ""
+      }">
         <a class="pagination__link" href="#" data-page="${i}">${i}</a>
-      </li>
-    `;
+      </li>`;
   }
 
-  // Кнопка «вперёд»
+  // Кнопка «вперед»
   html += `
     <li class="pagination__item">
       <a class="pagination__link pagination__link--arrow" href="#" data-page="${
-        currentPage + 1
+        currentPage < totalPages ? currentPage + 1 : totalPages
       }" aria-label="вперед" ${currentPage === totalPages ? "disabled" : ""}>
         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        d="M.77 1 7 7.23.77 13.457"></path>
-                    </svg>
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            d="M.77 1 7 7.23.77 13.457"></path>
+        </svg>
       </a>
-    </li>
-  `;
+    </li>`;
 
   paginationContainer.innerHTML = html;
 
@@ -139,13 +160,14 @@ function renderPagination(data) {
       if (!isNaN(targetPage) && targetPage >= 1 && targetPage <= totalPages) {
         currentPage = targetPage;
         renderCurrentPage(data);
+
+        // Прокрутка к началу списка товаров
+        productList.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });
+  addShowMoreButton(data); // Добавляем кнопку "Показать еще" после рендеринга пагинации
 }
-
-// renderProducts(data);
-// renderCurrentPage(data);
 
 // Обработка событий формы
 
@@ -173,63 +195,56 @@ function getSizesMarkup(product) {
         <span class="checkbox-castom"></span>
         ${size}
       </label>
-    </li>
-  `
+    </li>`
     )
     .join("");
 }
 // рендер Наличие
 function productDetails(product) {
-  const sizesMarkup = getSizesMarkup(product);
-  const isAvailable = product.availability;
-  const discount = product.discount || 0;
-
-  return isAvailable
-    ? `
-    <ul class="card__choice">
-      <li class="card__choice-item">
-        <p class="card__choice-name">Розмір</p>
-      </li>
-      ${sizesMarkup}
-    </ul>
-    <div class="card__price-inner">
-      <div class="counter-wrap card__counter counter-wrapper">
-        <button class="card__counter-arrow card__counter-arrow--up" type="button" data-action="plus" aria-label="plus">
-          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
-            <path fill="currentColor" d="M4.178 1.186a1 1 0 0 1 1.644 0l3.287 4.745A1 1 0 0 1 8.287 7.5H1.713a1 1 0 0 1-.822-1.57l3.287-4.744Z"/>
-          </svg>
-        </button>
-        <span class="card__counter-input" data-counter>1</span>
-        <button class="card__counter-arrow card__counter-arrow--down" type="button" data-action="minus" aria-label="minus">
-          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
-            <path fill="currentColor" d="M5.822 6.814a1 1 0 0 1-1.644 0L.891 2.069A1 1 0 0 1 1.713.5h6.574a1 1 0 0 1 .822 1.57L5.822 6.813Z"/>
-          </svg>
-        </button>
+  const sizesMarkup = getSizesMarkup(product); // Генерация разметки размеров
+  const isAvailable = product.availability; // Проверка наличия товара
+  const discount = product.discount || 0; // Скидка, если есть
+  //
+  if (isAvailable) {
+    return `
+      <ul class="card__choice">
+        <li class="card__choice-item">
+          <p class="card__choice-name">Розмір</p>
+        </li>
+        ${sizesMarkup}
+      </ul>
+      <div class="card__price-inner">
+        <div class="counter-wrap card__counter counter-wrapper">
+          <button class="card__counter-arrow card__counter-arrow--up" type="button" data-action="plus" aria-label="plus">+</button>
+          <span class="card__counter-input" data-counter>1</span>
+          <button class="card__counter-arrow card__counter-arrow--down" type="button" data-action="minus" aria-label="minus">-</button>
+        </div>
+        ${
+          discount > 0
+            ? `
+              <p class="card__price card__price--sale">${product.price} ₴</p>
+              <span class="card__old-price text2">${(
+                product.price /
+                (1 - discount / 100)
+              ).toFixed(0)} ₴</span>
+              ${
+                product.proviso
+                  ? `<span class="card__proviso">${product.proviso}</span>`
+                  : ""
+              }
+            `
+            : `<p class="card__price">${product.price} ₴</p>`
+        }
       </div>
-      ${
-        product.discount > 0
-          ? `<p class="card__price card__price--sale">${product.price} ₴</p>
-            <span class="card__old-price text2">${(
-              product.price /
-              (1 - product.discount / 100)
-            ).toFixed(0)} ₴</span>
-            ${
-              product.proviso
-                ? `<span class="card__proviso">${product.proviso}</span>`
-                : ""
-            }`
-          : `<p class="card__price">${product.price} ₴</p>`
-      }
-    </div>
-    <div class="card__btn-box">
-      <a class="card__btn buttons" href="#">У кошик</a>
-      <a class="card__btn buttons" href="#">Детальніше</a>
-    </div>
-  `
-    : `
-    
-    <p class="card__noavailability">Цього товару немає в наявності</p>
+      <div class="card__btn-box">
+        <a class="card__btn buttons" href="#">У кошик</a>
+        <a class="card__btn buttons" href="#">Детальніше</a>
+      </div>
+    `;
+  }
 
+  return `
+    <p class="card__noavailability">Цього товару немає в наявності</p>
     <div class="card__btn-box">
       <a class="card__btn buttons" href="#">Детальніше</a>
     </div>
@@ -240,10 +255,10 @@ function renderProductImage(product) {
   return `
     <div class="card__img-cover">
       <a class="card__title-link${
-        product.discount > 0 ? " products-card__img-link--sale" : ""
-      }"
-        href="#"
-        ${product.discount > 0 ? `data-sale="-${product.discount}%"` : ""}>
+        product.discount ? " products-card__img-link--sale" : ""
+      }" href="#" ${
+    product.discount ? `data-sale="-${product.discount}%"` : ""
+  }>
         <picture>
           <source type="image/avif" srcset="${product.img}.avif">
           <source type="image/webp" srcset="${product.img}.webp">
@@ -252,8 +267,7 @@ function renderProductImage(product) {
           }" loading="lazy" decoding="async" alt="${product.title}">
         </picture>
       </a>
-    </div>
-  `;
+    </div>`;
 }
 // рендера  описания
 function renderProductDescriptions(product) {
@@ -263,18 +277,15 @@ function renderProductDescriptions(product) {
         <h5 class="card__title title-h5">${product.title}</h5>
         <p class="card__name text2">${product.nameEn}</p>
       </a>
-      <p class="card__descr">
-        <span class="card__descr-bold">Опис: </span>${product.application}
-      </p>
-      <p class="card__descr">
-        <span class="card__descr-bold">Характеристика: </span>${
-          product.characteristics
-        }
-      </p>
-      <p class="card__descr">
-      <span class="card__descr-bold">Застосування:</span>
-      ${Array.isArray(product.sphere) ? product.sphere.join(", ") : ""}
-      </p>
+      <p class="card__descr"><span class="card__descr-bold">Опис: </span>${
+        product.application
+      }</p>
+      <p class="card__descr"><span class="card__descr-bold">Характеристика: </span>${
+        product.characteristics
+      }</p>
+      <p class="card__descr"><span class="card__descr-bold">Застосування: </span>${
+        Array.isArray(product.sphere) ? product.sphere.join(", ") : ""
+      }</p>
       ${productDetails(product)}
     </div>`;
 }
@@ -284,8 +295,7 @@ function getProductMarkup(product) {
   <article class="catalog__card card" id="product-${product.id}">
     ${renderProductImage(product)}
     ${renderProductDescriptions(product)}
-  </article>
-      `;
+  </article>`;
 }
 
 // Сбор значений фильтров
@@ -318,82 +328,74 @@ function getFilterValues(form) {
     (el) => el.value
   );
 
-  // console.log(minPrice, maxPrice, brands, materials, characteristics, types);
-  console.log(types);
+  console.log(minPrice, maxPrice, brands, materials, characteristics, types);
+  // console.log(types);
   return { minPrice, maxPrice, brands, materials, characteristics, types };
 }
 
 // Фильтрация товаров
-function filterProducts(data, form) {
-  if (!data || !form) return;
+function filterProducts(products, filterForm) {
+  if (!products || !filterForm) return;
+
   // Получаем значения фильтров
-
-  // Получаем диапазон цен
-
   const { minPrice, maxPrice, brands, materials, characteristics, types } =
-    getFilterValues(form);
+    getFilterValues(filterForm);
 
-  // Получаем выбранный материал
-
-  const filtered = data.filter((product) => {
+  // Фильтруем товары
+  const filteredProducts = products.filter((product) => {
     const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
 
     const matchesMaterial =
       !materials.length ||
-      materials.some((materials) =>
+      materials.some((material) =>
         Array.isArray(product.material)
           ? product.material.some(
-              (pm) => pm.toLowerCase() === materials.toLowerCase()
+              (pm) => pm.toLowerCase() === material.toLowerCase()
             )
-          : product.material.toLowerCase() === materials.toLowerCase()
+          : product.material.toLowerCase() === material.toLowerCase()
       );
 
-    const matcheBrand =
+    const matchesBrand =
       !brands.length ||
-      brands.some((brands) =>
+      brands.some((brand) =>
         Array.isArray(product.brand)
-          ? product.brand.some(
-              (br) => br.toLowerCase() === brands.toLowerCase()
-            )
-          : product.brand.toLowerCase() === brands.toLowerCase()
+          ? product.brand.some((br) => br.toLowerCase() === brand.toLowerCase())
+          : product.brand.toLowerCase() === brand.toLowerCase()
       );
-
-    // console.log("matcheBrand", product.brand);
 
     const matchesCharacteristics =
       !characteristics.length ||
       characteristics.every((ch) =>
         product.characteristics
-          .filter((characteristics) => typeof characteristics === "string") // ← фильтруем только строки
-          .map((characteristics) => characteristics.toLowerCase())
+          .filter((char) => typeof char === "string") // Фильтруем только строки
+          .map((char) => char.toLowerCase())
           .includes(ch.toLowerCase())
       );
 
     const matchesType =
       !types.length ||
-      types.some((types) => types.toLowerCase() === product.type.toLowerCase());
-
-    // const matchesType = types.length ? types.includes(product.type) : true;
+      types.some((type) => type.toLowerCase() === product.type.toLowerCase());
 
     return (
       matchesPrice &&
       matchesMaterial &&
+      matchesBrand &&
       matchesCharacteristics &&
-      matchesType &&
-      matcheBrand
+      matchesType
     );
   });
 
-  // renderProducts(filtered);
   // Обновляем отображение товаров и пагинации
-  renderCurrentPage(filtered);
+  renderCurrentPage(filteredProducts);
+  // Добавляем кнопку "Показати ще", если это необходимо
+  addShowMoreButton(filteredProducts);
 }
 
 const containerFiltres = document.querySelector(".selected-filters");
 
 // Обновление отображения выбранных фильтров
 function updateSelectedFilters() {
-  if (!form) return; // Проверяем, существует ли форма
+  if (!form || !data || data.length === 0) return; // Проверяем, существуют ли данные и форма
 
   if (!containerFiltres) {
     console.error("Элемент .selected-filters не найден в DOM");
@@ -401,12 +403,15 @@ function updateSelectedFilters() {
   }
 
   containerFiltres.innerHTML = ""; // Очищаем контейнер
-  // const selectedFiltersItem = document.querySelector(".selected-filters__item");
 
   const formData = new FormData(form);
   const fragment = document.createDocumentFragment();
 
-  console.log("Создаем кнопку resetAll");
+  // Создаем <li> для кнопки "Скинути всі"
+
+  const resetAllItem = document.createElement("li");
+  resetAllItem.className = "selected-filters__item";
+
   const resetAll = document.createElement("button");
   resetAll.className = "selected-filters__button";
   resetAll.setAttribute("type", "button");
@@ -429,9 +434,9 @@ function updateSelectedFilters() {
     updateSelectedFilters();
     filterProducts(data, form);
   });
-  fragment.appendChild(resetAll);
-  // selectedFiltersItem.appendChild(resetAll);
-  // containerFiltres.appendChild(selectedFiltersItem);
+
+  resetAllItem.appendChild(resetAll); // Добавляем кнопку в <li>
+  fragment.appendChild(resetAllItem); // Добавляем <li> в фрагмент
 
   // Проходим по всем выбранным фильтрам
   formData.forEach((value, key) => {
@@ -442,12 +447,11 @@ function updateSelectedFilters() {
     // Создаем кнопку для каждого фильтра
     const filterButton = createFilterButton(key, value);
     const selectedFiltersItem = document.createElement("li");
-    console.log("selectedFiltersItem", selectedFiltersItem);
+
     selectedFiltersItem.className = "selected-filters__item";
 
     selectedFiltersItem.appendChild(filterButton);
     fragment.appendChild(selectedFiltersItem);
-    // containerFiltres.appendChild(selectedFiltersItem);
   });
   containerFiltres.appendChild(fragment); // Добавляем новые элементы
   console.log("Фильтры обновлены");
@@ -458,17 +462,15 @@ function removeFilter(key, value) {
   const inputs = form.querySelectorAll(`[name="${key}"]`);
   if (inputs.length === 0) return;
   inputs.forEach((input) => {
-    inputs.forEach((input) => {
-      if (input.type === "checkbox" || input.type === "radio") {
-        if (input.value === value) {
-          input.checked = false; // Сбрасываем чекбокс или радио-кнопку
-        }
-      } else if (input.type === "text" || input.type === "number") {
-        if (input.value === value) {
-          input.value = ""; // Очищаем текстовое поле или поле ввода числа
-        }
+    if (input.type === "checkbox" || input.type === "radio") {
+      if (input.value === value) {
+        input.checked = false; // Сбрасываем чекбокс или радио-кнопку
       }
-    });
+    } else if (input.type === "text" || input.type === "number") {
+      if (input.value === value) {
+        input.value = ""; // Очищаем текстовое поле или поле ввода числа
+      }
+    }
   });
 
   // Обновляем стилизованные элементы
@@ -520,10 +522,101 @@ function createFilterButton(key, value) {
   return filterButton;
 }
 
-// Инициализация
-updateSelectedFilters();
+function renderMoreProducts(data) {
+  const fragment = document.createDocumentFragment();
 
-// Инициализация данных и рендера
-loadingData().then((data) => {
+  // Отображаем следующие itemsPerClick товаров
+  const itemsToShow = data.slice(itemsShown, itemsShown + itemsPerClick);
+  console.log("perPage", perPage);
+  console.log("itemsShown", itemsShown);
+  console.log("itemsPerClick", itemsPerClick);
+  console.log("itemsToShow", itemsToShow);
+
+  itemsToShow.forEach((product) => {
+    const selectedFiltersItem = document.createElement("li");
+    selectedFiltersItem.className = "catalog__card-item";
+    selectedFiltersItem.innerHTML = getProductMarkup(product);
+    fragment.appendChild(selectedFiltersItem);
+  });
+
+  productList.appendChild(fragment);
+
+  // Обновляем количество отображенных товаров
+  itemsShown += itemsToShow.length;
+  console.log("itemsShown", itemsShown);
+
+  // Скрываем кнопку, если все товары отображены
+  if (itemsShown >= data.length) {
+    const showMoreButton = document.querySelector(".js-show-more");
+    if (showMoreButton) {
+      showMoreButton.style.opacity = "0";
+    }
+  }
+  // Обновляем активную кнопку пагинации
+  updatePaginationState(data);
+}
+
+function addShowMoreButton(data) {
+  const showMoreButton = document.querySelector(".js-show-more");
+  if (!showMoreButton) return; // Если кнопки нет - выходим
+  // Скрываем кнопку, если товаров меньше или равно itemsPerClick
+  if (!data || data.length <= itemsPerClick || itemsShown >= data.length) {
+    showMoreButton.style.opacity = "0";
+    return;
+  }
+
+  // Показываем кнопку, если товаров больше itemsPerClick
+  showMoreButton.style.opacity = "1";
+
+  // Удаляем предыдущие обработчики, чтобы избежать дублирования
+  showMoreButton.replaceWith(showMoreButton.cloneNode(true));
+  const newShowMoreButton = document.querySelector(".js-show-more");
+
+  newShowMoreButton.addEventListener("click", () => {
+    renderMoreProducts(data);
+  });
+}
+
+function updatePaginationState(data) {
+  const paginationContainer = document.querySelector(".catalog__pagination");
+  if (!paginationContainer) return;
+
+  const totalPages = Math.ceil(data.length / itemsPerClick);
+  const currentPage = Math.ceil(itemsShown / itemsPerClick);
+  console.log("currentPage", currentPage);
+
+  // Обновляем активное состояние кнопок пагинации
+  paginationContainer
+    .querySelectorAll(".js-pagination")
+    .forEach((item, index) => {
+      if (index + 1 === currentPage) {
+        // console.log("index", index);
+        // console.log("currentPage", currentPage);
+
+        item.classList.add("active");
+      }
+      // else {
+      //   item.classList.remove("active");
+      // }
+    });
+}
+
+// Инициализация отображения товаров с кнопкой "Показать ещё"
+function initShowMore(data) {
+  itemsShown = 0; // Сбрасываем количество отображенных товаров
+  productList.innerHTML = ""; // Очищаем список товаров
+
+  // Отображаем первые itemsPerClick товаров
+  renderMoreProducts(data);
+
+  // Добавляем кнопку "Показать ещё", если товаров больше, чем itemsPerClick
+  addShowMoreButton(data);
+}
+
+// Пример вызова функции
+loadingData().then((fetchedData) => {
+  data = fetchedData; // Сохраняем загруженные данные
+  initShowMore(data); // Инициализируем отображение товаров с кнопкой "Показать ещё"
   renderCurrentPage(data); // Рендерим первую страницу
+  updateSelectedFilters(); // Обновляем фильтры
 });
