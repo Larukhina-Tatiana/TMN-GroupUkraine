@@ -106,9 +106,9 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
+  -webkit-appearance: button;
   -moz-appearance: button;
        appearance: button;
-  -webkit-appearance: button;
 }
 
 .wrapper {
@@ -225,14 +225,14 @@ button,
   color: var(--white);
 }
 
-a:disabled,
-a[disabled] {
+button:disabled,
+button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }
 @media (any-hover: hover) {
-  a:disabled:hover svg,
-  a[disabled]:hover svg {
+  button:disabled:hover svg,
+  button[disabled]:hover svg {
     color: inherit;
   }
 }
@@ -1249,6 +1249,10 @@ a[disabled] {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+.pagination__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 .pagination__link svg {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1304,9 +1308,6 @@ a[disabled] {
   .buttons-more:hover {
     text-decoration: underline;
   }
-}
-.buttons-more--disabled {
-  color: var(--gray-bright);
 }
 
 .categories {
@@ -2671,6 +2672,22 @@ a[disabled] {
 .catalog__box {
   padding-inline-end: 20px;
 }
+.catalog__top {
+  position: sticky;
+  top: 0;
+  /* Расстояние от верхнего края */
+  z-index: 10;
+  /* Устанавливаем z-index для перекрытия других элементов */
+  background-color: var(--white);
+  /* Фон для предотвращения наложения текста */
+  padding: 0.625rem;
+  /* Добавляем отступы */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  /* Тень для визуального отделения */
+}
+.catalog__card-list {
+  margin-block-start: 20px;
+}
 .catalog__text {
   color: var(--gray-bright);
   margin-bottom: 1.25rem;
@@ -3127,7 +3144,6 @@ a[disabled] {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
-  margin-block-end: 20px;
 }
 .selected-filters__button {
   background-color: var(--accent);

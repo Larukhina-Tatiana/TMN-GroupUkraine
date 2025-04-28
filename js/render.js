@@ -43,7 +43,7 @@ async function loadingData() {
 }
 
 console.log("data", data);
-
+// Рендер товаров
 function renderProducts(data) {
   productList.innerHTML = "";
 
@@ -70,7 +70,7 @@ function renderCurrentPage(data) {
   console.log("Кол", data.length);
 
   if (!data || data.length === 0) {
-    productList.innerHTML = "<p>Товари не знайдені</p>";
+    productList.innerHTML = "";
     quantity.textContent = "Товари не знайдені";
     renderPagination([]); // Обновляем пагинацию для пустого результата
     return;
@@ -118,14 +118,14 @@ function renderPagination(data) {
   // Кнопка «назад»
   html += `
     <li class="pagination__item">
-      <a class="pagination__link pagination__link--arrow" href="#" data-page="${
+      <button class="pagination__link pagination__link--arrow" data-page="${
         currentPage > 1 ? currentPage - 1 : 1
       }" aria-label="назад" ${currentPage === 1 ? "disabled" : ""}>
         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             d="M7.23 1 1 7.23l6.23 6.228"></path>
         </svg>
-      </a>
+      </button>
     </li>`;
 
   // Цифры страниц
@@ -134,21 +134,21 @@ function renderPagination(data) {
       <li class="pagination__item js-pagination ${
         i === currentPage ? "active" : ""
       }">
-        <a class="pagination__link" href="#" data-page="${i}">${i}</a>
+        <button class="pagination__link" data-page="${i}">${i}</button>
       </li>`;
   }
 
   // Кнопка «вперед»
   html += `
     <li class="pagination__item">
-      <a class="pagination__link pagination__link--arrow" href="#" data-page="${
+      <button class="pagination__link pagination__link--arrow"data-page="${
         currentPage < totalPages ? currentPage + 1 : totalPages
       }" aria-label="вперед" ${currentPage === totalPages ? "disabled" : ""}>
         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             d="M.77 1 7 7.23.77 13.457"></path>
         </svg>
-      </a>
+      </button>
     </li>`;
 
   paginationContainer.innerHTML = html;
@@ -162,8 +162,10 @@ function renderPagination(data) {
         currentPage = targetPage;
         renderCurrentPage(data);
 
+        // // Прокрутка к началу списка товаров
+        // productList.scrollIntoView({ behavior: "smooth", block: "start" });
         // Прокрутка к началу списка товаров
-        productList.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollToProductList();
       }
     });
   });
@@ -180,6 +182,7 @@ form.addEventListener("submit", (e) => {
 
 form.addEventListener("change", () => {
   updateSelectedFilters();
+  $(form).find("input").trigger("refresh"); // Обновляем стилизованные элементы
   filterProducts(data, form); // Обновляем товары, пагинацию и количество страниц
 });
 
@@ -216,9 +219,17 @@ function productDetails(product) {
       </ul>
       <div class="card__price-inner">
         <div class="counter-wrap card__counter counter-wrapper">
-          <button class="card__counter-arrow card__counter-arrow--up" type="button" data-action="plus" aria-label="plus">+</button>
+          <button class="card__counter-arrow card__counter-arrow--up" type="button" data-action="plus" aria-label="plus">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
+              <path fill="currentColor" d="M4.178 1.186a1 1 0 0 1 1.644 0l3.287 4.745A1 1 0 0 1 8.287 7.5H1.713a1 1 0 0 1-.822-1.57l3.287-4.744Z"/>
+            </svg>
+          </button>
           <span class="card__counter-input" data-counter>1</span>
-          <button class="card__counter-arrow card__counter-arrow--down" type="button" data-action="minus" aria-label="minus">-</button>
+          <button class="card__counter-arrow card__counter-arrow--down" type="button" data-action="minus" aria-label="minus">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" fill="none">
+              <path fill="currentColor" d="M5.822 6.814a1 1 0 0 1-1.644 0L.891 2.069A1 1 0 0 1 1.713.5h6.574a1 1 0 0 1 .822 1.57L5.822 6.813Z"/>
+            </svg>
+          </button>
         </div>
         ${
           discount > 0
@@ -461,7 +472,6 @@ function updateSelectedFilters() {
     fragment.appendChild(selectedFiltersItem);
   });
   containerFiltres.appendChild(fragment); // Добавляем новые элементы
-  console.log("Фильтры обновлены");
 }
 
 // Удаление фильтра
@@ -495,14 +505,6 @@ function removeFilter(key, value) {
   // Триггерим событие отправки формы, чтобы обновить фильтрацию
   form.dispatchEvent(new Event("submit"));
 }
-
-// Обновляем отображение фильтров при изменении формы
-form.addEventListener("change", updateSelectedFilters);
-
-form.addEventListener("change", () => {
-  // Обновляем стилизованные элементы
-  $(form).find("input").trigger("refresh");
-});
 
 // Обновляем отображение фильтров при отправке формы
 form.addEventListener("submit", (e) => {
@@ -607,6 +609,45 @@ function updatePaginationState(data) {
       //   item.classList.remove("active");
       // }
     });
+
+  // Обновляем состояние кнопки "вперед"
+  const nextButton = paginationContainer.querySelector(
+    '.pagination__link[aria-label="вперед"]'
+  );
+  console.log("nextButton", nextButton);
+  console.log("totalPages", totalPages);
+
+  if (nextButton) {
+    if (currentPage === totalPages) {
+      nextButton.setAttribute("disabled", "true");
+    } else {
+      nextButton.removeAttribute("disabled");
+    }
+  }
+
+  // Обновляем состояние кнопки "назад"
+  const prevButton = paginationContainer.querySelector(
+    '.pagination__link[aria-label="назад"]'
+  );
+  if (prevButton) {
+    if (currentPage === 1) {
+      prevButton.setAttribute("disabled", "true");
+    } else {
+      prevButton.removeAttribute("disabled");
+    }
+  }
+}
+
+// Прокрутка к началу списка товаров
+function scrollToProductList() {
+  const topOffset = document.querySelector(".catalog__top").offsetHeight; // Высота фиксированного элемента
+  const productListTop =
+    productList.getBoundingClientRect().top + window.scrollY; // Позиция productList относительно документа
+
+  window.scrollTo({
+    top: productListTop - topOffset, // Учитываем высоту .catalog__top
+    behavior: "smooth", // Плавная прокрутка
+  });
 }
 
 // Инициализация отображения товаров с кнопкой "Показать ещё"

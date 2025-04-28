@@ -107,8 +107,8 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-    appearance: button;
     -webkit-appearance: button;
+    appearance: button;
 }
 
 
@@ -247,8 +247,8 @@ button,
     }
 }
 
-a:disabled,
-a[disabled] {
+button:disabled,
+button[disabled] {
     cursor: not-allowed;
     opacity: .5;
 
@@ -260,6 +260,11 @@ a[disabled] {
         }
     }
 }
+
+// &--disabled {
+//   color: var(--gray-bright);
+//   cursor: not-allowed;
+// }
 
 .is-hidden {
     visibility: hidden;

@@ -44,7 +44,8 @@
     }
   }
 
-  &--disabled {
-    color: var(--gray-bright);
-  }
+  // &--disabled {
+  //   color: var(--gray-bright);
+  //   cursor: not-allowed;
+  // }
 }
