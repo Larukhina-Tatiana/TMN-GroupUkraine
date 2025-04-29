@@ -13,10 +13,10 @@ function updateButton() {
     button.classList.add("visible");
 
     if (window.scrollY < window.innerHeight / 2) {
-      button.style.backgroundColor = "#28a745"; // Зеленый
+      button.style.backgroundColor = "var(--accent)"; // Зеленый
       button.innerHTML = arrowDown;
     } else {
-      button.style.backgroundColor = "#007bff"; // Синий
+      button.style.backgroundColor = "var(--blue)"; // Синий
       button.innerHTML = arrowUp;
     }
   } else {

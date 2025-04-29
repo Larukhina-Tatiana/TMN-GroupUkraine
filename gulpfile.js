@@ -83,6 +83,7 @@ function scripts() {
       "node_modules/aos/dist/aos.js",
       "js/jquery.formstyler.min.js",
       "js/button.js",
+      "js/scroll.js",
       "js/ion.rangeSlider.min.js",
       "libs/inputmask.js",
       // "js/jquery.rateyo.js",

@@ -273,31 +273,34 @@
 
     </header>
     <main class="main">
-      <nav class="breadcrumbs">
+      <nav class="breadcrumbs" aria-label="breadcrumbs">
         <div class="container">
           <div class="breadcrumbs__inner">
             <ol class="breadcrumbs__list mobile-overflow">
-              <li class="breadcrumbs__item">
+              <!-- <li class="breadcrumbs__item">
                 <a class="breadcrumbs__link" href="./index.html">Головна</a>
               </li>
               <li class="breadcrumbs__item">
                 <a class="breadcrumbs__link" href="./catalog.html">Наша продукція</a>
               </li>
               <li class="breadcrumbs__item">
-                <a class="breadcrumbs__link" href="./catalog.html">Рукавички нітрилові</a>
-              </li>
-
-              <li class="breadcrumbs__item">
                 <span class="breadcrumbs__nolink">Хірургічні рукавички Профіл® ДГД Синтетичні Неопудрені
                   Стерильні</span>
-              </li>
+              </li> -->
             </ol>
           </div>
         </div>
       </nav>
+      <button class="scroll-button" id="scroll-toggle" title="Прокрутити сторінку" aria-label="Прокрутити сторінку">
+        <!-- По умолчанию стрелка вниз -->
+        <svg id="scroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 21l-12-18h24z" />
+        </svg>
+      </button>
       <section class="card-product section">
         <div class="container">
-          <h2 class="visually-hidden">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h2>
+          <div class="card-product__container">
+            <!-- <h2 class="visually-hidden">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h2>
           <article class="card-product__item">
             <div class="card-product__img-cover">
               <a class="card__title-link" href="#">
@@ -314,13 +317,13 @@
                       " src="/images/card-product/card-product1@1x.jpg" alt="images" sizes="(min-width: 320px) 400px">
                 </picture>
               </a>
-            </div>
-            <div class="card-product__body">
-              <a class="card__title-link" href="#">
+            </div> -->
+            <!-- <div class="card-product__body">
+
                 <h5 class="card__title title-h5">РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
                 <p class="card__name text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
-              </a>
-              <p class="card__descr">
+
+            <!-- <p class="card__descr">
                 <span class="card__descr-bold">Опис: </span>Огляд Рукавички Нітрилові Без Латексу, Неопудрені,
                 Нестерильні, Текстуровані
               </p>
@@ -404,8 +407,8 @@
               </div>
               <a class="card__btn buttons" href="#">В кошик</a>
             </div>
-          </article>
-
+          </article> -->
+          </div>
           <div class="card-product__tabs-product">
 
             <div class="tabs__overflow tabs-wrapper">
@@ -504,7 +507,6 @@
                   <img src="./images/page-card/DHD-Double-Gloving-System-Latex-Sterile.png"
                     alt="images DHD-Double-Gloving-System-Latex-Sterile">
                 </div>
-
                 <div class="card-product__size">
                   <p class="card-product__size-title title-h5">Розмір</p>
                   <dl class="card-product__size-list">
@@ -567,6 +569,7 @@
 
                   </dl>
                 </div>
+
               </li>
               <li class="tabs__content-item card-product__tabs-content" id="tabs-product-3">
                 <ul class="tabs__content-application">
@@ -1415,6 +1418,7 @@
   <!-- <script src="./libs/siema-1.5.1/dist/siema.min.js"></script> -->
   <!-- <script src="js/main.js"></script> -->
   <script src="js/main.min.js"></script>
+  <script src="js/render-product-description.js" type="module" defer></script>
 </body>
 
 </html>

@@ -19,13 +19,21 @@
       visibility: hidden;
       transform: translateY(20px);
       transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s, background-color 0.4s ease;
-    }
 
-    .scroll-button.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      animation: float 2s ease-in-out infinite;
+
+      &.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        animation: float 2s ease-in-out infinite;
+      }
+
+      /* SVG стили */
+      & svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+      }
     }
 
     @keyframes float {
@@ -68,11 +76,4 @@
 
     .bounce {
       animation: bounce 0.6s ease forwards;
-    }
-
-    /* SVG стили */
-    .scroll-button svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
     }

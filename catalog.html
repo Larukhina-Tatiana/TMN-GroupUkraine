@@ -279,7 +279,7 @@
 
     </header>
     <main class="main">
-      <nav class="breadcrumbs">
+      <nav class="breadcrumbs" aria-label="breadcrumbs">
         <div class="container">
           <div class="breadcrumbs__inner">
             <ol class="breadcrumbs__list mobile-overflow">
@@ -287,17 +287,13 @@
                 <a class="breadcrumbs__link" href="./index.html">Головна</a>
               </li>
               <li class="breadcrumbs__item">
-                <a class="breadcrumbs__link" href="#">Наша продукція</a>
-              </li>
-
-              <li class="breadcrumbs__item">
-                <span class="breadcrumbs__nolink">Рукавички нітрилові</span>
+                <span class="breadcrumbs__nolink">Наша продукція</span>
               </li>
             </ol>
           </div>
         </div>
       </nav>
-      <button id="scroll-toggle" class="scroll-button">
+      <button class="scroll-button" id="scroll-toggle" title="Прокрутити сторінку" aria-label="Прокрутити сторінку">
         <!-- По умолчанию стрелка вниз -->
         <svg id="scroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 21l-12-18h24z" />

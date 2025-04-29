@@ -10,7 +10,7 @@
   &__img-cover {
     position: relative;
     @include adaptivevalue(width, 570, 290, 1200, 320, 1);
-    // max-width: rem(570);
+    max-width: rem(570);
     width: 100%;
     height: rem(364);
 
