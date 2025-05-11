@@ -2,8 +2,12 @@
 
   &__list {
     display: flex;
+    // height: 100%;
+    align-items: stretch;
     justify-content: space-between;
+    /* Растягиваем элементы по высоте */
     // gap: rem(30);
+    outline: 1px solid var(--gray-bright);
   }
 
   &__item {
@@ -11,17 +15,32 @@
     background: var(--white);
     // flex-basis: calc((100% - 90px) / 4);
     width: rem(270);
+    outline: 1px solid red;
+
+    flex: 1 1 auto;
+    /* Растягиваем элементы по высоте */
+    display: flex;
+    /* Если внутри есть дочерние элементы, они тоже будут растягиваться */
+    flex-direction: column;
+    /* Для вертикального выравнивания содержимого */
+
   }
 
   &__box {
     position: relative;
     width: rem(270);
     padding: rem(16);
+    display: flex;
+    flex-direction: column;
+    // height: 100%;
+    flex: 1 1 auto;
+
 
   }
 
   &__img-link {
     height: rem(130);
+    overflow: hidden;
 
     @media (any-hover: hover) {
       &:hover .products-card__img {
@@ -58,7 +77,12 @@
   }
 
   &__body {
-    margin-top: rem(8);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(16);
+    align-items: flex-start;
+    margin-block-end: 20px;
   }
 
   &__title-link {
@@ -104,6 +128,7 @@
     font-size: rem(20);
     font-weight: 600;
     line-height: 1.4;
+    height: 60px;
   }
 
   &__price--sale {
@@ -128,8 +153,16 @@
   }
 
   &__btn {
-    margin-top: rem(23);
+    margin-top: auto;
     max-width: rem(238);
     width: 100%;
+  }
+
+  .swiper-slide {
+    height: 100%;
+    /* Растягиваем слайды на всю высоту контейнера */
+    display: flex;
+    flex-direction: column;
+    /* Для вертикального выравнивания содержимого */
   }
 }

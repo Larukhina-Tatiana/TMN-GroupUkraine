@@ -22,6 +22,9 @@ const fonter = require("gulp-fonter");
 const ttf2woff2 = require("gulp-ttf2woff2");
 
 const include = require("gulp-include");
+const sourcemaps = require("gulp-sourcemaps");
+const plumber = require("gulp-plumber");
+const babel = require("gulp-babel");
 
 function fonts() {
   return src("fonts/src/*.*")
@@ -46,63 +49,76 @@ function fonts() {
 // }
 
 function styles() {
-  // return src("app/scss/style.scss")
+  // return (
+  //   src("scss/style.scss") // Главный файл SCSS
   return src([
-    // "css/modern-normalize.min.css",
-    // "css/ion.rangeSlider.css",
-    // "css/jquery.formstyler.css",
-    // "css/jquery.formstyler.theme.css",
-    // "node_modules/nouislider/dist/nouislider.css",
-    // "node_modules/swiper/swiper-bundle.css",
-    // "node_modules/simplelightbox/dist/simple-lightbox.css",
-    // "node_modules/aos/dist/aos.css",
-    // "css/jquery.rateyo.css",
-    "scss/style.scss",
-    // "!/css/style.min.css",
+    "./css/modern-normalize.min.css",
+    "./css/ion.rangeSlider.css",
+    "./css/jquery.formstyler.css",
+    "./css/jquery.formstyler.theme.css",
+    "./node_modules/nouislider/dist/nouislider.css",
+    "./node_modules/swiper/swiper-bundle.css",
+    "./node_modules/glightbox/dist/css/glightbox.css",
+    "./node_modules/aos/dist/aos.css",
+    "./css/jquery.rateyo.min.css",
+    "./scss/style.scss",
   ])
+    .pipe(plumber()) // Предотвращение остановки сборки при ошибках
+    .pipe(sourcemaps.init()) // Инициализация Source Maps
     .pipe(concat("style.min.css"))
     .pipe(scss({ outputStyle: "compressed" }))
-    .pipe(dest("css"))
     .pipe(
       autoprefixer({
         overrideBrowsersList: ["last 10 version"],
         grid: true,
       })
-    );
+    )
+    .pipe(sourcemaps.write(".")) // Запись Source Maps в текущую папку
+    .pipe(dest("css"));
 }
 
-function scripts() {
-  return (
-    src([
-      "node_modules/jquery/dist/jquery.js",
-      "node_modules/transfer-elements/dist/transfer-elements.js",
-      "node_modules/swiper/swiper-bundle.js",
-      "node_modules/nouislider/dist/nouislider.js",
-      "node_modules/simplelightbox/dist/simple-lightbox.min.js",
-      "node_modules/siema/dist/siema.min.js",
-      "node_modules/aos/dist/aos.js",
-      "js/jquery.formstyler.min.js",
-      "js/button.js",
-      "js/scroll.js",
-      "js/ion.rangeSlider.min.js",
-      "libs/inputmask.js",
-      // "js/jquery.rateyo.js",
-      // "js/modal.js",
-      "js/slider.js",
-      // "js/aside.js",
-      "js/counter.js",
-      "js/main.js",
+function vendorScripts() {
+  return src([
+    "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/transfer-elements/dist/transfer-elements.js",
+    "node_modules/swiper/swiper-bundle.min.js", // ✅ min.js
+    "node_modules/nouislider/dist/nouislider.min.js", // ✅
+    "node_modules/glightbox/dist/js/glightbox.min.js", // ✅
+    "node_modules/siema/dist/siema.min.js",
+    "node_modules/aos/dist/aos.js",
+    "libs/inputmask.js",
+    "js/jquery.formstyler.min.js",
+    "js/ion.rangeSlider.min.js",
+  ])
+    .pipe(concat("vendor.min.js"))
+    .pipe(uglify())
+    .pipe(dest("js"));
+}
 
-      // Для подключения многих (всех) файлов js? Обязательно исключать main.min.js
-      // 'app/js/*.js',
-      // '!app/js/main.min.js'
-      "!/js/main.min.js",
-    ])
-      .pipe(concat("main.min.js"))
-      // .pipe(concat("main.js"))
-      .pipe(uglify())
-      .pipe(dest("js"))
-  );
+function projectScripts() {
+  return src([
+    "js/button.js",
+    "js/scroll.js",
+    // "js/modal.js",
+    // "js/slider.js",
+    // "js/aside.js",
+    "js/counter.js",
+    "js/scroll.js",
+    // "js/range-my.js",
+    // "js/read-more.js",
+    "js/more-btn.js",
+    // "js/render.js",
+    "js/main.js",
+
+    // Для подключения многих (всех) файлов js? Обязательно исключать main.min.js
+    // 'app/js/*.js',
+    // '!app/js/main.min.js'
+    "!/js/main.min.js",
+  ])
+    .pipe(concat("main.min.js"))
+    .pipe(babel({ presets: ["@babel/preset-env"] }))
+    .pipe(uglify())
+    .pipe(dest("js"));
 }
 
 function images() {
@@ -164,22 +180,26 @@ function building() {
 }
 
 // слешение за обновлениями файлов
+// Слежение за изменениями
 function watching() {
-  // watch(["app/*.html"], includeh);
-  watch(["app/scss/*.scss", "app/scss/components/*.scss"], styles);
-  watch(["app/images/**/*.*"], images);
-  watch(["app/js/main.js"], scripts);
+  watch(["scss/**/*.scss"], styles);
+  watch(["images/src/**/*.*"], images);
+  watch(["js/**/*.js", "!js/main.min.js"], projectScripts);
 }
 
+// Экспортируем задачи
 exports.fonts = fonts;
 // exports.includeh = includeh;
 exports.styles = styles;
-exports.scripts = scripts;
 exports.images = images;
 exports.sprite = sprite;
-exports.building = building;
+exports.build = series(cleanDist, building);
 exports.watching = watching;
+
+exports.vendorScripts = vendorScripts;
+exports.projectScripts = projectScripts;
+exports.scripts = parallel(vendorScripts, projectScripts);
 
 exports.build = series(cleanDist, building);
 
-exports.default = parallel(styles, images, scripts, watching);
+exports.default = parallel(styles, exports.scripts, watching);

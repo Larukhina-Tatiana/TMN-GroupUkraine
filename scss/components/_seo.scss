@@ -1,13 +1,33 @@
 .seo {
 
+  &__wrapper {
+    position: relative;
+    /* Высота видимой части */
+    max-height: 208px;
+    overflow: hidden;
+    margin-block-end: 20px;
+    // transition: max-height 0.4s ease;
+    @include transition ($transition-property: max-height);
+
+    &.expanded {
+      /* Высота раскрытой части */
+      max-height: 1000px;
+    }
+
+    &.expanded .fade-overlay {
+      opacity: 0;
+    }
+  }
+
+
   &__title {
     margin-bottom: rem(20);
   }
 
   &__text {
-    background: linear-gradient(180.00deg, rgb(64, 71, 79), rgba(64, 71, 79, 0));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    // background: linear-gradient(180.00deg, rgb(64, 71, 79), rgba(64, 71, 79, 0));
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // background-clip: text;
   }
 }

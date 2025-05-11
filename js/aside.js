@@ -1,4 +1,4 @@
-if ($(window).width() < 991) {
+if (window.innerWidth < 991) {
   if (document.querySelector(".menu__sort")) {
     const btnSort = document.querySelector(".menu__sort");
     const aside = document.querySelector(".aside");

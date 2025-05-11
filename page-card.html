@@ -6,8 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TMN-GROUP UKRAINE Картка товару</title>
 
+  <!-- <link rel="stylesheet" href="../node_modules/glightbox/dist/css/glightbox.css" />
+  <link rel="stylesheet" href="../css/modern-normalize.min.css">
+  <link rel="stylesheet" href="../css/ion.rangeSlider.css">
+  <link rel="stylesheet" href="../css/jquery.formstyler.css">
+  <link rel="stylesheet" href="../css/jquery.formstyler.theme.css">
+
+  <link rel="stylesheet" href="../node_modules/nouislider/dist/nouislider.css">
+  <link rel="stylesheet" href="../node_modules/swiper/swiper-bundle.css">
+  <link rel="stylesheet" href="../node_modules/simplelightbox/dist/simple-lightbox.css">
+  <link rel="stylesheet" href="../node_modules/aos/dist/aos.css">
+  <link rel="stylesheet" href="../css/jquery.rateyo.min.css">-->
   <link rel="stylesheet" href="css/style.min.css">
-  <!-- <link rel="stylesheet" href="scss/style.css"> -->
+
+  <!-- <link rel="stylesheet" href="css/style.min.css"> -->
 </head>
 
 <body>
@@ -414,22 +426,22 @@
             <div class="tabs__overflow tabs-wrapper">
               <div class="card-product__tabs mobile-overflow">
 
-                <a class="tabs__link card-product__tabs-link title-h4 tabs__link--bordertopleft" href="#tabs-product-1">
+                <button class="tabs__link card-product__tabs-link title-h4 tabs__link--bordertopleft  active"
+                  data-tab="1">
                   Опис
-                </a>
-                <a class="tabs__link card-product__tabs-link title-h4 tabs__link--active" href="#tabs-product-2">
+                </button>
+                <button class="tabs__link card-product__tabs-link title-h4" data-tab="2">
                   Додаткова інформація
-                </a>
-                <a class="tabs__link card-product__tabs-link title-h4 tabs__link--bordertopright"
-                  href="#tabs-product-3">
+                </button>
+                <button class="tabs__link card-product__tabs-link title-h4 tabs__link--bordertopright" data-tab="3">
                   Застосування / Зберігання
-                </a>
+                </button>
               </div>
             </div>
             <ul class="tabs__content">
-              <li class="tabs__content-item card-product__tabs-content" id="tabs-product-1">
+              <li class="tabs__content-item card-product__tabs-content  active" id="tabs-product-1">
                 <p class="tabs__content-title">Загальна інформація</p>
-                <dl class="card-product__list">
+                <!-- <dl class="card-product__list">
                   <div class="card-product__list-desc">
                     <dt>Тип:</dt>
                     <dd>Непудровані, нестерильна</dd>
@@ -480,12 +492,12 @@
                       Положення системи якості FDA США (QSR) ISO90001 Система менеджменту якості BS EN ISO13485
                     </dd>
                   </div>
-                </dl>
+                </dl> -->
               </li>
 
-              <li class="tabs__content-item card-product__tabs-content tabs__content--active" id="tabs-product-2">
+              <li class="tabs__content-item card-product__tabs-content" id="tabs-product-2">
                 <p class="tabs__content-title">Додаткова інформація</p>
-                <div class="tabs__content-item-thickness">
+                <!-- <div class="tabs__content-item-thickness">
                   <dl class="card-product__list">
                     <div class="card-product__list-desc">
                       <dt>Локації вимірювань</dt>
@@ -496,7 +508,7 @@
                       <dd>0.16 ± 0.03</dd>
                     </div>
                     <div class="card-product__list-desc">
-                      <dt>Долоню (середина долоні)</dt>
+                      <dt>Долоні (середина долоні)</dt>
                       <dd>0.14 ± 0.03</dd>
                     </div>
                     <div class="card-product__list-desc">
@@ -506,7 +518,7 @@
                   </dl>
                   <img src="./images/page-card/DHD-Double-Gloving-System-Latex-Sterile.png"
                     alt="images DHD-Double-Gloving-System-Latex-Sterile">
-                </div>
+                </div> -->
                 <div class="card-product__size">
                   <p class="card-product__size-title title-h5">Розмір</p>
                   <dl class="card-product__size-list">
@@ -572,7 +584,7 @@
 
               </li>
               <li class="tabs__content-item card-product__tabs-content" id="tabs-product-3">
-                <ul class="tabs__content-application">
+                <!-- <ul class="tabs__content-application">
                   <li class="tabs__content-application-item">
                     <p class="tabs__content-application-descr title-h5">
                       Застосування
@@ -608,7 +620,7 @@
                       Уникати потрапляння прямих сонячних променів і флуоресцентного освітлення.
                     </p>
                   </li>
-                </ul>
+                </ul> 
                 <ul class="tabs__content-application">
                   <li class="tabs__content-application-item">
                     <p class="tabs__content-application-descr title-h5">
@@ -674,7 +686,7 @@
                     </p>
                   </li>
 
-                </ul>
+                </ul> -->
               </li>
             </ul>
           </div>
@@ -689,7 +701,7 @@
             СЕРТИФіКАТи
           </h2>
           <p class="sertificates__product-name">
-            Рукавичка DERMAGRIP®Latex Coated LS Powder Free відповідає найсуворішим міжнародним вимогам якості.
+            <!-- Рукавичка DERMAGRIP®Latex Coated LS Powder Free відповідає найсуворішим міжнародним вимогам якості. -->
           </p>
           <div class="sertificates__buttons">
             <button class="sertificates__btn prev" aria-label="Попередній">
@@ -707,7 +719,7 @@
           </div>
           <div class="sertificates__box">
             <div class="sertificates__list">
-              <div class="sertificates__item">
+              <!-- <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/1sert@1x.jpg">
                   <picture>
                     <source type="image/avif" srcset="
@@ -718,8 +730,8 @@
                     ./images/sertificates/1sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
-              </div>
-              <div class="sertificates__item">
+              </li>
+              <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/2sert@1x.jpg">
                   <picture>
                     <source type="image/avif" srcset="
@@ -730,8 +742,8 @@
                     ./images/sertificates/2sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
-              </div>
-              <div class="sertificates__item">
+              </li>
+              <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/3sert@1x.jpg">
                   <picture>
                     <source type="image/avif" srcset="
@@ -742,8 +754,8 @@
                     ./images/sertificates/3sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
-              </div>
-              <div class="sertificates__item">
+              </li>
+              <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/4sert@1x.jpg">
                   <picture>
                     <source type="image/avif" srcset="
@@ -754,8 +766,8 @@
                     ./images/sertificates/4sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
-              </div>
-              <div class="sertificates__item">
+              </li>
+              <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/5sert@1x.jpg">
                   <picture>
                     <source type="image/avif" srcset="
@@ -766,8 +778,8 @@
                     ./images/sertificates/5sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
-              </div>
-              <div class="sertificates__item">
+              </li>
+              <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/6sert@1x.jpg">
                   <picture>
                     <source type="image/avif" srcset="
@@ -778,8 +790,8 @@
                     ./images/sertificates/6sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
-              </div>
-              <div class="sertificates__item">
+              </li>
+              <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/7sert@1x.jpg">
                   <picture>
                     <source type="image/avif" srcset="
@@ -790,8 +802,8 @@
                     ./images/sertificates/7sert@1x.jpg" loading="lazy" decoding="async" alt="сертифікат якості">
                   </picture>
                 </a>
-              </div>
-              <!-- <div class="sertificates__item">
+              </li>
+              <li class="sertificates__item">
                 <a class="sertificates__link" href="./images/sertificates/sertificates@1x.jpg">
                   <picture>
                     <source srcset="
@@ -807,7 +819,7 @@
                       sizes="(min-width: 320px) 270px">
                   </picture>
                 </a>
-              </div> -->
+              </li> -->
             </div>
           </div>
         </div>
@@ -1055,311 +1067,81 @@
         </div>
       </section>
 
-      <section class="popular popular--padding">
-        <div class="container">
+      <section class="popular popular--padding js-recently-viewed">
+        <!-- <div class="container">
           <div class="popular__title-box">
             <h2 class="popular__title section-title">Нещодавно переглядали</h2>
             <a class="popular__link-more buttons-more" href="#">Усі продукти </a>
           </div>
 
           <div class="popular__slider swiper products-card">
-            <div class="popular__list products-card__list swiper-wrapper">
-              <div class="popular__item swiper-slide products-card__item">
+            <ul class="popular__list products-card__list swiper-wrapper">
+              <li class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                        ./images/popular/image1@1x.webp 238w,
-                                        ./images/popular/image1@2x.webp 476w,
-                                        ./images/popular/image1@3x.webp 714w
-                                      " type="image/webp" media="(min-width: 320px)" sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                          ./images/popular/image1@1x.jpg  238w,
-                                          ./images/popular/image1@2x.jpg  476w,
-                                          ./images/popular/image1@3x.jpg 714w
-                                        " src="/images/popular/image1@1x.jpg"
-                          alt="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE" sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
-                        РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Рукавички Синтетичні (поліізопрен) Без латексу, Неопудрені, ДГД покриття, Стерильні
-                      Мікротекстуровані
-                    </p>
-                    <span class="products-card__price">225 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
                 </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
+              </li>
+              <li class="popular__item swiper-slide products-card__item">
                 <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                                    ./images/popular/image2@1x.webp 238w,
-                                                                    ./images/popular/image2@2x.webp 476w,
-                                                                    ./images/popular/image2@3x.webp7110w
-                                                                  " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                                      ./images/popular/image2@1x.jpg  238w,
-                                                                      ./images/popular/image2@2x.jpg  476w,
-                                                                      ./images/popular/image2@3x.jpg 714w
-                                                                    " src="/images/popular/image2@1x.jpg"
-                          alt="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
-                        ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Подвійні Рукавички Без латексу Синтетичні (поліізопрен) Неопудрені, З ДГД покриттям
-                    </p>
-                    <span class="products-card__price">602 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
+                  
                 </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                    ./images/popular/image3@1x.webp 238w,
-                                                    ./images/popular/image3@2x.webp 476w,
-                                                    ./images/popular/image3@3x.webp 714w
-                                                  " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                      ./images/popular/image3@1x.jpg  238w,
-                                                      ./images/popular/image3@2x.jpg  476w,
-                                                      ./images/popular/image3@3x.jpg 714w
-                                                    " src="/images/popular/image3@1x.jpg"
-                          alt="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
-                        ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Подвійні Рукавички Без латексу Синтетичні (поліізопрен) Неопудрені, З ДГД покриттям
-                    </p>
-
-                    <span class="products-card__price">109 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                    ./images/popular/image4@1x.webp 238w,
-                                                    ./images/popular/image4@2x.webp 476w,
-                                                    ./images/popular/image4@3x.webp 714w
-                                                  " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                      ./images/popular/image4@1x.jpg  238w,
-                                                      ./images/popular/image4@2x.jpg  476w,
-                                                      ./images/popular/image4@3x.jpg  714w
-                                                    " src="/images/popular/image3@1x.jpg"
-                          alt="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
-                        ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Оглядові рукавички Нітрилові Без Латексу, Неопудрені, Нестерильні, Текстуровані
-                    </p>
-                    <span class="products-card__price">455 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                      ./images/popular/image1@1x.webp 238w,
-                                                      ./images/popular/image1@2x.webp 476w,
-                                                      ./images/popular/image1@3x.webp 714w
-                                                    " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                        ./images/popular/image1@1x.jpg  238w,
-                                                        ./images/popular/image1@2x.jpg  476w,
-                                                        ./images/popular/image1@3x.jpg 714w
-                                                      " src="/images/popular/image1@1x.jpg"
-                          alt="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE" sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
-                        РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Рукавички Синтетичні (поліізопрен) Без латексу, Неопудрені, ДГД покриття, Стерильні
-                      Мікротекстуровані
-                    </p>
-                    <span class="products-card__price">225 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                                                  ./images/popular/image2@1x.webp 238w,
-                                                                                  ./images/popular/image2@2x.webp 476w,
-                                                                                  ./images/popular/image2@3x.webp7110w
-                                                                                " type="image/webp"
-                          media="(min-width: 320px)" sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                                                    ./images/popular/image2@1x.jpg  238w,
-                                                                                    ./images/popular/image2@2x.jpg  476w,
-                                                                                    ./images/popular/image2@3x.jpg 714w
-                                                                                  " src="/images/popular/image2@1x.jpg"
-                          alt="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
-                        ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Подвійні Рукавички Без латексу Синтетичні (поліізопрен) Неопудрені, З ДГД покриттям
-                    </p>
-                    <span class="products-card__price">602 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-            </div>
+              </li>
+            </ul>
             <div class="popular__slider-dotts dotts"></div>
           </div>
-        </div>
+        </div> -->
       </section>
 
       <section class="seo section">
         <div class="container">
-          <h2 class="seo__title section-title">ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ</h2>
-          <p class="seo__text">
-            Медичні нітрилові рукавички DERMAGRIP® Nitrile Ultra LS забезпечують захист від небажаних та небезпечних
-            речовин як для
-            медичних працівників, так і для пацієнтів. Відповідають усім міжнародним стандартам якості та забезпечують
-            граничний
-            захист. Спеціальне покриття, сприяє легкому та швидкому надяганню рукавички на сухі та вологі руки.Рукавички
-            виготовлені зі 100% нітрилу, пропонуючи альтернативне рішення для людей, які страждають на алергію на
-            латекс.
-            Використовується для лікувально-діагностичних процедур, оглядів та догляду за пацієнтами, а також при всіх
-            видах
-            процедур, що не потребують стерильності.
-            Максимальний комфорт та захист. Рукавички DERMAGRIP ULTRA LS текстуровані на кінчиках пальців, що забезпечує
-            надійне
-            захоплення та контроль інструменту в сухому та вологому середовищі. Мають високу стійкість до спиртів,
-            спиртовмісних
-            речовин і дезінфектантів.
-          </p>
-          <a class="seo__link-more buttons-more" href="#">Читати далі</a>
+          <div class="seo__wrapper">
+            <div class="seo__content" id="seoContent">
+              <h2 class="seo__title section-title">ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ</h2>
+              <p class="seo__text">
+                Медичні нітрилові рукавички DERMAGRIP® Nitrile Ultra LS забезпечують захист від небажаних та небезпечних
+                речовин як для
+                медичних працівників, так і для пацієнтів. Відповідають усім міжнародним стандартам якості та
+                забезпечують
+                граничний
+                захист. Спеціальне покриття, сприяє легкому та швидкому надяганню рукавички на сухі та вологі
+                руки.Рукавички
+                виготовлені зі 100% нітрилу, пропонуючи альтернативне рішення для людей, які страждають на алергію на
+                латекс.
+                Використовується для лікувально-діагностичних процедур, оглядів та догляду за пацієнтами, а також при
+                всіх
+                видах
+                процедур, що не потребують стерильності.
+                Максимальний комфорт та захист. Рукавички DERMAGRIP ULTRA LS текстуровані на кінчиках пальців, що
+                забезпечує
+                надійне
+                захоплення та контроль інструменту в сухому та вологому середовищі. Мають високу стійкість до спиртів,
+                спиртовмісних
+                речовин і дезінфектантів.
+                У складі одноразових рукавичок медичних з нітрилу немає внутрішнього напилення і латексу. Тому такі
+                моделі
+                з
+                упевненістю
+                можна назвати гіпоалергенними і безпечними для здоров'я того, хто їх використовує. Крім цього вони не
+                викликають
+                пересихання і лущення шкірного покриву, відрізняються високою міцністю і еластичністю.
+
+                Вироби з нітрилу мають механічну пам'ять, що мінімізує втому рук під час роботи. Гладка поверхня і
+                спеціальна текстура
+                на кінчиках пальців гарантує точне захоплення і запобігає ковзанню. Таку особливість оцінили фахівці,
+                робота
+                яких
+                вимагає скрупульозності і точності рухів.
+
+                В оглядових кабінетах поліклінік використовують рукавички одноразові нітрилові до зап'ястя. Хірурги в
+                своїй
+                роботі
+                застосовують подовжені моделі, а працівники лабораторій для захисту рук беруть міцні вироби з манжетою.
+
+                Так ми підійшли до головного питання - області застосування одноразових рукавичок з нітрилу.
+              </p>
+            </div>
+            <div class="fade-overlay"></div>
+          </div>
+          <button class="seo__link-more buttons-more" id="readMoreBtn">Читати все</button>
         </div>
       </section>
 
@@ -1407,18 +1189,14 @@
 
 
 
-
-
-
-  <!-- <script src="https://cdn.jsdelivr.net/npm/simplelightbox@2.1.0/dist/simple-lightbox.min.js"></script> -->
-
-  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-  <!-- <script src="./node_modules/aos/dist/aos.js"></script> -->
-  <!-- <script src="./node_modules/siema/dist/siema.min.js"></script> -->
-  <!-- <script src="./libs/siema-1.5.1/dist/siema.min.js"></script> -->
   <!-- <script src="js/main.js"></script> -->
-  <script src="js/main.min.js"></script>
+  <script src="js/slider.js" defer></script>
+  <script src="js/vendor.min.js"></script>
+  <!-- <script src="js/slider.js" type="module" defer></script> -->
   <script src="js/render-product-description.js" type="module" defer></script>
+  <script src="js/read-more.js" type="module" defer></script>
+
+  <script src="js/main.min.js" type="module" defer></script>
 </body>
 
 </html>

@@ -158,13 +158,16 @@ button,
 // }
 
 .section {
-    @include adaptivevalue(padding-top, 40, 20, 1200, 320, 1);
-    @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
+    padding-top: clamp(1.25rem, 0.795rem + 2.27vw, 2.5rem);
+    padding-bottom: clamp(1.25rem, 0.795rem + 2.27vw, 2.5rem);
+    // @include adaptivevalue(padding-top, 40, 20, 1200, 320, 1);
+    // @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
 }
 
 .section__background {
-    @include adaptivevalue(padding-top, 55, 20, 1620, 320, 1);
-    @include adaptivevalue(padding-bottom, 55, 20, 1620, 320, 1);
+    padding-top: clamp(1.25rem, 0.712rem + 2.69vw, 3.438rem);
+    padding-bottom: clamp(1.25rem, 0.712rem + 2.69vw, 3.438rem);
+
     position: relative;
 
     &::before {
@@ -211,7 +214,9 @@ button,
 
 
 .mobile-overflow {
+    margin-block-end: 10px;
     width: rem(1000);
+
 }
 
 .error {
@@ -304,4 +309,40 @@ button[disabled] {
     to {
         transform: rotate(360deg);
     }
+}
+
+.fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+    pointer-events: none;
+    // @include transition ($transition-property: opacity);
+    transition: opacity 0.3s ease;
+}
+
+.glightbox-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 16px;
+    background: rgba(89, 219, 241, 0.8);
+    padding: 5px 12px;
+    border-radius: 8px;
+    z-index: 2147483647;
+    /* максимальный безопасный z-index */
+    pointer-events: none;
+    /* чтобы не мешал кликам */
+}
+
+// .ginner-container {
+//     background: rgba(89, 219, 241, 0.8) !important;
+// }
+
+.glightbox-container .gslider {
+    background: rgba(89, 219, 241, 0.8) !important;
 }

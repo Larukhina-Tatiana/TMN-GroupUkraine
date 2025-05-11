@@ -1,6 +1,7 @@
 .card-product {
 
   &__item {
+    position: relative;
     background: #F7F7F8;
     display: flex;
     gap: rem(30);
@@ -9,11 +10,13 @@
 
   &__img-cover {
     position: relative;
-    @include adaptivevalue(width, 570, 290, 1200, 320, 1);
+    // @include adaptivevalue(width, 570, 290, 1200, 320, 1);
     max-width: rem(570);
     width: 100%;
     height: rem(364);
-
+    overflow: hidden;
+    touch-action: none;
+    /* Важно для мобильных! */
     background-color: var(--white);
 
     &::after {
@@ -23,6 +26,7 @@
       height: rem(140);
       left: rem(20);
       bottom: rem(20);
+      z-index: 2;
     }
 
     &::before {
@@ -32,15 +36,21 @@
       height: rem(35);
       right: rem(20);
       bottom: rem(40);
+      z-index: 2;
     }
   }
 
   &__img {
     position: absolute;
-    top: 32%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    object-fit: cover;
+    object-fit: contain;
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    max-height: 300px;
   }
 
   &__body {
@@ -67,13 +77,13 @@
 
     &-link {
       display: inline-block;
-      @include transition ($transition-property: all);
+      // @include transition ($transition-property: all);
     }
 
-    &-link.tabs__link--active.tabs__link {
+    &-link.active.tabs__link {
       color: var(--black);
       font-weight: 500;
-      border-bottom: rem(2) solid var(--accent);
+      border-bottom: rem(3) solid var(--accent);
       padding-bottom: rem(12);
       // box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
       box-shadow: 4px 4px 5px 2px rgba(50, 50, 50, 0.25);

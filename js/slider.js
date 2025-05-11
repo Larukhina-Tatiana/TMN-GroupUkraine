@@ -4,8 +4,8 @@ if (document.querySelector(".popular__slider")) {
     observer: true,
     observeParents: true,
     watchOverflow: true,
-    slidesPerView: 4,
-    spaceBetween: 30,
+    slidesPerView: 1,
+    spaceBetween: 10,
     // speed: 800,
     // autoplay: {
     //   delay: 3000,
@@ -18,18 +18,11 @@ if (document.querySelector(".popular__slider")) {
     },
 
     breakpoints: {
-      0: {
-        slidesPerView: 1,
-        // spaceBetween: 40,
-        // autoHeight: true,
-      },
-      // breakpoints: {
-      //   320: {
-      //     slidesPerView: 1,
-      //     // spaceBetween: 40,
-      //     // autoHeight: true,
-      //   },
-
+      // 0: {
+      //   slidesPerView: 1,
+      //   // spaceBetween: 40,
+      //   // autoHeight: true,
+      // },
       600: {
         slidesPerView: 2,
       },
@@ -50,3 +43,6 @@ if (document.querySelector(".popular__slider")) {
     },
   });
 }
+
+// // Сделать функцию глобальной, чтобы вызвать из других файлов
+// window.slider = slider;

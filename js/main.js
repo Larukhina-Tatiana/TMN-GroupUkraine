@@ -1,14 +1,34 @@
+// import AOS from "node_modules/aos/dist/aos.js";
+
 if (document.querySelector(".nav__linkbtn-arrow")) {
-  $(".nav__linkbtn-arrow").on("click", function () {
-    $(".nav__linkbtn-arrow").toggleClass("active");
-    $(".nav__submenu-list").toggleClass("active");
-  });
+  const navArrow = document.querySelector(".nav__linkbtn-arrow");
+  if (navArrow) {
+    navArrow.addEventListener("click", () => {
+      navArrow.classList.toggle("active");
+      const navSubmenu = document.querySelector(".nav__submenu-list");
+      if (navSubmenu) {
+        navSubmenu.classList.toggle("active");
+      }
+    });
+  }
+
+  // $(".nav__linkbtn-arrow").on("click", function () {
+  //   $(".nav__linkbtn-arrow").toggleClass("active");
+  //   $(".nav__submenu-list").toggleClass("active");
+  // });
 }
 if (document.querySelector(".phone__arrow")) {
-  $(".phone__arrow").on("click", function () {
-    $(".phone__arrow").toggleClass("active");
-    $(".phone__list").toggleClass("active");
-  });
+  // Обработка клика по стрелке телефона
+  const phoneArrow = document.querySelector(".phone__arrow");
+  if (phoneArrow) {
+    phoneArrow.addEventListener("click", () => {
+      phoneArrow.classList.toggle("active");
+      const phoneList = document.querySelector(".phone__list");
+      if (phoneList) {
+        phoneList.classList.toggle("active");
+      }
+    });
+  }
 }
 
 if (document.querySelector(".lang")) {
@@ -100,55 +120,55 @@ $(".filter-style").styler();
 //   }
 // }
 
-// ! Tabs
-if (document.querySelector(".tabs__link")) {
-  $(".tabs__link").on("click", function (e) {
-    e.preventDefault();
+// // ! Tabs
+// if (document.querySelector(".tabs__link")) {
+//   $(".tabs__link").on("click", function (e) {
+//     e.preventDefault();
 
-    $($(this).siblings()).removeClass("tabs__link--active");
+//     $($(this).siblings()).removeClass("tabs__link--active");
 
-    $($(this).closest(".tabs-wrapper").siblings().find("li")).removeClass(
-      "tabs__content--active"
-    );
+//     $($(this).closest(".tabs-wrapper").siblings().find("li")).removeClass(
+//       "tabs__content--active"
+//     );
 
-    $(this).addClass("tabs__link--active");
-    $($(this).attr("href")).addClass("tabs__content--active");
-  });
-}
+//     $(this).addClass("tabs__link--active");
+//     $($(this).attr("href")).addClass("tabs__content--active");
+//   });
+// }
 
-if (document.querySelector(".sertificates__list")) {
-  const slider = document.querySelector(".sertificates__list");
-  const next = document.querySelector(".next");
-  const prev = document.querySelector(".prev");
+// if (document.querySelector(".sertificates__list")) {
+//   const slider = document.querySelector(".sertificates__list");
+//   const next = document.querySelector(".next");
+//   const prev = document.querySelector(".prev");
 
-  const mySiema = new Siema({
-    selector: slider,
-    perPage: 4,
-    perPage: {
-      570: 2,
-      870: 3,
-      1170: 4,
-    },
-    loop: true,
-    duration: 1000,
-    easing: "cubic-bezier(.17,.67,.32,1.34)",
-  });
-  next.addEventListener("click", onNextClick);
-  prev.addEventListener("click", onPrevClick);
+//   const mySiema = new Siema({
+//     selector: slider,
+//     perPage: 4,
+//     perPage: {
+//       570: 2,
+//       870: 3,
+//       1170: 4,
+//     },
+//     loop: true,
+//     duration: 1000,
+//     easing: "cubic-bezier(.17,.67,.32,1.34)",
+//   });
+//   next.addEventListener("click", onNextClick);
+//   prev.addEventListener("click", onPrevClick);
 
-  function onNextClick() {
-    mySiema.next();
-  }
+//   function onNextClick() {
+//     mySiema.next();
+//   }
 
-  function onPrevClick() {
-    mySiema.prev();
-  }
+//   function onPrevClick() {
+//     mySiema.prev();
+//   }
 
-  const lightbox = new SimpleLightbox(".sertificates__item a", {
-    // closeText: "&#128514;",
-    fadeSpeed: 1000,
-  });
-}
+//   const lightbox = new SimpleLightbox(".sertificates__item a", {
+//     // closeText: "&#128514;",
+//     fadeSpeed: 1000,
+//   });
+// }
 
 if (document.querySelector('input[type="tel"]')) {
   const telSelector = document.querySelector('input[type="tel"]');

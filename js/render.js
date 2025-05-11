@@ -216,10 +216,14 @@ function renderProductImage(product) {
     product.discount ? `data-sale="-${product.discount}%"` : ""
   }>
         <picture>
-          <source type="image/avif" srcset="${product.img}.avif">
-          <source type="image/webp" srcset="${product.img}.webp">
+          <source type="image/avif" srcset="${product.img}@1x.avif 1x, ${
+    product.img
+  }@2x.avif 2x">
+          <source type="image/webp" srcset="${product.img}@1x.webp 1x, ${
+    product.img
+  }@2x.webp 2x">
           <img class="images-img" src="${
-            product.img ? product.img + ".jpg" : "./images/default.jpg"
+            product.img ? product.img + "@1x.jpg" : "./images/default.jpg"
           }" loading="lazy" decoding="async" alt="${product.title}">
         </picture>
       </a>
@@ -229,7 +233,9 @@ function renderProductImage(product) {
 // рендер карточки
 function getProductMarkup(product) {
   return `
-  <article class="catalog__card card" id="product-${product.id}">
+  <article class="catalog__card card" id="product-${product.id}" title="${
+    product.title
+  }">
     ${renderProductImage(product)}
     ${renderProductDescriptions(product, false, true)}
   </article>`;
