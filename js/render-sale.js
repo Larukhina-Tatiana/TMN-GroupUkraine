@@ -1,5 +1,5 @@
 import { createProductCard } from "./render-cards.js";
-import { slider } from "./recently-viewed.js";
+import { slider } from "./utils.js";
 
 console.log("render-sale.js подключен");
 
