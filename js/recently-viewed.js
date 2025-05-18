@@ -1,5 +1,69 @@
 import { createProductCard } from "./render-cards.js";
-// import { renderSimilar } from "./render-similar.js";
+
+// Функция-шаблон для секции
+function getSectionHTML(title, link) {
+  return `
+    <div class="container">
+      <div class="popular__title-box">
+        <h2 class="popular__title section-title">${title}</h2>
+        <a class="popular__link-more buttons-more" href="${link}">Усі продукти </a>
+      </div>
+      <div class="popular__slider swiper products-card">
+        <ul class="popular__list products-card__list swiper-wrapper"></ul>
+        <div class="popular__slider-dotts dotts"></div>
+      </div>
+    </div>
+  `;
+}
+
+// Универсальный рендер секции с карточками
+function renderSection({ selector, title, link, products }) {
+  const section = document.querySelector(selector);
+  if (!section) return;
+
+  section.innerHTML = getSectionHTML(title, link);
+
+  const list = section.querySelector(".popular__list");
+  products.forEach((product) => {
+    list.innerHTML += createProductCard(product);
+  });
+
+  slider(); // Инициализация слайдера
+}
+
+// Рендер похожих товаров по материалу
+function renderSimilarProducts(currentId, data) {
+  const currentCard = data.find(
+    (item) => Number(item.id) === Number(currentId)
+  );
+  if (!currentCard) return;
+
+  const currentMaterial = currentCard.material;
+  const matchingCards = data.filter(
+    (item) => item.material === currentMaterial && item.id !== currentCard.id
+  );
+
+  if (!matchingCards.length) return;
+
+  const section = document.createElement("section");
+  section.classList.add("similar", "section", "popular");
+  section.innerHTML = getSectionHTML("Схожі товари", "#");
+
+  const list = section.querySelector(".popular__list");
+  matchingCards.forEach((product) => {
+    list.innerHTML += createProductCard(product);
+  });
+
+  const benefitsSection = document.querySelector(".benefits");
+  if (benefitsSection) {
+    benefitsSection.insertAdjacentElement("afterend", section);
+  } else {
+    console.warn(
+      "Секция .benefits не найдена. Схожі товари не будут добавлены."
+    );
+  }
+  slider();
+}
 
 export function saveRecentlyViewedId(id) {
   let viewed = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
@@ -16,6 +80,7 @@ export function saveRecentlyViewedId(id) {
   localStorage.setItem("recentlyViewed", JSON.stringify(viewed));
 }
 
+// Выбор и рендер просмотренных товаров
 export function renderRecentlyViewed() {
   const viewed = JSON.parse(localStorage.getItem("recentlyViewed") || "[]").map(
     Number
@@ -35,92 +100,24 @@ export function renderRecentlyViewed() {
         .map((id) => productsToRender.find((p) => p.id === id))
         .filter(Boolean);
 
-      const section = document.querySelector(".js-recently-viewed");
-      if (!section) return;
-
-      section.innerHTML = `
-        <div class="container">
-          <div class="popular__title-box">
-            <h2 class="popular__title section-title">Ви нещодавно переглядали</h2>
-            <a class="popular__link-more buttons-more" href="./catalog.html">Усі продукти </a>
-          </div>
-          <div class="popular__slider swiper products-card">
-            <ul class="popular__list products-card__list swiper-wrapper"></ul>
-            <div class="popular__slider-dotts dotts"></div>
-          </div>
-        </div>
-      `;
-
-      const list = section.querySelector(".popular__list");
-
-      sortedProducts.forEach((product) => {
-        list.innerHTML += createProductCard(product);
+      renderSection({
+        selector: ".js-recently-viewed",
+        title: "Ви нещодавно переглядали",
+        link: "./catalog.html",
+        products: sortedProducts,
       });
-
-      slider(); // Инициализация слайдера
 
       //  Поиск и рендер похожих(по материалу) товаров
       const article = document.querySelector(".card-product__item");
       console.log("article", article);
 
-      const currentId = article.getAttribute("id");
-      console.log("currentId ", currentId);
-
-      fetch("./js/data/data.json")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("data", data);
-
-          const currentCard = data.find(
-            (item) => Number(item.id) === Number(currentId)
-          );
-          console.log("currentCard", currentCard);
-
-          const currentMaterial = currentCard.material;
-
-          // Фильтруем карточки с таким же material
-          const matchingCards = data.filter(
-            (item) => item.material === currentMaterial
-          );
-
-          console.log("Карточки с таким же материалом:", matchingCards);
-
-          const saleSection = document.createElement("section");
-          saleSection.classList.add("similar", "section", "popular");
-          saleSection.innerHTML = `
-        <div class="container">
-          <div class="popular__title-box">
-            <h2 class="popular__title section-title">Схожі товари</h2>
-            <a class="popular__link-more buttons-more" href="./sale.html">Усі продукти </a>
-          </div>
-          <div class="popular__slider swiper products-card">
-            <ul class="popular__list products-card__list swiper-wrapper"></ul>
-            <div class="popular__slider-dotts dotts"></div>
-          </div>
-        </div>
-      `;
-
-          const list = saleSection.querySelector(".popular__list");
-
-          matchingCards.forEach((product) => {
-            list.innerHTML += createProductCard(product);
-          });
-
-          // Вставляем секцию после .benefits
-          const benefitsSection = document.querySelector(".benefits ");
-          if (benefitsSection) {
-            benefitsSection.insertAdjacentElement("beforebegin", saleSection);
-          } else {
-            console.warn(
-              "Секция .benefits  не найдена. Акционные товары не будут добавлены."
-            );
-          }
-          slider();
-          // renderSimilar();
-        })
-        .catch((error) => {
-          console.error("Ошибка при загрузке данных:", error);
-        });
+      if (article) {
+        const currentId = article.getAttribute("id");
+        renderSimilarProducts(currentId, data);
+      }
+    })
+    .catch((error) => {
+      console.error("Ошибка при загрузке данных:", error);
     });
 }
 
@@ -144,7 +141,7 @@ export function waitForCardAndRenderViewed(retries = 10) {
 
 export function slider() {
   if (document.querySelector(".popular__slider")) {
-    const swiper = new Swiper(".popular__slider", {
+    new Swiper(".popular__slider", {
       loop: true,
       observer: true,
       observeParents: true,

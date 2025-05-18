@@ -95,7 +95,7 @@ function renderProducts(data) {
 }
 
 function renderCurrentPage(data) {
-  if (!data || data.length === 0) {
+  if (!data.length) {
     productList.innerHTML = "";
     quantity.textContent = "Товари не знайдені";
     renderPagination([]); // Обновляем пагинацию для пустого результата

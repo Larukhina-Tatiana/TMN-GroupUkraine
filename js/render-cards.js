@@ -1,3 +1,4 @@
+// Для слайдера
 export function createProductCard(product) {
   return `
     <li class="popular__item swiper-slide products-card__item">
