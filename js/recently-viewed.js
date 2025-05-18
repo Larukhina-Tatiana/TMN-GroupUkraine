@@ -114,6 +114,7 @@ export function renderRecentlyViewed() {
       if (article) {
         const currentId = article.getAttribute("id");
         renderSimilarProducts(currentId, data);
+        slider();
       }
     })
     .catch((error) => {
@@ -128,6 +129,7 @@ export function waitForCardAndRenderViewed(retries = 10) {
     console.log(".card-product__item найден");
 
     renderRecentlyViewed(); // Вызов функции рендера
+
     // renderSimilar();
   } else if (retries > 0) {
     console.log(`Осталось попыток: ${retries}`);
