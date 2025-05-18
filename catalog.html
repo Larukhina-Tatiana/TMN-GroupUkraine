@@ -322,6 +322,17 @@
             <aside class="catalog__aside aside">
               <div class="aside__btn">Фільтр за параметрами</div>
               <form class="aside__form" id="aside-form">
+                <fieldset class="aside__form-item js-box">
+                  <legend class="aside__form-title title-form">Товари з акціями</legend>
+                  <div class="aside__form-content">
+                    <div class="aside__form-content-box">
+                      <label class="aside__form-content-label">
+                        <input class="filter-style" type="checkbox" name="sale" value="discount">
+                        Акція
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
                 <fieldset class="aside__form-item">
                   <legend class="aside__form-title aside__form-title--marginbottom title-form">Ціна</legend>
                   <div class="range">
@@ -588,10 +599,10 @@
                       </a>
                     </div>
                     <div class="card__body">
-                      <a class="card__title-link" href="#">
+                      
                         <h5 class="card__title title-h5">РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE</h5>
-                        <p class="card__name text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
-                      </a>
+                        <p class="card__title-en text2">Examination Gloves DERMAGRIP® NITRILE STERILE</p>
+
                       <p class="card__descr">
                         <span class="card__descr-bold">Опис: </span>Огляд Рукавички Нітрилові Без Латексу, Неопудрені,
                         Нестерильні, Текстуровані
@@ -1137,289 +1148,7 @@
         </div>
       </section>
 
-      <section class="popular section">
-        <div class="container">
-          <div class="popular__title-box">
-            <h2 class="popular__title section-title">Нещодавно переглядали</h2>
-            <a class="popular__link-more buttons-more" href="#">Усі продукти </a>
-          </div>
-
-          <div class="popular__slider swiper products-card">
-            <div class="popular__list products-card__list swiper-wrapper">
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                        ./images/popular/image1@1x.webp 238w,
-                                        ./images/popular/image1@2x.webp 476w,
-                                        ./images/popular/image1@3x.webp 714w
-                                      " type="image/webp" media="(min-width: 320px)" sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                          ./images/popular/image1@1x.jpg  238w,
-                                          ./images/popular/image1@2x.jpg  476w,
-                                          ./images/popular/image1@3x.jpg 714w
-                                        " src="/images/popular/image1@1x.jpg"
-                          alt="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE" sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
-                        РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Рукавички Синтетичні (поліізопрен) Без латексу, Неопудрені, ДГД покриття, Стерильні
-                      Мікротекстуровані
-                    </p>
-                    <span class="products-card__price">225 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                                    ./images/popular/image2@1x.webp 238w,
-                                                                    ./images/popular/image2@2x.webp 476w,
-                                                                    ./images/popular/image2@3x.webp7110w
-                                                                  " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                                      ./images/popular/image2@1x.jpg  238w,
-                                                                      ./images/popular/image2@2x.jpg  476w,
-                                                                      ./images/popular/image2@3x.jpg 714w
-                                                                    " src="/images/popular/image2@1x.jpg"
-                          alt="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
-                        ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Подвійні Рукавички Без латексу Синтетичні (поліізопрен) Неопудрені, З ДГД покриттям
-                    </p>
-                    <span class="products-card__price">602 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                    ./images/popular/image3@1x.webp 238w,
-                                                    ./images/popular/image3@2x.webp 476w,
-                                                    ./images/popular/image3@3x.webp 714w
-                                                  " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                      ./images/popular/image3@1x.jpg  238w,
-                                                      ./images/popular/image3@2x.jpg  476w,
-                                                      ./images/popular/image3@3x.jpg 714w
-                                                    " src="/images/popular/image3@1x.jpg"
-                          alt="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
-                        ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Подвійні Рукавички Без латексу Синтетичні (поліізопрен) Неопудрені, З ДГД покриттям
-                    </p>
-
-                    <span class="products-card__price">109 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                    ./images/popular/image4@1x.webp 238w,
-                                                    ./images/popular/image4@2x.webp 476w,
-                                                    ./images/popular/image4@3x.webp 714w
-                                                  " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                      ./images/popular/image4@1x.jpg  238w,
-                                                      ./images/popular/image4@2x.jpg  476w,
-                                                      ./images/popular/image4@3x.jpg  714w
-                                                    " src="/images/popular/image3@1x.jpg"
-                          alt="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ">
-                        ОГЛЯДОВІ РУКАВИЧКИ DERMAGRIP® УЛЬТРА ЛС НІТРИЛОВІ НЕОПУДРЕНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Оглядові рукавички Нітрилові Без Латексу, Неопудрені, Нестерильні, Текстуровані
-                    </p>
-                    <span class="products-card__price">455 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                      ./images/popular/image1@1x.webp 238w,
-                                                      ./images/popular/image1@2x.webp 476w,
-                                                      ./images/popular/image1@3x.webp 714w
-                                                    " type="image/webp" media="(min-width: 320px)"
-                          sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                        ./images/popular/image1@1x.jpg  238w,
-                                                        ./images/popular/image1@2x.jpg  476w,
-                                                        ./images/popular/image1@3x.jpg 714w
-                                                      " src="/images/popular/image1@1x.jpg"
-                          alt="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE" sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE">
-                        РУКАВИЧКИ DERMAGRIP® ULTRA NITRILE LS POWDER FREE
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Рукавички Синтетичні (поліізопрен) Без латексу, Неопудрені, ДГД покриття, Стерильні
-                      Мікротекстуровані
-                    </p>
-                    <span class="products-card__price">225 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-              <div class="popular__item swiper-slide products-card__item">
-                <article class="products-card__box">
-                  <a class="products-card__img-link" href="#">
-                    <div class="products-card__img-cover">
-                      <picture>
-                        <source srcset="
-                                                                                  ./images/popular/image2@1x.webp 238w,
-                                                                                  ./images/popular/image2@2x.webp 476w,
-                                                                                  ./images/popular/image2@3x.webp7110w
-                                                                                " type="image/webp"
-                          media="(min-width: 320px)" sizes="(min-width: 320px) 238px">
-                        <img class="products-card__img" srcset="
-                                                                                    ./images/popular/image2@1x.jpg  238w,
-                                                                                    ./images/popular/image2@2x.jpg  476w,
-                                                                                    ./images/popular/image2@3x.jpg 714w
-                                                                                  " src="/images/popular/image2@1x.jpg"
-                          alt="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ"
-                          sizes="(min-width: 320px) 238px">
-                      </picture>
-
-                    </div>
-                  </a>
-                  <div class="products-card__body">
-                    <a class="products-card__title-link" href="#">
-
-                      <h3 class="products-card__title title-h3"
-                        title="ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ">
-                        ХІРУРГІЧНІ РУКАВИЧКИ ПРОФІЛ® ДГД ПОДВІЙНА СИСТЕМА ОДЯГУ БЕЗ ЛАТЕКСУ СТЕРИЛЬНІ
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                      Хірургічні Подвійні Рукавички Без латексу Синтетичні (поліізопрен) Неопудрені, З ДГД покриттям
-                    </p>
-                    <span class="products-card__price">602 ₴</span>
-                    <p class="products-card__discount">
-                      (при покупке от 10 уп)
-                    </p>
-
-                    <a class="products-card__btn buttons" href="#">
-                      Детальніше
-                    </a>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div class="popular__slider-dotts dotts"></div>
-          </div>
-        </div>
-      </section>
+      <section class="popular section js-recently-viewed"></section>
 
 
     </main>
@@ -1474,10 +1203,14 @@
   <script src="js/vendor.min.js"></script>
   <script src="js/aside.js" type="module" defer></script>
   <!-- <script src="js/more-btn.js" type="module" defer></script> -->
-  <!-- <script src="js/range-my.js" type="module" defer></script> -->
+  <script src="js/range-my.js" type="module" defer></script>
+
   <!-- <script src="js/catalog.js" type="module" defer></script> -->
   <!-- <script src="js/render-opt.js" type="module" defer></script> -->
   <script src="js/render.js" type="module" defer></script>
+  <script src="js/recently-viewed-init.js" type="module" defer></script>
+  <!-- <script src="js/recently-viewed.js" type="module" defer></script> -->
+  <script src="js/render-sale.js" type="module" defer></script>
   <!-- <script src="js/scroll.js" type="module" defer></script> -->
   <!-- <script src="js/render-v1.js" type="module" defer></script> -->
   <!-- <script src="js/product-catalog.js" type="module"></script> -->

@@ -26,7 +26,7 @@ function renderRecentlyViewed() {
           </div>
         </a>
         <div class="products-card__body">
-          <a class="products-card__title-link" href="${product.link}">
+          <a class="title-link" href="${product.link}">
             <h3 class="products-card__title title-h3">${product.title}</h3>
           </a>
           <span class="products-card__price">${product.price} ₴</span>

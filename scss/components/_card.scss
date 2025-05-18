@@ -1,6 +1,25 @@
 .card {
+  position: relative;
   background-color: var(--white);
   padding: rem(20);
+
+  &--sale {
+    &::before {
+      position: absolute;
+      content: attr(data-sale); // ← берёт значение из data-sale;
+      padding: rem(5) rem(15);
+      color: var(--white);
+      background-color: var(--red);
+      top: rem(43);
+      left: 0;
+      font-size: rem(16);
+      line-height: 1.5;
+      font-weight: bold;
+      border-top-right-radius: rem(5);
+      border-bottom-right-radius: rem(5);
+      z-index: 2;
+    }
+  }
 
   &__img-cover {
     position: relative;
@@ -29,26 +48,39 @@
 
   &__body {
     width: rem(550);
+
   }
 
   &__title {
     margin-bottom: rem(10);
   }
 
-  &__name {
+  &__title-en {
     margin-bottom: rem(10);
   }
 
-  &__descr {
-    &:not(:last-child) {
-      margin-bottom: rem(10);
-      color: var(--gray);
+
+  &-info {
+    &__list {}
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: rem(10);
+        color: var(--gray);
+      }
+    }
+
+    &__label {
+      font-weight: 600;
+    }
+
+    &__text {
+      display: inline;
     }
   }
 
-  &__descr-bold {
-    font-weight: 600;
-  }
+
+
 
   &__noavailability {
     color: var(--red);
@@ -60,6 +92,7 @@
     display: flex;
     @include adaptivevalue(gap, 20, 15, 1200, 320, 1);
     flex-wrap: wrap;
+    margin-block-start: 10px;
 
     &-name {
       font-weight: 500;
@@ -148,7 +181,6 @@
 
   &__old-price {
     text-decoration: line-through;
-    margin-right: rem(8);
   }
 
   &__proviso {

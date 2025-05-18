@@ -3,10 +3,12 @@ import { createBreadcrumbs } from "./breadcrumbs.js";
 import { initLazyImageFade } from "./lazy-image-fade.js";
 import { initZoomEffect } from "./zoom-img.js"; // Импорт функции для увеличения изображения
 
-// import { slider } from "./slider.js"; // путь зависит от структуры проекта
-
-// import GLightbox from "glightbox";
-// import { ImageSlide } from "glightbox/plugins";
+import {
+  saveRecentlyViewedId,
+  renderRecentlyViewed,
+  waitForCardAndRenderViewed,
+  slider,
+} from "./recently-viewed.js";
 
 async function fetchData() {
   const response = await fetch("./js/data/data.json");
@@ -18,9 +20,10 @@ async function fetchData() {
   return await response.json();
 }
 
+// Извлекаем значение параметра productId
 function getProductFromUrl() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("productId"); // Извлекаем значение параметра productId
+  return params.get("productId");
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -54,9 +57,9 @@ function renderProductDescriptionFull(product) {
   const isSale = product.discount > 0;
   container.innerHTML = `
     <h2 class="visually-hidden">${product.title}</h2>
-    <article class="card-product__item${
-      isSale ? " products-card__img-link--sale" : ""
-    }" ${isSale ? `data-sale="-${product.discount}%"` : ""} id="${product.id}">
+    <article class="card-product__item${isSale ? " card--sale" : ""}" ${
+    isSale ? `data-sale="-${product.discount}%"` : ""
+  } id="${product.id}">
     ${renderProductImage(product)}
     ${renderProductDescriptions(product, true, false)}
     </article>
@@ -318,6 +321,13 @@ let lightboxInstance = null;
 let siemaInstance = null;
 
 function connectingСertificates(product) {
+  // Рендер названия продукта
+
+  const sertificatesProductName = document.querySelector(
+    ".sertificates__product-name"
+  );
+  sertificatesProductName.textContent = product.title;
+
   const sertificatesContainer = document.querySelector(".sertificates__list");
 
   if (!sertificatesContainer) {
@@ -530,178 +540,7 @@ document.addEventListener("DOMContentLoaded", () => {
   waitForCardAndRenderViewed();
 });
 
-function waitForCardAndRenderViewed(retries = 10) {
-  console.log("Проверяем наличие .card-product__item...");
-  const card = document.querySelector(".card-product__item");
-  if (card) {
-    console.log(".card-product__item найден");
-    renderRecentlyViewed(); // Вызов функции рендера
-  } else if (retries > 0) {
-    console.log(`Осталось попыток: ${retries}`);
-    setTimeout(() => waitForCardAndRenderViewed(retries - 1), 200); // Ждем и пробуем снова
-  } else {
-    console.warn(
-      "Элемент .card-product__item не найден после нескольких попыток"
-    );
-  }
-}
-
-function renderRecentlyViewed() {
-  console.log("renderRecentlyViewed");
-  // Приводим к строкам, если id в data.json строковые
-  const viewed = JSON.parse(localStorage.getItem("recentlyViewed") || "[]").map(
-    Number
-  );
-
-  console.log("viewed", viewed);
-  if (!viewed.length) return;
-
-  fetch("./js/data/data.json")
-    .then((res) => res.json())
-    .then((data) => {
-      const productsToRender = data.filter((product) =>
-        viewed.includes(product.id)
-      );
-      console.log("productsToRender", productsToRender);
-
-      // Сохраняем порядок отображения
-      const sortedProducts = viewed
-        .map((id) => productsToRender.find((p) => p.id === id))
-        .filter(Boolean);
-      console.log("sortedProducts", sortedProducts);
-
-      const section = document.querySelector(".js-recently-viewed");
-
-      if (!section) return;
-
-      section.innerHTML = `
-        <div class="container">
-          <div class="popular__title-box">
-            <h2 class="popular__title section-title">Ви нещодавно переглядали</h2>
-            <a class="popular__link-more buttons-more" href="#">Усі продукти </a>
-          </div>
-          <div class="popular__slider swiper products-card">
-            <ul class="popular__list products-card__list swiper-wrapper"></ul>
-            <div class="popular__slider-dotts dotts"></div>
-          </div>
-        </div>
-      `;
-
-      const list = section.querySelector(".popular__list");
-
-      sortedProducts.forEach((product) => {
-        console.log("product", product);
-        const item = document.createElement("li");
-        item.className = "popular__item swiper-slide products-card__item";
-        item.innerHTML = `
-    <article class="products-card__box" id="${product.id}">
-      <a class="products-card__img-link" href="#">
-      <div class="products-card__img-cover">
-        <picture>
-          <source type="image/avif" srcset="${product.img}@1x.avif 238w, ${
-          product.img
-        }@2x.avif 476w">
-          <source type="image/webp" srcset="${product.img}@1x.webp 238w, ${
-          product.img
-        }@2x.webp 476w">
-          <img class="products-card__img" src="${
-            product.img ? product.img + "@1x.jpg" : "./images/default.jpg"
-          }" loading="lazy" decoding="async" alt="${product.title}">
-        </picture>
-      </div>
-      </a>
-
-  <div class="products-card__body">
-                    <a class="products-card__title-link" href="${product.link}">
-                      <h3 class="products-card__title title-h3"
-                        title=${product.title}>
-                        ${product.title}
-                      </h3>
-                    </a>
-
-                    <p class="products-card__text">
-                    ${product.application || ""}
-                    </p>
-
-${
-  product.discount > 0
-    ? `
-              <p class="products-card__price card__price--sale">${
-                product.price
-              } ₴
-              <span class="card__old-price text2">${(
-                product.price /
-                (1 - product.discount / 100)
-              ).toFixed(0)} ₴</span>
-              ${
-                product.proviso
-                  ? `<span class="card__proviso">${product.proviso}</span>`
-                  : ""
-              }</p>
-            `
-    : `<p class="products-card__price">${product.price} ₴</p>`
-}
-</div>
-<a class="products-card__btn buttons" href="${product.link}">
-  Детальніше
-</a>
-                </article>
-              </div>      
-    `;
-        list.appendChild(item);
-        slider(); // 👉 запускаем слайдер
-      });
-    });
-}
-// Сохраняем просмотренные ID
-function saveRecentlyViewedId(id) {
-  let viewed = JSON.parse(localStorage.getItem("recentlyViewed")) || [];
-
-  // Удаляем дубликаты по id
-  viewed = viewed.filter((itemId) => itemId !== id);
-
-  // Добавляем в начало
-  viewed.unshift(id);
-
-  // Ограничение: только последние 10 товаров
-  if (viewed.length > 10) viewed = viewed.slice(0, 10);
-
-  localStorage.setItem("recentlyViewed", JSON.stringify(viewed));
-}
-
 const productId = document.querySelector(".card-product__item")?.id;
 if (productId) {
   saveRecentlyViewedId(productId);
-}
-
-function slider() {
-  if (document.querySelector(".popular__slider")) {
-    const swiper = new Swiper(".popular__slider", {
-      loop: true,
-      observer: true,
-      observeParents: true,
-      watchOverflow: true,
-      slidesPerView: 1,
-      spaceBetween: 10,
-      pagination: {
-        el: ".popular__slider-dotts",
-        clickable: true,
-      },
-      breakpoints: {
-        600: {
-          slidesPerView: 2,
-        },
-        885: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-        },
-        1200: {
-          slidesPerView: 4,
-          spaceBetween: 30,
-        },
-      },
-    });
-  } else {
-    console.error("Элемент .popular__slider не найден");
-  }
 }

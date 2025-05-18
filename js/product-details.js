@@ -47,7 +47,7 @@ export function productDetails(product, showDetailsButton = true) {
         <a class="card__btn buttons" href="#">У кошик</a>
         ${
           showDetailsButton
-            ? `<a class="card__btn buttons" href="#">Детальніше</a>`
+            ? `<a class="card__btn buttons card-btn-link" data-action="js-card-btnlink" href="./page-card.html?productId=${product.id}">Детальніше</a>`
             : ""
         }
       </div>
@@ -59,7 +59,7 @@ export function productDetails(product, showDetailsButton = true) {
     <div class="card__btn-box">
       ${
         showDetailsButton
-          ? `<a class="card__btn buttons" href="#">Детальніше</a>`
+          ? `<a class="card__btn buttons card-btn-link" data-action="js-card-btnlink" href="./page-card.html?productId=${product.id}">Детальніше</a>`
           : ""
       }
     </div>

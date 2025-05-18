@@ -12,21 +12,30 @@ export function renderProductDescriptions(
   return `
     ${
       !сhangeСlass
-        ? `<div class="card__body">`
-        : `<div class="card-product__body">`
-    }
+        ? `<div class="card__body">
+        <a class="title-link" href="./page-card.html?productId=${product.id}">
         <h5 class="card__title title-h5">${product.title}</h5>
-        <p class="card__name text2">${product.nameEn}</p>
-
-      <p class="card__descr"><span class="card__descr-bold">Опис: </span>${
-        product.application
-      }</p>
-      <p class="card__descr"><span class="card__descr-bold">Характеристика: </span>${
-        product.characteristics
-      }</p>
-      <p class="card__descr"><span class="card__descr-bold">Застосування: </span>${
-        Array.isArray(product.sphere) ? product.sphere.join(", ") : ""
-      }</p>
+        </a>`
+        : `<div class="card-product__body">
+        <h5 class="card__title title-h5">${product.title}</h5>`
+    }
+        <p class="card__title-en text2">${product.nameEn}</p>
+        <ul class="card-info__list">
+        <li class="card-info__item">
+            <span class="card-info__label">Опис:</span>
+            <p class="card-info__text">${product.application}</p>
+          </li>
+          <li class="card-info__item">
+            <span class="card-info__label">Характеристика:</span>
+            <p class="card-info__text">${product.characteristics}</p>
+          </li>
+          <li class="card-info__item">
+            <span class="card-info__label">Застосування:</span>
+            <p class="card-info__text">${
+              Array.isArray(product.sphere) ? product.sphere.join(", ") : ""
+            }</p>
+          </li>
+        </ul>
       ${productDetails(product, showDetailsButton)}
     </div>`;
 }

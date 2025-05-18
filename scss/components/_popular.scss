@@ -27,8 +27,16 @@
     @media (any-hover: hover) {
       &:hover {
         box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
+        // box-shadow: 0 75px 97px rgba(0, 0, 0, .02275), 0 37.9688px 42.2859px rgba(0, 0, 0, .035), 0 15px 15.7625px rgba(0, 0, 0, .04725), 0 3.28125px 5.60781px rgba(0, 0, 0, .07), 0 75px 97px rgba(0, 0, 0, .02275), 0 37.9688px 42.2859px rgba(0, 0, 0, .035), 0 15px 15.7625px rgba(0, 0, 0, .04725), 0 3.28125px 5.60781px rgba(0, 0, 0, .07);
+        transform: translateY(-10px);
       }
     }
+  }
+
+  &__slider.swiper {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
   }
 
   &__slider-dotts {

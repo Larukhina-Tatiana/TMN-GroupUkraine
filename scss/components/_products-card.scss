@@ -7,7 +7,7 @@
     justify-content: space-between;
     /* Растягиваем элементы по высоте */
     // gap: rem(30);
-    outline: 1px solid var(--gray-bright);
+
   }
 
   &__item {
@@ -15,7 +15,7 @@
     background: var(--white);
     // flex-basis: calc((100% - 90px) / 4);
     width: rem(270);
-    outline: 1px solid red;
+
 
     flex: 1 1 auto;
     /* Растягиваем элементы по высоте */
@@ -35,45 +35,15 @@
     // height: 100%;
     flex: 1 1 auto;
 
-
-  }
-
-  &__img-link {
-    height: rem(130);
-    overflow: hidden;
-
-    @media (any-hover: hover) {
-      &:hover .products-card__img {
-        scale: 1.1;
-      }
-    }
-  }
-
-  &__img-link--sale {
-    &::before {
-      position: absolute;
-      content: attr(data-sale); // ← берёт значение из data-sale;
-      padding: rem(5) rem(15);
-      color: var(--white);
-      background-color: var(--red);
-      top: rem(43);
-      left: 0;
-      font-size: rem(16);
-      line-height: 1.5;
-      font-weight: bold;
-      border-top-right-radius: rem(5);
-      border-bottom-right-radius: rem(5);
-      z-index: 2;
-    }
   }
 
   &__img-cover {
     overflow: hidden;
+    height: rem(130);
   }
 
   &__img {
     @include transition ($transition-property: scale);
-
   }
 
   &__body {
@@ -85,64 +55,43 @@
     margin-block-end: 20px;
   }
 
-  &__title-link {
-    @include transition ($transition-property: color);
-
-    @media (any-hover: hover) {
-      &:hover {
-        color: var(--accent);
-      }
-    }
-  }
-
   &__title {
-    flex: 1 1 auto;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
     height: rem(88);
   }
 
-
-
-  &__text {
+  &__application {
     margin-top: rem(8);
     margin-bottom: rem(15);
     color: var(--gray, #40474F);
     font-size: rem(14);
 
-    flex: 1 1 auto;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
     height: rem(80);
   }
 
   &__price {
     display: inline-block;
-    margin-right: rem(10);
+    // margin-right: rem(10);
     font-size: rem(20);
     font-weight: 600;
     line-height: 1.4;
-    height: 60px;
+
+    &-wrapper {
+      height: 60px;
+    }
   }
 
-  &__price--sale {
-    margin-right: rem(2);
-    color: var(--red);
-  }
+  // &__price--sale {
+  //   margin-right: rem(2);
+  //   color: var(--red);
+  // }
 
-  &__sale {
-    display: inline-block;
-    margin-right: rem(2);
-    text-decoration: line-through;
-    color: var(--gray_bright, #ACB7C5);
-    font-size: rem(12);
-  }
+  // &__sale {
+  //   display: inline-block;
+  //   margin-right: rem(2);
+  //   text-decoration: line-through;
+  //   color: var(--gray_bright, #ACB7C5);
+  //   font-size: rem(12);
+  // }
 
 
   &__discount {

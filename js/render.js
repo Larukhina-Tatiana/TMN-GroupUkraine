@@ -2,6 +2,11 @@ import { renderProductDescriptions } from "./product-descriptions.js"; //Рен�
 
 import { initLazyImageFade } from "./lazy-image-fade.js";
 
+import {
+  getCategoryFromUrl,
+  filterProductsByCategory,
+} from "./category-filter.js";
+
 const productList = document.querySelector(".catalog__card-list");
 const form = document.getElementById("aside-form");
 const quantity = document.querySelector(".catalog__quantity");
@@ -9,59 +14,64 @@ const quantity = document.querySelector(".catalog__quantity");
 const perPage = 6; // Количество товаров на странице
 const itemsPerClick = 6; // Количество товаров, отображаемых при каждом клике
 let itemsShown = 0; // Количество отображаемых товаров (по умолчанию равно perPage)
-console.log("itemsShown", itemsShown);
+
 let currentPage = 1; // Текущая страница
 let data = [];
 
-async function loadingData() {
-  try {
-    // Добавляем значок загрузки
-    productList.innerHTML = `<div class="loading-spinner">
-        <div class="spinner"></div>
-        <p>Завантаження даних...</p>
-      </div>`;
-    // Искусственная задержка для проверки анимации
-    // await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    const response = await fetch("./js/data/data.json");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const fetchedData = await response.json();
-    data = fetchedData; // Сохраняем данные в глобальную переменную `data`
-    // Убираем значок загрузки после загрузки данных
-    productList.innerHTML = "";
-
-    // Показываем кнопку "Показати ще", если данные успешно загружены
-    const showMoreButton = document.querySelector(".js-show-more");
-    if (fetchedData.length > 0) {
-      showMoreButton.style.opacity = "1";
-    }
-
-    return fetchedData;
-  } catch (err) {
-    console.error("Ошибка загрузки данных", err);
-    productList.innerHTML = "<p>Помилка завантаження даних</p>";
-    return [];
-  }
+function loadingData() {
+  return fetch("./js/data/data.json").then((res) => {
+    if (!res.ok) throw new Error("Не удалось загрузить товары");
+    return res.json();
+  });
 }
 
-function handleProductClick(productId) {
-  window.location.href = `./page-card.html?productId=${productId}`;
-}
+// async function loadingData() {
+//   try {
+//     // Добавляем значок загрузки
+//     productList.innerHTML = `<div class="loading-spinner">
+//         <div class="spinner"></div>
+//         <p>Завантаження даних...</p>
+//       </div>`;
+//     // Искусственная задержка для проверки анимации
+//     // await new Promise((resolve) => setTimeout(resolve, 2000));
+
+//     const response = await fetch("./js/data/data.json");
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+
+//     const fetchedData = await response.json();
+//     data = fetchedData; // Сохраняем данные в глобальную переменную `data`
+//     // Убираем значок загрузки после загрузки данных
+//     productList.innerHTML = "";
+
+//     // Показываем кнопку "Показати ще", если данные успешно загружены
+//     const showMoreButton = document.querySelector(".js-show-more");
+//     if (fetchedData.length > 0) {
+//       showMoreButton.style.opacity = "1";
+//     }
+
+//     return fetchedData;
+//   } catch (err) {
+//     console.error("Ошибка загрузки данных", err);
+//     productList.innerHTML = "<p>Помилка завантаження даних</p>";
+//     return [];
+//   }
+// }
+
+// function handleProductClick(productId) {
+//   window.location.href = `./page-card.html?productId=${productId}`;
+// }
 
 // Добавляем обработчик клика на карточки товаров
-productList.addEventListener("click", (e) => {
-  const card = e.target.closest(".catalog__card");
-  if (card) {
-    const productId = card.id.replace("product-", "");
-    console.log("Клик по товару с ID:", productId);
-    handleProductClick(productId);
-  }
-});
-
-console.log("data", data);
+// linkDetails.addEventListener("click", (e) => {
+//   const card = e.target.closest(".catalog__card");
+//   if (card) {
+//     const productId = card.id.replace("product-", "");
+//     console.log("Клик по товару с ID:", productId);
+//     handleProductClick(productId);
+//   }
+// });
 
 // Рендер товаров
 function renderProducts(data) {
@@ -71,9 +81,8 @@ function renderProducts(data) {
     quantity.textContent = "Товари не знайдені";
     return;
   }
-  console.log("Кол товаров", data.length);
-  // Устанавливаем количество найденных товаров
 
+  // Устанавливаем количество найденных товаров
   const fragment = document.createDocumentFragment();
 
   data.forEach((product) => {
@@ -86,9 +95,6 @@ function renderProducts(data) {
 }
 
 function renderCurrentPage(data) {
-  console.log("renderCurrentPage", data);
-  console.log("Кол", data.length);
-
   if (!data || data.length === 0) {
     productList.innerHTML = "";
     quantity.textContent = "Товари не знайдені";
@@ -100,7 +106,6 @@ function renderCurrentPage(data) {
   const start = (currentPage - 1) * perPage;
   const end = start + perPage;
   const itemsToShow = data.slice(start, end);
-  console.log("currentPage", currentPage);
 
   renderProducts(itemsToShow); // Рендерим только текущую страницу
   initLazyImageFade();
@@ -124,9 +129,6 @@ function renderPagination(data) {
   if (!paginationContainer) return;
 
   const totalPages = Math.ceil(data.length / perPage); // Общее количество страниц
-  // currentPage = Math.ceil(itemsShown / perPage); // Текущая страница
-  console.log("currentPage", currentPage);
-  console.log("totalPages", totalPages);
 
   if (totalPages <= 1) {
     paginationContainer.innerHTML = ""; // Скрываем пагинацию, если одна страница
@@ -140,7 +142,9 @@ function renderPagination(data) {
     <li class="pagination__item">
       <button class="pagination__link pagination__link--arrow" data-page="${
         currentPage > 1 ? currentPage - 1 : 1
-      }" aria-label="назад" ${currentPage === 1 ? "disabled" : ""}>
+      }" aria-label="назад" type="button" ${
+    currentPage === 1 ? "disabled" : ""
+  }>
         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             d="M7.23 1 1 7.23l6.23 6.228"></path>
@@ -154,7 +158,7 @@ function renderPagination(data) {
       <li class="pagination__item js-pagination ${
         i === currentPage ? "active" : ""
       }">
-        <button class="pagination__link" data-page="${i}">${i}</button>
+        <button class="pagination__link" type="button" data-page="${i}">${i}</button>
       </li>`;
   }
 
@@ -163,7 +167,9 @@ function renderPagination(data) {
     <li class="pagination__item">
       <button class="pagination__link pagination__link--arrow"data-page="${
         currentPage < totalPages ? currentPage + 1 : totalPages
-      }" aria-label="вперед" ${currentPage === totalPages ? "disabled" : ""}>
+      }" aria-label="вперед" type="button" ${
+    currentPage === totalPages ? "disabled" : ""
+  }>
         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             d="M.77 1 7 7.23.77 13.457"></path>
@@ -210,11 +216,7 @@ form.addEventListener("change", () => {
 function renderProductImage(product) {
   return `
     <div class="card__img-cover">
-      <a class="card__title-link${
-        product.discount ? " products-card__img-link--sale" : ""
-      }" href="#" ${
-    product.discount ? `data-sale="-${product.discount}%"` : ""
-  }>
+      
         <picture>
           <source type="image/avif" srcset="${product.img}@1x.avif 1x, ${
     product.img
@@ -226,16 +228,16 @@ function renderProductImage(product) {
             product.img ? product.img + "@1x.jpg" : "./images/default.jpg"
           }" loading="lazy" decoding="async" alt="${product.title}">
         </picture>
-      </a>
+
     </div>`;
 }
 
 // рендер карточки
 function getProductMarkup(product) {
   return `
-  <article class="catalog__card card" id="product-${product.id}" title="${
-    product.title
-  }">
+  <article class="catalog__card card${product.discount ? " card--sale" : ""}" ${
+    product.discount ? `data-sale="-${product.discount}%"` : ""
+  }" id="product-${product.id}" title="${product.title}">
     ${renderProductImage(product)}
     ${renderProductDescriptions(product, false, true)}
   </article>`;
@@ -461,10 +463,6 @@ function renderMoreProducts(data) {
 
   // Отображаем следующие itemsPerClick товаров
   const itemsToShow = data.slice(itemsShown, itemsShown + itemsPerClick);
-  console.log("perPage", perPage);
-  console.log("itemsShown", itemsShown);
-  console.log("itemsPerClick", itemsPerClick);
-  console.log("itemsToShow", itemsToShow);
 
   itemsToShow.forEach((product) => {
     const selectedFiltersItem = document.createElement("li");
@@ -477,7 +475,6 @@ function renderMoreProducts(data) {
 
   // Обновляем количество отображенных товаров
   itemsShown += itemsToShow.length;
-  console.log("itemsShown", itemsShown);
 
   // Скрываем кнопку, если все товары отображены
   if (itemsShown >= data.length) {
@@ -518,7 +515,6 @@ function updatePaginationState(data) {
 
   const totalPages = Math.ceil(data.length / itemsPerClick);
   const currentPage = Math.ceil(itemsShown / itemsPerClick);
-  console.log("currentPage", currentPage);
 
   // Обновляем активное состояние кнопок пагинации
   paginationContainer
@@ -539,8 +535,6 @@ function updatePaginationState(data) {
   const nextButton = paginationContainer.querySelector(
     '.pagination__link[aria-label="вперед"]'
   );
-  console.log("nextButton", nextButton);
-  console.log("totalPages", totalPages);
 
   if (nextButton) {
     if (currentPage === totalPages) {
@@ -588,10 +582,33 @@ function initShowMore(data) {
 }
 
 // Пример вызова функции
-loadingData().then((fetchedData) => {
-  data = fetchedData; // Сохраняем загруженные данные
-  initShowMore(data); // Инициализируем отображение товаров с кнопкой "Показать ещё"
-  renderCurrentPage(data); // Рендерим первую страницу
-  initLazyImageFade();
-  updateSelectedFilters(); // Обновляем фильтры
+// loadingData().then((fetchedData) => {
+//   data = fetchedData; // Сохраняем загруженные данные
+//   initShowMore(data); // Инициализируем отображение товаров с кнопкой "Показать ещё"
+//   renderCurrentPage(data); // Рендерим первую страницу
+//   initLazyImageFade();
+//   updateSelectedFilters(); // Обновляем фильтры
+// });
+// loadingData().then((fetchedData) => {
+//   data = fetchedData;
+
+//   const category = getCategoryFromUrl();
+//   const filtered = filterProductsByCategory(data, category);
+
+//   renderCurrentPage(filtered);
+//   updateSelectedFilters(); // если фильтры есть
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadingData().then((fetchedData) => {
+    data = fetchedData;
+
+    const category = getCategoryFromUrl();
+    const filtered = filterProductsByCategory(data, category);
+
+    initShowMore(data); // Инициализируем отображение товаров с кнопкой "Показать ещё"
+    renderCurrentPage(filtered); // Рендерим первую страницу
+    initLazyImageFade();
+    updateSelectedFilters(); // если есть фильтры
+  });
 });
