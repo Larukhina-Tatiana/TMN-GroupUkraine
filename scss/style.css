@@ -1534,7 +1534,7 @@ button[disabled] {
 @media (any-hover: hover) {
   .popular__item:hover {
     box-shadow: 3px 3px 20px 0px rgba(50, 50, 50, 0.25);
-    transform: translateY(-10px);
+    transform: translateY(-14px);
   }
 }
 .popular__slider.swiper {
@@ -2990,9 +2990,11 @@ button[disabled] {
   pointer-events: none;
 }
 .aside__form-filter-more-btn {
+  padding-block: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   color: var(--accent);
   font-size: 0.875rem;
-  border-bottom: 1px solid var(--accent);
 }
 
 .jq-checkbox,
@@ -3694,11 +3696,6 @@ button[disabled] {
   border-radius: 50%;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   z-index: 3;
-}
-@media (any-hover: hover) {
-  .prevention__item:hover {
-    scale: 1.1;
-  }
 }
 .prevention__frame {
   position: relative;

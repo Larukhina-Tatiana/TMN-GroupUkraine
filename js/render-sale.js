@@ -1,75 +1,60 @@
-import { createProductCard } from "./render-cards.js";
-import { slider } from "./utils.js";
+// import { createProductCard } from "./render-cards.js";
+// import { getSectionHTML, insertAdjacentElement, slider } from "./utils.js";
+
+import { renderProductSection } from "./utils.js";
 
 console.log("render-sale.js подключен");
 
-// Функция для получения данных из JSON файла
-async function fetchData() {
-  const response = await fetch("./js/data/data.json");
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error("Ошибка данных:", errorText);
-    throw new Error(`Ошибка загрузки данных: ${response.status}`);
-  }
-  const data = await response.json();
-  console.log("Загруженные данные:", data); // Логирование данных
-  return data;
-}
+/**
+ * Универсальный рендер секции товаров
+ * @param {Object} options
+ * @param {Function} options.filterFn - функция-фильтр для товаров в utils.js
+ * @param {string} options.sectionTitle - заголовок секции
+ * @param {string} options.sectionLink - ссылка "Усі продукти"
+ * @param {string} options.insertAfterSelector - селектор, после которого вставлять секцию
+ */
 
-async function renderSale() {
-  try {
-    const data = await fetchData();
-    const saleItems = data.filter(
-      (item) => item.discount > 0 && item.availability === true
-    );
+// Рендер секции акционных товаров
+// async function renderProductSection({
+//   filterFn,
+//   sectionTitle,
+//   sectionLink,
+//   insertAfterSelector,
+// }) {
+//   try {
+//     const data = await fetchData();
+//     const items = typeof filterFn === "function" ? data.filter(filterFn) : data;
 
-    if (!saleItems || saleItems.length === 0) {
-      console.warn("Нет данных для отображения");
-      return;
-    }
+//     if (!items.length) {
+//       console.warn("Нет данных для отображения");
+//       return;
+//     }
 
-    const saleSection = document.createElement("section");
-    saleSection.classList.add("promotion", "section", "popular");
-    saleSection.innerHTML = `
-      <div class="container">
-        <div class="popular__title-box">
-          <h2 class="popular__title section-title">Акційні товари</h2>
-          <a class="popular__link-more buttons-more" href="./sale.html">Усі продукти </a>
-        </div>
-<p class="promotional__text">
-            Vulputate volutpat libero eget leo sollicitudin lorem blandit. Morbi ipsum pulvinar sed in tincidunt lectus.
-            Consequat
-            sodales eget est sagittis. Turpis gravida elit metus, at convallis nibh.
-          </p>
-        <div class="popular__slider swiper products-card">
-          <ul class="popular__list products-card__list swiper-wrapper"></ul>
-          <div class="popular__slider-dotts dotts"></div>
-        </div>
-      </div>
-    `;
+//     const sectionCreate = document.createElement("section");
+//     sectionCreate.classList.add("promotion", "section", "popular");
+//     sectionCreate.innerHTML = getSectionHTML(sectionTitle, sectionLink);
+//     const list = sectionCreate.querySelector(".popular__list");
+//     list.innerHTML = items.map(createProductCard).join("");
+//     // saleItems.forEach((product) => {
+//     //   list.innerHTML += createProductCard(product);
+//     // });
 
-    const list = saleSection.querySelector(".popular__list");
+//     // Вставляем секцию после .
+//     insertAdjacentElement(insertAfterSelector, sectionCreate);
 
-    saleItems.forEach((product) => {
-      list.innerHTML += createProductCard(product);
-    });
+//     slider(); // Инициализация слайдера
+//   } catch (error) {
+//     console.error("Ошибка при рендеринге:", error);
+//   }
+// }
 
-    // Вставляем секцию после .about-us
-    const footerSection = document.querySelector(".footer");
-    if (footerSection) {
-      footerSection.insertAdjacentElement("beforebegin", saleSection);
-    } else {
-      console.warn(
-        "Секция .about-us не найдена. Акционные товары не будут добавлены."
-      );
-    }
-
-    slider(); // Инициализация слайдера
-  } catch (error) {
-    console.error("Ошибка при рендеринге:", error);
-  }
-}
-
+// Вызов для акционных товаров
 document.addEventListener("DOMContentLoaded", () => {
-  renderSale();
+  renderProductSection({
+    filterFn: (item) => item.discount > 0 && item.availability === true,
+    sectionTitle: "Акційні товари",
+    sectionLink: "./sale.html",
+    insertAfterSelector: ".about-us",
+    selector: ".js-sale-section",
+  });
 });

@@ -75,9 +75,11 @@
 
   &__form-filter-more-btn {
     // margin-block-start: 40px;
+    padding-block: 10px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
     color: var(--accent);
     font-size: 0.875rem;
-    border-bottom: 1px solid var(--accent);
   }
 
 }

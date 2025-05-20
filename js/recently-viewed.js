@@ -1,36 +1,55 @@
 import { createProductCard } from "./render-cards.js";
-import { slider } from "./utils.js";
+import { slider, getSectionHTML, renderProductSection } from "./utils.js";
 
-// Функция-шаблон для секции
-function getSectionHTML(title, link) {
-  return `
-    <div class="container">
-      <div class="popular__title-box">
-        <h2 class="popular__title section-title">${title}</h2>
-        <a class="popular__link-more buttons-more" href="${link}">Усі продукти </a>
-      </div>
-      <div class="popular__slider swiper products-card">
-        <ul class="popular__list products-card__list swiper-wrapper"></ul>
-        <div class="popular__slider-dotts dotts"></div>
-      </div>
-    </div>
-  `;
+import { filterRecentlyViewed } from "./utils.js";
+
+export function waitForCardAndRenderViewed(retries = 10) {
+  const card = document.querySelector(".card-product__item");
+  if (card) {
+    renderRecentlyViewed();
+  } else if (retries > 0) {
+    setTimeout(() => waitForCardAndRenderViewed(retries - 1), 200);
+  } else {
+    console.warn(
+      "Элемент .card-product__item не найден после нескольких попыток"
+    );
+  }
 }
 
 // Универсальный рендер секции с карточками
-function renderSection({ selector, title, link, products }) {
-  const section = document.querySelector(selector);
-  if (!section) return;
+// function renderSection({ selector, title, link, products }) {
+//   let section = document.querySelector(selector);
 
-  section.innerHTML = getSectionHTML(title, link);
+//   // Если секции нет — создаём и вставляем перед .blog или .footer
+//   if (!section) {
+//     section = document.createElement("section");
+//     section.className = `popular recently-viewed section ${selector.replace(
+//       ".",
+//       ""
+//     )}`;
+//     const blogSection = document.querySelector(".blog");
+//     const footer = document.querySelector(".footer");
+//     if (blogSection) {
+//       // родитель.insertBefore(элемент, перед кем вставить);
+//       blogSection.parentNode.insertBefore(section, blogSection);
+//       console.log("blogSection", blogSection.parentNode);
+//     } else if (footer) {
+//       footer.parentNode.insertBefore(section, footer);
+//     } else {
+//       document.body.appendChild(section);
+//     }
+//   }
 
-  const list = section.querySelector(".popular__list");
-  products.forEach((product) => {
-    list.innerHTML += createProductCard(product);
-  });
+//   section.innerHTML = getSectionHTML(title, link);
 
-  slider(); // Инициализация слайдера
-}
+//   const list = section.querySelector(".popular__list");
+//   list.innerHTML = products.map(createProductCard).join("");
+//   // products.forEach((product) => {
+//   //   list.innerHTML += createProductCard(product);
+//   // });
+
+//   slider(); // Инициализация слайдера
+// }
 
 // Рендер похожих товаров по материалу
 function renderSimilarProducts(currentId, data) {
@@ -86,58 +105,50 @@ export function renderRecentlyViewed() {
   const viewed = JSON.parse(localStorage.getItem("recentlyViewed") || "[]").map(
     Number
   );
-
-  console.log("viewed", viewed);
-
   if (!viewed.length) return;
 
-  fetch("./js/data/data.json")
-    .then((res) => res.json())
-    .then((data) => {
-      const productsToRender = data.filter((product) =>
-        viewed.includes(product.id)
-      );
-      const sortedProducts = viewed
-        .map((id) => productsToRender.find((p) => p.id === id))
-        .filter(Boolean);
+  renderProductSection({
+    filterFn: (item, data) => filterRecentlyViewed(data, viewed).includes(item),
+    sectionTitle: "Ви нещодавно переглядали",
+    sectionLink: "./catalog.html",
+    insertAfterSelector: ".blog", // или ".footer"
+    // чтобы сохранить порядок
+    customSort: (products) => filterRecentlyViewed(products, viewed),
+    selector: ".js-recently-viewed",
+  });
+  // export function renderRecentlyViewed() {
+  //   const viewed = JSON.parse(localStorage.getItem("recentlyViewed") || "[]").map(
+  //     Number
+  //   );
 
-      renderSection({
-        selector: ".js-recently-viewed",
-        title: "Ви нещодавно переглядали",
-        link: "./catalog.html",
-        products: sortedProducts,
-      });
+  //   if (!viewed.length) return;
 
-      //  Поиск и рендер похожих(по материалу) товаров
-      const article = document.querySelector(".card-product__item");
-      console.log("article", article);
+  //   fetch("./js/data/data.json")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const productsToRender = data.filter((product) =>
+  //         viewed.includes(product.id)
+  //       );
+  //       const sortedProducts = viewed
+  //         .map((id) => productsToRender.find((p) => p.id === id))
+  //         .filter(Boolean);
 
-      if (article) {
-        const currentId = article.getAttribute("id");
-        renderSimilarProducts(currentId, data);
-        slider();
-      }
-    })
-    .catch((error) => {
-      console.error("Ошибка при загрузке данных:", error);
-    });
-}
+  //       renderSection({
+  //         selector: ".js-recently-viewed",
+  //         title: "Ви нещодавно переглядали",
+  //         link: "./catalog.html",
+  //         products: sortedProducts,
+  //       });
 
-export function waitForCardAndRenderViewed(retries = 10) {
-  console.log("Проверяем наличие .card-product__item...");
-  const card = document.querySelector(".card-product__item");
-  if (card) {
-    console.log(".card-product__item найден");
-
-    renderRecentlyViewed(); // Вызов функции рендера
-
-    // renderSimilar();
-  } else if (retries > 0) {
-    console.log(`Осталось попыток: ${retries}`);
-    setTimeout(() => waitForCardAndRenderViewed(retries - 1), 200); // Ждем и пробуем снова
-  } else {
-    console.warn(
-      "Элемент .card-product__item не найден после нескольких попыток"
-    );
-  }
+  //       //  Поиск и рендер похожих(по материалу) товаров
+  //       const article = document.querySelector(".card-product__item");
+  //       if (article) {
+  //         const currentId = article.getAttribute("id");
+  //         renderSimilarProducts(currentId, data);
+  //         slider();
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Ошибка при загрузке данных:", error);
+  //     });
 }

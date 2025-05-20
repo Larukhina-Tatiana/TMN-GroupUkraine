@@ -7,7 +7,6 @@ import {
   saveRecentlyViewedId,
   renderRecentlyViewed,
   waitForCardAndRenderViewed,
-  slider,
 } from "./recently-viewed.js";
 
 async function fetchData() {
@@ -219,82 +218,130 @@ function renderUsageStorageInfo(product) {
   }
 }
 
-// Функция генерации текста для блока "Застосування / Зберігання"
+/**
+ * Универсальная функция генерации блока списка с заголовком
+ * @param {string} title - Заголовок блока
+ * @param {Array} items - Массив строк для вывода
+ * @returns {string} - HTML блока
+ */
+function generateListBlock(title, items) {
+  if (!Array.isArray(items) || !items.length) return "";
+  return `
+    <ul class="tabs__content-application">
+      <li class="tabs__content-application-item">
+        <p class="tabs__content-application-descr title-h5">${title}</p>
+      </li>
+      ${items
+        .map(
+          (item) => `
+      <li class="tabs__content-application-item">
+        <p class="tabs__content-application-descr">${item}</p>
+      </li>`
+        )
+        .join("")}
+    </ul>
+  `;
+}
+
+// Рендер(генерации текста) таба  Застосування / Зберігання
 function generateUsageStorageInfo(product) {
   if (!product.usageAndStorage) {
     console.error("Данные для usageAndStorage отсутствуют");
     return "<p>Інформація недоступна</p>";
   }
 
-  const { usage, storage, warnings, description } = product.usageAndStorage;
+  const {
+    usage = [],
+    storage = [],
+    warnings = [],
+    description = "",
+  } = product.usageAndStorage;
 
-  // Генерация HTML для массива `usage`
-  const usageHTML = usage
-    .map(
-      (item) => `
-      <li class="tabs__content-application-item">
-        <p class="tabs__content-application-descr">${item}</p>
-      </li>`
-    )
-    .join("");
-
-  // Генерация HTML для массива `storage`
-  const storageHTML = storage
-    .map(
-      (item) => `
-      <li class="tabs__content-application-item">
-        <p class="tabs__content-application-descr">${item}</p>
-      </li>`
-    )
-    .join("");
-
-  // Генерация HTML для массива `warnings`
-  const warningsHTML = warnings
-    .map(
-      (item) => `
-      <li class="tabs__content-application-item">
-        <p class="tabs__content-application-descr">${item}</p>
-      </li>`
-    )
-    .join("");
-
-  // Генерация HTML для строки `description`
-  const descriptionHTML = `
-    <li class="tabs__content-application-item">
-      <p class="tabs__content-application-descr">${description}</p>
-    </li>
-  `;
-
-  // Возвращаем общий HTML
   return `
-    <ul class="tabs__content-application">
-      <li class="tabs__content-application-item">
-        <p class="tabs__content-application-descr title-h5">Застосування</p>
-      </li>
-      ${usageHTML}
-    </ul>
-    <ul class="tabs__content-application">
-      <li class="tabs__content-application-item">
-        <p class="tabs__content-application-descr title-h5">Зберігання</p>
-      </li>
-      ${storageHTML}
-    </ul>
-    <ul class="tabs__content-application">
-      <li class="tabs__content-application-item">
-        <p class="tabs__content-application-descr title-h5">Попередження</p>
-      </li>
-      ${warningsHTML}
-    </ul>
-    <ul class="tabs__content-application">
-      <li class="tabs__content-application-item">
-        <p class="tabs__content-application-descr title-h5">Опис</p>
-      </li>
-      ${descriptionHTML}
-    </ul>
+    ${generateListBlock("Застосування", usage)}
+    ${generateListBlock("Зберігання", storage)}
+    ${generateListBlock("Попередження", warnings)}
+    ${description ? generateListBlock("Опис", [description]) : ""}
   `;
 }
 
+// Функция генерации текста для блока "Застосування / Зберігання"
+// function generateUsageStorageInfo(product) {
+//   if (!product.usageAndStorage) {
+//     console.error("Данные для usageAndStorage отсутствуют");
+//     return "<p>Інформація недоступна</p>";
+//   }
+
+//   const { usage, storage, warnings, description } = product.usageAndStorage;
+
+//   // Генерация HTML для массива `usage`
+//   const usageHTML = usage
+//     .map(
+//       (item) => `
+//       <li class="tabs__content-application-item">
+//         <p class="tabs__content-application-descr">${item}</p>
+//       </li>`
+//     )
+//     .join("");
+
+//   // Генерация HTML для массива `storage`
+//   const storageHTML = storage
+//     .map(
+//       (item) => `
+//       <li class="tabs__content-application-item">
+//         <p class="tabs__content-application-descr">${item}</p>
+//       </li>`
+//     )
+//     .join("");
+
+//   // Генерация HTML для массива `warnings`
+//   const warningsHTML = warnings
+//     .map(
+//       (item) => `
+//       <li class="tabs__content-application-item">
+//         <p class="tabs__content-application-descr">${item}</p>
+//       </li>`
+//     )
+//     .join("");
+
+//   // Генерация HTML для строки `description`
+//   const descriptionHTML = `
+//     <li class="tabs__content-application-item">
+//       <p class="tabs__content-application-descr">${description}</p>
+//     </li>
+//   `;
+
+//   // Возвращаем общий HTML
+//   return `
+//     <ul class="tabs__content-application">
+//       <li class="tabs__content-application-item">
+//         <p class="tabs__content-application-descr title-h5">Застосування</p>
+//       </li>
+//       ${usageHTML}
+//     </ul>
+//     <ul class="tabs__content-application">
+//       <li class="tabs__content-application-item">
+//         <p class="tabs__content-application-descr title-h5">Зберігання</p>
+//       </li>
+//       ${storageHTML}
+//     </ul>
+//     <ul class="tabs__content-application">
+//       <li class="tabs__content-application-item">
+//         <p class="tabs__content-application-descr title-h5">Попередження</p>
+//       </li>
+//       ${warningsHTML}
+//     </ul>
+//     <ul class="tabs__content-application">
+//       <li class="tabs__content-application-item">
+//         <p class="tabs__content-application-descr title-h5">Опис</p>
+//       </li>
+//       ${descriptionHTML}
+//     </ul>
+//   `;
+// }
+
 // Функция инициализации табов
+
 function initTabs() {
   document
     .querySelector(".card-product__tabs")

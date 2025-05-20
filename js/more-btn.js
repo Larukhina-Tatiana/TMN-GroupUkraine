@@ -1,21 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.querySelector(".js-more-btn")) {
-    document.querySelectorAll(".js-more-btn").forEach((btn) => {
-      btn.addEventListener("click", (event) => {
-        event.preventDefault();
+  const moreBtns = document.querySelectorAll(".js-more-btn");
+  if (!moreBtns.length) return;
 
-        const parentBox = btn.closest(".js-box");
-        if (!parentBox) return; // Проверяем, существует ли родительский элемент
-        const hiddenBoxes = parentBox.querySelectorAll("div[data-toggled]");
+  moreBtns.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
 
-        hiddenBoxes.forEach((div) => {
-          div.classList.toggle("hidden");
-        });
+      const parentBox = btn.closest(".js-box");
+      if (!parentBox) return;
 
-        const isHidden = btn.classList.toggle("open");
-
-        btn.textContent = isHidden ? "Приховати" : "Показати ще";
+      parentBox.querySelectorAll("div[data-toggled]").forEach((div) => {
+        div.classList.toggle("hidden");
       });
+
+      const isOpen = btn.classList.toggle("open");
+      btn.textContent = isOpen ? "Приховати" : "Показати ще";
     });
-  }
+  });
 });
