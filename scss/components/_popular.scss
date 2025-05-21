@@ -34,9 +34,11 @@
   }
 
   &__slider.swiper {
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 12px;
+    @media screen and (width > 885px) {
+      padding-left: 12px;
+      padding-right: 12px;
+      padding-top: 12px;
+    }
   }
 
   &__slider-dotts {

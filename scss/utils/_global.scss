@@ -82,7 +82,7 @@ body {
     // @include adaptivevalue(font-size, 18, 16, 1620, 320, 1);
     line-height: 1.5;
     color: var(--black);
-    overflow-x: hidden;
+    // overflow-x: hidden;
     min-width: 100vw;
     background: #F7F7F8;
 }
@@ -213,11 +213,11 @@ button,
 
 
 
-.mobile-overflow {
-    margin-block-end: 10px;
-    width: rem(1000);
+// .mobile-overflow {
+//     margin-block-end: 10px;
+//     width: rem(1000);
 
-}
+// }
 
 .error {
     @include transition ($transition-property: opacity);

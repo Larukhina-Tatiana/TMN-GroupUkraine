@@ -8,14 +8,19 @@
     align-items: center;
   }
 
-  &__title {
-    margin-bottom: rem(10);
+  &__boxtitle {
+    text-align: center;
+    margin-bottom: 40px;
   }
 
-  &__text {
-    color: var(--gray-bright, #ACB7C5);
-    margin-bottom: rem(40);
-  }
+  // &__title {
+  //   margin-bottom: rem(10);
+  // }
+
+  // &__text {
+  //   color: var(--gray-bright, #ACB7C5);
+  //   margin-bottom: rem(40);
+  // }
 
   &__list {
     display: flex;
@@ -60,9 +65,7 @@
       grid-template-columns: 1fr;
     }
 
-    &__boxtitle {
-      text-align: center;
-    }
+
 
     &__list {
       justify-content: center;

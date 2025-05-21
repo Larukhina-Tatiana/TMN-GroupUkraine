@@ -35,10 +35,10 @@
     color: var(--gray-bright);
   }
 
-  @media screen and (width < 980.01px) {
-    &__inner {
-      overflow-x: scroll;
-    }
-  }
+  // @media screen and (width < 980.01px) {
+  //   &__inner {
+  //     overflow-x: scroll;
+  //   }
+  // }
 
 }
