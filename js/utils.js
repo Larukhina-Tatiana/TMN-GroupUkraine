@@ -125,7 +125,10 @@ export async function renderProductSection({
     section.innerHTML = getSectionHTML(sectionTitle, sectionLink);
     const list = section.querySelector(".popular__list");
     list.innerHTML = items.map(createProductCard).join("");
-    slider();
+    console.log("items.length", items.length);
+    if (items.length > 4) {
+      slider();
+    }
   } catch (error) {
     console.error("Ошибка при рендеринге:", error);
   }

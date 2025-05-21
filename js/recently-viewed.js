@@ -82,6 +82,7 @@ function renderSimilarProducts(currentId, data) {
       "Секция .benefits не найдена. Схожі товари не будут добавлены."
     );
   }
+
   slider();
 }
 

@@ -4,9 +4,9 @@
     display: flex;
     // height: 100%;
     align-items: stretch;
-    justify-content: space-between;
+    justify-content: space-evenly;
     /* Растягиваем элементы по высоте */
-    // gap: rem(30);
+    // gap: rem(10);
 
   }
 
@@ -16,8 +16,7 @@
     // flex-basis: calc((100% - 90px) / 4);
     width: rem(270);
 
-
-    flex: 1 1 auto;
+    // flex: 1 1 auto;
     /* Растягиваем элементы по высоте */
     display: flex;
     /* Если внутри есть дочерние элементы, они тоже будут растягиваться */
