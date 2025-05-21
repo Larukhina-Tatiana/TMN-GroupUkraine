@@ -34,10 +34,10 @@
     margin-inline: 0;
     padding-inline: 0;
     padding-block: 0;
-
-    &:first-child {
-      cursor: pointer;
-    }
+    cursor: pointer;
+    // &:first-child {
+    //   cursor: pointer;
+    // }
   }
 
   &__form-title {
