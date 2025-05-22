@@ -1,9 +1,9 @@
 .categories {
   @include adaptivevalue(padding-top, 80, 50, 1200, 320, 1);
 
-  &__title {
-    margin-bottom: rem(40);
-  }
+  // &__title {
+  //   margin-bottom: rem(40);
+  // }
 
   &__list {
     display: flex;

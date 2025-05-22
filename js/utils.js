@@ -21,6 +21,24 @@ export function filterRecentlyViewed(data, viewedIds) {
     .filter(Boolean);
 }
 
+/**
+ * Фильтрация похожих товаров по материалу (исключая текущий товар)
+ * @param {Array} data - массив всех товаров
+ * @param {number|string} currentId - id текущего товара
+ * @returns {Array} - массив похожих товаров
+ */
+export function filterSimilarByMaterial(data, currentId) {
+  const currentCard = data.find(
+    (item) => Number(item.id) === Number(currentId)
+  );
+  if (!currentCard) return [];
+  const currentMaterial = currentCard.material;
+  return data.filter(
+    (item) =>
+      item.material === currentMaterial && Number(item.id) !== Number(currentId)
+  );
+}
+
 export function slider() {
   if (document.querySelector(".popular__slider")) {
     new Swiper(".popular__slider", {
@@ -93,7 +111,7 @@ export async function renderProductSection({
   sectionLink,
   insertAfterSelector,
   customSort,
-  selector = ".js-section",
+  selector,
 }) {
   try {
     const data = await fetchData();
@@ -111,21 +129,29 @@ export async function renderProductSection({
     }
 
     let section = document.querySelector(selector);
+    console.log("selector", selector);
+
     if (!section) {
       section = document.createElement("section");
-      section.className = `popular section ${selector.replace(".", "")}`;
+      section.className = `js-${selector.replace(
+        ".",
+        ""
+      )} popular section ${selector.replace(".", "")}`;
       const afterElem = document.querySelector(insertAfterSelector);
+      console.log("afterElem", afterElem);
+
       if (afterElem) {
-        afterElem.parentNode.insertBefore(section, afterElem);
+        afterElem.insertAdjacentElement("afterend", section);
       } else {
-        document.body.appendChild(section);
+        const afterElem = document.querySelector(".main");
+        afterElem.insertAdjacentElement("beforeend", section);
       }
     }
 
     section.innerHTML = getSectionHTML(sectionTitle, sectionLink);
     const list = section.querySelector(".popular__list");
     list.innerHTML = items.map(createProductCard).join("");
-    console.log("items.length", items.length);
+
     if (items.length > 4) {
       slider();
     }

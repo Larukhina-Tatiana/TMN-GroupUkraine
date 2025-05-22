@@ -1,6 +1,3 @@
-// import { createProductCard } from "./render-cards.js";
-// import { getSectionHTML, insertAdjacentElement, slider } from "./utils.js";
-
 import { renderProductSection } from "./utils.js";
 
 console.log("render-sale.js подключен");
@@ -55,6 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     sectionTitle: "Акційні товари",
     sectionLink: "./sale.html",
     insertAfterSelector: ".about-us",
-    selector: ".js-sale-section",
+    selector: ".sale",
   });
 });
