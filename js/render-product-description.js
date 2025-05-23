@@ -58,7 +58,7 @@ function renderProductDescriptionFull(product) {
     <h2 class="visually-hidden">${product.title}</h2>
     <article class="card-product__item${isSale ? " card--sale" : ""}" ${
     isSale ? `data-sale="-${product.discount}%"` : ""
-  } id="${product.id}">
+  } id="product-${product.id}">
     ${renderProductImage(product)}
     ${renderProductDescriptions(product, true, false)}
     </article>
@@ -266,79 +266,6 @@ function generateUsageStorageInfo(product) {
 }
 
 // Функция генерации текста для блока "Застосування / Зберігання"
-// function generateUsageStorageInfo(product) {
-//   if (!product.usageAndStorage) {
-//     console.error("Данные для usageAndStorage отсутствуют");
-//     return "<p>Інформація недоступна</p>";
-//   }
-
-//   const { usage, storage, warnings, description } = product.usageAndStorage;
-
-//   // Генерация HTML для массива `usage`
-//   const usageHTML = usage
-//     .map(
-//       (item) => `
-//       <li class="tabs__content-application-item">
-//         <p class="tabs__content-application-descr">${item}</p>
-//       </li>`
-//     )
-//     .join("");
-
-//   // Генерация HTML для массива `storage`
-//   const storageHTML = storage
-//     .map(
-//       (item) => `
-//       <li class="tabs__content-application-item">
-//         <p class="tabs__content-application-descr">${item}</p>
-//       </li>`
-//     )
-//     .join("");
-
-//   // Генерация HTML для массива `warnings`
-//   const warningsHTML = warnings
-//     .map(
-//       (item) => `
-//       <li class="tabs__content-application-item">
-//         <p class="tabs__content-application-descr">${item}</p>
-//       </li>`
-//     )
-//     .join("");
-
-//   // Генерация HTML для строки `description`
-//   const descriptionHTML = `
-//     <li class="tabs__content-application-item">
-//       <p class="tabs__content-application-descr">${description}</p>
-//     </li>
-//   `;
-
-//   // Возвращаем общий HTML
-//   return `
-//     <ul class="tabs__content-application">
-//       <li class="tabs__content-application-item">
-//         <p class="tabs__content-application-descr title-h5">Застосування</p>
-//       </li>
-//       ${usageHTML}
-//     </ul>
-//     <ul class="tabs__content-application">
-//       <li class="tabs__content-application-item">
-//         <p class="tabs__content-application-descr title-h5">Зберігання</p>
-//       </li>
-//       ${storageHTML}
-//     </ul>
-//     <ul class="tabs__content-application">
-//       <li class="tabs__content-application-item">
-//         <p class="tabs__content-application-descr title-h5">Попередження</p>
-//       </li>
-//       ${warningsHTML}
-//     </ul>
-//     <ul class="tabs__content-application">
-//       <li class="tabs__content-application-item">
-//         <p class="tabs__content-application-descr title-h5">Опис</p>
-//       </li>
-//       ${descriptionHTML}
-//     </ul>
-//   `;
-// }
 
 // Функция инициализации табов
 

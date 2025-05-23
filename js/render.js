@@ -6,10 +6,15 @@ import {
   getCategoryFromUrl,
   filterProductsByCategory,
 } from "./category-filter.js";
+import { defaultMin, defaultMax } from "./config.js"; // Импортируем min, max для слайдера цена
+import { resetRangeSlider } from "./range-my.js"; // Импортируем функцию сброса слайдера
 
 const productList = document.querySelector(".catalog__card-list");
 const form = document.getElementById("aside-form");
 const quantity = document.querySelector(".catalog__quantity");
+
+// const defaultMin = 20;
+// const defaultMax = 500;
 
 const perPage = 6; // Количество товаров на странице
 const itemsPerClick = 6; // Количество товаров, отображаемых при каждом клике
@@ -253,6 +258,11 @@ function getFilterValues(form) {
   const minPrice = parseFloat(formData.get("min")) || 0;
   const maxPrice = parseFloat(formData.get("max")) || Infinity;
 
+  const discount = [...form.querySelectorAll('input[name="sale"]:checked')].map(
+    (el) => el.value
+  );
+  console.log("discount", discount);
+
   // Получение выбранных материалов
   const materials = [
     ...form.querySelectorAll('input[name="material"]:checked'),
@@ -273,9 +283,25 @@ function getFilterValues(form) {
     (el) => el.value
   );
 
-  console.log(minPrice, maxPrice, brands, materials, characteristics, types);
+  console.log(
+    discount,
+    minPrice,
+    maxPrice,
+    brands,
+    materials,
+    characteristics,
+    types
+  );
   // console.log(types);
-  return { minPrice, maxPrice, brands, materials, characteristics, types };
+  return {
+    discount,
+    minPrice,
+    maxPrice,
+    brands,
+    materials,
+    characteristics,
+    types,
+  };
 }
 
 // Фильтрация товаров
@@ -283,12 +309,38 @@ function filterProducts(products, filterForm) {
   if (!products || !filterForm) return;
 
   // Получаем значения фильтров
-  const { minPrice, maxPrice, brands, materials, characteristics, types } =
-    getFilterValues(filterForm);
+  const {
+    discount,
+    minPrice,
+    maxPrice,
+    brands,
+    materials,
+    characteristics,
+    types,
+  } = getFilterValues(filterForm);
+  console.log(types);
+  // / Проверяем, выбран ли фильтр "Акція" (чекбокс или параметр в URL)
+  const urlParams = new URLSearchParams(window.location.search);
+  const saleParam = urlParams.get("sale") || urlParams.get("filter");
+  const saleChecked =
+    !!form.querySelector('input[name="sale"]:checked') ||
+    saleParam === "1" ||
+    saleParam === "sale";
 
-  // Фильтруем товары
-  const filteredProducts = products.filter((product) => {
+  // Сначала фильтруем только акционные товары, если фильтр активен
+  let filteredProducts = products;
+  if (saleChecked) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.discount > 0 && product.availability === true
+    );
+  }
+
+  // Далее применяем остальные фильтры к уже отфильтрованным товарам
+  filteredProducts = products.filter((product) => {
     const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+
+    const matchesDiscount =
+      !saleChecked || (product.discount > 0 && product.availability === true);
 
     const matchesMaterial =
       !materials.length ||
@@ -322,6 +374,7 @@ function filterProducts(products, filterForm) {
       types.some((type) => type.toLowerCase() === product.type.toLowerCase());
 
     return (
+      matchesDiscount &&
       matchesPrice &&
       matchesMaterial &&
       matchesBrand &&
@@ -340,54 +393,58 @@ const containerFiltres = document.querySelector(".selected-filters");
 
 // Обновление отображения выбранных фильтров
 function updateSelectedFilters() {
-  if (!form || !data || data.length === 0) return; // Проверяем, существуют ли данные и форма
+  // Проверяем, существуют ли данные и форма
+  if (!form || !data || data.length === 0) return;
 
   if (!containerFiltres) {
     console.error("Элемент .selected-filters не найден в DOM");
     return;
   }
-
-  containerFiltres.innerHTML = ""; // Очищаем контейнер
+  // Очищаем контейнер
+  containerFiltres.innerHTML = "";
 
   const formData = new FormData(form);
   const fragment = document.createDocumentFragment();
 
-  // Создаем <li> для кнопки "Скинути всі"
+  // Проверяем, есть ли активные фильтры
+  let hasActiveFilters = false;
 
-  const resetAllItem = document.createElement("li");
-  resetAllItem.className = "selected-filters__item";
-
-  const resetAll = document.createElement("button");
-  resetAll.className = "selected-filters__button";
-  resetAll.setAttribute("type", "button");
-  resetAll.textContent = "Скинути всі";
-  resetAll.dataset.key = "reset";
-  resetAll.dataset.value = "reset";
-  resetAll.setAttribute("aria-label", "Скинути всі фільтри");
-  resetAll.setAttribute("title", "Скинути всі фільтри");
-
-  resetAll.addEventListener("click", () => {
-    form.reset();
-    const minInput = document.getElementById("min");
-    const maxInput = document.getElementById("max");
-
-    if (minInput) minInput.value = "20";
-    if (maxInput) maxInput.value = "500";
-
-    resetRangeSlider();
-    $(form).find("input").trigger("refresh");
-    updateSelectedFilters();
-    filterProducts(data, form);
-  });
-
-  resetAllItem.appendChild(resetAll); // Добавляем кнопку в <li>
-  fragment.appendChild(resetAllItem); // Добавляем <li> в фрагмент
+  // --- Кнопка сброса "Акція" при фильтре из URL ---
+  const urlParams = new URLSearchParams(window.location.search);
+  const saleParam = urlParams.get("sale") || urlParams.get("filter");
+  if (saleParam === "1" || saleParam === "sale") {
+    hasActiveFilters = true;
+    const saleFilterItem = document.createElement("li");
+    saleFilterItem.className = "selected-filters__item";
+    const saleFilterBtn = document.createElement("button");
+    saleFilterBtn.className = "selected-filters__button";
+    saleFilterBtn.type = "button";
+    saleFilterBtn.textContent = "Акція";
+    saleFilterBtn.setAttribute("aria-label", "Скинути фільтр Акція");
+    saleFilterBtn.setAttribute("title", "Скинути фільтр Акція");
+    saleFilterBtn.addEventListener("click", () => {
+      urlParams.delete("sale");
+      urlParams.delete("filter");
+      window.location.search = urlParams.toString();
+    });
+    saleFilterItem.appendChild(saleFilterBtn);
+    fragment.appendChild(saleFilterItem);
+  }
+  // --- Конец блока ---
 
   // Проходим по всем выбранным фильтрам
   formData.forEach((value, key) => {
-    if (key === "min" || key === "max") {
-      if (value.trim() === "") return; // Пропускаем пустые значения
-    }
+    // Не показываем фильтр min, если он равен defaultMin
+    if (key === "min" && (value.trim() === "" || Number(value) === defaultMin))
+      return;
+    // Не показываем фильтр max, если он равен defaultMax
+    if (key === "max" && (value.trim() === "" || Number(value) === defaultMax))
+      return;
+
+    // Пропускаем пустые значения
+    if (value.trim() === "") return;
+
+    hasActiveFilters = true;
 
     // Создаем кнопку для каждого фильтра
     const filterButton = createFilterButton(key, value);
@@ -398,6 +455,38 @@ function updateSelectedFilters() {
     selectedFiltersItem.appendChild(filterButton);
     fragment.appendChild(selectedFiltersItem);
   });
+  // Кнопка "Скинути всі" только если есть активные фильтры
+  if (hasActiveFilters) {
+    const resetAllItem = document.createElement("li");
+    resetAllItem.className = "selected-filters__item";
+    const resetAll = document.createElement("button");
+    resetAll.className = "selected-filters__button";
+    resetAll.setAttribute("type", "button");
+    resetAll.textContent = "Скинути всі";
+    resetAll.dataset.key = "reset";
+    resetAll.dataset.value = "reset";
+    resetAll.setAttribute("aria-label", "Скинути всі фільтри");
+    resetAll.setAttribute("title", "Скинути всі фільтри");
+
+    resetAll.addEventListener("click", () => {
+      form.reset();
+      resetRangeSlider();
+      $(form).find("input").trigger("refresh");
+      updateSelectedFilters();
+      filterProducts(data, form);
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has("filter") || urlParams.has("sale")) {
+        urlParams.delete("filter");
+        urlParams.delete("sale");
+        window.location.search = urlParams.toString();
+        return;
+      }
+    });
+
+    resetAllItem.appendChild(resetAll);
+    fragment.insertBefore(resetAllItem, fragment.firstChild);
+  }
   containerFiltres.appendChild(fragment); // Добавляем новые элементы
 }
 
@@ -412,7 +501,26 @@ function removeFilter(key, value) {
       }
     } else if (input.type === "text" || input.type === "number") {
       if (input.value === value) {
-        input.value = ""; // Очищаем текстовое поле или поле ввода числа
+        // Для min/max сбрасываем только соответствующее значение и обновляем слайдер
+        const range = document.getElementById("range");
+        const minInput = document.getElementById("min");
+        const maxInput = document.getElementById("max");
+        const defaultMin = 20;
+        const defaultMax = 500;
+
+        if (key === "min") {
+          input.value = defaultMin;
+          if (range && range.noUiSlider) {
+            range.noUiSlider.set([defaultMin, maxInput.value || defaultMax]);
+          }
+        } else if (key === "max") {
+          input.value = defaultMax;
+          if (range && range.noUiSlider) {
+            range.noUiSlider.set([minInput.value || defaultMin, defaultMax]);
+          }
+        } else {
+          input.value = "";
+        }
       }
     }
   });
@@ -443,7 +551,14 @@ function createFilterButton(key, value) {
   // Создаем кнопку для каждого фильтра
   const filterButton = document.createElement("button");
   filterButton.className = "selected-filters__button";
+  // Для фильтра "sale" с value "discount" показываем "Акція"
+  // if (key === "sale" && value === "discount") {
+  //   filterButton.textContent = "Акція";
+  // } else {
+  //   filterButton.textContent = `${value}`;
+  // }
   filterButton.textContent = `${value}`;
+
   filterButton.dataset.key = key;
   filterButton.dataset.value = value;
   filterButton.setAttribute("type", "button");
@@ -581,30 +696,30 @@ function initShowMore(data) {
   addShowMoreButton(data);
 }
 
-// Пример вызова функции
-// loadingData().then((fetchedData) => {
-//   data = fetchedData; // Сохраняем загруженные данные
-//   initShowMore(data); // Инициализируем отображение товаров с кнопкой "Показать ещё"
-//   renderCurrentPage(data); // Рендерим первую страницу
-//   initLazyImageFade();
-//   updateSelectedFilters(); // Обновляем фильтры
-// });
-// loadingData().then((fetchedData) => {
-//   data = fetchedData;
-
-//   const category = getCategoryFromUrl();
-//   const filtered = filterProductsByCategory(data, category);
-
-//   renderCurrentPage(filtered);
-//   updateSelectedFilters(); // если фильтры есть
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   loadingData().then((fetchedData) => {
     data = fetchedData;
+    const urlParams = new URLSearchParams(window.location.search);
+    const saleParam = urlParams.get("sale") || urlParams.get("filter");
 
-    const category = getCategoryFromUrl();
-    const filtered = filterProductsByCategory(data, category);
+    let filtered = data;
+
+    // Если есть параметр "sale" или "filter=sale", фильтруем только акционные товары
+    if (saleParam === "1" || saleParam === "sale") {
+      filtered = data.filter(
+        (item) => item.discount > 0 && item.availability === true
+      );
+
+      // Если у вас есть чекбокс "Акція", отмечаем его программно:
+      const saleCheckbox = document.querySelector(
+        'input[name="sale"][value="discount"]'
+      );
+      if (saleCheckbox) saleCheckbox.checked = true;
+    } else {
+      // Фильтрация по категории, если нет параметра "sale"
+      const category = getCategoryFromUrl();
+      filtered = filterProductsByCategory(data, category);
+    }
 
     initShowMore(data); // Инициализируем отображение товаров с кнопкой "Показать ещё"
     renderCurrentPage(filtered); // Рендерим первую страницу

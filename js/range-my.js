@@ -1,3 +1,5 @@
+import { defaultMin, defaultMax } from "./config.js";
+
 const rangeSliderInit = () => {
   // создаем функцию инициализации слайдера
   const range = document.getElementById("range"); // Ищем слайдер
@@ -10,7 +12,7 @@ const rangeSliderInit = () => {
 
   noUiSlider.create(range, {
     // инициализируем слайдер
-    start: [20, 500], // устанавливаем начальные значения
+    start: [defaultMin, 500], // устанавливаем начальные значения
     tooltips: [true, true],
     connect: true, // указываем что нужно показывать выбранный диапазон
     range: {
@@ -37,20 +39,26 @@ const rangeSliderInit = () => {
   });
 };
 
-function resetRangeSlider() {
+export function resetRangeSlider() {
+  console.log("resetRangeSlider");
+
   const range = document.getElementById("range");
   const inputMin = document.getElementById("min");
   const inputMax = document.getElementById("max");
 
   if (!range || !inputMin || !inputMax) return;
 
-  const defaultMin = 20;
-  const defaultMax = 500;
+  // const defaultMin = 20;
+  // const defaultMax = 500;
 
-  inputMin.value = defaultMin;
-  inputMax.value = defaultMax;
+  if (inputMin) inputMin.value = defaultMin;
+  if (inputMax) inputMax.value = defaultMax;
+  console.log("defaultMin", defaultMin);
+  console.log("defaultMax", defaultMax);
 
-  range.noUiSlider.set([defaultMin, defaultMax]);
+  if (range && range.noUiSlider) {
+    range.noUiSlider.set([defaultMin, defaultMax]);
+  }
 }
 const init = () => {
   rangeSliderInit(); // запускаем функцию инициализации слайдера

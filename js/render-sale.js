@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProductSection({
     filterFn: (item) => item.discount > 0 && item.availability === true,
     sectionTitle: "Акційні товари",
-    sectionLink: "./sale.html",
+    sectionLink: "./catalog.html?filter=sale",
     insertAfterSelector: ".about-us",
     selector: ".sale",
   });

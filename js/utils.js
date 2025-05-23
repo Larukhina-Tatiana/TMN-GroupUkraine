@@ -29,7 +29,7 @@ export function filterRecentlyViewed(data, viewedIds) {
  */
 export function filterSimilarByMaterial(data, currentId) {
   const currentCard = data.find(
-    (item) => Number(item.id) === Number(currentId)
+    (item) => Number(item.id) === Number(currentId.replace("product-", ""))
   );
   if (!currentCard) return [];
   const currentMaterial = currentCard.material;
