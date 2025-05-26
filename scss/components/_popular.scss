@@ -1,9 +1,8 @@
 .popular {
 
-  &--padding {
-    @include adaptivevalue(padding-top, 80, 20, 1200, 320, 1);
-    @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
-  }
+  @include adaptivevalue(padding-top, 80, 20, 1200, 320, 1);
+  // @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
+
 
   &__title-box {
     display: flex;

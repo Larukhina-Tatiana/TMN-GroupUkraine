@@ -1,10 +1,16 @@
 .blog {
-    @include adaptivevalue(padding-top, 80, 50, 1200, 320, 1);
+    padding-top: clamp(3.125rem, 2.443rem + 3.41vw, 5rem);
+    padding-bottom: clamp(2.5rem, 1.818rem + 3.41vw, 4.375rem);
+    background: image-set(url(../images/blog/bg@1x.avif) type("image/avif") 1x,
+            url(../images/blog/bg@2x.avif) type("image/avif") 2x,
+            url(../images/blog/bg@3x.avif) type("image/avif") 3x,
+            url(../images/blog/bg@1x.webp) type("image/webp") 1x,
+            url(../images/blog/bg@2x.webp) type("image/webp") 2x,
+            url(../images/blog/bg@3x.webp) type("image/webp") 3x,
+            url(../images/blog/bg@1x.png) 1x,
+            url(../images/blog/bg@2x.png) 2x,
+            url(../images/blog/bg@3x.png) 3x) center / cover no-repeat;
 
-    background-image: url(../images/blog/bg.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
     &__list {
         display: flex;
@@ -54,6 +60,7 @@
 
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -63,6 +70,7 @@
         margin-bottom: rem(10);
         display: -webkit-box;
         -webkit-line-clamp: 6;
+        line-clamp: 6;
         -webkit-box-orient: vertical;
         text-overflow: ellipsis;
         overflow: hidden;

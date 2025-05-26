@@ -159,35 +159,12 @@ button,
 
 .section {
     padding-top: clamp(1.25rem, 0.795rem + 2.27vw, 2.5rem);
-    padding-bottom: clamp(1.25rem, 0.795rem + 2.27vw, 2.5rem);
+    // padding-bottom: clamp(1.25rem, 0.795rem + 2.27vw, 2.5rem);
     // @include adaptivevalue(padding-top, 40, 20, 1200, 320, 1);
     // @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
+    outline: 1px solid red;
 }
 
-.section__background {
-    padding-top: clamp(1.25rem, 0.712rem + 2.69vw, 3.438rem);
-    padding-bottom: clamp(1.25rem, 0.712rem + 2.69vw, 3.438rem);
-
-    position: relative;
-
-    &::before {
-        position: absolute;
-        content: '';
-        left: 0;
-        bottom: 0;
-        width: 54%;
-        height: calc(100% + 100px);
-        background: linear-gradient(to right,
-                rgba(0, 0, 0, 0.65),
-                rgba(0, 0, 0, 0.65)),
-            url(../images/background.jpg) top / cover no-repeat;
-
-        @media screen and (width < 660.01px) {
-            height: calc(100% + 44px);
-            width: 100%;
-        }
-    }
-}
 
 .flex {
     display: flex;

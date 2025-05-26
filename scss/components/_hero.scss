@@ -19,7 +19,6 @@
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
-    border-radius: 5px;
 
     @media screen and (max-width: 1200px) {
         background-image: image-set(url(../images/hero/l-hero@1x.avif) type("image/avif") 1x,
@@ -53,7 +52,10 @@
         height: 100%;
         pointer-events: none;
         z-index: 1;
-        background: linear-gradient(90deg, rgba(30, 42, 93, 0.45) 0%, rgba(42, 57, 118, 0.45) 37.29%, rgba(60, 80, 156, 0.45) 69.94%, rgba(73, 95, 186, 0.45) 100%),
+        // background: linear-gradient(90deg, rgba(30, 42, 93, 0.45) 0%, rgba(42, 57, 118, 0.45) 37.29%, rgba(60, 80, 156, 0.45) 69.94%, rgba(73, 95, 186, 0.45) 100%);
+        background: var(--linear);
+        // background: linear-gradient(90deg, rgba(30, 42, 93, 0.45) 0%, rgba(42, 57, 118, 0.45) 37.29%, rgba(60, 80, 156, 0.45) 69.94%, rgba(73, 95, 186, 0.45) 100%), rgba(0, 0, 0, 0.2);
+        opacity: 0.7;
     }
 
     &__inner {
@@ -68,11 +70,11 @@
         flex-direction: column;
         justify-content: center;
         width: rem(572);
+        z-index: 2;
     }
 
     &__title {
         font-size: rem(48);
-        font-weight: 600;
         line-height: 1.2;
         font-variant: small-caps;
         margin-bottom: rem(18);
@@ -80,11 +82,14 @@
 
     &__text {
         margin-bottom: rem(30);
-        font-weight: 600;
     }
 
     &__button {
         width: rem(260);
+    }
+
+    &__partners {
+        z-index: 2;
     }
 
     @media screen and (width < 825.01px) {

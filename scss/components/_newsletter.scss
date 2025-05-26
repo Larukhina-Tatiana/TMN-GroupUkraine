@@ -1,40 +1,52 @@
 .newsletter {
-  background: linear-gradient(to left,
+  margin-block-start: 80px;
+  background-image: linear-gradient(to left,
       rgba(23, 100, 194, 0.7),
       rgba(41, 179, 132, 0.7)),
-    url(../images/newsletter/newsletter-bg@1x.jpg);
+    image-set(url(../images/newsletter/d-newsletter-bg@1x.avif) type("image/avif") 1x,
+      url(../images/newsletter/d-newsletter-bg@2x.avif) type("image/avif") 2x,
+      url(../images/newsletter/d-newsletter-bg@3x.avif) type("image/avif") 3x,
+      url(../images/newsletter/d-newsletter-bg@1x.webp) type("image/webp") 1x,
+      url(../images/newsletter/d-newsletter-bg@2x.webp) type("image/webp") 2x,
+      url(../images/newsletter/d-newsletter-bg@3x.webp) type("image/webp") 3x,
+      url(../images/newsletter/d-newsletter-bg@1x.jpg) 1x,
+      url(../images/newsletter/d-newsletter-bg@2x.jpg) 2x,
+      url(../images/newsletter/d-newsletter-bg@3x.jpg) 3x);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-
-  @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (-o-mini-device-pixel-ratio: 2/1),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-    background: linear-gradient(to left,
+  @media screen and (max-width: 1200px) {
+    background-image: linear-gradient(to left,
         rgba(23, 100, 194, 0.7),
         rgba(41, 179, 132, 0.7)),
-      url(../images/newsletter/newsletter-bg@2x.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+      image-set(url(../images/newsletter/l-newsletter-bg@1x.avif) type("image/avif") 1x,
+        url(../images/newsletter/l-newsletter-bg@2x.avif) type("image/avif") 2x,
+        url(../images/newsletter/l-newsletter-bg@3x.avif) type("image/avif") 3x,
+        url(../images/newsletter/l-newsletter-bg@1x.webp) type("image/webp") 1x,
+        url(../images/newsletter/l-newsletter-bg@2x.webp) type("image/webp") 2x,
+        url(../images/newsletter/l-newsletter-bg@3x.webp) type("image/webp") 3x,
+        url(../images/newsletter/l-newsletter-bg@1x.jpg) 1x,
+        url(../images/newsletter/l-newsletter-bg@2x.jpg) 2x,
+        url(../images/newsletter/l-newsletter-bg@3x.jpg) 3x);
   }
 
-  @media screen and (min-device-pixel-ratio: 3),
-  screen and (-webkit-min-device-pixel-ratio: 3),
-  screen and (-o-mini-device-pixel-ratio: 3/1),
-  screen and (min-resolution: 228dpi),
-  screen and (min-resolution: 3dppx) {
-    background: linear-gradient(to left,
+  @media screen and (max-width: 768px) {
+    background-image: linear-gradient(to left,
         rgba(23, 100, 194, 0.7),
         rgba(41, 179, 132, 0.7)),
-      url(../images/newsletter/newsletter-bg@3x.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+      image-set(url(../images/newsletter/m-newsletter-bg@1x.avif) type("image/avif") 1x,
+        url(../images/newsletter/m-newsletter-bg@2x.avif) type("image/avif") 2x,
+        url(../images/newsletter/m-newsletter-bg@3x.avif) type("image/avif") 3x,
+        url(../images/newsletter/m-newsletter-bg@1x.webp) type("image/webp") 1x,
+        url(../images/newsletter/m-newsletter-bg@2x.webp) type("image/webp") 2x,
+        url(../images/newsletter/m-newsletter-bg@3x.webp) type("image/webp") 3x,
+        url(../images/newsletter/m-newsletter-bg@1x.jpg) 1x,
+        url(../images/newsletter/m-newsletter-bg@2x.jpg) 2x,
+        url(../images/newsletter/m-newsletter-bg@3x.jpg) 3x);
   }
+
+
 
   padding: rem(80) 0;
   color: var(--white);
