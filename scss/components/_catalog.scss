@@ -59,19 +59,20 @@
     gap: rem(30);
   }
 
-  .menu__sort {
+  .menu__filter {
     display: none;
   }
 
   @media screen and (width < 990.99px) {
 
-    .menu__sort {
+    .menu__filter {
       display: block;
       position: absolute;
       width: rem(24);
       height: rem(24);
-      right: 0;
-      z-index: 3;
+      top: 10px;
+      right: 26px;
+      z-index: 5;
       @include transition ($transition-property: color);
 
 
@@ -82,22 +83,35 @@
       }
     }
 
+    &__blur {
+      position: fixed;
+      z-index: 4; // меньше, чем у aside, но выше основного контента
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.2); // можно убрать или сделать прозрачнее
+      @include transition ((visibility));
+    }
+
+
 
     &__aside {
       position: absolute;
-      top: rem(26);
+      top: rem(0);
       right: 0;
       // background: linear-gradient(155deg, #165EBF 50%, #29B384 67.73%);
       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      transform: translateY(-150%);
-      z-index: 3;
+      // transform: translateY(-150%);
+      scale: 0;
+      z-index: 4;
     }
   }
 
   &__aside.open {
-    transform: translateY(0%);
+    // transform: translateY(0%);
+    scale: 1;
   }
 }
 

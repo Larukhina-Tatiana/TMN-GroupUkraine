@@ -162,7 +162,7 @@ button,
     // padding-bottom: clamp(1.25rem, 0.795rem + 2.27vw, 2.5rem);
     // @include adaptivevalue(padding-top, 40, 20, 1200, 320, 1);
     // @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
-    outline: 1px solid red;
+    // outline: 1px solid red;
 }
 
 
@@ -251,7 +251,7 @@ button[disabled] {
 .is-hidden {
     visibility: hidden;
     cursor: pointer;
-    @include transition ($transition-property: visibility)
+    // @include transition ($transition-property: visibility)
 }
 
 

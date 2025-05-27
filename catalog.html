@@ -302,7 +302,8 @@
       <section class="catalog section">
         <div class="container">
           <div class="catalog__inner">
-            <button class="menu__sort" aria-label="sort">
+            <div class="catalog__blur is-hidden"></div>
+            <button class="menu__filter" aria-label="filter">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
                 <g fill="currentColor" clip-path="url(#a)">
                   <path
@@ -320,6 +321,7 @@
               </svg>
             </button>
             <aside class="catalog__aside aside">
+
               <div class="aside__btn">Фільтр за параметрами</div>
               <form class="aside__form" id="aside-form">
                 <fieldset class="aside__form-item js-box">

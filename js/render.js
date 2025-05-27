@@ -116,7 +116,7 @@ function renderCurrentPage(data) {
   initLazyImageFade();
   renderPagination(data); // Обновляем пагинацию
 
-  // Скрываем кнопку "Показати ще", если текущая страница последняя
+  // Скрываем кнопку "Показати ще", якщо текущая страница последняя
   const showMoreButton = document.querySelector(".js-show-more");
   const totalPages = Math.ceil(data.length / perPage);
   if (currentPage === totalPages) {
@@ -605,6 +605,14 @@ function renderMoreProducts(data) {
 
 function addShowMoreButton(data) {
   const showMoreButton = document.querySelector(".js-show-more");
+  const showMoreWrap = document.querySelector(".show-more-wrap");
+  if (showMoreWrap) {
+    if (!data || data.length <= itemsPerClick) {
+      showMoreWrap.style.display = "none";
+    } else {
+      showMoreWrap.style.display = "";
+    }
+  }
   if (!showMoreButton) return; // Если кнопки нет - выходим
   // Скрываем кнопку, если товаров меньше или равно itemsPerClick
   if (!data || data.length <= itemsPerClick || itemsShown >= data.length) {
@@ -673,7 +681,7 @@ function updatePaginationState(data) {
 }
 
 // Прокрутка к началу списка товаров
-function scrollToProductList() {
+export function scrollToProductList() {
   const topOffset = document.querySelector(".catalog__top").offsetHeight; // Высота фиксированного элемента
   const productListTop =
     productList.getBoundingClientRect().top + window.scrollY; // Позиция productList относительно документа
