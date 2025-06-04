@@ -13,16 +13,20 @@ console.log("getCategoryFromUrl", getCategoryFromUrl());
  */
 const categoryMap = {
   нітрил: "material",
+  стоматологія: "sphere",
   латекс: "material",
   оглядові: "type",
   універсальні: "type",
-  харчова: "sphere",
   "салони краси": "sphere",
+  хірургічні: "sphere",
+  харчова: "sphere",
   медичні: "sphere",
   господарські: "sphere",
   "сад город": "sphere",
   клінінг: "sphere",
   "ремонт та будівництво": "sphere",
+  "хімічна промисловість": "sphere",
+  фармацевтика: "sphere",
   акції: "discount",
   // sale: "discount",
   // добавь другие категории по мере необходимости

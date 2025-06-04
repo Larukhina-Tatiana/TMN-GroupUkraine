@@ -69,7 +69,7 @@ function styles() {
     .pipe(scss({ outputStyle: "compressed" }))
     .pipe(
       autoprefixer({
-        overrideBrowsersList: ["last 10 version"],
+        overrideBrowsersList: ["last 10 version, 'Safari >= 11"],
         grid: true,
       })
     )

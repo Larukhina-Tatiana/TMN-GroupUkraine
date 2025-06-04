@@ -83,19 +83,6 @@
       }
     }
 
-    &__blur {
-      position: fixed;
-      z-index: 4; // меньше, чем у aside, но выше основного контента
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      backdrop-filter: blur(6px);
-      background: rgba(255, 255, 255, 0.2); // можно убрать или сделать прозрачнее
-      @include transition ((visibility));
-    }
-
-
 
     &__aside {
       position: absolute;

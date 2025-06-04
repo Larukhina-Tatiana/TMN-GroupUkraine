@@ -1,24 +1,8 @@
 .popular {
 
-  @include adaptivevalue(padding-top, 80, 20, 1200, 320, 1);
+  // @include adaptivevalue(padding-top, 80, 20, 1200, 320, 1);
+  padding-top: clamp(1.25rem, -0.114rem + 6.82vw, 5rem);
   // @include adaptivevalue(padding-bottom, 40, 20, 1200, 320, 1);
-
-
-  &__title-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: rem(40);
-    gap: rem(10);
-  }
-
-  &__link-more {
-
-    &::after {
-      content: url(../images/icons/arrow-more.svg);
-      margin-left: rem(3);
-    }
-  }
 
   &__item {
     @include transition ($transition-property: box-shadow);

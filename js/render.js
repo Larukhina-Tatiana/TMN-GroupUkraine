@@ -708,6 +708,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadingData().then((fetchedData) => {
     data = fetchedData;
     const urlParams = new URLSearchParams(window.location.search);
+    console.log("urlParams", urlParams);
     const saleParam = urlParams.get("sale") || urlParams.get("filter");
 
     let filtered = data;

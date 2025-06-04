@@ -3,7 +3,7 @@ import { scrollToProductList } from "./render.js";
 if (window.innerWidth < 991) {
   const refs = {
     btnFilterOpen: document.querySelector(".menu__filter"),
-    catalogBlur: document.querySelector(".catalog__blur"),
+    catalogBlur: document.querySelector(".blur"),
     aside: document.querySelector(".aside"),
     btnFilterClose: document.querySelector(".aside__filtr-btn"),
   };

@@ -1,16 +1,16 @@
 .logo {
-  &__img-mobile {
+  &__img--mobile {
     display: none;
   }
 
   @media screen and (width < 1017.99px) {
-    &__img-mobile {
+    &__img--mobile {
       display: block;
       max-width: rem(31);
-      width: 100%;
+      // width: 100%;
     }
 
-    &__img-desc {
+    &__img--desc {
       display: none;
     }
   }

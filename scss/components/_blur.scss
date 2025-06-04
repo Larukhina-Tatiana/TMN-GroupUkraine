@@ -1,0 +1,20 @@
+.blur {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.2); // можно убрать или сделать прозрачнее
+  @include transition ((visibility));
+
+  &--catalog {
+    z-index: 4;
+    top: 0;
+  }
+
+  &--menu {
+    z-index: 3;
+    top: 50px;
+  }
+
+}

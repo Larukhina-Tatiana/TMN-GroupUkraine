@@ -10,6 +10,7 @@
   <link rel="preload" as="image" href="images/hero/d-hero@1x.webp" type="image/webp">
   <link rel="preload" as="image" href="images/hero/d-hero@1x.jpg">
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="shortcut icon" href="images/logo/icon.png" type="image/png">
 
 </head>
 
@@ -19,16 +20,18 @@
     <header class="header">
       <div class="container">
         <div class="header__box">
-          <a class="header__logo logo" href="./index.html">
-            <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="логотип">
-            <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31" height="25">
+          <a class="logo header__logo" href="./index.html">
+            <img class="logo__img logo__img--desc" src="./images/logo/logo-desctop.png" alt="логотип">
+            <img class="logo__img logo__img--mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31"
+              height="25">
           </a>
-          <button class="menu__btn" aria-label="Menu">
-            <span class="menu__btn-line"></span>
-            <span class="menu__btn-line"></span>
-            <span class="menu__btn-line"></span>
-            <span class="menu__btn-line"></span>
+          <button class="btn-menu" aria-label="Menu">
+            <span class="btn-menu__line"></span>
+            <span class="btn-menu__line"></span>
+            <span class="btn-menu__line"></span>
+            <span class="btn-menu__line"></span>
           </button>
+          <div class="blur blur--menu is-hidden"></div>
           <nav class="header__nav nav">
             <div class="nav__inner">
               <ul class="nav__list">
@@ -37,21 +40,16 @@
                 </li>
                 <li class="nav__item nav__item-linkbtn">
                   <div class="nav__spollers" data-spollers>
-
-
                     <a class="header__nav-link nav__link" href="./catalog.html">Наша продукція</a>
-
                     <button class="nav__linkbtn-arrow" type="button" data-spoller>
                       <svg class="nav__linkbtn-arrow-svg" width="12" height="9" aria-label="Перемикач субменю">
                         <use href="./images/icons/icons.svg#arrow-down"></use>
                       </svg>
                     </button>
 
-
                     <ul class="nav__submenu-list">
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="./catalog.html">
-
+                        <a class="nav__submenu-link" href="catalog.html?category=нітрил">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#gloves"></use>
                           </svg>
@@ -59,15 +57,15 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=ремонт%20та%20будівництво">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#remont"></use>
                           </svg>
-                          Ремонт і будівництво
+                          Ремонт та будівництво
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=стоматологія">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#dental"></use>
                           </svg>
@@ -75,7 +73,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=хірургічні">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#surgical"></use>
                           </svg>
@@ -83,7 +81,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link nav__submenu-link--accent" href="#">
+                        <a class="nav__submenu-link nav__submenu-link--accent" href="catalog.html?category=латекс">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#gloves"></use>
                           </svg>
@@ -91,7 +89,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=салони%20краси">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#beauty"></use>
                           </svg>
@@ -99,7 +97,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=клінінг">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#cleaning"></use>
                           </svg>
@@ -107,7 +105,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=оглядові">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#examination"></use>
                           </svg>
@@ -115,7 +113,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=харчова">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#food"></use>
                           </svg>
@@ -123,7 +121,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=господарські">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#economic"></use>
                           </svg>
@@ -131,7 +129,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=сад%20город">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#garden"></use>
                           </svg>
@@ -139,7 +137,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=медичні">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#medical"></use>
                           </svg>
@@ -147,14 +145,22 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link nav__submenu-link--align" href="#">
+                        <a class="nav__submenu-link nav__submenu-link--align" href="catalog.html?category=фармацевтика">
                           <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#pharmaceutical"></use>
                           </svg>
-                          Хімічна промисловість і фармацевтика
+                          Фармацевтика
                         </a>
                       </li>
-
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link nav__submenu-link--align"
+                          href="catalog.html?category=Хімічна%20промисловість">
+                          <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#pharmaceutical"></use>
+                          </svg>
+                          Хімічна промисловість
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -323,196 +329,83 @@
 
       <section class="categories section">
         <div class="container">
-          <div class="popular__title-box ">
-            <h2 class="categories__title section-title">Обирай свою категорію</h2>
-            <a class="popular__link-more buttons-more" href="./catalog.html">Усі продукти </a>
+          <div class="title-box">
+            <h2 class="section-title">Обирай свою категорію</h2>
+            <a class="buttons-more" href="./catalog.html">Усі продукти </a>
           </div>
           <ul class="categories__list">
             <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=акції" title="Акції" style="background-image:
-                -webkit-image-set(
-            url(./images/categories/sale@1x.avif) type('image/avif') 1x,
-            url(./images/categories/sale@2x.avif) type('image/avif') 2x,
-            url(./images/categories/sale@3x.avif) type('image/avif') 3x,
-            url(./images/categories/sale@1x.webp) type('image/webp') 1x,
-            url(./images/categories/sale@2x.webp) type('image/webp') 2x,
-            url(./images/categories/sale@3x.webp) type('image/webp') 3x, 
-            url(./images/categories/sale@1x.jpg) 1x,
-            url(./images/categories/sale@2x.jpg) 2x,
-            url(./images/categories/sale@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=акції">акції</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=Універсальні" title="Універсальні рукавички"
-                style="background-image:
-                -webkit-image-set(
-            url(./images/articles/articles8@1x.avif) type('image/avif') 1x,
-            url(./images/articles/articles8@2x.avif) type('image/avif') 2x,
-            url(./images/articles/articles8@3x.avif) type('image/avif') 3x,
-            url(./images/articles/articles8@1x.webp) type('image/webp') 1x,
-            url(./images/articles/articles8@2x.webp) type('image/webp') 2x,
-            url(./images/articles/articles8@3x.webp) type('image/webp') 3x, 
-            url(./images/articles/articles8@1x.jpg) 1x,
-            url(./images/articles/articles8@2x.jpg) 2x,
-            url(./images/articles/articles8@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=Універсальні">Універсальні рукавички</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=нітрил" title="Нітрилові рукавички" style="background-image:
-                -webkit-image-set(
-            url(./images/categories/categories1@1x.avif) type('image/avif') 1x,
-            url(./images/categories/categories1@2x.avif) type('image/avif') 2x,
-            url(./images/categories/categories1@3x.avif) type('image/avif') 3x,
-            url(./images/categories/categories1@1x.webp) type('image/webp') 1x,
-            url(./images/categories/categories1@2x.webp) type('image/webp') 2x,
-            url(./images/categories/categories1@3x.webp) type('image/webp') 3x, 
-            url(./images/categories/categories1@1x.jpg) 1x,
-            url(./images/categories/categories1@2x.jpg) 2x,
-            url(./images/categories/categories1@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=нітрил">нітрилові рукавички</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=латекс" title="Латексні рукавички" style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories2@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories2@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories2@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories2@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories2@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories2@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories2@1x.jpg) 1x,
-                url(./images/categories/categories2@2x.jpg) 2x,
-                url(./images/categories/categories2@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=латекс">латексні рукавички</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=медичні" title="Медичні рукавички" style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories8@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories8@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories8@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories8@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories8@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories8@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories8@1x.jpg) 1x,
-                url(./images/categories/categories8@2x.jpg) 2x,
-                url(./images/categories/categories8@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=медичні">медичні рукавички</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=оглядові" title="Оглядові рукавички" style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories10@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories10@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories10@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories10@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories10@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories10@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories10@1x.jpg) 1x,
-                url(./images/categories/categories10@2x.jpg) 2x,
-                url(./images/categories/categories10@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=оглядові">оглядові рукавички</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=харчова" title="Харчова промисловість" style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories4@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories4@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories4@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories4@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories4@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories4@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories4@1x.jpg) 1x,
-                url(./images/categories/categories4@2x.jpg) 2x,
-                url(./images/categories/categories4@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=харчова">харчова промисловість</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=господарські" title="Господарські рукавички"
-                style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories5@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories5@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories5@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories5@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories5@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories5@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories5@1x.jpg) 1x,
-                url(./images/categories/categories5@2x.jpg) 2x,
-                url(./images/categories/categories5@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=господарські">господарські рукавички</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=сад%20город" title="Сад та город" style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories9@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories9@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories9@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories9@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories9@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories9@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories9@1x.jpg) 1x,
-                url(./images/categories/categories9@2x.jpg) 2x,
-                url(./images/categories/categories9@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=сад%20город">сад / город</a>
-            </li>
-            <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=клінінг" title="Рукавички для клінінгу" style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories7@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories7@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories7@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories7@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories7@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories7@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories7@1x.jpg) 1x,
-                url(./images/categories/categories7@2x.jpg) 2x,
-                url(./images/categories/categories7@3x.jpg) 3x)">
-              </a>
-              <a class="categories__link" href="catalog.html?category=клінінг">для клінінгу
+              <a class="categories__link" href="catalog.html?category=акції">
+                <div class="categories__bg categories__bg--sale"></div>
+                <h3 class="categories__subtitle">акції</h3>
               </a>
             </li>
             <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=ремонт%20та%20будівництво"
-                title="Рукавички для ремонту та будівництва" style="background-image:
-                -webkit-image-set(
-                url(./images/categories/categories6@1x.avif) type('image/avif') 1x,
-                url(./images/categories/categories6@2x.avif) type('image/avif') 2x,
-                url(./images/categories/categories6@3x.avif) type('image/avif') 3x,
-                url(./images/categories/categories6@1x.webp) type('image/webp') 1x,
-                url(./images/categories/categories6@2x.webp) type('image/webp') 2x,
-                url(./images/categories/categories6@3x.webp) type('image/webp') 3x,
-                url(./images/categories/categories6@1x.jpg) 1x,
-                url(./images/categories/categories6@2x.jpg) 2x,
-                url(./images/categories/categories6@3x.jpg) 3x)">
+              <a class="categories__link" href="catalog.html?category=Універсальні" title="Універсальні рукавички">
+                <div class="categories__bg categories__bg--universal"></div>
+                <h3 class="categories__subtitle">Універсальні рукавички</h3>
               </a>
-              <a class="categories__link" href="catalog.html?category=ремонт%20та%20будівництво">ремонт та
-                будівництво</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link-img" href="catalog.html?category=салони%20краси" title="Для салонів краси"
-                style="background-image:
-                -webkit-image-set(
-                url(./images/articles/articles6@1x.avif) type('image/avif') 1x,
-                url(./images/articles/articles6@2x.avif) type('image/avif') 2x,
-                url(./images/articles/articles6@3x.avif) type('image/avif') 3x,
-                url(./images/articles/articles6@1x.webp) type('image/webp') 1x,
-                url(./images/articles/articles6@2x.webp) type('image/webp') 2x,
-                url(./images/articles/articles6@3x.webp) type('image/webp') 3x,
-                url(./images/articles/articles6@1x.jpg) 1x,
-                url(./images/articles/articles6@2x.jpg) 2x,
-                url(./images/articles/articles6@3x.jpg) 3x)">
+              <a class="categories__link" href="catalog.html?category=латекс" title="Латексні рукавички">
+                <div class="categories__bg categories__bg--latex"></div>
+                <h3 class="categories__subtitle">Латексні рукавички</h3>
               </a>
-              <a class="categories__link" href="catalog.html?category=салони%20краси">Для салонів краси</a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=нітрил">
+                <div class="categories__bg categories__bg--nitrile"></div>
+                <h3 class="categories__subtitle">Нітрилові рукавички</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=медичні" title="Медичні рукавички">
+                <div class="categories__bg categories__bg--medical"></div>
+                <h3 class="categories__subtitle">Медичні рукавички</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=оглядові" title="Оглядові рукавички">
+                <div class="categories__bg categories__bg--review"></div>
+                <h3 class="categories__subtitle">Оглядові рукавички</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=харчова" title="Харчова промисловість">
+                <div class="categories__bg categories__bg--food"></div>
+                <h3 class="categories__subtitle">рукавички для Харчової промисловості</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=господарські" title="Господарські рукавички">
+                <div class="categories__bg categories__bg--economic"></div>
+                <h3 class="categories__subtitle">рукавички для господарства</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=сад%20город" title="Сад та город">
+                <div class="categories__bg categories__bg--horticulture"></div>
+                <h3 class="categories__subtitle">рукавички для саду та городу</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=клінінг" title="Рукавички для клінінгу">
+                <div class="categories__bg categories__bg--cleaning"></div>
+                <h3 class="categories__subtitle">Рукавички для клінінгу</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=ремонт%20та%20будівництво"
+                title="Рукавички для ремонту та будівництва">
+                <div class="categories__bg categories__bg--construction"></div>
+                <h3 class="categories__subtitle">Рукавички для ремонту та будівництва</h3>
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="catalog.html?category=салони%20краси" title="Для салонів краси">
+                <div class="categories__bg categories__bg--beauty"></div>
+                <h3 class="categories__subtitle">Для салонів краси</h3>
+              </a>
             </li>
           </ul>
         </div>
@@ -520,9 +413,9 @@
 
       <!-- <section class="promotional popular section">
         <div class="container">
-          <div class="popular__title-box">
+          <div class="title-box">
             <h2 class="popular__title section-title">Популярні</h2>
-            <a class="popular__link-more buttons-more" href="./catalog.html">Усі продукти </a>
+            <a class="buttons-more" href="./catalog.html">Усі продукти </a>
           </div>
 
           <div class="popular__slider swiper products-card">
@@ -1044,7 +937,7 @@
               <input class="newsletter__form-input" type="text" name="username" id="user-name" placeholder="Ім'я"
                 required autocomplete="on"
                 title="Ім'я повинне містити від 2 до 15 символів, бути одним словом, не містити інших символів, крім літер">
-              <p class="error">❌ Не коректне ім'я!</p>
+              <span class="error">❌ Не коректне ім'я!</span>
             </label>
 
             <label class="newsletter__form-label" for="user-tel">
@@ -1071,9 +964,9 @@
       <!-- <section class="recently-viewed section js-recently-viewed"></section> -->
       <section class="blog section">
         <div class="container">
-          <div class="blog__title-box popular__title-box">
-            <h2 class="blog__title popular__title section-title">Новини</h2>
-            <a class="blog__link-more popular__link-more buttons-more" href="./page-articles.html">Усі статті </a>
+          <div class="title-box">
+            <h2 class="section-title">Новини</h2>
+            <a class="buttons-more" href="./page-articles.html">Усі статті </a>
           </div>
 
           <ul class="blog__list">
@@ -1189,19 +1082,30 @@
       <div class="container">
         <div class="footer__inner">
           <div class="footer__nav">
-            <a class="footer__logo logo" href="./index.html">
-              <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="логотип">
-              <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31" height="25">
+            <a class="logo footer__logo" href="./index.html">
+              <img class="logo__img logo__img--desc" src="./images/logo/logo-desctop.png" alt="логотип">
+              <img class="logo__img logo__img--mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31"
+                height="25">
             </a>
             <ul class="footer__nav-list">
-              <li class="footer__nav-item"><a class="footer__nav-link" href="./index.html">Головна</a></li>
-              <li class="footer__nav-item"><a class="footer__nav-link" href="./catalog.html">Наша продукція</a></li>
-              <li class="footer__nav-item"><a class="footer__nav-link" href="./company.html">Про компанію</a></li>
-              <li class="footer__nav-item"><a class="footer__nav-link" href="./page-articles.html">Блог</a></li>
-              <li class="footer__nav-item"><a class="footer__nav-link" href="./contact.html">Контакти</a></li>
-              <li class="footer__nav-item"><a class="footer__nav-link" href="./delivery.html">Оплата та доставка</a>
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="./index.html">Головна</a>
               </li>
-
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="./catalog.html">Наша продукція</a>
+              </li>
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="./company.html">Про компанію</a>
+              </li>
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="./page-articles.html">Блог</a>
+              </li>
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="./contact.html">Контакти</a>
+              </li>
+              <li class="footer__nav-item">
+                <a class="footer__nav-link" href="./delivery.html">Оплата та доставка</a>
+              </li>
             </ul>
 
           </div>
@@ -1228,6 +1132,7 @@
   </div>
 
 
+  <!-- <script src="js/format-img.js" type="module"></script> -->
   <script src="js/render-sale.js" type="module"></script>
   <script src="js/recently-viewed-init.js" type="module"></script>
   <script src="js/vendor.min.js"></script>

@@ -38,6 +38,11 @@
 
   @include transition ($transition-property: text-decoration);
 
+  &::after {
+    content: url(../images/icons/arrow-more.svg);
+    margin-left: rem(3);
+  }
+
   @media (any-hover: hover) {
     &:hover {
       text-decoration: underline;

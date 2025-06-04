@@ -71,10 +71,19 @@
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   flex: 1 1 auto;
   // height: 5.5rem;
+}
+
+.title-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--margin-bottom-title);
+  gap: 10px;
 }
 
 .title-link {

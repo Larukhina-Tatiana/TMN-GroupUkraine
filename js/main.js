@@ -43,15 +43,17 @@ if (document.querySelector(".lang")) {
   });
 }
 
-if (document.querySelector(".menu__btn")) {
-  const btn = document.querySelector(".menu__btn");
+if (document.querySelector(".btn-menu")) {
+  const btn = document.querySelector(".btn-menu");
   const nav = document.querySelector(".nav__inner");
-
+  const blur = document.querySelector(".blur");
   btn.addEventListener("click", () => {
     nav.classList.toggle("menu-open");
     btn.classList.toggle("menu-open");
+    blur.classList.toggle("is-hidden");
   });
 }
+
 if (document.querySelector("[data-modal-search]")) {
   (() => {
     const refs = {

@@ -21,8 +21,7 @@ export function filterRecentlyViewed(data, viewedIds) {
     .filter(Boolean);
 }
 
-/**
- * Фильтрация похожих товаров по материалу (исключая текущий товар)
+/* Фильтрация похожих товаров по материалу (исключая текущий товар)
  * @param {Array} data - массив всех товаров
  * @param {number|string} currentId - id текущего товара
  * @returns {Array} - массив похожих товаров
@@ -75,9 +74,9 @@ export function slider() {
 export function getSectionHTML(title, link) {
   return `
     <div class="container">
-      <div class="popular__title-box">
-        <h2 class="popular__title section-title">${title}</h2>
-        <a class="popular__link-more buttons-more" href="${link}">Усі продукти </a>
+      <div class="title-box">
+        <h2 class="section-title">${title}</h2>
+        <a class="buttons-more" href="${link}">Усі продукти </a>
       </div>
       <div class="popular__slider swiper products-card">
         <ul class="popular__list products-card__list swiper-wrapper"></ul>

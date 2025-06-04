@@ -190,7 +190,7 @@
       position: absolute;
       width: rem(290);
 
-      top: rem(60);
+      top: 50px;
       right: rem(2);
       border-radius: rem(5);
       background: linear-gradient(155deg, #165EBF 50%, #29B384 67.73%);
@@ -203,7 +203,7 @@
       @include transition ($transition-property: transform);
       padding: rem(15);
       color: var(--white);
-      z-index: 3;
+      z-index: 6;
     }
 
     &__inner.menu-open {

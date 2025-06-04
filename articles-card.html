@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TMN-GROUP UKRAINE Блог Захисні медичні рукавички Radiaxon™</title>
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="shortcut icon" href="images/logo/icon.png" type="image/png">
 </head>
 
 <body>
@@ -13,39 +14,36 @@
     <header class="header">
       <div class="container">
         <div class="header__box">
-          <a class="header__logo logo" href="./index.html">
-            <img class="logo__img-desc" src="./images/logo/logo-desctop.png" alt="логотип">
-            <img class="logo__img-mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31" height="25">
+          <a class="logo header__logo" href="./index.html">
+            <img class="logo__img logo__img--desc" src="./images/logo/logo-desctop.png" alt="логотип">
+            <img class="logo__img logo__img--mobile" src="./images/logo/logo-mobile.png" alt="логотип" width="31"
+              height="25">
           </a>
-          <button class="menu__btn" aria-label="Menu">
-            <span class="menu__btn-line"></span>
-            <span class="menu__btn-line"></span>
-            <span class="menu__btn-line"></span>
-            <span class="menu__btn-line"></span>
+          <button class="btn-menu" aria-label="Menu">
+            <span class="btn-menu__line"></span>
+            <span class="btn-menu__line"></span>
+            <span class="btn-menu__line"></span>
+            <span class="btn-menu__line"></span>
           </button>
+          <div class="blur blur--menu is-hidden"></div>
           <nav class="header__nav nav">
             <div class="nav__inner">
               <ul class="nav__list">
                 <li class="nav__item">
-                  <a class="header__nav-link nav__link" href="./index.html">Головна</a>
+                  <a class="header__nav-link nav__link nav__link--active" href="./index.html">Головна</a>
                 </li>
                 <li class="nav__item nav__item-linkbtn">
                   <div class="nav__spollers" data-spollers>
-
-
                     <a class="header__nav-link nav__link" href="./catalog.html">Наша продукція</a>
-
-                    <button class="nav__linkbtn-arrow" data-spoller>
+                    <button class="nav__linkbtn-arrow" type="button" data-spoller>
                       <svg class="nav__linkbtn-arrow-svg" width="12" height="9" aria-label="Перемикач субменю">
                         <use href="./images/icons/icons.svg#arrow-down"></use>
                       </svg>
                     </button>
 
-
                     <ul class="nav__submenu-list">
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="./catalog.html">
-
+                        <a class="nav__submenu-link" href="catalog.html?category=нітрил">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#gloves"></use>
                           </svg>
@@ -53,15 +51,15 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=ремонт%20та%20будівництво">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#remont"></use>
                           </svg>
-                          Ремонт і будівництво
+                          Ремонт та будівництво
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=стоматологія">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#dental"></use>
                           </svg>
@@ -69,7 +67,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=хірургічні">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#surgical"></use>
                           </svg>
@@ -77,7 +75,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link nav__submenu-link--accent" href="#">
+                        <a class="nav__submenu-link nav__submenu-link--accent" href="catalog.html?category=латекс">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#gloves"></use>
                           </svg>
@@ -85,7 +83,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=салони%20краси">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#beauty"></use>
                           </svg>
@@ -93,7 +91,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=клінінг">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#cleaning"></use>
                           </svg>
@@ -101,7 +99,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=оглядові">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#examination"></use>
                           </svg>
@@ -109,7 +107,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=харчова">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#food"></use>
                           </svg>
@@ -117,7 +115,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=господарські">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#economic"></use>
                           </svg>
@@ -125,7 +123,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=сад%20город">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#garden"></use>
                           </svg>
@@ -133,7 +131,7 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link" href="#">
+                        <a class="nav__submenu-link" href="catalog.html?category=медичні">
                           <svg class="nav__submenu-link-svg" width="20" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#medical"></use>
                           </svg>
@@ -141,14 +139,22 @@
                         </a>
                       </li>
                       <li class="nav__submenu-item">
-                        <a class="nav__submenu-link nav__submenu-link--align" href="#">
+                        <a class="nav__submenu-link nav__submenu-link--align" href="catalog.html?category=фармацевтика">
                           <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
                             <use href="./images/icons/icons.svg#pharmaceutical"></use>
                           </svg>
-                          Хімічна промисловість і фармацевтика
+                          Фармацевтика
                         </a>
                       </li>
-
+                      <li class="nav__submenu-item">
+                        <a class="nav__submenu-link nav__submenu-link--align"
+                          href="catalog.html?category=Хімічна%20промисловість">
+                          <svg class="nav__submenu-link-svg" width="24" height="20" aria-label="іконка">
+                            <use href="./images/icons/icons.svg#pharmaceutical"></use>
+                          </svg>
+                          Хімічна промисловість
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -236,7 +242,7 @@
             </button>
 
             <div class="header__search search is-hidden" data-modal="">
-              <button class="search__close-btn" type="button" data-modal-close="">X
+              <button class="search__close-btn" data-modal-close="">X
               </button>
               <form action="#" class="header__search-form search__form">
                 <div class="search__box">
