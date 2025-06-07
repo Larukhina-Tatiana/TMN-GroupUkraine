@@ -1,10 +1,10 @@
 const button = document.getElementById("scroll-toggle");
 
 // SVG стрелки
-const arrowDown = `<svg id="scroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+const arrowDown = `<svg id="scroll-button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M12 21l-12-18h24z"/>
   </svg>`;
-const arrowUp = `<svg id="scroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+const arrowUp = `<svg id="scroll-button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M12 3l12 18h-24z"/>
   </svg>`;
 

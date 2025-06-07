@@ -28,15 +28,15 @@
             <span class="btn-menu__line"></span>
           </button>
           <div class="blur blur--menu is-hidden"></div>
-          <nav class="header__nav nav">
+          <nav class=" nav header__nav">
             <div class="nav__inner">
               <ul class="nav__list">
                 <li class="nav__item">
-                  <a class="header__nav-link nav__link nav__link--active" href="./index.html">Головна</a>
+                  <a class="nav__link nav__link--active header__nav-link" href="./index.html">Головна</a>
                 </li>
                 <li class="nav__item nav__item-linkbtn">
                   <div class="nav__spollers" data-spollers>
-                    <a class="header__nav-link nav__link" href="./catalog.html">Наша продукція</a>
+                    <a class="nav__link header__nav-link" href="./catalog.html">Наша продукція</a>
                     <button class="nav__linkbtn-arrow" type="button" data-spoller>
                       <svg class="nav__linkbtn-arrow-svg" width="12" height="9" aria-label="Перемикач субменю">
                         <use href="./images/icons/icons.svg#arrow-down"></use>
@@ -161,44 +161,44 @@
                   </div>
                 </li>
                 <li class="nav__item">
-                  <a class="header__nav-link nav__link" href="./company.html">Про компанію</a>
+                  <a class="nav__link header__nav-link " href="./company.html">Про компанію</a>
                 </li>
                 <li class="nav__item">
-                  <a class="header__nav-link nav__link" href="./page-articles.html">Блог</a>
+                  <a class="nav__link header__nav-link " href="./page-articles.html">Блог</a>
                 </li>
                 <li class="nav__item">
-                  <a class="header__nav-link nav__link" href="./contact.html">Контакти</a>
+                  <a class="nav__link header__nav-link " href="./contact.html">Контакти</a>
                 </li>
                 <li class="nav__item">
-                  <a class="header__nav-link nav__link" href="./delivery.html">Оплата та доставка</a>
+                  <a class="nav__link header__nav-link " href="./delivery.html">Оплата та доставка</a>
                 </li>
               </ul>
             </div>
           </nav>
 
           <div class="header__inner">
-            <ul class="header__lang lang">
+            <ul class="lang header__lang">
               <li class="lang__item">
                 <a class="lang__link lang__link--active" href="#" rel="alternate">
                   UA
                 </a>
               </li>
-              <li class="lang__list">
+              <li class="lang__item">
                 <a class="lang__link" href="#" rel="alternate">
                   RU
                 </a>
               </li>
             </ul>
-            <div class="header__phone phone phone__spollers" data-spollers-phone>
+            <div class="phone header__phone" data-spollers-phone>
               <div class="phone__inner">
                 <a class="phone__link " href="tel:+380675703489">
-                  <svg class="phone__svg" width="24" height="24" aria-label="Іконка телефона">
+                  <svg class="phone__icon" width="24" height="24" aria-label="Іконка телефона">
                     <use href="./images/icons/icons.svg#phone"></use>
                   </svg>
                   (067)&nbsp;570&nbsp;-&nbsp;34&nbsp;-&nbsp;89
                 </a>
                 <button class="phone__arrow" data-spoller-phone>
-                  <svg class="phone__arrow-svg" width="12" height="9" aria-label="Перемикач випадаючого меню">
+                  <svg class="phone__svg" width="12" height="9" aria-label="Перемикач випадаючого меню">
                     <use href="./images/icons/icons.svg#arrow-down"></use>
                   </svg>
                 </button>
@@ -207,7 +207,7 @@
               <ul class="phone__list">
                 <li>
                   <a class="phone__link" href="tel:+380444266444">
-                    <svg class="phone__svg" width="24" height="24" aria-label="Іконка телефона">
+                    <svg class="phone__icon" width="24" height="24" aria-label="Іконка телефона">
                       <use href="./images/icons/icons.svg#phone"></use>
                     </svg>
                     (044)&nbsp;426-64-44
@@ -215,7 +215,7 @@
                 </li>
                 <li>
                   <a class="phone__link" href="tel:+380444266444">
-                    <svg class="phone__svg" width="24" height="24" aria-label="Іконка телефона">
+                    <svg class="phone__icon" width="24" height="24" aria-label="Іконка телефона">
                       <use href="./images/icons/icons.svg#phone"></use>
                     </svg>
                     (050)&nbsp;345-67-89
@@ -223,7 +223,7 @@
                 </li>
                 <li>
                   <a class="phone__link" href="tel:+380444266444">
-                    <svg class="phone__svg" width="24" height="24" aria-label="Іконка телефона">
+                    <svg class="phone__icon" width="24" height="24" aria-label="Іконка телефона">
                       <use href="./images/icons/icons.svg#phone"></use>
                     </svg>
                     (063)&nbsp;570-34-89
@@ -232,8 +232,32 @@
               </ul>
             </div>
 
-            <button class="header__search-btn search__btn" data-modal-search aria-label="searh">
-              <svg class="search__btn-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+
+            <div class="search header__search is-hidden" data-modal="">
+              <button class="search__close-btn" data-modal-close="">X
+              </button>
+              <search>
+                <form action="#" class="search__form header__search-form">
+                  <div class="search__box">
+                    <button class="search__btn header__search-btn" type="submit">
+                      <svg class="search__svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M20.9998 21L15.7998 15.8" stroke="currentColor" stroke-width=" 2"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <input class="search__input" id="search" type="search" name="search-text" placeholder="Пошук"
+                      autocomplete="off">
+                  </div>
+                </form>
+              </search>
+
+            </div>
+            <button class="search__btn header__search-btn" data-modal-search aria-label="searh">
+              <svg class="search__svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z"
@@ -243,40 +267,20 @@
               </svg>
             </button>
 
-            <div class="header__search search is-hidden" data-modal="">
-              <button class="search__close-btn" data-modal-close="">X
-              </button>
-              <form action="#" class="header__search-form search__form">
-                <div class="search__box">
-                  <button class="header__search-btn search__btn" type="submit">
-                    <svg class="search__btn-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M20.9998 21L15.7998 15.8" stroke="currentColor" stroke-width=" 2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                  <input class="header__search-input search__input" id="search" type="text" placeholder="Пошук"
-                    autocomplete="off">
-                </div>
-              </form>
-            </div>
 
-            <a class="header__basket" href="./page-basket.html"
+            <a class="basket header__basket" href="./page-basket.html"
               data-tooltip='Товар 1 х РУКАВИЧКА DERMAGRIP® ULTRA NITRILE LS POWDER FREE у кошику'>
-              <div class="header__basket-icon basket__icon">
-                <svg class="basket__icon-svg" width="24" height="24" aria-label="Іконка кошика">
+              <div class="basket__icon">
+                <svg class="basket__svg" width="24" height="24" aria-label="Іконка кошика">
                   <use href="./images/icons/icons.svg#basket"></use>
                 </svg>
-                <span class="basket__icon-span">2</span>
+                <span class="basket__quantity">2</span>
               </div>
             </a>
+
           </div>
         </div>
       </div>
-
     </header>
     <main class="main">
       <nav class="breadcrumbs" aria-label="breadcrumbs">
@@ -296,7 +300,7 @@
       </nav>
       <button class="scroll-button" id="scroll-toggle" title="Прокрутити сторінку" aria-label="Прокрутити сторінку">
         <!-- По умолчанию стрелка вниз -->
-        <svg id="scroll-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg id="scroll-button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 21l-12-18h24z" />
         </svg>
       </button>

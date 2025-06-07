@@ -1,3 +1,5 @@
+$categories: sale, universal, latex, nitrile, medical, review, food, economic, horticulture, construction, cleaning, beauty;
+
 .categories {
   //  padding-top: , 80, 50, 1200, 320, 1);
   padding-top: clamp(3.125rem, 2.443rem + 3.41vw, 5rem);
@@ -62,280 +64,6 @@
       opacity: 0.5;
       @include transition ($transition-property: (opacity, background));
     }
-
-    &--sale {
-      background-image: -webkit-image-set(url("./images/categories/categories1@1x.avif") type("image/avif") 1x,
-          url("../images/categories/sale@2x.avif") type("image/avif") 2x,
-          url("../images/categories/sale@3x.avif") type("image/avif") 3x,
-          url("../images/categories/sale@1x.webp") type("image/webp") 1x,
-          url("../images/categories/sale@2x.webp") type("image/webp") 2x,
-          url("../images/categories/sale@3x.webp") type("image/webp") 3x,
-          url("../images/categories/sale@1x.jpg") 1x,
-          url("../images/categories/sale@2x.jpg") 2x,
-          url("../images/categories/sale@3x.jpg") 3x);
-      background-image: image-set(url("../images/categories/sale@1x.avif") type("image/avif") 1x, url("../images/categories/sale@2x.avif") type("image/avif") 2x,
-          url("../images/categories/sale@3x.avif") type("image/avif") 3x,
-          url("../images/categories/sale@1x.webp") type("image/webp") 1x,
-          url("../images/categories/sale@2x.webp") type("image/webp") 2x,
-          url("../images/categories/sale@3x.webp") type("image/webp") 3x,
-          url("../images/categories/sale@1x.jpg") 1x,
-          url("../images/categories/sale@2x.jpg") 2x,
-          url("../images/categories/sale@3x.jpg") 3x);
-    }
-
-    &--universal {
-      background-image:
-        -webkit-image-set(url(../images/articles/articles8@1x.avif) type('image/avif') 1x,
-          url(../images/articles/articles8@2x.avif) type('image/avif') 2x,
-          url(../images/articles/articles8@3x.avif) type('image/avif') 3x,
-          url(../images/articles/articles8@1x.webp) type('image/webp') 1x,
-          url(../images/articles/articles8@2x.webp) type('image/webp') 2x,
-          url(../images/articles/articles8@3x.webp) type('image/webp') 3x,
-          url(../images/articles/articles8@1x.jpg) 1x,
-          url(../images/articles/articles8@2x.jpg) 2x,
-          url(../images/articles/articles8@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/articles/articles8@1x.avif) type('image/avif') 1x,
-          url(../images/articles/articles8@2x.avif) type('image/avif') 2x,
-          url(../images/articles/articles8@3x.avif) type('image/avif') 3x,
-          url(../images/articles/articles8@1x.webp) type('image/webp') 1x,
-          url(../images/articles/articles8@2x.webp) type('image/webp') 2x,
-          url(../images/articles/articles8@3x.webp) type('image/webp') 3x,
-          url(../images/articles/articles8@1x.jpg) 1x,
-          url(../images/articles/articles8@2x.jpg) 2x,
-          url(../images/articles/articles8@3x.jpg) 3x);
-    }
-
-    &--nitrile {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories1@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories1@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories1@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories1@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories1@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories1@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories1@1x.jpg) 1x,
-          url(../images/categories/categories1@2x.jpg) 2x,
-          url(../images/categories/categories1@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories1@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories1@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories1@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories1@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories1@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories1@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories1@1x.jpg) 1x,
-          url(../images/categories/categories1@2x.jpg) 2x,
-          url(../images/categories/categories1@3x.jpg) 3x);
-    }
-
-    &--latex {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories2@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories2@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories2@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories2@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories2@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories2@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories2@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories2@1x.jpg) 1x,
-          url(../images/categories/categories2@2x.jpg) 2x,
-          url(../images/categories/categories2@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories2@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories2@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories2@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories2@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories2@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories2@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories2@1x.jpg) 1x,
-          url(../images/categories/categories2@2x.jpg) 2x,
-          url(../images/categories/categories2@3x.jpg) 3x);
-    }
-
-    &--medical {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories8@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories8@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories8@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories8@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories8@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories8@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories8@1x.jpg) 1x,
-          url(../images/categories/categories8@2x.jpg) 2x,
-          url(../images/categories/categories8@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories8@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories8@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories8@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories8@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories8@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories8@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories8@1x.jpg) 1x,
-          url(../images/categories/categories8@2x.jpg) 2x,
-          url(../images/categories/categories8@3x.jpg) 3x);
-    }
-
-    &--review {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories10@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories10@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories10@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories10@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories10@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories10@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories10@1x.jpg) 1x,
-          url(../images/categories/categories10@2x.jpg) 2x,
-          url(../images/categories/categories10@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories10@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories10@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories10@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories10@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories10@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories10@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories10@1x.jpg) 1x,
-          url(../images/categories/categories10@2x.jpg) 2x,
-          url(../images/categories/categories10@3x.jpg) 3x);
-    }
-
-    &--food {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories9@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories9@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories9@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories9@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories9@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories9@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories9@1x.jpg) 1x,
-          url(../images/categories/categories9@2x.jpg) 2x,
-          url(../images/categories/categories9@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories9@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories9@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories9@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories9@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories9@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories9@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories9@1x.jpg) 1x,
-          url(../images/categories/categories9@2x.jpg) 2x,
-          url(../images/categories/categories9@3x.jpg) 3x);
-    }
-
-    &--economic {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories5@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories5@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories5@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories5@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories5@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories5@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories5@1x.jpg) 1x,
-          url(../images/categories/categories5@2x.jpg) 2x,
-          url(../images/categories/categories5@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories5@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories5@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories5@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories5@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories5@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories5@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories5@1x.jpg) 1x,
-          url(../images/categories/categories5@2x.jpg) 2x,
-          url(../images/categories/categories5@3x.jpg) 3x);
-    }
-
-    &--horticulture {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories11@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories11@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories11@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories11@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories11@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories11@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories11@1x.jpg) 1x,
-          url(../images/categories/categories11@2x.jpg) 2x,
-          url(../images/categories/categories11@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories11@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories11@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories11@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories11@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories11@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories11@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories11@1x.jpg) 1x,
-          url(../images/categories/categories11@2x.jpg) 2x,
-          url(../images/categories/categories11@3x.jpg) 3x);
-    }
-
-    &--construction {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories6@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories6@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories6@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories6@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories6@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories6@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories6@1x.jpg) 1x,
-          url(../images/categories/categories6@2x.jpg) 2x,
-          url(../images/categories/categories6@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories6@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories6@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories6@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories6@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories6@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories6@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories6@1x.jpg) 1x,
-          url(../images/categories/categories6@2x.jpg) 2x,
-          url(../images/categories/categories6@3x.jpg) 3x);
-    }
-
-    &--cleaning {
-      background-image:
-        -webkit-image-set(url(../images/categories/categories7@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories7@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories7@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories7@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories7@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories7@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories7@1x.jpg) 1x,
-          url(../images/categories/categories7@2x.jpg) 2x,
-          url(../images/categories/categories7@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/categories/categories7@1x.avif) type('image/avif') 1x,
-          url(../images/categories/categories7@2x.avif) type('image/avif') 2x,
-          url(../images/categories/categories7@3x.avif) type('image/avif') 3x,
-          url(../images/categories/categories7@1x.webp) type('image/webp') 1x,
-          url(../images/categories/categories7@2x.webp) type('image/webp') 2x,
-          url(../images/categories/categories7@3x.webp) type('image/webp') 3x,
-          url(../images/categories/categories7@1x.jpg) 1x,
-          url(../images/categories/categories7@2x.jpg) 2x,
-          url(../images/categories/categories7@3x.jpg) 3x);
-    }
-
-    &--beauty {
-      background-image:
-        -webkit-image-set(url(../images/articles/articles6@1x.avif) type('image/avif') 1x,
-          url(../images/articles/articles6@2x.avif) type('image/avif') 2x,
-          url(../images/articles/articles6@3x.avif) type('image/avif') 3x,
-          url(../images/articles/articles6@1x.webp) type('image/webp') 1x,
-          url(../images/articles/articles6@2x.webp) type('image/webp') 2x,
-          url(../images/articles/articles6@3x.webp) type('image/webp') 3x,
-          url(../images/articles/articles6@1x.jpg) 1x,
-          url(../images/articles/articles6@2x.jpg) 2x,
-          url(../images/articles/articles6@3x.jpg) 3x);
-      background-image:
-        -image-set(url(../images/articles/articles6@1x.avif) type('image/avif') 1x,
-          url(../images/articles/articles6@2x.avif) type('image/avif') 2x,
-          url(../images/articles/articles6@3x.avif) type('image/avif') 3x,
-          url(../images/articles/articles6@1x.webp) type('image/webp') 1x,
-          url(../images/articles/articles6@2x.webp) type('image/webp') 2x,
-          url(../images/articles/articles6@3x.webp) type('image/webp') 3x,
-          url(../images/articles/articles6@1x.jpg) 1x,
-          url(../images/articles/articles6@2x.jpg) 2x,
-          url(../images/articles/articles6@3x.jpg) 3x);
-    }
   }
 
   &__subtitle {
@@ -373,5 +101,29 @@
     &__item {
       flex-basis: 100%;
     }
+  }
+}
+
+// Генерация модификаторов для фонов
+@each $item in $categories {
+  .categories__bg--#{$item} {
+    background-image: -webkit-image-set(url(../images/categories/#{$item}@1x.avif) type('image/avif') 1x,
+      url(../images/categories/#{$item}@2x.avif) type('image/avif') 2x,
+      url(../images/categories/#{$item}@3x.avif) type('image/avif') 3x,
+      url(../images/categories/#{$item}@1x.webp) type('image/webp') 1x,
+      url(../images/categories/#{$item}@2x.webp) type('image/webp') 2x,
+      url(../images/categories/#{$item}@3x.webp) type('image/webp') 3x,
+      url(../images/categories/#{$item}@1x.jpg) 1x,
+      url(../images/categories/#{$item}@2x.jpg) 2x,
+      url(../images/categories/#{$item}@3x.jpg) 3x);
+    background-image: -image-set(url(../images/categories/#{$item}@1x.avif) type('image/avif') 1x,
+      url(../images/categories/#{$item}@2x.avif) type('image/avif') 2x,
+      url(../images/categories/#{$item}@3x.avif) type('image/avif') 3x,
+      url(../images/categories/#{$item}@1x.webp) type('image/webp') 1x,
+      url(../images/categories/#{$item}@2x.webp) type('image/webp') 2x,
+      url(../images/categories/#{$item}@3x.webp) type('image/webp') 3x,
+      url(../images/categories/#{$item}@1x.jpg) 1x,
+      url(../images/categories/#{$item}@2x.jpg) 2x,
+      url(../images/categories/#{$item}@3x.jpg) 3x);
   }
 }

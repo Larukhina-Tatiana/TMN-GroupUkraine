@@ -1,5 +1,5 @@
 .gloves-advantages {
-  @include adaptivevalue(padding-top, 80, 50, 1200, 320, 1);
+  padding-top: clamp(3.125rem, 2.443rem + 3.41vw, 5rem);
 
   &__content {
     display: grid;
@@ -8,19 +8,10 @@
     align-items: center;
   }
 
-  &__boxtitle {
+  &__box-title {
     text-align: center;
     margin-bottom: 40px;
   }
-
-  // &__title {
-  //   margin-bottom: rem(10);
-  // }
-
-  // &__text {
-  //   color: var(--gray-bright, #ACB7C5);
-  //   margin-bottom: rem(40);
-  // }
 
   &__list {
     display: flex;
@@ -35,7 +26,7 @@
     align-items: flex-start;
   }
 
-  &__item-images {
+  &__icon {
     width: rem(50);
     height: rem(50);
   }
@@ -65,8 +56,6 @@
       grid-template-columns: 1fr;
     }
 
-
-
     &__list {
       justify-content: center;
     }
@@ -74,7 +63,6 @@
     &__images {
       margin: 0 auto;
     }
-
   }
 
   @media screen and (width < 584.99px) {

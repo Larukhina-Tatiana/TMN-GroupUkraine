@@ -112,7 +112,7 @@
     align-items: center;
     gap: rem(16);
     @include adaptivevalue(width, 230, 290, 1200, 320, 1);
-    border-radius: rem(2);
+
     font-size: rem(16);
 
     &:not(:last-child) {
@@ -131,6 +131,8 @@
       color: var(--gray);
       text-align: center;
       line-height: 1.5;
+      border: 1px solid var(--gray);
+      border-radius: rem(2);
     }
   }
 
