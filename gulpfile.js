@@ -103,7 +103,6 @@ function projectScripts() {
     // "js/slider.js",
     // "js/aside.js",
     "js/counter.js",
-    "js/scroll.js",
     // "js/range-my.js",
     // "js/read-more.js",
     "js/more-btn.js",
