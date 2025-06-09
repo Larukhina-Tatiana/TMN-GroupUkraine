@@ -6,8 +6,8 @@
   @media screen and (width < 1017.99px) {
     &__img--mobile {
       display: block;
-      max-width: rem(24);
-      // width: 100%;
+      max-width: clamp(1.5rem, 1.299rem + 1vw, 1.938rem);
+      height: auto;
     }
 
     &__img--desc {
