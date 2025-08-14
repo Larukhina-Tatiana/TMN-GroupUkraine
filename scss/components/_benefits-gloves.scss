@@ -4,7 +4,7 @@
   @include adaptivevalue(padding-bottom, 80, 20, 1200, 320, 1);
 
   &__title {
-    @include adaptivevalue(margin-bottom, 40, 20, 1200, 320, 1);
+    margin-bottom: var(--margin-bottom-title);
   }
 
   &__inner {

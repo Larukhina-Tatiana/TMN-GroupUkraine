@@ -1,10 +1,13 @@
 .section-title {
-  color: var(--black);
+
   @include adaptivevalue(font-size, 32, 16, 1200, 320, 1);
   font-weight: 500;
   line-height: 1.2;
   text-transform: uppercase;
-  ;
+
+  // &--color-white {
+  //   color: var(--white);
+  // }
 }
 
 .title-h1 {
